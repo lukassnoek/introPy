@@ -14,7 +14,7 @@
     
     
       
-        <title>Introduction to PsychoPy - introPy</title>
+        <title>The Psychopy Coder (part 2) - introPy</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-psychopy" class="md-skip">
+        <a href="#the-psychopy-coder-part-2" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Introduction to PsychoPy
+              The Psychopy Coder (part 2)
             
           </span>
         </div>
@@ -382,70 +382,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Introduction to PsychoPy
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../intro_psychopy/" class="md-nav__link">
       Introduction to PsychoPy
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#subwindows" class="md-nav__link">
-    Subwindows
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-an-experiment" class="md-nav__link">
-    Running an experiment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#experiment-settings-builder-only" class="md-nav__link">
-    Experiment settings (Builder only)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitors" class="md-nav__link">
-    Monitors
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -489,11 +430,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../psychopy_coder_part2_stimuli/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       The Psychopy Coder (part 2)
     </a>
+    
   </li>
 
         
@@ -531,42 +481,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#subwindows" class="md-nav__link">
-    Subwindows
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-an-experiment" class="md-nav__link">
-    Running an experiment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#experiment-settings-builder-only" class="md-nav__link">
-    Experiment settings (Builder only)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitors" class="md-nav__link">
-    Monitors
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -578,58 +492,14 @@
               
                 
                 
-                <h1 id="introduction-to-psychopy">Introduction to PsychoPy</h1>
-<p>PsychoPy is currently the most used and complete Python package to create experiments. Before we will explain how to use it, please read the <a href="https://www.psychopy.org/about/overview.html">overview</a> on the PsychoPy website.</p>
-<p>Now, let's familiarize ourselves with PsychoPy. Let's start by opening PsychoPy! After opening, you'll see a "Tip of the Day" pop-up; you may ignore that for now and close it.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>On Mac, PsychoPy might not open right after starting it. In that case, clicking on the icon again seems to work.</p>
-</div>
-<h2 id="subwindows">Subwindows</h2>
-<p>Psychopy by default opens three subwindows: the <em>PsychoPy Builder</em>, the <em>PsychoPy Coder</em>, and the <em>Experiment runner</em>. The <em>Builder</em> is the graphical interface of PsychoPy, which you can use to create experiments without any code, whereas the <em>Coder</em> interface provides an editor in which you can program experiments using Python code (as provided by the PsychoPy package). The <em>Experiment runner</em> is a tool to create complex <em>sets</em> of experiments/tasks (e.g., a battery of different tasks or questionnaires). It also provides a "log" of whatever is happening in your experiment when you run it. In this tutorial, we will only discuss some general PsychoPy features, for which the <em>Builder</em> interface suffices, so you may close the <em>Coder</em> interface and the <em>Experiment runner</em> for now. </p>
-<p>To read more about the different interfaces, read the <a href="https://www.psychopy.org/gettingStarted.html">Getting started</a> page on the PsychoPy website.</p>
-<h2 id="running-an-experiment">Running an experiment</h2>
-<p>To get an idea what a PsychoPy experiment may look like, let's run a demo! We created a super simple demo that showcases some of the functionality of PsychoPy, which can be found in the materials: <code>tutorials/week_2/intropy_demo.psyexp</code>. In the next tutorial, we are going to discuss this in more detail. For now, run the demo by doing the following:</p>
+                <h1 id="the-psychopy-coder-part-2">The Psychopy Coder (part 2)</h1>
+<p>Topics to discuss:</p>
 <ul>
-<li>Open the <code>intropy_demo.psyexp</code> file (File &amp;rarr Open);</li>
-<li>Then, click the large green "play" button (&#9658;) to start the experiment;</li>
-<li>This will open the <em>Experiment runner</em> and, after a couple of seconds, a new window;</li>
+<li>Stimuli</li>
+<li>Timing</li>
+<li>Responses</li>
+<li>Keeping track of data / responses + saving</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Currently, running experiments when PsychoPy is full screen doesn't (always) work... So make sure it's not full screen when you run the demo (or any experiment, really).</p>
-</div>
-<p>After the experiment has finished, the experiment window closes automatically. In the <em>Experiment runner</em>, you see some information about the experiment (but nothing super interesting); you may close the <em>Experiment runner</em> for now.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Want to quit an experiment before it has finished? Press the escape key! In most experiments, this will abort the experiment.</p>
-</div>
-<h2 id="experiment-settings-builder-only">Experiment settings (Builder only)</h2>
-<p>When you are using the <em>Builder</em> interface, you can set several global settings in the <em>Experimental settings</em> window. To open this window, click on the gear icon (<span>&#9881;</span>). In the various tabs, you can edit the experiment's settings. For example, under the "Basic" tab, you can edit the "info dialog": a pop-up that asks the participant for some information. Which information is asked can be changed at the "Experimental info" line.</p>
-<div class="admonition example">
-<p class="admonition-title">ToDo</p>
-<p>Enable the info dialog by clicking the checkbox next to "Show info dialog" and add a new field, "age", to the info dialog (without a default value). Then, run the demo experiment again (press the escape key to quit). Just before the experiment window opens, you should see the info dialog pop-up! </p>
-</div>
-<p>Under the "Data" tab, there are various options to fine-tune how you want your experimental data to be saved. Next to "Data filename", you can specify the filename of the datafiles that will be saved. By default, a new directory, <code>data</code>, is created in which the files will be saved. In our demo experiment, we furthermore specified that the filename should be <code>sub-%s_%s'</code>, in which the format specifiers (<code>%s</code>) are replaced by the participant identifier (<code>expInfo['participant']</code>) and experiment name (<code>expInfo['expName']</code>). Here, <code>expInfo</code>, refers to a Python variable (a dictionary) that represents the info dialog pop-up (plus some additional information). This way, you can customize your output filenames according to the information provided by the participant!</p>
-<div class="admonition example">
-<p class="admonition-title">ToDo (optional)</p>
-<p>Assuming you added the "age" field to the info dialog earlier, try to add the participant's age to the output filename such that if, for example, participant 01 who is 29 years old does the experiment, the output filename will be <code>sub-01_age-29_intropy_demo</code> (+ extension). If you're feeling adventurous, try using F-strings instead of format specifiers!</p>
-</div>
-<p>In addition to the mandatory "psydat" file (which we personally never used), you can also have Psychopy save an extensive log file and CSV files. We recommend always saving the log and the "trial-by-trial" CSV files.</p>
-<p>Under the "Audio" tab, you can specify which soundlibrary Psychopy should use. Currently, Psychopy advises to use the Psychtoolbox (ptb) soundlibrary. The "Online" tab contains various settings to export your experiment to a format that can be used online (only applicable to <em>Builder</em> experiments), but this is beyond the scope of this course. </p>
-<p>Finally, the "Screen" tab contains several important settings that specify the experiment window. The "Screen" option (default: 1), for example, specifies on which screen the experiment should run in case of multiple monitor set-ups. You can also choose to run the experiment full screen (the default) or whether to specify a particular window size (in pixels) and the color and colorspace of the window ("Color" and "Color space"). Another important setting is the "Units" that Psychopy should use. </p>
-<div class="admonition example">
-<p class="admonition-title">ToDo</p>
-<p>Please read the excellent explanation of the different settings for the "Units" on the <a href="https://www.psychopy.org/general/units.html">PsychoPy website</a>. To see the effect of a different unit for size, change "Units" from "height" to, e.g., "pixels" and run the demo experiment again.</p>
-</div>
-<h2 id="monitors">Monitors</h2>
-<p>Another important element of each experiment, both in the <em>Coder</em> and <em>Builder</em> interface, is the monitor that it is displayed on. In Psychopy's "Monitor Center", you can specify several properties of the monitor(s) that you intend to use for your experiment. Although it is not strictly necessary to specify a monitor for your experiment, it is a prerequisite for some "Units" settings (such as <em>degree visual angle</em>)! If possible, we recommend always specifying a monitor.</p>
-<p>To open the Monitor Center, click on the monitor icon ( &#x1F5A5; ). You should see the monitor <code>testMonitor</code>, which is, as the notes say, a "default (not very useful) monitor." To create a new monitor, click <em>New</em> and give your new monitor a name (e.g., "laptop"). Then, you can specify several properties of your monitor. For example, you can specify the number of pixels of your monitor (e.g., 1920×1080 for a full HD screen), which is important if you use the "pixel" setting under "Units". You can also set the screen distance, i.e., how far participants are seated from the monitor (important when stimuli are specified in <a href="https://en.wikipedia.org/wiki/Visual_angle">degrees visual angle</a>) and the screen width.</p>
-<div class="admonition example">
-<p class="admonition-title">ToDo</p>
-<p>Create a new monitor specific to your own laptop/desktop monitor. Fill in your current screen distance, screen size, and screen width. When you're done, click <em>Save</em>. Set in the <em>Experiment settings</em> the "Units" to "deg" (visual degree angle) and run the demo experiment. Then, change the screen distance to 200 cm and run the demo experiment again. You should see that the size of the stimuli appears smaller on the screen.</p>
-</div>
-<p>Alright, by now you know your way around PsychoPy, so you're ready to start with the <a href="../psychopy_builder_part1_intro/">Builder interface</a>!</p>
                 
               
               
@@ -648,7 +518,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../week_2/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../psychopy_coder_part1_window/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -657,19 +527,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                PsychoPy
+                The Psychopy Coder (part 1)
               </div>
             </div>
           </a>
         
         
-          <a href="../psychopy_builder_part1_intro/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../psychopy_how_to_continue/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Introduction to the PsychoPy Builder
+                How to continue with PsychoPy?
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

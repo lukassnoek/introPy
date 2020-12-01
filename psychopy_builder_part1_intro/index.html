@@ -14,7 +14,7 @@
     
     
       
-        <title>PsychoPy Coder (part 1) - introPy</title>
+        <title>Introduction to the PsychoPy Builder - introPy</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#psychopy-coder-part-1" class="md-skip">
+        <a href="#introduction-to-the-psychopy-builder" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              PsychoPy Coder (part 1)
+              Introduction to the PsychoPy Builder
             
           </span>
         </div>
@@ -394,18 +394,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../psychopy_builder/" class="md-nav__link">
-      PsychoPy Builder
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -416,9 +404,72 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Introduction to the PsychoPy Builder
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" class="md-nav__link md-nav__link--active">
-      PsychoPy Coder (part 1)
+      Introduction to the PsychoPy Builder
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#builder-vs-coder" class="md-nav__link">
+    Builder vs. coder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elements-of-the-builder-interface" class="md-nav__link">
+    Elements of the Builder interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Elements of the Builder interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-routines-pane" class="md-nav__link">
+    The routines pane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-components-pane" class="md-nav__link">
+    The components pane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-flow-pane" class="md-nav__link">
+    The flow pane
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -429,8 +480,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_coder_part2/" class="md-nav__link">
-      Psychopy Coder (part 2)
+    <a href="../psychopy_builder_part2_stroop/" class="md-nav__link">
+      Creating a Builder experiment from scratch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../psychopy_coder_part1_window/" class="md-nav__link">
+      The Psychopy Coder (part 1)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../psychopy_coder_part2_stimuli/" class="md-nav__link">
+      The Psychopy Coder (part 2)
     </a>
   </li>
 
@@ -469,6 +544,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#builder-vs-coder" class="md-nav__link">
+    Builder vs. coder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elements-of-the-builder-interface" class="md-nav__link">
+    Elements of the Builder interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Elements of the Builder interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-routines-pane" class="md-nav__link">
+    The routines pane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-components-pane" class="md-nav__link">
+    The components pane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-flow-pane" class="md-nav__link">
+    The flow pane
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -480,13 +604,57 @@
               
                 
                 
-                <h1 id="psychopy-coder-part-1">PsychoPy Coder (part 1)</h1>
-<p>Short intro into the basics. Next tutorial more in depth</p>
-<p>Topics to discuss:</p>
-<ul>
-<li>Why Coder? (Flexibility, power of Python, understand stimulus programming better)</li>
-<li>Window</li>
-</ul>
+                <h1 id="introduction-to-the-psychopy-builder">Introduction to the PsychoPy Builder</h1>
+<p>In this tutorial, we will discuss and show you how to use the <em>Builder</em> interface of PsychoPy. We will explain the basic elements of the Builder interface so that, in the next tutorial, we can focus more on the implementational details.</p>
+<p>You might think, "Why learn how to use a graphical interface in a programming course?" The reason we first teach you how to use the <em>Builder</em> interface is because it allows us to focus on the structure of experiments before elaborating on the underlying code. Another advantage of Builder experiments is that they can be used online! (But this is beyond the scope of this course.)</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Read <a href="https://workshops.psychopy.org/3days/10introductions.html">this page</a> which discusses the respective advantages of the Builder and Coder interface in more detail.</p>
+</div>
+<h2 id="builder-vs-coder">Builder vs. coder</h2>
+<p>As discussed before, the Builder and Coder interfaces can both be used to create experiments. Whereas the Builder allows you create experiments graphically, the Coder allows you to program your experiment directly in Python. It is important to realize, though, that when PsychoPy runs Builder experiments, it actually first generates (or "compiles") the experiment as a Python file (as if you created it using the Coder)! </p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Let's see this Builder-to-Coder compilation in action. If you haven't loaded the demo Builder experiment (<code>intropy_demo.psyexp</code>), do so now. Then, click the <em>Compile to script</em> button (right of the <em>Edit experiment settings</em> button). This should open the <em>Coder</em> interface with the code equivalent of the demo Builder experiment!</p>
+</div>
+<p>The generated <code>intropy_demo.py</code> script contains the code necessary to run the experiment originally specified in the Builder interface (i.e., in the <code>intropy_demo.psyexp</code> file). In fact, everytime your run a Builder experiment on your own computer, Psychopy first generates the corresponding Python script, which is then executed to start the experiment. </p>
+<p>Most of the time, you can ignore the script associated with your Builder experiment. It may, however, give you some insight about what is going on "under the hood". Take a look at the generated script; do you see elements from the demo experiment (e.g., the text or images shown during the demo experiment)?</p>
+<h2 id="elements-of-the-builder-interface">Elements of the Builder interface</h2>
+<p>Now, let's take a look at the elements of the Builder interface. Make sure you (still) have the demo experiment active in the Builder. Apart from the list of icons on top of the Builder window, there are several subwindows (or panes): the <em>Routines</em> pane, the <em>Components</em> pane, and the <em>Flow</em> pane. We'll discuss these in turn.</p>
+<h3 id="the-routines-pane">The routines pane</h3>
+<p>The <a href="https://www.psychopy.org/builder/routines.html"><em>Routines</em> pane</a> consist of the different elements of your experiment, where each element gets its own tab. In the demo experiment, for example, there are four routines: <em>intro</em>, <em>show_stimulus</em>, <em>gabor</em>, and <em>wrap_up</em>. Each routine may consist of multiple components (e.g., text, images, and sounds). For example, if you click on the <em>intro</em> routine tab, the routine pane shows, across different "rows", that this routine consists of three consecutive text components (<em>hello</em>, <em>welcome</em>, and <em>wait_key</em>) and a "keyboard" component (<em>key_resp</em>). Moreover, the routine pane also shows you the onset and offsets of the different components. Note that routines do not <em>have to</em> contain multiple components; for example, the <em>show_stimulus</em> routine only contains a single component (i.e., <em>stim</em>). It's up to you how you how you structure your routines!</p>
+<div class="admonition example">
+<p class="admonition-title">ToThink</p>
+<p>In the <em>intro</em> routine, the <em>wait_key</em> and <em>key_resp</em> components seem to lack an explicit offset. Considering the demo experiment, do you understand why?</p>
+</div>
+<h3 id="the-components-pane">The components pane</h3>
+<p>The <a href="https://www.psychopy.org/builder/components.html"><em>components</em> pane</a> contains, as you might have guessed, the different components you can include in your routines. Some of the most used components are listed under <em>favorites</em> (such as <em>text</em> and <em>image</em> components). The <em>stimuli</em> section contains various different stimulus components you might want to use in your experiment, such as <a href="https://www.psychopy.org/builder/components/dots.html">dot stimuli</a>, <a href="https://www.psychopy.org/builder/components/grating.html">gratings</a>, and <a href="https://www.psychopy.org/builder/components/sound.html">sounds</a>. The <em>responses</em> section contains several components that facilitate interaction with the participant. For example, the <a href="https://www.psychopy.org/builder/components/mouse.html">mouse component</a> allows you to record and use mouse movements and clicks and the <a href="https://www.psychopy.org/builder/components/ratingscale.html">rating scale component</a> creates a rating scale which you can use to collect ratings on, for example, questionnaire items.</p>
+<p>By clicking on a particular component, a pop-up appears in which you can set the properties of the component, such as the component name, onset and and duration, and several component-specific properties. For example, if you click on a <em>text</em> component, you can set the color, font, font size ("letter height"), position, and of course the text itself. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the properties window, if you hover your cursor over the different options, you see a little window with an explanation of that option! Also, the PsychoPy documentation contains detailed information about each component. The easiest way to find the appropriate page is, in my experience, just googling "psychopy component {component name}".</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Try finding the documentation page for the <em>image</em> component!</p>
+</div>
+<p>In the properties window, if you click the "OK" button, PsychoPy will add this component to the currently active routine. If you want, you can still change the properties afterwards. We will discuss setting component properties in more detail in the next tutorial!</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo (optional)</p>
+<p>Try adding another <em>text</em> component with the text "The end!" to the <em>wrap_up</em> routine. Make sure it immediately starts after the <em>goodbye</em> component and it lasts one second. Run the experiment to see whether it worked!</p>
+</div>
+<h3 id="the-flow-pane">The flow pane</h3>
+<p>Finally, the <a href="https://www.psychopy.org/builder/flow.html"><em>flow</em> pane</a> shows and defines the order of your experiment's routines. In the demo experiment, for example, the flow pane shows that the experiment starts with the <em>intro</em> routine, followed by the <em>show_stimulus</em> routine, and finally the <em>gabor</em> and <em>wrap_up</em> routines. The colors of the routines in the flow pane indicate whether the routines has a known and exact duration (green) or not (blue or red). For experiments in which precision of onsets/offsets is not crucial, this is not really important. But in experiments in which you want to be sure your routines' onsets, offsets, and durations are precise (i.e., <a href="https://www.psychopy.org/general/timing/nonSlipTiming.html">non-slip timing</a> in PsychoPy lingo), such as in neuroimaging experiments, you want to make sure each routine is green.</p>
+<div class="admonition example">
+<p class="admonition-title">ToThink</p>
+<p>Do you understand why the <em>intro</em> routine is blue instead of green? Hint: the answer to this question is the same as to the previous <em>ToThink</em>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">ToDo (optional)</p>
+<p>Try inserting a new routine at the end of the experiment flow (i.e., after the <em>goodbye</em> routine). For example, create a new routine called <em>the_end</em> (in the top menu: <em>Experiment</em> &rarr; <em>New routine</em>) with a single text component lasting 1 second. Then, to insert it in the experiment flow, click on <em>Insert Routine</em>, select your new routine, and click on the flow line in between <em>wrap_up</em> and the arrow head to insert it!</p>
+</div>
+<p>Anothing think you might encounter in the flow pane is "loops", like the <em>stimulus_loop</em> in the demo experiment. This functionality allows you to, well, add loops across routines! In the demo experiment, we use this to repeat our <em>show_stimulus</em> routine for the three different images. This is, of course, much more efficient than creating three different routines (or, equivalently, a single routine with three image components)! We will discuss loops in more detail in the next tutorial!</p>
+<p>Alright, now you should know enough of the Builder functionality to start creating a new experiment, which we'll do in the <a href="../psychopy_builder_part2_stroop/">next tutorial</a>.</p>
                 
               
               
@@ -505,7 +673,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../psychopy_builder/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../intro_psychopy/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -514,19 +682,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                PsychoPy Builder
+                Introduction to PsychoPy
               </div>
             </div>
           </a>
         
         
-          <a href="../psychopy_coder_part2/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../psychopy_builder_part2_stroop/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Psychopy Coder (part 2)
+                Creating a Builder experiment from scratch
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
