@@ -621,8 +621,8 @@
 <h3 id="installing-python-on-your-own-computer">Installing Python on your own computer</h3>
 <p>If you want to install Python on your own computer, we <em>highly</em> recommend you install Python through the <a href="https://www.anaconda.com/products/individual">Anaconda distribution</a>. Choose the appropriate installer (Windows, Mac, or Linux; both the graphical and command line options are fine) and follow the installation instructions.</p>
 <p>After you have installed your own Python distribution, you can check whether it is working correctly by opening a terminal (on Mac/Linux) or Anaconda Prompt (on Window) and running the following:</p>
-<pre><code>python -c &quot;import sys; print(sys.executable)&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>python -c &quot;import sys; print(sys.executable)&quot;
+</code></pre></div>
 <p>This command should print out the location where you installed Python, e.g., <code>/Users/your_name/anaconda3/bin/python</code> (on Mac) or <code>C:\Users\your_name\anaconda3\bin\python</code> (on Windows). </p>
 <h2 id="psychopy">PsychoPy</h2>
 <p>In the second week of the course, we are going to use the Python package <a href="https://www.psychopy.org/">PsychoPy</a> to create simple experiments. If you have a working version of Python already, <em>psychopy</em> can be installed as a regular third-party package through <a href="https://packaging.python.org/tutorials/installing-packages/">pip</a>. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting PsychoPy to work properly is all but trivial. Instead, we <em>highly</em> recommend installing the <a href="https://www.psychopy.org/download.html">"standalone" version of PsychoPy</a>. This version contains everything you need to create experiments using PsychoPy (even a custom Python distribution specifically designed for PsychoPy)!</p>
@@ -647,7 +647,8 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you work with your own Python installation, you may need to install additional Python packages. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:</p>
-<p><code>pip install .</code></p>
+<div class="highlight"><pre><span></span><code>pip install .
+</code></pre></div>
 <p>This is not necessary if you use Binder/Colab as your Python platform!</p>
 </div>
 <p>Before you start working on the course materials, read the next page on the <a href="../jupyter/">Jupyter ecosystem</a>.</p>

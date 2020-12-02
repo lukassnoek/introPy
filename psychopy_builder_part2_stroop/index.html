@@ -446,8 +446,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#welcome" class="md-nav__link">
-    Welcome
+  <a href="#welcome-screen" class="md-nav__link">
+    Welcome screen
   </a>
   
 </li>
@@ -469,6 +469,20 @@
         <li class="md-nav__item">
   <a href="#trial-loop" class="md-nav__link">
     Trial loop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-feedback" class="md-nav__link">
+    Getting feedback
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goodbye-screen" class="md-nav__link">
+    Goodbye screen
   </a>
   
 </li>
@@ -559,8 +573,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#welcome" class="md-nav__link">
-    Welcome
+  <a href="#welcome-screen" class="md-nav__link">
+    Welcome screen
   </a>
   
 </li>
@@ -582,6 +596,20 @@
         <li class="md-nav__item">
   <a href="#trial-loop" class="md-nav__link">
     Trial loop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-feedback" class="md-nav__link">
+    Getting feedback
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goodbye-screen" class="md-nav__link">
+    Goodbye screen
   </a>
   
 </li>
@@ -610,7 +638,7 @@
 <p>Alright, now let's get to the interesting part: actually creating experiments! In this tutorial, we will guide you through creating a "Stroop task", step by step. If you are not familiar with the Stroop task, check out the video below!</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/reUic5tyVwo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>Using the Builder interface, we are going to create a simple color-word Stroop experiment, including instructions. Along the way, we explain several PsychoPy features, which you will practice with in <em>ToDos</em>. A finished Stroop experiment is availabel under <code>solutions/week_2/stroop.psyexp</code>, but we highly recommend that you first try to complete the exercises without peaking at the solution! </p>
+<p>Using the Builder interface, we are going to create a simple color-word Stroop experiment, including instructions, with two conditions: <em>congruent</em> (trials in which the text color matches the word, e.g., <span style="color:red">red</span>) and <em>incongruent</em> (trials in which the text color is different from the word, e.g., <span style="color:green">red</span>). Along the way, we explain several PsychoPy features, which you will practice with in <em>ToDos</em>. A finished Stroop experiment is availabel under <code>solutions/week_2/stroop.psyexp</code>, but we highly recommend that you first try to complete the exercises without peaking at the solution! </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure you save your experiment (<em>File</em> &rarr; <em>Save</em>, or <code>cmd/ctrl + s</code>) often during this tutorial!</p>
@@ -627,7 +655,7 @@
 <p>In the <em>Experiment settings</em> window (<em>Basic</em> tab), enter <code>stroop</code> next to <em>Experiment name</em> and remove the <code>session</code> option in the <em>Experiment info</em> box. In the <em>Data</em> tab, make sure the data is saved as <code>sub-{nr}</code>. Finally, in the <em>Screen</em> tab, make sure the experiment uses your own monitor (which you created in an earlier tutorial) and set the <em>Units</em> to "norm". </p>
 </div>
 <p>Note that the choice of <a href="https://www.psychopy.org/general/units.html">normalized units</a> ("norm") is somewhat arbitrary. We personally like it to easily create stimuli with the appropriate size (but YMMV). </p>
-<h2 id="welcome">Welcome</h2>
+<h2 id="welcome-screen">Welcome screen</h2>
 <p>Let's start our experiment with a nice welcome to our participants who are willing to participate in our experiment. To do so, we'll create a new routine with a single text component. Note that new experiments contain, by default, a single routine named <em>trial</em>.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
@@ -638,19 +666,19 @@
 <p class="admonition-title">ToDo</p>
 <p>Give the component a new, descriptive name in the <em>Name</em> field (e.g., <code>welcome_txt</code>).</p>
 </div>
-<p>Then, the next thing to determine is the start (onset) and stop (offset) of the component relative to the start of the current routine. For both the start and the stop times of your component, you can choose whether to define these times in seconds &mdash; <code>time (s)</code> in the dropdown menu &mdash; or in the number of frames &mdash; <code>frame N</code> in the dropdown menu. We will revisit timing in terms of the number of frames in the <em>Coder</em> tutorials later; for now, we will use the <code>time (s)</code> option (for more info about the <code>frame N</code> and <code>condition</code> options, check <a href="https://www.psychopy.org/builder/startStop.html">the PsychoPy website</a>). </p>
+<p>Then, the next property to determine is the start (onset) and stop (offset) of the component relative to the start of the current routine. For both the start and the stop times of your component, you can choose whether to define these times in seconds &mdash; <code>time (s)</code> in the dropdown menu &mdash; or in the number of frames &mdash; <code>frame N</code> in the dropdown menu. We will revisit timing in terms of the number of frames in the <em>Coder</em> tutorials later; for now, we will use the <code>time (s)</code> option (for more info about the <code>frame N</code> and <code>condition</code> options, check <a href="https://www.psychopy.org/builder/startStop.html">the PsychoPy website</a>). </p>
 <p>In addition to the seconds/frames option, the stop time can also be defined in terms of the component's duration (which is, in fact, the default). When the start time is 0, then the <code>duration (s)</code> and <code>time (s)</code> give the same results, of course.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
 <p>Set the component onset to 0 and the duration to 3 seconds. </p>
 </div>
-<p>Other options include the color and font of the text component. The <em>Color</em> field accepts any standard <a href="https://www.w3schools.com/Colors/colors_names.asp">X11 color names</a> and you can use any font available on your system. For now, let's leave these options to their defaults (<code>white</code> and <code>Arial</code>).</p>
+<p>Other properties include the color and font of the text component. The <em>Color</em> property accepts any standard <a href="https://www.w3schools.com/Colors/colors_names.asp">X11 color name</a> and you can use any font available on your system. For now, let's leave these properties at their default values (<code>white</code> and <code>Arial</code>).</p>
 <p>The next property is the size (or <em>Letter height</em>) of the text. The units of the font size are whatever you specified in the <em>Experiment settings</em>! As we specified normalized units, the default (<code>0.1</code>) represents 10% of the half the the screen. Then, you can specify the position of text component with two numbers: <code>x</code> (the horizontal position) and <code>y</code> (the vertical position). Like the letter height, the units depend on whatever you specified in the <em>Experiment settings</em>.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
 <p>Let's make this a little bigger. Set the letter height to 0.2. Then (for now specific reason whatsover), set the position such that the text will appear horizontally in the middle, but vertically halfway between the top and the middle. Make sure you have read the explanation of <a href="https://www.psychopy.org/general/units.html">normalized units on the PsychoPy website</a> before you try to do this!</p>
 </div>
-<p>Finally, the only thing we need to specify is, of course, the text itself! In the <em>Text</em> box, you may specify any plain text, including line breaks ("enters"). Note that PsychoPy will automatically try to wrap the text if it exceeds the window (which can be customized with the <em>Wrap width</em> option in the <em>Advanced</em> tab). </p>
+<p>Finally, the only thing we need to specify is, of course, the text itself! In the box associated with the <em>Text</em> property, you may specify any plain text, including line breaks ("enters"). Note that PsychoPy will automatically try to wrap the text if it exceeds the window (which can be customized with the <em>Wrap width</em> option in the <em>Advanced</em> tab). </p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
 <p>Add some text to the text component to welcome our participant. When you're done, click <code>OK</code> to save all the changes to the properties.</p>
@@ -677,21 +705,23 @@
 <p>Add a text component with the following text: </p>
 <blockquote>
 <p>In this experiment, you will see words (either “green” or “red”) in different colors (also either “green” or “red”).
-Importantly, you need to respond to the COLOR of the word and you need to ignore the actual word.</p>
+Importantly, you need to respond to the COLOR of the word and you need to ignore the actual word. You respond with the arrow keys:</p>
+<p>GREEN color = left
+RED color = right</p>
 <p>(Press ‘enter’ to start the experiment!)</p>
 </blockquote>
-<p>Give the component a sensible name, keep the letter height at the default (0.1), and leave the "stop" property empty.</p>
+<p>Give the component a sensible name, keep the letter height at the default (0.1), and leave the <em>stop</em> property empty.</p>
 </div>
-<p>The effect of leaving the "stop" property empty is that you, technically, create a component with an infinite duration. This is highlighted in the routine pane by the bar corresponding to the component extending beyond the time axis. As mentioned, we'd like to continue the experiment if the participant pressed the return key. To implement this, we'll need to add a <a href="https://www.psychopy.org/builder/components/keyboard.html"><em>keyboard component</em></a>. In addition to some standard properties (like <em>name</em>, <em>start</em>, and <em>stop</em>), the keyboard component also has the property <em>Allowed keys</em>, which specifies which keys are recorded and affect this component, and <em>Store</em>, which specifies which of the potentially multiple key presses should be saved. The property <em>Store correct</em> is not relevant, here, so we'll ignore that for now. </p>
+<p>The effect of leaving the <em>stop</em> property empty is that you, technically, create a component with an infinite duration. This is highlighted in the routine pane by the bar corresponding to the component extending beyond the time axis. As mentioned, we'd like to continue the experiment if the participant pressed the return key. To implement this, we'll need to add a <a href="https://www.psychopy.org/builder/components/keyboard.html"><em>keyboard component</em></a>. In addition to some standard properties (like <em>name</em>, <em>start</em>, and <em>stop</em>), the keyboard component also has the property <em>Allowed keys</em>, which specifies which keys are recorded and affect this component, and <em>Store</em>, which specifies which of the potentially multiple key presses should be saved. The property <em>Store correct</em> is not relevant, here, so we'll ignore that for now. </p>
 <p>Another important property, especially in our current use case, is the <em>Force end of Routine</em> option. When enabled (the default), it will end the current routine and move on to the next whenever one of the allowed keys is pressed, which is exactly what we want for our instruction routine!</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
 <p>Add a keyboard component to the <em>instruction</em> routine. Make sure the <em>stop</em> property is left empty and that it ends the routine when the participant presses the return key (i.e., use "return" for <em>Allowed keys</em>).</p>
 </div>
 <p>If you did the ToDo correctly, you should see a new keyboard component in the <em>instruction</em> routine which similarly extends beyond the time axis of the routine pane (indicating that it does not have an offset). Now, run the experiment again and check whether the instruction routine works as expected! (Note: because the <em>instruction</em> routine is the experiment's last routine, it may seem that the experiment doesn't advance immediately after pressing enter, but that's because it takes a second or two to quit the experiment after the last routine due to saving data and such.)</p>
-<p>If this were a real experiment for your master thesis, for example, we'd recommend adding some more detailed instructions and practice trials, but our current instructions suffice for now.</p>
+<p>If this were a real experiment for your master thesis, for example, we'd recommend adding some more detailed instructions and practice trials. Also, you probably want to use a larger variety of color-word pairs to increase generalizability (see, e.g., <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5428747/">Westfall, Nichols, &amp; Yarkoni, 2017</a>). But to keep this experiment relatively simple, our current instructions suffice and we'll only work with two colors (green and red).</p>
 <h2 id="fixation-target">Fixation target</h2>
-<p>Often, experiments contain a "fixation target" before and in between trials to prevent participants from making too many eyemovements which may impact the results. Often, a simple plus sign is used (which can be created using a text component). For educational purposes, however, let's use a small circle ("fixation dot"), which can be created using the <em>Polygon</em> component.</p>
+<p>Often, experiments contain a "fixation target" before and in between trials to prevent participants from making too many eyemovements which may impact the results. Often, a simple plus sign is used (which can be created using a text component). For educational purposes, however, let's use a small circle ("fixation dot"), which can be created using the <em>Polygon</em> component. Let's add an initial fixation target to our experiment, so that the first trial doesn't immediately show up after the instructions.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
 <p>Create a new routine, named <em>init_fix</em>, with a single <em>Polygon</em> component representing a white circle of size (0.01, 0.01) lasting 2 seconds. Note: "circle" is not part of the standard polygon shapes you can choose. Read the <a href="https://www.psychopy.org/builder/components/polygon.html">documentation</a> carefully to figure out how to create a circle!</p>
@@ -709,15 +739,80 @@ Importantly, you need to respond to the COLOR of the word and you need to ignore
 <p>Try creating this "optimal fixation target" instead of the circle from the previous ToDo. Note that you need multiple <em>Polygon</em> components in the same routine to achieve this.</p>
 </div>
 <h2 id="trial-loop">Trial loop</h2>
-<p>Stuff about conditions file.</p>
+<p>Now, it's time to focus on the most important element of the experiment: the actual "color-word" trials! To do so, we can create a routine with a single text component (in which we can vary the text itself and the text color). Let's start with a congruent trial in which both the word and the color is red. Also, it would be nice if the routine terminates after 5 seconds <em>or</em> upon a button press (limited to either the 'left' or 'right' keys) and is followed by a fixation target routine of 0.5 seconds (a so-called "inter-stimulus interval", or ISI).</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Add a new routine, named <em>stim</em>, with a text stimulus (<em>trial_txt</em>) with the word "red" in the color red and font size 0.2, which terminates after 5 seconds <em>or</em> when the participant presses the left or right arrow key (for which you need to add a keyboard component!) and is followed by a new routine, named <em>isi</em>, which shows a fixation dot (like in the <em>init_fix</em> routine we created before) for 0.5 seconds. Try running the experiment when you're done to see whether everything works as expected!</p>
+</div>
+<p>Alright, that's a start. But we need more than one trial, of course! One strategy would be to keep adding adding additional <em>stim</em> routines (e.g., <em>stim1</em>, <em>stim2</em>, ... , <em>stim100</em>) with different color-word pairs and subsequent ISI routines (e.g., <em>isi1</em>, <em>isi2</em>, ..., <em>isi100</em>), but that would not be very efficient, right? You probably see where I'm going: we can use a <em>loop</em> for this! In this loop, we can reuse the general structure of the trial (a <em>stim</em> routine + a <em>isi</em> routine) and only vary the elements that differ across trials (i.e., the words and text colors). These varying elements can be <em>any</em> property of <em>any</em> component within the loop!</p>
+<p>The way to specify the varying elements in a loop is through a <em>conditions file</em> (an Excel or CSV file). In this file, the rows represent the different trials and the columns represent the different elements that vary across trials. For our Stroop experiment, we could create a file, <em>conditions.xlsx</em> (or <em>conditions.csv</em>) with two columns &mdash; <em>stim_word</em> and <em>stim_color</em> &mdash; and twenty rows: 5 rows for each color-word combination (5 for red-red, 5 for red-green, 5 for green-green, and 5 for green-red), assuming we want a 50/50 split between the congruent/incongruent conditions. The values for the <em>stim_word</em> and <em>stim_color</em> columns can then be used to modify, per iteration of the loop, the <em>Text</em> and <em>Color</em> attributes of our text component, respectively.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Create an Excel (or CSV) file with two columns named <em>stim_word</em> and <em>stim_color</em> and 20 rows outlining the words and colors (which should be either <em>red</em> or <em>green</em>). Note that your final file should have 21 rows (the first row being the column headers). Make sure to save this file in the same directory as your <code>stroop.psyexp</code> file.</p>
+</div>
+<p>Now, to create the loop, you need to click <em>Insert Loop</em> in the flow pane. Then, when hovering your cursor above the actual flow diagram, a small circle should appear; click on the flow diagram where you'd like your loop to start and click a second time on the diagram where you'd like to your loop to end, after which a new <em>Loop Properties</em> window should pop up. In this window, you can specify the name of the loop, the type of the loop (i.e., how to loop across the different rows), and whether this is a loop across trials or blocks (i.e., the <em>Is trials</em> option, which you may ignore for now). </p>
+<p>The <em>nReps</em> property indicates how often you want to loop across your different trials and the <em>Selected rows</em> optionally allows you to specify a subset of rows to loop over. By setting the <em>random seed</em> (an integer), you can make sure that the loop shuffles the trials the same way every time you run the experiment. Finally, the <em>Conditions</em> property should point to the Excel or CSV file with the properties that change across the different trials.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Create a loop across the <em>stim</em> and <em>isi</em> routines (i.e., the loop should encompass these two routines). Name this loop <em>trial_loop</em> and make sure it loops randomly across trials a total for 3 repetitions (generating 60 trials). No need to select a subset of rows or to set a random seed. Select your previously created <em>conditions.xlsx</em> (or <em>conditions.csv</em>) for the <em>Conditions</em> property.</p>
+</div>
+<p>Although we have created our loop, the data in the <em>Conditions</em> file has not been linked to our text component (in the <em>stim</em> routine), yet! To do so, we need to modify the <em>Color</em> and <em>Text</em> properties in our text component in two ways. First, we need to tell PsychoPy that the value of the property changes every iteration of the loop. To do so, we need to change the <em>constant</em> value to <em>set every repeat</em> in the dropdown menu next to the property. Second, we need to tell PsychoPy the column name (from our conditions file) that contains the values for the property we want to update every iteration. Importantly, this column name needs to be prefixed by a dollar sign (<code>$</code>), i.e., <code>$some_column_name</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>In the text component from your <em>stim</em> routine, change <em>constant</em> to <em>set every repeat</em> for both the <em>Color</em> and <em>Text</em> properties. Then, make sure the values for the <em>Color</em> and <em>Text</em> properties refer to the <em>stim_color</em> and <em>stim_word</em> columns from your conditions file, 
+respectively. Click <em>OK</em> to update the text component. Run the experiment to see whether everything works as expected!</p>
+</div>
+<p>If you made it to this point in the tutorial: good job! You created a complete Stroop experiment from scratch! In the following sections, we'll add some more (non-essential) elements to our experiment as an excuse to explain some more Builder components.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the next section, we are going to add some routines after our trial loop. When we want to test this, it is quite annoying that we have to go through our entire trial loop before seeing the new routines. One way to "skip" the trial loop is to enable the <em>Disable component</em> property (in the <em>Testing</em> tab of the properties window) of each component in the <em>stim</em> and <em>isi</em> routines, which will skip said routines. </p>
+<p>Another thing you can do is to set the <em>nReps</em> property of the loop to 0!</p>
+</div>
+<h2 id="getting-feedback">Getting feedback</h2>
+<p>After the trials, we might want to get some feedback on the task from the participant. Let's ask our participant the question "Did you like this task?" to which the participant can answer "yes" or "no". This time, though, we'll make the participant answer using the mouse (instead of the keyboard) by clicking in either a green circle on the left (for "yes") or a red circle on the right (for "no"). Note that this is a completely useless addition the current experiment, but we included it nonetheless to demonstrate the Mouse component.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Create a new routine, named <em>feedback</em>, which creates a display like the image below (doesn't have to <em>exactly</em> like it). Make sure each component has an infinite duration (by leaving the <em>stop</em> property empty). Hint: you can change the (RGB-specified) color of the Polygon components in the <em>Advanced</em> tab of the properties window. If you test your implementation, remember that you can use the <em>escape</em> key to abort the experiment.</p>
+<p><img alt="fb_screen" src="../img/feedback_screen_stroop.png" /></p>
+</div>
+<p>To enable interaction through the mouse we can, guess what, add a <em>Mouse</em> component! Like the keyboard component, this component can force the end of the routine with the <em>End Routine on Press</em> property. By default, this is set to <em>any click</em>, meaning that the routine will end at the first button press of the participant. However, we'd like to only end the routine when the participant made a "valid" click, i.e., clicked one of the circles. To do so, you can set the <em>End Routine on Press</em> to <em>valid click</em> and explicitly specify which components, when clicked, count as "valid clicks" at the <em>Clickable stimuli</em> property.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Add a Mouse component, give it a sensible name, set the duration to infinite, and make sure it forces the end of the routine <em>only</em> when one of the circles have been clicked by filling in the component names of your circles in the <em>Clickable stimuli</em> field (separated by a comma). Run the experiment to see whether everything works as expected!</p>
+</div>
+<h2 id="goodbye-screen">Goodbye screen</h2>
+<p>We are of course thankful for the participant's efforts, so let's thank them! We found a nice image to include in a final routine, <code>thank_you.png</code> (which is located in the <code>tutorials/week_2</code> directory). To embed an image in your experiment, you can use the <em>Image</em> component.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Add a new routine after the <em>feedback</em> routine, named <em>goodbye</em>, which contains a single Image component, which lasts 3 seconds. Make sure to set the <em>Image</em> property with the <code>thank_you.png</code> file. Run the experiment to see whether everything works as expected!</p>
+</div>
 <h2 id="code-components-optional">Code components (optional)</h2>
-<p>Add random ISI using <code>random</code> module.</p>
-<ul>
-<li>Data (input)</li>
-<li>Loops</li>
-<li>Data (output)</li>
-<li>Saving (psyexp)</li>
-</ul>
+<p>Alright, for those that want to delve a little deeper into the more advanced Builder features, let's take a look at <em>Code</em> components (this is an optional section). With Code components, you can "inject" custom Python code into your Builder experiment. To showcase Code components, let's use one to implement random ISIs (instead of the fixed 0.5 seconds we use now). Using variable instead of fixed ISIs is a trick to prevent participants to anticipate the upcoming stimulus/trial.</p>
+<p>As we want to vary the ISI, we need to change the fixation dot in the <em>isi</em> routine. To do so, we'll create a new Python variable that represents a random ISI in a Code compoment, which we subsequently need to link to the Polygon component (i.e., the fixation target). To generate a random ISI (e.g., uniformly distributed between 0 and 1), we can use the [uniform] function from the built-in Python module <code>random</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">t_isi</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>Here, <code>t_isi</code> is a float between 0 and 1. When creating a new Code component, the properties window actually allows you to specify different code types: Python (<code>py</code>), Javascript (<code>JS</code>), or a combination of both (<code>both</code>). Then, you can specify your code to run at different times during the experiment (<em>Before Experiment</em>, <em>Begin Experiment</em>, <em>End Experiment</em>) and routine (<em>Begin Routine</em>, <em>End Routine</em>). </p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Create a new Code component, give it a sensible name, and make sure the code snippet above runs at the start of the <em>isi</em> routine. </p>
+</div>
+<p>The only thing we still need to do is to make sure the Polygon component uses the randomly generated ISI (i.e., <code>t_isi</code>) for its duration. In general, you can write Python code and access Python variables "under the hood" by prefixing the value by a dollar sign (<code>$</code>), like we did when accessing the columns from the conditions file earlier. So, to access the Python variable <code>t_isi</code> from our Code component for the Polygon <em>end</em> property, you can use <code>$t_isi</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Make sure the <em>end</em> property of the fixation dot Polygon component uses the <code>t_isi</code> variable from our Code component. Then, run the experiment to verify that the ISIs are now different from trial to trial.</p>
+</div>
+<p>Alright, if you are up for a challenge, try one or both of the next ToDos.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo (optional; difficult!)</p>
+<p>In some experiments, you may want to give your participant feedback after each trial. Add a routine after the <em>stim</em> routine within the trial loop that shows, for 0.5 seconds, the text "correct!" when the participant gave the right response, "incorrect!" when the participant gave the wrong response, and "too late!" when the participant didn't respond within 5 seconds. You need to include a Code component in this new routine that determines this feedback. Hint: in your Code component, the color of the current stimulus is stored in the Python variable <code>stim_color</code> and the response from the participant (i.e., either 'left' or 'right') is stored in the Python variable <code>{name_kb_comp}.keys</code> (replace <code>{name_kb_comp}</code> with the actual name of your keyboard componet in the <em>stim</em> routine).</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">ToDo (optional; difficult!)</p>
+<p>In the current experiment, we indicated that participants should respond 'left' to green-colored words and 'right' to red-colored words. However, ideally, you'd want to counterbalance this color-response contingency across participants, i.e., (approximately) half of the participants should respond red-left/green-right and the other half should respond red-right/green-left. This between-subject condition should affect the text Component of the <em>instruction</em> routine. Arguably the easiest way to implement this is by creating another conditions file (e.g., <em>participants.{xlsx,csv}</em>) that outlines the color-response condition, which modifies the <em>instruction</em> routine.</p>
+<p>Bonus: try to implement this ToDo and the previous optional ToDo in the same experiment!</p>
+</div>
+<p>Finally, we're at the end of the Builder tutorial! By now, you know most of the essential features of PsychoPy's Builder interface. Of course, PsychoPy offers many more (advanced) functionality and funky components, but we'll leave that up to you to explore yourself! For now, let's continue with the <a href="psychopy_coder_part1_window">first Coder tutorial</a>!</p>
                 
               
               
