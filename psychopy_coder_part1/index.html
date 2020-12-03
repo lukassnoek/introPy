@@ -613,6 +613,15 @@ PsychoPy 4evah
 </code></pre></div>
 <p>As you can see, the <em>Experiment runner</em> shows your print statement; remember this, as it is a nice way to debug your experiments! Now, so far we haven't really discussed how to actually create experiments using the <code>psychopy</code> package, so let's start with arguably the most important element of Coder exeriments: the <code>Window</code>.</p>
 <h2 id="the-window">The <code>Window</code></h2>
+<p>One of the most important classes from the <code>psychopy</code> package is the <code>Window</code> class, which defines the window in which you are going to run your experiment. It is quite a complex class, with many different attributes and methods; we'll discuss the most important ones in this tutorial.</p>
+<p>You can import the <code>Window</code> class from the <code>visual</code> module of the <code>psychopy</code> package (i.e., <code class="highlight"><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">Window</span></code>). This, by itself, does nothing; for the experiment window to appear, we need to intialize an object with the <code>Window</code> class. There are <em>a lot</em> of arguments that can be used upon initialization (for an overview, see the <a href="https://www.psychopy.org/api/visual/window.html">docs</a>), but all arguments have sensible defaults, so you can initialize a <code>Window</code> object as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+</code></pre></div>
+<p>Note to self: <code>Window</code> Parameters to discuss:
+* size / fullscr
+* color 
+* monitor
+* units</p>
                 
               
               
