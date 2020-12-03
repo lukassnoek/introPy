@@ -396,7 +396,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_builder_part1_intro/" class="md-nav__link">
+    <a href="../psychopy_builder_part1/" class="md-nav__link">
       Introduction to the PsychoPy Builder
     </a>
   </li>
@@ -446,43 +446,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#welcome-screen" class="md-nav__link">
-    Welcome screen
+  <a href="#creating-routines-and-adding-components" class="md-nav__link">
+    Creating routines and adding components
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instructions" class="md-nav__link">
-    Instructions
+  <a href="#keyboard-interaction" class="md-nav__link">
+    Keyboard interaction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fixation-target" class="md-nav__link">
-    Fixation target
+  <a href="#shape-polygon-components" class="md-nav__link">
+    Shape (polygon) components
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#trial-loop" class="md-nav__link">
-    Trial loop
+  <a href="#loops-and-conditions-files" class="md-nav__link">
+    Loops and conditions files
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-feedback" class="md-nav__link">
-    Getting feedback
+  <a href="#mouse-interaction" class="md-nav__link">
+    Mouse interaction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#goodbye-screen" class="md-nav__link">
-    Goodbye screen
+  <a href="#image-components" class="md-nav__link">
+    Image components
   </a>
   
 </li>
@@ -507,8 +507,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_coder_part1_window/" class="md-nav__link">
-      The Psychopy Coder (part 1)
+    <a href="../psychopy_coder_part1/" class="md-nav__link">
+      The PsychoPy Coder (part 1)
     </a>
   </li>
 
@@ -519,8 +519,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_coder_part2_stimuli/" class="md-nav__link">
-      The Psychopy Coder (part 2)
+    <a href="../psychopy_coder_part2/" class="md-nav__link">
+      The PsychoPy Coder (part 2)
     </a>
   </li>
 
@@ -573,43 +573,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#welcome-screen" class="md-nav__link">
-    Welcome screen
+  <a href="#creating-routines-and-adding-components" class="md-nav__link">
+    Creating routines and adding components
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instructions" class="md-nav__link">
-    Instructions
+  <a href="#keyboard-interaction" class="md-nav__link">
+    Keyboard interaction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fixation-target" class="md-nav__link">
-    Fixation target
+  <a href="#shape-polygon-components" class="md-nav__link">
+    Shape (polygon) components
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#trial-loop" class="md-nav__link">
-    Trial loop
+  <a href="#loops-and-conditions-files" class="md-nav__link">
+    Loops and conditions files
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-feedback" class="md-nav__link">
-    Getting feedback
+  <a href="#mouse-interaction" class="md-nav__link">
+    Mouse interaction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#goodbye-screen" class="md-nav__link">
-    Goodbye screen
+  <a href="#image-components" class="md-nav__link">
+    Image components
   </a>
   
 </li>
@@ -655,7 +655,7 @@
 <p>In the <em>Experiment settings</em> window (<em>Basic</em> tab), enter <code>stroop</code> next to <em>Experiment name</em> and remove the <code>session</code> option in the <em>Experiment info</em> box. In the <em>Data</em> tab, make sure the data is saved as <code>sub-{nr}</code>. Finally, in the <em>Screen</em> tab, make sure the experiment uses your own monitor (which you created in an earlier tutorial) and set the <em>Units</em> to "norm". </p>
 </div>
 <p>Note that the choice of <a href="https://www.psychopy.org/general/units.html">normalized units</a> ("norm") is somewhat arbitrary. We personally like it to easily create stimuli with the appropriate size (but YMMV). </p>
-<h2 id="welcome-screen">Welcome screen</h2>
+<h2 id="creating-routines-and-adding-components">Creating routines and adding components</h2>
 <p>Let's start our experiment with a nice welcome to our participants who are willing to participate in our experiment. To do so, we'll create a new routine with a single text component. Note that new experiments contain, by default, a single routine named <em>trial</em>.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
@@ -688,7 +688,7 @@
 <p class="admonition-title">Tip</p>
 <p>Each Builder component has a <em>Help</em> button in the lower left corner of the properties window. If you click this button, your browser will open the PsychoPy documentation of the associated component!</p>
 </div>
-<h2 id="instructions">Instructions</h2>
+<h2 id="keyboard-interaction">Keyboard interaction</h2>
 <p>After welcoming our participants, let's give them some general instructions about our task. As a side note, we want to stress that spending some time and effort to create clear and extensive instructions can, in our experience, matter a lot for the quality of your data! Here, we'll keep it short, but keep this in mind for your future experiments. </p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
@@ -720,7 +720,7 @@ RED color = right</p>
 </div>
 <p>If you did the ToDo correctly, you should see a new keyboard component in the <em>instruction</em> routine which similarly extends beyond the time axis of the routine pane (indicating that it does not have an offset). Now, run the experiment again and check whether the instruction routine works as expected! (Note: because the <em>instruction</em> routine is the experiment's last routine, it may seem that the experiment doesn't advance immediately after pressing enter, but that's because it takes a second or two to quit the experiment after the last routine due to saving data and such.)</p>
 <p>If this were a real experiment for your master thesis, for example, we'd recommend adding some more detailed instructions and practice trials. Also, you probably want to use a larger variety of color-word pairs to increase generalizability (see, e.g., <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5428747/">Westfall, Nichols, &amp; Yarkoni, 2017</a>). But to keep this experiment relatively simple, our current instructions suffice and we'll only work with two colors (green and red).</p>
-<h2 id="fixation-target">Fixation target</h2>
+<h2 id="shape-polygon-components">Shape (polygon) components</h2>
 <p>Often, experiments contain a "fixation target" before and in between trials to prevent participants from making too many eyemovements which may impact the results. Often, a simple plus sign is used (which can be created using a text component). For educational purposes, however, let's use a small circle ("fixation dot"), which can be created using the <em>Polygon</em> component. Let's add an initial fixation target to our experiment, so that the first trial doesn't immediately show up after the instructions.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
@@ -738,7 +738,7 @@ RED color = right</p>
 <p><img alt="optimal_fix" src="../img/optimal_fix.png" /></p>
 <p>Try creating this "optimal fixation target" instead of the circle from the previous ToDo. Note that you need multiple <em>Polygon</em> components in the same routine to achieve this.</p>
 </div>
-<h2 id="trial-loop">Trial loop</h2>
+<h2 id="loops-and-conditions-files">Loops and conditions files</h2>
 <p>Now, it's time to focus on the most important element of the experiment: the actual "color-word" trials! To do so, we can create a routine with a single text component (in which we can vary the text itself and the text color). Let's start with a congruent trial in which both the word and the color is red. Also, it would be nice if the routine terminates after 5 seconds <em>or</em> upon a button press (limited to either the 'left' or 'right' keys) and is followed by a fixation target routine of 0.5 seconds (a so-called "inter-stimulus interval", or ISI).</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
@@ -768,7 +768,7 @@ respectively. Click <em>OK</em> to update the text component. Run the experiment
 <p>In the next section, we are going to add some routines after our trial loop. When we want to test this, it is quite annoying that we have to go through our entire trial loop before seeing the new routines. One way to "skip" the trial loop is to enable the <em>Disable component</em> property (in the <em>Testing</em> tab of the properties window) of each component in the <em>stim</em> and <em>isi</em> routines, which will skip said routines. </p>
 <p>Another thing you can do is to set the <em>nReps</em> property of the loop to 0!</p>
 </div>
-<h2 id="getting-feedback">Getting feedback</h2>
+<h2 id="mouse-interaction">Mouse interaction</h2>
 <p>After the trials, we might want to get some feedback on the task from the participant. Let's ask our participant the question "Did you like this task?" to which the participant can answer "yes" or "no". This time, though, we'll make the participant answer using the mouse (instead of the keyboard) by clicking in either a green circle on the left (for "yes") or a red circle on the right (for "no"). Note that this is a completely useless addition the current experiment, but we included it nonetheless to demonstrate the Mouse component.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
@@ -780,7 +780,7 @@ respectively. Click <em>OK</em> to update the text component. Run the experiment
 <p class="admonition-title">ToDo</p>
 <p>Add a Mouse component, give it a sensible name, set the duration to infinite, and make sure it forces the end of the routine <em>only</em> when one of the circles have been clicked by filling in the component names of your circles in the <em>Clickable stimuli</em> field (separated by a comma). Run the experiment to see whether everything works as expected!</p>
 </div>
-<h2 id="goodbye-screen">Goodbye screen</h2>
+<h2 id="image-components">Image components</h2>
 <p>We are of course thankful for the participant's efforts, so let's thank them! We found a nice image to include in a final routine, <code>thank_you.png</code> (which is located in the <code>tutorials/week_2</code> directory). To embed an image in your experiment, you can use the <em>Image</em> component.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
@@ -812,7 +812,7 @@ respectively. Click <em>OK</em> to update the text component. Run the experiment
 <p>In the current experiment, we indicated that participants should respond 'left' to green-colored words and 'right' to red-colored words. However, ideally, you'd want to counterbalance this color-response contingency across participants, i.e., (approximately) half of the participants should respond red-left/green-right and the other half should respond red-right/green-left. This between-subject condition should affect the text Component of the <em>instruction</em> routine. Arguably the easiest way to implement this is by creating another conditions file (e.g., <em>participants.{xlsx,csv}</em>) that outlines the color-response condition, which modifies the <em>instruction</em> routine.</p>
 <p>Bonus: try to implement this ToDo and the previous optional ToDo in the same experiment!</p>
 </div>
-<p>Finally, we're at the end of the Builder tutorial! By now, you know most of the essential features of PsychoPy's Builder interface. Of course, PsychoPy offers many more (advanced) functionality and funky components, but we'll leave that up to you to explore yourself! For now, let's continue with the <a href="psychopy_coder_part1_window">first Coder tutorial</a>!</p>
+<p>Finally, we're at the end of the Builder tutorial! By now, you know most of the essential features of PsychoPy's Builder interface. Of course, PsychoPy offers many more (advanced) functionality and funky components, but we'll leave that up to you to explore yourself! For now, let's continue with the <a href="../psychopy_coder_part1/">first Coder tutorial</a>!</p>
                 
               
               
@@ -831,7 +831,7 @@ respectively. Click <em>OK</em> to update the text component. Run the experiment
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../psychopy_builder_part1_intro/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../psychopy_builder_part1/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -846,13 +846,13 @@ respectively. Click <em>OK</em> to update the text component. Run the experiment
           </a>
         
         
-          <a href="../psychopy_coder_part1_window/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../psychopy_coder_part1/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                The Psychopy Coder (part 1)
+                The PsychoPy Coder (part 1)
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

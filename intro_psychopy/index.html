@@ -429,6 +429,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#global-preferences" class="md-nav__link">
+    Global preferences
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#experiment-settings-builder-only" class="md-nav__link">
     Experiment settings (Builder only)
   </a>
@@ -455,7 +462,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_builder_part1_intro/" class="md-nav__link">
+    <a href="../psychopy_builder_part1/" class="md-nav__link">
       Introduction to the PsychoPy Builder
     </a>
   </li>
@@ -467,7 +474,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_builder_part2_stroop/" class="md-nav__link">
+    <a href="../psychopy_builder_part2/" class="md-nav__link">
       Creating a Builder experiment from scratch
     </a>
   </li>
@@ -479,8 +486,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_coder_part1_window/" class="md-nav__link">
-      The Psychopy Coder (part 1)
+    <a href="../psychopy_coder_part1/" class="md-nav__link">
+      The PsychoPy Coder (part 1)
     </a>
   </li>
 
@@ -491,8 +498,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_coder_part2_stimuli/" class="md-nav__link">
-      The Psychopy Coder (part 2)
+    <a href="../psychopy_coder_part2/" class="md-nav__link">
+      The PsychoPy Coder (part 2)
     </a>
   </li>
 
@@ -552,6 +559,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#global-preferences" class="md-nav__link">
+    Global preferences
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#experiment-settings-builder-only" class="md-nav__link">
     Experiment settings (Builder only)
   </a>
@@ -591,19 +605,21 @@
 <h2 id="running-an-experiment">Running an experiment</h2>
 <p>To get an idea what a PsychoPy experiment may look like, let's run a demo! We created a super simple demo that showcases some of the functionality of PsychoPy, which can be found in the materials: <code>tutorials/week_2/intropy_demo.psyexp</code>. In the next tutorial, we are going to discuss this in more detail. For now, run the demo by doing the following:</p>
 <ul>
-<li>Open the <code>intropy_demo.psyexp</code> file (File &amp;rarr Open);</li>
+<li>Open the <code>intropy_demo.psyexp</code> file (File &rarr; Open);</li>
 <li>Then, click the large green "play" button (&#9658;) to start the experiment;</li>
 <li>This will open the <em>Experiment runner</em> and, after a couple of seconds, a new window;</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Currently, running experiments when PsychoPy is full screen doesn't (always) work... So make sure it's not full screen when you run the demo (or any experiment, really).</p>
+<p>Currently, running experiments when PsychoPy is full screen doesn't (always) work... So make sure it's <em>not</em> full screen when you run the demo (or any experiment, really).</p>
 </div>
-<p>After the experiment has finished, the experiment window closes automatically. In the <em>Experiment runner</em>, you see some information about the experiment (but nothing super interesting); you may close the <em>Experiment runner</em> for now.</p>
+<p>After the experiment has finished, the experiment window closes automatically. In the <em>Experiment runner</em>, you see some information about the experiment (but nothing super interesting). Mac users may see some text mentioning "ApplePersistenceIgnoreState"; this is a harmless warning (not an error) and can be ignored. You may close the <em>Experiment runner</em> for now.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Want to quit an experiment before it has finished? Press the escape key! In most experiments, this will abort the experiment.</p>
 </div>
+<h2 id="global-preferences">Global preferences</h2>
+<p>PsychoPy as a lot of global settings, which you can view and change if you want. You can open the <em>PsychoPy Preferences</em> window by clicking on <em>PsychoPy</em> in the top-most menu bar and then on <em>Preferences</em>. Any changes you make here should be applied to future sessions. For now, no need to change any global preferences. </p>
 <h2 id="experiment-settings-builder-only">Experiment settings (Builder only)</h2>
 <p>When you are using the <em>Builder</em> interface, you can set several global settings in the <em>Experimental settings</em> window. To open this window, click on the gear icon (<span>&#9881;</span>). In the various tabs, you can edit the experiment's settings. For example, under the "Basic" tab, you can edit the "info dialog": a pop-up that asks the participant for some information. Which information is asked can be changed at the "Experimental info" line.</p>
 <div class="admonition example">
@@ -622,14 +638,16 @@
 <p class="admonition-title">ToDo</p>
 <p>Please read the excellent explanation of the different settings for the "Units" on the <a href="https://www.psychopy.org/general/units.html">PsychoPy website</a>. To see the effect of a different unit for size, change "Units" from "height" to, e.g., "pixels" and run the demo experiment again.</p>
 </div>
+<p>Another important setting is the <em>Monitor</em>. Here, you need to fill in the name of the specific monitor configuration you want to use in your experiment. How to create a monitor configuration is explained in the next section!</p>
 <h2 id="monitors">Monitors</h2>
-<p>Another important element of each experiment, both in the <em>Coder</em> and <em>Builder</em> interface, is the monitor that it is displayed on. In Psychopy's "Monitor Center", you can specify several properties of the monitor(s) that you intend to use for your experiment. Although it is not strictly necessary to specify a monitor for your experiment, it is a prerequisite for some "Units" settings (such as <em>degree visual angle</em>)! If possible, we recommend always specifying a monitor.</p>
-<p>To open the Monitor Center, click on the monitor icon ( &#x1F5A5; ). You should see the monitor <code>testMonitor</code>, which is, as the notes say, a "default (not very useful) monitor." To create a new monitor, click <em>New</em> and give your new monitor a name (e.g., "laptop"). Then, you can specify several properties of your monitor. For example, you can specify the number of pixels of your monitor (e.g., 1920×1080 for a full HD screen), which is important if you use the "pixel" setting under "Units". You can also set the screen distance, i.e., how far participants are seated from the monitor (important when stimuli are specified in <a href="https://en.wikipedia.org/wiki/Visual_angle">degrees visual angle</a>) and the screen width.</p>
+<p>Another important element of each experiment, both in the <em>Coder</em> and <em>Builder</em> interface, is the monitor that it is displayed on. In Psychopy's <a href="https://www.psychopy.org/general/monitors.html"><em>Monitor Center</em></a>, you can specify several properties of the monitor(s) that you intend to use for your experiment. Although it is not strictly necessary to specify a monitor for your experiment (if you don't, PsychoPy will use a default configuraiton), it is a prerequisite for some "Units" settings (such as <em>degree visual angle</em>)! If possible, we recommend always specifying a monitor.</p>
+<p>To open the <em>Monitor Center</em>, click on the monitor icon ( &#x1F5A5; ). You should see the default monitor <code>testMonitor</code>, which is, as the notes say, a "default (not very useful) monitor." To create a new monitor, click <em>New</em> and give your new monitor a name (e.g., "laptop"). Then, you can specify several properties of your monitor. For example, you can specify the number of pixels of your monitor (e.g., 1920×1080 for a full HD screen), which is important if you use the "pixel" setting under "Units". You can also set the screen distance, i.e., how far participants are seated from the monitor (important when stimuli are specified in <a href="https://en.wikipedia.org/wiki/Visual_angle">degrees visual angle</a>) and the screen width.</p>
+<p>Note that it is also possible to run a calibration procedure in the monitor center and to add the procedure's results to your monitor configuration. Such a calibration procedure makes sure your monitor displays colors as specified in your experiment. This procedure, however, needs specialized equipment (a photometer), which you most likely do not have at home, so you may ignore this for now.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
 <p>Create a new monitor specific to your own laptop/desktop monitor. Fill in your current screen distance, screen size, and screen width. When you're done, click <em>Save</em>. Set in the <em>Experiment settings</em> the "Units" to "deg" (visual degree angle) and run the demo experiment. Then, change the screen distance to 200 cm and run the demo experiment again. You should see that the size of the stimuli appears smaller on the screen.</p>
 </div>
-<p>Alright, by now you know your way around PsychoPy, so you're ready to start with the <a href="../psychopy_builder_part1_intro/">Builder interface</a>!</p>
+<p>Alright, by now you know your way around PsychoPy, so you're ready to start with the <a href="../psychopy_builder_part1/">Builder interface</a>!</p>
                 
               
               
@@ -663,7 +681,7 @@
           </a>
         
         
-          <a href="../psychopy_builder_part1_intro/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../psychopy_builder_part1/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">

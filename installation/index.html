@@ -468,7 +468,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_builder_part1_intro/" class="md-nav__link">
+    <a href="../psychopy_builder_part1/" class="md-nav__link">
       Introduction to the PsychoPy Builder
     </a>
   </li>
@@ -480,7 +480,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_builder_part2_stroop/" class="md-nav__link">
+    <a href="../psychopy_builder_part2/" class="md-nav__link">
       Creating a Builder experiment from scratch
     </a>
   </li>
@@ -492,8 +492,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_coder_part1_window/" class="md-nav__link">
-      The Psychopy Coder (part 1)
+    <a href="../psychopy_coder_part1/" class="md-nav__link">
+      The PsychoPy Coder (part 1)
     </a>
   </li>
 
@@ -504,8 +504,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../psychopy_coder_part2_stimuli/" class="md-nav__link">
-      The Psychopy Coder (part 2)
+    <a href="../psychopy_coder_part2/" class="md-nav__link">
+      The PsychoPy Coder (part 2)
     </a>
   </li>
 
@@ -625,19 +625,20 @@
 </code></pre></div>
 <p>This command should print out the location where you installed Python, e.g., <code>/Users/your_name/anaconda3/bin/python</code> (on Mac) or <code>C:\Users\your_name\anaconda3\bin\python</code> (on Windows). </p>
 <h2 id="psychopy">PsychoPy</h2>
-<p>In the second week of the course, we are going to use the Python package <a href="https://www.psychopy.org/">PsychoPy</a> to create simple experiments. If you have a working version of Python already, <em>psychopy</em> can be installed as a regular third-party package through <a href="https://packaging.python.org/tutorials/installing-packages/">pip</a>. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting PsychoPy to work properly is all but trivial. Instead, we <em>highly</em> recommend installing the <a href="https://www.psychopy.org/download.html">"standalone" version of PsychoPy</a>. This version contains everything you need to create experiments using PsychoPy (even a custom Python distribution specifically designed for PsychoPy)!</p>
+<p>In the second week of the course, we are going to use <a href="https://www.psychopy.org/">PsychoPy</a>, a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package <code>psychopy</code> and installing the complete "standalone" PsychoPy software package. If you have a working version of Python already, the <code>psychopy</code> Python package can be installed as a regular third-party package through <a href="https://packaging.python.org/tutorials/installing-packages/">pip</a>. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core <code>psychopy</code> package to work properly is all but trivial. Instead, we <em>highly</em> recommend installing the <a href="https://www.psychopy.org/download.html">"standalone" version of PsychoPy</a>. The standalone version does not only contain a working version of the <code>psychopy</code> package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy <em>Builder</em> interface) to create experiments without programming.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the <a href="https://www.psychopy.org/">standalone PsychoPy version</a>.</p>
 </div>
 <p>To test whether the installation was successful and everything works as expected do the following:</p>
 <ul>
-<li>Start PsychoPy;</li>
-<li>In the menu, click "Demos", "Unpack demos", and select a location to unpack the demo experiment files;</li>
-<li>Click on "Demos" again and then on "stroop", which should open <code>stroop.psyexp</code> in the PsychoPy Builder;</li>
-<li>Click on the green "play" button ("run experiment");</li>
+<li>Start PsychoPy (this should open three windows);</li>
+<li>Make sure you are in the <em>PsychoPy Builder</em> window;</li>
+<li>In the menu, click <em>Demos</em> &rarr; <em>Unpack demos</em>, and select a location to unpack the demo experiment files;</li>
+<li>Click on <em>Demos</em> again and then on <em>stroop</em>, which should open <code>stroop.psyexp</code> in the PsychoPy Builder;</li>
+<li>Click on the green "play" button (<em>run experiment</em>);</li>
 <li>After a couple of seconds, you should see a pop-up prompting for a "session" and "participant number";</li>
-<li>Fill in some number (e.g., 01) and click on "Ok" to start the experiment;</li>
+<li>Fill in some number (e.g., 01) and click on <em>Ok</em> to start the experiment;</li>
 <li>Your screen should turn black and start the experiment!</li>
 </ul>
 <h2 id="downloading-the-material">Downloading the material</h2>
@@ -649,7 +650,7 @@
 <p>If you work with your own Python installation, you may need to install additional Python packages. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:</p>
 <div class="highlight"><pre><span></span><code>pip install .
 </code></pre></div>
-<p>This is not necessary if you use Binder/Colab as your Python platform!</p>
+<p>This is not necessary if you use Binder as your Python platform!</p>
 </div>
 <p>Before you start working on the course materials, read the next page on the <a href="../jupyter/">Jupyter ecosystem</a>.</p>
                 
