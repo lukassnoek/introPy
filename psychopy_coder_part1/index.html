@@ -471,6 +471,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#timing-clocks" class="md-nav__link">
+    Timing &amp; clocks
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -551,6 +558,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#timing-clocks" class="md-nav__link">
+    Timing &amp; clocks
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -574,6 +588,10 @@
 </div>
 <p>The <code>psychopy</code> package contains different modules for different features. For example, the <code>visual</code> module contains a class to specify and create a window and a large set of visual components (like text, image, and movie components) and the <code>event</code> module contains code to work with "events" such as mouse clicks/movement and keyboard presses. Check out PsychoPy's <a href="https://www.psychopy.org/api/api.html">reference manual</a> for a complete overview of the package's modules.</p>
 <p>As you will see, most of PsychoPy's functionality (like the different <em>components</em>) is implemented in custom classes, so your experience with object-oriented programming as discussed in week 1 will be very useful! </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In this tutorial, you'll notice that many of the properties of Builder elements (e.g., the <em>Experiment settings</em> and Builder components like <em>text</em> and <em>image</em> components) have the same name and can take the same values as the attributes of the corresponding classes in the Coder interface! </p>
+</div>
 <h2 id="the-coder-interface">The Coder interface</h2>
 <p>Now, let's get started by opening the Coder interface. </p>
 <div class="admonition example">
@@ -617,11 +635,41 @@ PsychoPy 4evah
 <p>You can import the <code>Window</code> class from the <code>visual</code> module of the <code>psychopy</code> package (i.e., <code class="highlight"><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">Window</span></code>). This, by itself, does nothing; for the experiment window to appear, we need to intialize an object with the <code>Window</code> class. There are <em>a lot</em> of arguments that can be used upon initialization (for an overview, see the <a href="https://www.psychopy.org/api/visual/window.html">docs</a>), but all arguments have sensible defaults, so you can initialize a <code>Window</code> object as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
 </code></pre></div>
-<p>Note to self: <code>Window</code> Parameters to discuss:
-* size / fullscr
-* color 
-* monitor
-* units</p>
+<p>Note that you may use any variable name for your <code>Window</code> object, but we recommend naming it <code>win</code> like in the code snippet above, as it's short but descriptive.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Initialize a <code>Window</code> object as shown in the above code snippet and run your experiment! Don't forget to also import the <code>Window</code> class!</p>
+</div>
+<p>When running the current experiment, you should briefly see a gray window pop up. This is the "default" experiment window. We can, of course, change the way it looks by passing it arguments upon initialization! We can, for example, change the size by passing a tuple with the width and height in pixels to the argument <code>size</code>. For example, if you'd want a window of (for some reason) 400 (width) by 800 (height) pixels, you'd initialize your <code>Window</code> as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+</code></pre></div>
+<p>Most of the times, though, you'd probably want to run your experiment in "full-screen" mode. To do so, pass <code>True</code> to the argument <code>fullscr</code> (i.e., <code class="highlight"><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">fullscr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>). You can also change the window's background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the <code>color</code> argument.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Although we recommend doing so in a real experiment, try making the window's background color bright blue. Want a more challenging exercise? Try to set the background to bright orange. Hint: note that PsychoPy assumes that RGB values range from -1 (minimum) to 1 (maximum), not from 0 to 255!</p>
+</div>
+<p>Another important argument of the <code>Window</code> class is the <code>monitor</code>, to which you can pass the name of the monitor, as defined in the monitor center, you want to use for this experiment. For example, if you defined a monitor in the monitor center with the name "laptop", you can pass this configuration to the <code>Window</code> class as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;laptop&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">ToDo (optional; advanced)</p>
+<p>If you don't want to use the monitor center at all (e.g., when you're programming your experiments in an external code editor), you can also programmatically using the <code>Monitor</code> class from the <code>psychopy.monitor</code> module. Try creating a monitor configuration for your own laptop/desktop monitor. Make sure you set the monitor's size (in pixels), width (in cm), and distance between you to the monitor (in cm). The <a href="https://www.psychopy.org/api/monitors.html">documentation of the <code>monitor</code> module</a> contains all info you need to do this! </p>
+</div>
+<p>Finally, the last important argument of the <code>Window</code> class is the type of <em>units</em> that should be used by default for your components (which we'll discuss later), such as "norm" (for normalized units), "deg" (for visual degree angle), and "pix" (for pixels). As said before, there are in fact many more arguments to pass to the <code>Window</code> class (see the <a href="https://www.psychopy.org/api/visual/window.html">documentation</a> for an overview), but we believe that the ones we discussed here are most important to know and that the other arguments all have sensible defaults.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Let's create a <code>Window</code> object that we'll use for the rest of our emotion-word Stroop experiment! Make sure it is shown in full-screen mode, uses normalized units, uses the monitor specification of your own laptop/desktop monitor, and has a black background. Run your experiment to see whether it looks like expected! </p>
+</div>
+<p>Note that you can also change <code>Window</code> attributes after creating the object by directly editing the attributes. For example, if you'd want to change the units after initialization to pixels, you can do the following:</p>
+<div class="highlight"><pre><span></span><code><span class="n">win</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;pix&#39;</span>
+</code></pre></div>
+<h2 id="timing-clocks">Timing &amp; clocks</h2>
+<p>When you run the current experiment, you'll only see a black screen for like a second or so before it disappears again. The reason why the window doesn't stay open is because we don't tell it to! It is important to realize that PsychoPy will run the experiment script from top to bottom (like any Python file is run, actually) and will close the window once the script ends. Put differently, you can interpret the script as a chronological chain of events from the top of the script (beginning) to the bottom of the script (end). </p>
+<p>So, if you want to keep the window open for a little longer, we can simply tell PsychoPy so! There are, in fact, different ways to do this, but arguably the easiest way is using the <code>wait</code> function from the <a href="https://www.psychopy.org/api/core.html"><code>psychopy.core</code></a> module. We can pass this function a number corresponding to the amount of time PsychoPy should wait before continuing with the rest of the script.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Something with before printing the current time with the clock before and after a call to wait.</p>
+</div>
                 
               
               
