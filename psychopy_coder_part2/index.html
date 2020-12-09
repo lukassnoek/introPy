@@ -483,8 +483,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#drawin-flippin" class="md-nav__link">
+    Drawin' &amp; flippin'
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#timing-clocks-part-2" class="md-nav__link">
     Timing &amp; clocks (part 2)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving-data" class="md-nav__link">
+    Saving data
   </a>
   
 </li>
@@ -581,8 +602,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#drawin-flippin" class="md-nav__link">
+    Drawin' &amp; flippin'
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#timing-clocks-part-2" class="md-nav__link">
     Timing &amp; clocks (part 2)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving-data" class="md-nav__link">
+    Saving data
   </a>
   
 </li>
@@ -601,15 +643,55 @@
                 
                 
                 <h1 id="the-psychopy-coder-part-2">The PsychoPy Coder (part 2)</h1>
+<p>In the previous tutorial, we discussed most of the "administrative" stuff that needs to happen in any PsychoPy experiment. In this tutorial, we'll discuss how to actually add components to the experiment, interact with user responses, and work with the experiment data.</p>
 <h2 id="components">Components</h2>
-<h2 id="timing-clocks-part-2">Timing &amp; clocks (part 2)</h2>
-<p>Topics to discuss:</p>
+<p>Like in the Builder, <em>components</em> are the "bread and butter" in the Coder interface as well. In the coder, however, these components are implemented in different classes from the <code>psychopy</code> package. For example, to add a text component, you can use the <code>TextStim</code> class from the <code>psychopy.visual</code> module and to add a sound component, you can use the <code>Sound</code> component from the <code>psychopy.sound</code> module. </p>
+<p>Basically, every component from the Builder has an equivalent in the <code>psychopy</code> package. Moreover, each component has the same properties in the Builder as in the Coder. For example, the <em>color</em> and <em>font</em> properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a <code>TextStim</code> object with <code>font='Calibri'</code> and <code>color=(-1, -1, 1)</code>.</p>
+<p>Importantly, all visual stimulus classes (like <code>TextStim</code>, but not <code>Sound</code>) additionally need one (mandatory) argument: a <code>Window</code> object! This allows to <code>TextStim</code> to interact with the window. So, let's recap: to initialize a component in the Coder interface, we need to (1) import the corresponding class and (2) initialize it with a <code>Window</code> object (in case of visual components) and optionally other arguments that modify the component's behavior or display. </p>
+<p>Now, suppose you would like to welcome my participant by showing a short welcome message &mdash; "Welcome to this experiment!". To do so, you'd need a <code>TextStim</code> which would need to be initialized as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">TextStim</span>
+
+<span class="c1"># We assume `win` already exists</span>
+<span class="n">welcome_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Welcome to this experiment!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Paste the code snippet above into your script, after initializing the window and clock. Note: it's convention to put all import statements together at the top of your script, so make sure the <code class="highlight"><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
+</div>
+<h2 id="drawin-flippin">Drawin' &amp; flippin'</h2>
+<p>When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! This is because you first need to <em>draw</em> the stimulus! This can be done by calling the <code>draw</code> method that is included in each (visual) component class.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>After initialization of the text component, call the <code>draw</code> method (without arguments) of the <code>welcome_txt</code> variable. Then, run your experiment.</p>
+</div>
+<p>Argh, still no sign of the welcome text in the window! This is because your monitor contains <a href="https://en.wikipedia.org/wiki/Multiple_buffering">two buffers</a>, a "front buffer" (which is visible) and a "back buffer" (which isn't), and components are always drawn on the back buffer! To make the drawn components visible, we need to flip the back buffer to the front, which can be done by calling the <code>flip</code> method of the <code>Window</code> object. By splitting the operation of showing stimuli into two operations (drawing and flipping the back buffer), you can precisely control when you want your stimuli to appear (i.e., when calling <code>flip</code>). </p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Right after the call to the <code>draw</code> method of the text component (<code>welcome_txt</code>), add a call to the <code>flip</code> method (without arguments) of the window (<code>win</code>). Then, run the experiment again.</p>
+</div>
+<p>Finally, you should see the welcome text on the window, albeit quite briefly! Again, it is only shown briefly because PsychoPy will simply follow the script and immediatly go to the next lines (which presumably are those that close the window and quit the experiment). There are several ways in which you can specify how long a component is visible, which differ in how precisely they can determine the duration. One of the easiest ways is to add a call to the <code>wait</code> function after the window flip.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Using the <code>wait</code> function, make PsychoPy wait for 2 seconds after flipping the window. Then, run the experiment again.</p>
+</div>
+<p>Now you should see that the welcome text is visible for 2 seconds (actually, a bit longer because of the time it takes to shut down the experiment). In the following sections, we will discuss other (and more precise) methods to manipulate the duration of stimuli.</p>
+<p>Note that after flipping the window such that the back buffer is moved to the front buffer, the back buffer is completely cleared. This means that when you'd flip the window <em>again</em> (without drawing any stuff in the meantime), the front buffer would contain an empty window!</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>After the call to the <code>wait</code> function, flip the window again, and add another call to the <code>wait</code> function for two seconds (otherwise you won't see the effect of the second flip). Then, run the experiment again.</p>
+</div>
+<p>By flipping the window again, the welcome text disappeared and was replaced by an empty window (because the front buffer was replaced by an empty back buffer). This underlines an important concept, which is important to remember: <em>every time you flip the window, you start with an empty back buffer</em> (and you need to draw your stimuli again, if you want to show them again on the next flip).</p>
+<h2 id="responses">Responses</h2>
 <ul>
-<li>Stimuli</li>
-<li>Timing</li>
-<li>Responses</li>
-<li>Keeping track of data / responses + saving</li>
+<li>Stuff about <code>waitKeys</code>.</li>
+<li>Multiple components</li>
 </ul>
+<h2 id="timing-clocks-part-2">Timing &amp; clocks (part 2)</h2>
+<ul>
+<li>Check how long it takes to initialize a stimulus</li>
+<li>Stuff about autoDraw</li>
+</ul>
+<h2 id="saving-data">Saving data</h2>
                 
               
               
