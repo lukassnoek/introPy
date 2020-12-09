@@ -159,8 +159,8 @@
     <li class="md-tabs__item">
       
       
-      <a href="../installation/" class="md-tabs__link">
-        Installation
+      <a href="../getting_started/" class="md-tabs__link">
+        Getting started
       </a>
     </li>
   
@@ -189,6 +189,19 @@
       
       <a href="../week_2/" class="md-tabs__link md-tabs__link--active">
         Week 2
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+      
+      <a href="../for_educators/" class="md-tabs__link">
+        For educators
       </a>
     </li>
   
@@ -267,13 +280,13 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
     <label class="md-nav__link" for="nav-2">
-      Installation
+      Getting started
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+    <nav class="md-nav" aria-label="Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon"></span>
-        Installation
+        Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -284,7 +297,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../installation/" class="md-nav__link">
+    <a href="../getting_started/" class="md-nav__link">
       Getting started
     </a>
   </li>
@@ -397,7 +410,7 @@
 
   <li class="md-nav__item">
     <a href="../psychopy_builder_part1/" class="md-nav__link">
-      Introduction to the PsychoPy Builder
+      The PsychoPy Builder
     </a>
   </li>
 
@@ -409,7 +422,7 @@
 
   <li class="md-nav__item">
     <a href="../psychopy_builder_part2/" class="md-nav__link">
-      Creating a Builder experiment from scratch
+      A Builder experiment from scratch
     </a>
   </li>
 
@@ -465,6 +478,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dialog-boxes" class="md-nav__link">
+    Dialog boxes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-window" class="md-nav__link">
     The Window
   </a>
@@ -474,6 +494,13 @@
         <li class="md-nav__item">
   <a href="#timing-clocks" class="md-nav__link">
     Timing &amp; clocks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quitting-the-experiment" class="md-nav__link">
+    Quitting the experiment
   </a>
   
 </li>
@@ -505,6 +532,43 @@
   <li class="md-nav__item">
     <a href="../psychopy_how_to_continue/" class="md-nav__link">
       How to continue with PsychoPy?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      For educators
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="For educators" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        For educators
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../for_educators/" class="md-nav__link">
+      Information for educators
     </a>
   </li>
 
@@ -552,6 +616,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dialog-boxes" class="md-nav__link">
+    Dialog boxes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-window" class="md-nav__link">
     The Window
   </a>
@@ -561,6 +632,13 @@
         <li class="md-nav__item">
   <a href="#timing-clocks" class="md-nav__link">
     Timing &amp; clocks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quitting-the-experiment" class="md-nav__link">
+    Quitting the experiment
   </a>
   
 </li>
@@ -584,7 +662,7 @@
 <p>When using the Builder interace, you've seen that, "under the hood", PsychoPy converts your Builder experiment to a Python script, which is then executed to run your experiment. If you look at this generated Python script closely, you'll see that most of the code is based on functions and classes from the <code>psychopy</code> Python package. Whereas the Builder interface generates such code from your graphical experiment, in the Coder interface you'll write your experiment using functionality from the <code>psychopy</code> package directly!</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you plan on programming your PsychoPy experiment (so <em>not</em> use the Builder interface), you technically do not need the entire "standalone" PsychoPy package; installing the <code>psychopy</code> Python package would suffice and you could just write your experiments in your favorite editor (like <a href="https://code.visualstudio.com/">Visual Studio Code</a>). However, as mentioned on the <a href="../installation/">Getting started</a> page, getting the <code>psychopy</code> package to work is not easy, which is why we recommend the "batteries included" standalone version of PsychoPy.</p>
+<p>If you plan on programming your PsychoPy experiment (so <em>not</em> use the Builder interface), you technically do not need the entire "standalone" PsychoPy package; installing the <code>psychopy</code> Python package would suffice and you could just write your experiments in your favorite editor (like <a href="https://code.visualstudio.com/">Visual Studio Code</a>). However, as mentioned on the <a href="installation.md">Getting started</a> page, getting the <code>psychopy</code> package to work is not easy, which is why we recommend the "batteries included" standalone version of PsychoPy.</p>
 </div>
 <p>The <code>psychopy</code> package contains different modules for different features. For example, the <code>visual</code> module contains a class to specify and create a window and a large set of visual components (like text, image, and movie components) and the <code>event</code> module contains code to work with "events" such as mouse clicks/movement and keyboard presses. Check out PsychoPy's <a href="https://www.psychopy.org/api/api.html">reference manual</a> for a complete overview of the package's modules.</p>
 <p>As you will see, most of PsychoPy's functionality (like the different <em>components</em>) is implemented in custom classes, so your experience with object-oriented programming as discussed in week 1 will be very useful! </p>
@@ -629,7 +707,42 @@
 PsychoPy 4evah
 ##### Experiment ended. #####
 </code></pre></div>
-<p>As you can see, the <em>Experiment runner</em> shows your print statement; remember this, as it is a nice way to debug your experiments! Now, so far we haven't really discussed how to actually create experiments using the <code>psychopy</code> package, so let's start with arguably the most important element of Coder exeriments: the <code>Window</code>.</p>
+<p>As you can see, the <em>Experiment runner</em> shows your print statement; remember this, as it is a nice way to debug your experiments!</p>
+<h2 id="dialog-boxes">Dialog boxes</h2>
+<p>Arguably the first step in many experiments is providing the experiment with some information about the current session, such as the participant number, condition the participant is in, etc. In Builder experiments, you can implement this in the <em>Experiment settings</em> (under the <em>Basic</em> tab). The equivalent functionality in the Coder interface is implemented in the <code>psychopy.gui</code> module. </p>
+<p>The <code>psychopy.gui</code> module contains different classes to create <a href="https://en.wikipedia.org/wiki/Dialog_box">dialog boxes</a>, but arguably the easiest one to use is the <code>DlgFromDict</code> class. This class needs a single mandatory argument upon initialization: a dictionary in which the keys represent the dialog's fields (e.g., "participant_id") and the values represent the default for each field. (If you set a value to an empty string, <code>''</code>, there won't be a default value.)</p>
+<p>For example, if you'd like a dialog box in which the participant number can be filled in, you can do the following:</p>
+<div class="highlight"><pre><span></span><code><span class="n">exp_info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>  <span class="c1"># no default!</span>
+<span class="n">dlg</span> <span class="o">=</span> <span class="n">DlgFromDict</span><span class="p">(</span><span class="n">exp_info</span><span class="p">)</span>
+</code></pre></div>
+<p>Note that it is quite important to create the dictionary before passing it to the <code>DlgFromDict</code> class instead of passing it directly, e.g., <code class="highlight"><span class="n">DlgFromDict</span><span class="p">({</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">})</span></code>. This is because PsychoPy will modify the dictionary (i.e., the variable <code>exp_info</code> in the code snippet above) with the information filled in by the participant/experimenter.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>In your experiment, create a dialog box with the fields "participant_nr" and "age", in which the participant number should have the default <code>99</code> (for testing purposes) but age should not get a default value. Don't forget to import the <code>DlgFromDict</code> class first! Then, run your experiment.</p>
+</div>
+<p>As you can see, when you run the experiment, a dialog box appears! After you filled in the required information, you can click <em>OK</em> to start the experiment. Notably, after you fill in the fields of the dialog box (e.g., with participant number <code>01</code> and an age of <code>29</code>), you can access this information from the original dictionary passed to the <code>DlgFromDict</code> class (i.e., <code>example_info</code> in the code snippet above). For example, <code>exp_info['age']</code> will return the age that the participant filled in (e.g., <code>29</code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The type of the values from the dictionary depend on the type of the variables you initialized the dictionary with. For example, if you initialize a particular value with an empty string (i.e., <code>''</code>, such as with "participant_nr" in the code snippet above), then the value representing that field will also be a string, even if you fill in a number (such as <code>1</code>)!</p>
+</div>
+<p>Let's do an exercise to see whether everything's clear so far.</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Given the dialog box configuration from the previous ToDo, include a print statement to your script that will print out the following: "Started the experiment for participant ... with age ...", where the triple dots are replaced by whatever you filled in when running the experiment.</p>
+</div>
+<p>Currently, it doesn't matter whether the user clicked on <em>OK</em> or <em>Cancel</em> in the dialog box &mdash; in both cases, PsychoPy would have continued with the script. It would be nice to actually quit the experiment when the user pressed <em>Cancel</em>. To do so, we can use the attribute <code>OK</code> from the dialog box object, which is set to <code>True</code> when the user clicks on <em>OK</em> and is set to <code>False</code> when the user clicks on <em>Cancel</em>. To quit the experiment, we can use the function <code>quit</code> from the <code>psychopy.core</code> module. Then, we can implement something like the following to quit the experiment when the user clicked on <em>Cancel</em> instead of <em>OK</em> (assuming the dialog box object is named <code>dlg</code> and the <code>quit</code> function has already been imported):</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">dlg</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span>
+    <span class="c1"># Maybe add a nice print statement?</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User pressed &#39;Cancel&#39;!&quot;</span><span class="p">)</span>
+    <span class="n">quit</span><span class="p">()</span>
+</code></pre></div>
+<p>We recommend adding this snippet right after initialization of the dialog box in every experiment that actually uses a dialog box! Now, those that want a challenge, try the following (optional) ToDo. </p>
+<div class="admonition example">
+<p class="admonition-title">ToDo (optional)</p>
+<p>Add some code after the <code>if not dlg.OK</code> code block that also quits the experiment when the user fills in an invalid participant number (let's say, anything higher than 99) or an invalid age (let's say, below 18). Try running the experiment with different values for these two options to see whether your implementation works as expected!</p>
+</div>
+<p>Note that the <code>DlgFromDict</code> in fact can be customized much by using different arguments upon initialization. Check out the <a href="https://www.psychopy.org/api/gui.html">documentation</a> to learn more. </p>
+<p>Now, so far we haven't really discussed how to actually create proper experiments, so let's start with arguably the most important element of Coder exeriments: the <code>Window</code>.</p>
 <h2 id="the-window">The <code>Window</code></h2>
 <p>One of the most important classes from the <code>psychopy</code> package is the <code>Window</code> class, which defines the window in which you are going to run your experiment. It is quite a complex class, with many different attributes and methods; we'll discuss the most important ones in this tutorial.</p>
 <p>You can import the <code>Window</code> class from the <code>visual</code> module of the <code>psychopy</code> package (i.e., <code class="highlight"><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">Window</span></code>). This, by itself, does nothing; for the experiment window to appear, we need to intialize an object with the <code>Window</code> class. There are <em>a lot</em> of arguments that can be used upon initialization (for an overview, see the <a href="https://www.psychopy.org/api/visual/window.html">docs</a>), but all arguments have sensible defaults, so you can initialize a <code>Window</code> object as follows:</p>
@@ -643,10 +756,11 @@ PsychoPy 4evah
 <p>When running the current experiment, you should briefly see a gray window pop up. This is the "default" experiment window. We can, of course, change the way it looks by passing it arguments upon initialization! We can, for example, change the size by passing a tuple with the width and height in pixels to the argument <code>size</code>. For example, if you'd want a window of (for some reason) 400 (width) by 800 (height) pixels, you'd initialize your <code>Window</code> as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
 </code></pre></div>
-<p>Most of the times, though, you'd probably want to run your experiment in "full-screen" mode. To do so, pass <code>True</code> to the argument <code>fullscr</code> (i.e., <code class="highlight"><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">fullscr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>). You can also change the window's background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the <code>color</code> argument.</p>
+<p>Most of the times, though, you'd probably want to run your experiment in "full-screen" mode. To do so, pass <code>True</code> to the argument <code>fullscr</code> (i.e., <code class="highlight"><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">fullscr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>). Note that if you specify <code>fullscr=True</code> but leave the window's <code>size</code> at its default (i.e., <code>(800, 600)</code>), you'll see a warning in the <em>Experiment running</em> saying "User requested fullscreen with size [800, 600], but screen is actually ... Using actual size". This warning is harmless and can be ignored, but if you want to prevent this warning, you should specify the actual size of your monitor as well (e.g., <code>size=(1920, 1080)</code> for an HD monitor).</p>
+<p>You can also change the window's background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the <code>color</code> argument.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
-<p>Although we recommend doing so in a real experiment, try making the window's background color bright blue. Want a more challenging exercise? Try to set the background to bright orange. Hint: note that PsychoPy assumes that RGB values range from -1 (minimum) to 1 (maximum), not from 0 to 255!</p>
+<p>Although we don't recommend doing so in a real experiment, try making the window's background color bright blue. Want a more challenging exercise? Try to set the background to bright orange. Hint: note that PsychoPy assumes that RGB values range from -1 (minimum) to 1 (maximum), not from 0 to 255!</p>
 </div>
 <p>Another important argument of the <code>Window</code> class is the <code>monitor</code>, to which you can pass the name of the monitor, as defined in the monitor center, you want to use for this experiment. For example, if you defined a monitor in the monitor center with the name "laptop", you can pass this configuration to the <code>Window</code> class as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;laptop&#39;</span><span class="p">)</span>
@@ -665,10 +779,36 @@ PsychoPy 4evah
 </code></pre></div>
 <h2 id="timing-clocks">Timing &amp; clocks</h2>
 <p>When you run the current experiment, you'll only see a black screen for like a second or so before it disappears again. The reason why the window doesn't stay open is because we don't tell it to! It is important to realize that PsychoPy will run the experiment script from top to bottom (like any Python file is run, actually) and will close the window once the script ends. Put differently, you can interpret the script as a chronological chain of events from the top of the script (beginning) to the bottom of the script (end). </p>
-<p>So, if you want to keep the window open for a little longer, we can simply tell PsychoPy so! There are, in fact, different ways to do this, but arguably the easiest way is using the <code>wait</code> function from the <a href="https://www.psychopy.org/api/core.html"><code>psychopy.core</code></a> module. We can pass this function a number corresponding to the amount of time PsychoPy should wait before continuing with the rest of the script.</p>
+<p>So, if you want to keep the window open for a little longer, we can simply tell PsychoPy so! There are, in fact, different ways to do this, but arguably the easiest way is using the <code>wait</code> function from the <a href="https://www.psychopy.org/api/core.html"><code>psychopy.core</code></a> module. We can pass this function a number corresponding to the amount of time (in seconds) PsychoPy should wait before continuing with the rest of the script.</p>
 <div class="admonition example">
 <p class="admonition-title">ToDo</p>
-<p>Something with before printing the current time with the clock before and after a call to wait.</p>
+<p>Import the <code>wait</code> function from the <code>psychopy.core</code> module and, after initializing the window, use it to make PsychoPy wait 2 seconds. Then, run the experiment.</p>
+</div>
+<p>When you ran the experiment after adding the call to the <code>wait</code> function, you may have noticed that the window was active for more than 2 seconds. This because, as we mentioned earlier, it takes a while to close the window. </p>
+<p>Another important timing-related concept in PsychoPy is "clocks". Clocks allow you to precisely keep track of the timing of events, which is especially important in studies that need strict control of stimulus onsets and duration, such as psychophysics and neuroimaging experiments. This functionality in PsychoPy is implemented in, you guessed it, the <code>Clock</code> class (from the <code>psychopy.core</code> module). The <code>Clock</code> class does not require any arguments upon initialization, so you can simply create a <code>Clock</code> object as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="n">timer</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
+</code></pre></div>
+<p>The variable name, <code>timer</code>, is of course arbitrary; name it whatever you like! Upon initialization, the clock's time is set to 0. If you, at some point, want to know how much time has passed since the clock's initialization, you can call the <code>getTime</code> method:</p>
+<div class="highlight"><pre><span></span><code><span class="n">t_since_init</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t_since_init</span><span class="p">)</span>  <span class="c1"># prints time (in sec.)</span>
+</code></pre></div>
+<p>Now, with our knowledge about clocks, let's check whether the <code>wait</code> function actually makes PsychoPy wait as long as we tell it. </p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>Import the <code>Clock</code> class and, after creating a <code>Window</code> object, initialize it. Then, query the time using <code>getTime</code> and store it in a variable (e.g., <code>t_before_wait</code>). Aftewards, make PsychoPy wait for 2 seconds (using the <code>wait</code> function), and finally, query the time again and store in another variable (e.g., <code>t_after_wait</code>). Make your script print the time before <code>wait</code> call, after the <code>wait</code> call, and the difference between those two times. Then, run the experiment.</p>
+</div>
+<p>If you implemented the ToDo correctly, you should see that the time just after initialization of the clock is very close to zero (e.g., <code class="highlight"><span class="mf">7.83892915e-06</span></code>) and that both the time after the <code>wait</code> call and the difference before and after the <code>wait</code> call is approximately <code>2</code> seconds &mdash; just like we expected!</p>
+<p>Two other important methods of the <code>Clock</code> class are <code>reset</code>, which sets the clock's time back to zero, and <code>add</code>, which &mdash; paradoxically &mdash; subtracts time from the clock. These two features will be discussed in detail in the next tutorial.</p>
+<h2 id="quitting-the-experiment">Quitting the experiment</h2>
+<p>As you've seen so far, when the Python interpreter arrives at the end of your script, the PsychoPy window automatically closes and the Python process finishes. In the context of PsychoPy experiments, however, it is good practice to end the experiment by explicitly closing the window using the window's <code>close</code> method <em>and</em> then calling the <code>quit</code> function from the <code>core.psychopy</code> module (as we did before in the section on dialog boxes). Although not strictly necessary, calling the <code>close</code> method and the <code>quit</code> function perform a bit of bookkeeping that may prevent issues, so we recommend always including this at the very end of your script!</p>
+<div class="admonition example">
+<p class="admonition-title">ToDo</p>
+<p>At the end of your script, add the code to close your window and to quit the experiment. While you're at it, remove the calls to the <code>getTime</code> methods and the associated <code>print</code> statements, such that you only have the imports, code related to the dialog box, window and clock initializations, and the calls to the <code>close</code> method and <code>quit</code> function left.</p>
+</div>
+<p>This tutorial features some of the most important, but arguably boring, aspects of programming experiments in the PsychoPy Coder, so let's continue with the <a href="../psychopy_coder_part2/">next (and final) tutorial</a> which discusses creating components and other fun stuff!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you want the "solution" to the implementations from the ToDos, check out the file <code>solutions_coder_part1.py</code> (from the <code>solutions/week2</code> directory) in the PsychoPy editor, which contains the code from most ToDos.</p>
 </div>
                 
               
@@ -697,7 +837,7 @@ PsychoPy 4evah
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Creating a Builder experiment from scratch
+                A Builder experiment from scratch
               </div>
             </div>
           </a>

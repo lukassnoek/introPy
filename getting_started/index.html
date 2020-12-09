@@ -162,7 +162,7 @@
         
       
       <a href="./" class="md-tabs__link md-tabs__link--active">
-        Installation
+        Getting started
       </a>
     </li>
   
@@ -189,6 +189,19 @@
       
       <a href="../week_2/" class="md-tabs__link">
         Week 2
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+      
+      <a href="../for_educators/" class="md-tabs__link">
+        For educators
       </a>
     </li>
   
@@ -269,13 +282,13 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     <label class="md-nav__link" for="nav-2">
-      Installation
+      Getting started
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+    <nav class="md-nav" aria-label="Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon"></span>
-        Installation
+        Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -469,7 +482,7 @@
 
   <li class="md-nav__item">
     <a href="../psychopy_builder_part1/" class="md-nav__link">
-      Introduction to the PsychoPy Builder
+      The PsychoPy Builder
     </a>
   </li>
 
@@ -481,7 +494,7 @@
 
   <li class="md-nav__item">
     <a href="../psychopy_builder_part2/" class="md-nav__link">
-      Creating a Builder experiment from scratch
+      A Builder experiment from scratch
     </a>
   </li>
 
@@ -518,6 +531,43 @@
   <li class="md-nav__item">
     <a href="../psychopy_how_to_continue/" class="md-nav__link">
       How to continue with PsychoPy?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      For educators
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="For educators" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        For educators
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../for_educators/" class="md-nav__link">
+      Information for educators
     </a>
   </li>
 
@@ -619,8 +669,31 @@
 </div>
 <p>More information on how to get started with the tutorials, go to the <a href="../week_1/">week 1 page</a>.</p>
 <h3 id="installing-python-on-your-own-computer">Installing Python on your own computer</h3>
-<p>If you want to install Python on your own computer, we <em>highly</em> recommend you install Python through the <a href="https://www.anaconda.com/products/individual">Anaconda distribution</a>. Choose the appropriate installer (Windows, Mac, or Linux; both the graphical and command line options are fine) and follow the installation instructions.</p>
-<p>After you have installed your own Python distribution, you can check whether it is working correctly by opening a terminal (on Mac/Linux) or Anaconda Prompt (on Window) and running the following:</p>
+<p>If you want to install Python on your own computer, we <em>highly</em> recommend you install Python through the <a href="https://www.anaconda.com/products/individual">Anaconda distribution</a>. In the box below, you can find detailed installation instructions (thanks to <a href="https://escience-academy.github.io/2020-12-07-parallel-python/">the Netherlands eScience Center</a>) specific to your operating system (Mac, Windows, or Linux).</p>
+<div class="admonition example">
+<p class="admonition-title">todo</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Mac</label><div class="tabbed-content">
+<ol>
+<li>Open https://www.anaconda.com/products/individual#download-section with your web browser;</li>
+<li>Download the Anaconda Installer with Python 3 for macOS (you can either use the Graphical or the Command Line Installer);</li>
+<li>Install Python 3 by running the Anaconda Installer using all of the defaults for installation.</li>
+</ol>
+<p>For a more detailed instruction, check out the video below:</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/TcSAln46u9U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows</label><div class="tabbed-content">
+<ol>
+<li>Open https://www.anaconda.com/products/individual#download-section with your web browser;</li>
+<li>Download the Anaconda for Windows installer with Python 3. (If you are not sure which version to choose, you probably want the 64-bit Graphical Installer Anaconda3-...-Windows-x86_64.exe);</li>
+<li>Install Python 3 by running the Anaconda Installer, using all of the defaults for installation except <strong>make sure to check Add Anaconda to my PATH environment variable</strong>.</li>
+</ol>
+<p>For a more detailed instruction, check out the video below:</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/xxQ0mzZ8UvA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p><strong>Note</strong>: the video tells you to use <em>git bash</em> to test your Python installation; you may ignore this. As explained below, Windows users should use the <em>Anaconda prompt</em> instead.</p>
+</div>
+</div>
+</div>
+<p>After you have installed your own Python distribution, you can check whether it is working correctly by opening a terminal (on Mac/Linux) or Anaconda Prompt (on Windows) and running the following:</p>
 <div class="highlight"><pre><span></span><code>python -c &quot;import sys; print(sys.executable)&quot;
 </code></pre></div>
 <p>This command should print out the location where you installed Python, e.g., <code>/Users/your_name/anaconda3/bin/python</code> (on Mac) or <code>C:\Users\your_name\anaconda3\bin\python</code> (on Windows). </p>
