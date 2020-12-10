@@ -2,7 +2,7 @@
 set -e
 
 # First, build book
-#jupyter-book build intropy
+jupyter-book build intropy
 
 # Then, fix Jupyterhub path and Binder path
 nb_html=$(ls intropy/_build/html/week_1/solutions/*.html)
@@ -10,7 +10,7 @@ for nb in $nb_html; do
     nb_name=$(basename $nb)
     nb_name=${nb_name/.html/}
     to_replace="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/week_1/solutions/${nb_name}.ipynb&branch=master"
-
+    
     # Replace Jupyterhub url
     sed -i "s+${to_replace}+https://neuroimaging.lukas-snoek.com+g" $nb
 

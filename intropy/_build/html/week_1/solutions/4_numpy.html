@@ -258,7 +258,7 @@
             href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_1/solutions/4_numpy.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/week_1/solutions/4_numpy.ipynb"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_1/solutions/4_numpy.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -278,14 +278,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/week_1/tutorials/4_numpy.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/solutions/4_numpy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/week_1/solutions/4_numpy.ipynb&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -522,7 +522,7 @@ A 2D array:
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Create the following 1D array:
 <p>\begin{align}
 \begin{bmatrix}
@@ -565,7 +565,7 @@ A 2D array:
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>:
 <p>Create the following matrix (2D array):</p>
 <p>\begin{align}
@@ -611,7 +611,7 @@ A 2D array:
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b> (optional): Let's try something more difficult! Create a 3D array with dimensions $2 \times 2 \times 2$ with consecutive numbers starting at 1 and store this in a variable named <tt>arr_3d</tt>. So <tt>arr_3d[0, 0, 0]</tt> should evaluate to 1, <tt>arr_3d[0, 0, 1]</tt> should evaluate to 2, <tt>arr_3d[0, 1, 0]</tt> evaluates to 3, etc.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -667,7 +667,7 @@ A 2D array:
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Using the <tt>np.zeros</tt> function, create a five dimensional array of shape $2 \times 3 \times 5 \times 3 \times 7$ and store it in a variable named <tt>array_5d</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -721,7 +721,7 @@ Filled array
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
 <b>ToDo</b>: Write a loop in which you fill each value in the variable <tt>my_array2</tt> with the value 1 divided by the current index plus one. So, suppose the index (usually <tt>i</tt>, like the last example) is 3, then you should fill <tt>my_array2</tt> at index <tt>i</tt> with <tt>1 / (3 + 1)</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -877,7 +877,7 @@ Filled array
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b> (1 point): In the array <tt>my_array</tt> below, set all odd indices (i.e., the first element, the third element, the fifth element, etc.) to the value <tt>0.0</tt> <em>in a single statement using a slice</em> (i.e., not a for-loop).
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -924,7 +924,7 @@ Filled array
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
 <b>ToDo</b>: Using multidimensional indexing, set the value in the last row and last column of the 2D array <tt>my_array</tt> to <tt>1.0</tt>. In other words, set the value in the lower-right "corner" of the 2D array to 1.0.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1034,7 +1034,7 @@ First column
 </div>
 </div>
 <p>Try to remember this: <em>in multidimensional arrays, each dimension (axis) represents a different “attribute” of your data (e.g. subjects, time, condition, etc.)</em>. This concept is very important to understand in, for example, functional MRI analysis (which revolves around 4D data: 3 spatial dimensions and 1 time dimension)!</p>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
 <b>ToDo</b>: Consider the blood-pressure dataset again. In the code-cell below, extract from all participants all data from day 18 in the medication ("on") condition. You'll have to use slices with the single <tt>:</tt>! Store the results of your index-operation in the variable <tt>day_18_condition_on</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1146,7 +1146,7 @@ Result of indexing my_array with bool_array:
 </div>
 </div>
 <p>Easy, right? Now try it yourself in the next ToDo!</p>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
 <b>ToDo</b>: Use a boolean index to extract all values whose square (i.e. $x^2$) is larger than 4 from the array (<tt>my_array</tt>) below. Store the results in a variable with the name <tt>square_is_larger_than_4</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1229,7 +1229,7 @@ array([ True, False,  True,  True]) (&lt;class &#39;numpy.bool_&#39;&gt;)
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Below, we've defined a boolean array named <tt>bool_array</tt>. Convert it to an array with integers and store it in a new array called <tt>bool2int_array</tt>. Check out the values of the new array!
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1428,7 +1428,7 @@ Shape after ravel(): (10,)
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
 <b>ToDo</b> (1 point): Let's practice writing functions some more. Complete the function below, named <tt>calculate_range</tt>. This function takes  a single input-argument &mdash; a 1D numpy array &mdash; and subsequently calculates the <a href="https://en.wikipedia.org/wiki/Range_(statistics)">range</a> of the array. The range is the difference between the maximum and minimum of any given array (vector) $x$:
 <p>\begin{align}
 \mathrm{range}(x) = \max(x) - \min(x)
@@ -1537,7 +1537,7 @@ Number of dimensions:
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Let's try another one. Complete the function below, named <tt>compute_one_sample_ttest</tt>. This function takes two input arguments:
 <ul class="simple">
 <li><p>arr : a 1D numpy array</p></li>
@@ -1769,7 +1769,7 @@ array([[ 6.,  8.],
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
 <b>ToDo</b>: Do an elementwise product between the two variables defined below (<tt>arr_A</tt> and <tt>arr_B</tt>) and subsequently add 5 to each element; store the result in a new variable called <tt>result_product_and_sum</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1892,7 +1892,7 @@ Using the axis-argument is 50.778 times faster than a for-loop!
 </div>
 <p>This application of functions on entire arrays (in an elementwise manner, like <code class="docutils literal notranslate"><span class="pre">arr_1</span> <span class="pre">+</span> <span class="pre">arr_2</span></code>) and application of functions across a certain axis (like <code class="docutils literal notranslate"><span class="pre">np.sum(arr_1,</span> <span class="pre">axis=1)</span></code>) is often called <strong>vectorization</strong>. This is an incredibly useful concept and something that is used in many data analysis tools! Make sure you understand this.</p>
 <p>Let’s practice this a bit.</p>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
 <b>ToDo</b>: Remember the "range" function from before? Below, we started writing a function, called <tt>calculate_range_vectorized</tt>, that calculates, for any 2D array, the range of each column (i.e. calculates range <em>across rows</em> for each column) in a vectorized manner (so without any for loops!).<br><br>
 Complete the function, and make sure to return the result, which should be a 1D vector which values represents the ranges for all columns. So, if the input array would be of shape <tt>(100, 10)</tt>, then the shape of your returned array should be <tt>(10,)</tt>.
 </div><div class="cell docutils container">
@@ -2055,7 +2055,7 @@ The result of adding v to each row of x, as stored in y:
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Below, we started writing a function called <tt>standardize_columns</tt>, which takes a single input-argument &mdash; a 2D numpy array &mdash; and should subsequently <em>standardize</em> each column such that each column has a mean of zero and a standard deviation of 1. In other words, standardization subtracts the mean (across rows) of each column from the values in that column, and then divides those value with the standard deviation of that column. Formally, for each column $j$ in any 2D array, standardization entails:
 <p>\begin{align}
 x_{j}\ \mathrm{standardized} = \frac{(x_{j} - \bar{x_{j}})}{\mathrm{std}(x_{j})}

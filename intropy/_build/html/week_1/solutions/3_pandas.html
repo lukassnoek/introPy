@@ -258,7 +258,7 @@
             href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_1/solutions/3_pandas.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/week_1/solutions/3_pandas.ipynb"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_1/solutions/3_pandas.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -278,14 +278,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/week_1/tutorials/3_pandas.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/solutions/3_pandas.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/week_1/solutions/3_pandas.ipynb&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -483,7 +483,7 @@
 </table>
 </div></div></div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: The <tt>pd.read_csv</tt> is in fact a very flexible function and has a lot of arguments to tweak it according to your needs. Check out its <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">documentation</a> to get an overview of its arguments! For example, try to load the same data (from <tt>example_data.csv</tt>), but include only the "age" and "wm_score" columns, and store this 2-column dataframe in a variable named <tt>df_todo</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,7 +540,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-success' style='padding-bottom:10px'>
+<div class='alert alert-success'>
     <b>Note</b>: there is no reason that the column names should be strings and the index should be integers. It completely valid to use, for example, integers as column names and strings as index values!
 </div><div class="section" id="creating-dataframes-from-scratch">
 <h3>Creating dataframes from scratch<a class="headerlink" href="#creating-dataframes-from-scratch" title="Permalink to this headline">¶</a></h3>
@@ -597,7 +597,7 @@
 </div></div></div>
 </div>
 <p>As you can see, the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> class automatically infers the column names from the dictionary keys and creates a default integer index starting at 0.</p>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: You can also specify the index explicitly by passing a list to the <tt>index</tt> parameter (see also the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">documentation</a>). Using the variable <tt>data</tt> again, create a new dataframe (called <tt>df_todo</tt>) but use "x", "y", "z" for the index. 
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -681,7 +681,7 @@
 </div></div></div>
 </div>
 <p>Note that other indexing methods also exist, like indexing columns directly (e.g., <code class="docutils literal notranslate"><span class="pre">df['age']</span></code>), or indexing columns by accessing them as attributes (e.g., <code class="docutils literal notranslate"><span class="pre">df.age</span></code>). We strongly suggest always using <code class="docutils literal notranslate"><span class="pre">loc</span></code> (and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>), though, for consistency (also because this method is the most versatile).</p>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Select the second and fourth row and the "participant_id" and "condition" columns from the dataframe (<tt>df</tt>) and store the result in a new variable named <tt>df_todo</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -814,7 +814,7 @@ Name: age, dtype: int64
 </div>
 </div>
 <p>We won’t discuss <code class="docutils literal notranslate"><span class="pre">Series</span></code> in this notebook, as in practice you’ll mostly work with <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects (but we wanted to show it to you in case you encounter them).</p>
-<div class='alert alert-success' style='padding-bottom:10px'>
+<div class='alert alert-success'>
     <b>Tip</b>: Want to select a single column/row, but still want pandas to return a dataframe? Make sure you use a list to index the single column/row!<br><br>That is, use:<br><tt>df.loc[:, ['age']]</tt><br>and not:<br><tt>df.loc[:, 'age']</tt>).
 </div></div>
 <div class="section" id="indexing-with-iloc">
@@ -921,7 +921,7 @@ Name: age, dtype: int64
 </table>
 </div></div></div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Using a row and column slice, select the first three rows and the last three columns of the <tt>df</tt> dataframe and store it a new variable named <tt>df_todo</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1083,7 +1083,7 @@ Name: age, dtype: bool
 </table>
 </div></div></div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Using boolean indexing, select all participants in condition A and store it in new variable named <tt>conA_pp</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1191,7 +1191,7 @@ Name: age, dtype: bool
 </div></div></div>
 </div>
 <p>In the above cell we basically used <code class="docutils literal notranslate"><span class="pre">loc</span></code> to assign a list of values to a new column named “nationality”. Importantly, this list should have the same number of values as the number of rows of the dataframe.</p>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: In the same way as shown above, you can add rows to the dataframe. You got some new data from "sub-05" (a 23 year old French participant who was part of condition B and had a working memory score of 51). Add this to the existing dataframe (<tt>df</tt>) in the code cell below. Make sure not to overwrite the existing data by choosing a new index value (e.g., 4).
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1304,7 +1304,7 @@ Name: age, dtype: bool
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Try running the above cell again. You'll get an error! Do you understand why?
 </div></div>
 <div class="section" id="dataframe-operations">
@@ -1401,7 +1401,7 @@ dtype: float64
 </div>
 </div>
 </div>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Compute the standard deviation of the "age" column only using the appropriate dataframe method (google this!) and store single value in a new variable named <tt>age_sd</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1485,7 +1485,7 @@ dtype: float64
 </div></div></div>
 </div>
 <p>Note that the group factor becomes the index in the resulting dataframe! Again, the mean operation is only performed for the numeric columns. To explain all of the functionality of the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method probably needs a completely separate tutorial, so let’s just finish with a relatively more difficult (and optional) ToDo.</p>
-<div class='alert alert-warning' style='padding-bottom:10px'>
+<div class='alert alert-warning'>
     <b>ToDo</b>: Below, we simulate a dataset with reaction time data (in ms.) across four groups ('A', 'B', 'C', 'D') of 25 participants each. Suppose that we want to, for each group separately, a one-sided t-test of reaction time (against a population mean of 300 ms.). Create a dataframe with 3 columns ("mean", "std", and "t_value") and 4 rows ('A', 'B', 'C', 'D', representing the groups), where the "t_value" column should contain t-values corresponding to the groups.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
