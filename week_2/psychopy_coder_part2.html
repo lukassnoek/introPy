@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The PsychoPy Coder (part 2) &#8212; introPy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to continue with PsychoPy?" href="psychopy_how_to_continue.html" />
+    <link rel="prev" title="The PsychoPy Coder (part 1)" href="psychopy_coder_part1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">introPy</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to introPy
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/installation.html">
+   Getting started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/jupyter.html">
+   The Jupyter ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/for_educators.html">
+   Information for educators
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Week 1 (Python)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/python.html">
+   Python essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/0_introduction.html">
+   Introduction to Python (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/1_python_basics.html">
+   Python basics (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/2_matplotlib.html">
+   Introduction to Matplotlib (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/3_pandas.html">
+   Introduction to Pandas (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/4_numpy.html">
+   Introduction to Numpy (T)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Week 2 (PsychoPy)
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy.html">
+   PsychoPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_psychopy.html">
+   Introduction to PsychoPy (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy_builder_part1.html">
+   PsychoPy Builder, part 1 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy_builder_part2.html">
+   PsychoPy Builder, part 2 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy_coder_part1.html">
+   PsychoPy Coder, part 1 (T)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   PsychoPy Coder, part 2 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy_how_to_continue.html">
+   How to continue with PsychoPy?
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week_2/psychopy_coder_part2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lukassnoek/introPy"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_2/psychopy_coder_part2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/week_2/psychopy_coder_part2.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#components">
+   Components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drawin-flippin">
+   Drawin’ &amp; flippin’
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responses">
+   Responses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing-revisited">
+   Timing revisited
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logging-onsets">
+   Logging onsets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-data">
+   Saving data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-psychopy-coder-part-2">
+<h1>The PsychoPy Coder (part 2)<a class="headerlink" href="#the-psychopy-coder-part-2" title="Permalink to this headline">¶</a></h1>
+<p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment. In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with the experiment data.</p>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<p>Like in the Builder, <em>components</em> are the “bread and butter” in the Coder interface as well. In the coder, however, these components are implemented in different classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. For example, to add a text component, you can use the <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module and to add a sound component, you can use the <code class="docutils literal notranslate"><span class="pre">Sound</span></code> component from the <code class="docutils literal notranslate"><span class="pre">psychopy.sound</span></code> module.</p>
+<p>Basically, every component from the Builder has an equivalent in the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. Moreover, each component has the same properties in the Builder as in the Coder. For example, the <em>color</em> and <em>font</em> properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with <code class="docutils literal notranslate"><span class="pre">font='Calibri'</span></code> and <code class="docutils literal notranslate"><span class="pre">color=(-1,</span> <span class="pre">-1,</span> <span class="pre">1)</span></code>.</p>
+<p>Importantly, all visual stimulus classes (like <code class="docutils literal notranslate"><span class="pre">TextStim</span></code>, but not <code class="docutils literal notranslate"><span class="pre">Sound</span></code>) additionally need one (mandatory) argument: a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object! This allows to <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> to interact with the window. So, let’s recap: to initialize a component in the Coder interface, we need to (1) import the corresponding class and (2) initialize it with a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object (in case of visual components) and optionally other arguments that modify the component’s behavior or display.</p>
+<p>Now, suppose you would like to welcome my participant by showing a short welcome message — “Welcome to this experiment!”. To do so, you’d need a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> which would need to be initialized as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">TextStim</span>
+
+<span class="c1"># We assume `win` already exists</span>
+<span class="n">welcome_txt_stim</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Welcome to this experiment!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>!!! example “ToDo”
+Paste the code snippet above into your script, after initializing the window and clock. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
+</div>
+<div class="section" id="drawin-flippin">
+<h2>Drawin’ &amp; flippin’<a class="headerlink" href="#drawin-flippin" title="Permalink to this headline">¶</a></h2>
+<p>When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! This is because you first need to <em>draw</em> the stimulus! This can be done by calling the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method that is included in each (visual) component class.</p>
+<p>!!! example “ToDo”
+After initialization of the text component, call the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method (without arguments) of the <code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code> variable. Then, run your experiment.</p>
+<p>Argh, still no sign of the welcome text in the window! This is because your monitor contains <a class="reference external" href="https://en.wikipedia.org/wiki/Multiple_buffering">two buffers</a>, a “front buffer” (which is visible) and a “back buffer” (which isn’t), and components are always drawn on the back buffer! To make the drawn components visible, we need to flip the back buffer to the front, which can be done by calling the <code class="docutils literal notranslate"><span class="pre">flip</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> object. By splitting the operation of showing stimuli into two operations (drawing and flipping the back buffer), you can precisely control when you want your stimuli to appear (i.e., when calling <code class="docutils literal notranslate"><span class="pre">flip</span></code>).</p>
+<p>!!! example “ToDo”
+Right after the call to the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method of the text component (<code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code>), add a call to the <code class="docutils literal notranslate"><span class="pre">flip</span></code> method (without arguments) of the window (<code class="docutils literal notranslate"><span class="pre">win</span></code>). Then, run the experiment again.</p>
+<p>Finally, you should see the welcome text on the window, albeit quite briefly! Again, it is only shown briefly because PsychoPy will simply follow the script and immediatly go to the next lines (which presumably are those that close the window and quit the experiment). There are several ways in which you can specify how long a component is visible, which differ in how precisely they can determine the duration. One of the easiest ways is to add a call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function after the window flip.</p>
+<p>!!! example “ToDo”
+Using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, make PsychoPy wait for 2 seconds after flipping the window. Then, run the experiment again.</p>
+<p>Now you should see that the welcome text is visible for 2 seconds (actually, a bit longer because of the time it takes to shut down the experiment). In [one of the next sections](psychopy_coder_part2.md#Timing revisited), we will discuss other (and more precise) methods to manipulate the duration of stimuli.</p>
+<p>Note that after flipping the window such that the back buffer is moved to the front buffer, the back buffer is completely cleared. This means that when you’d flip the window <em>again</em> (without drawing any stuff in the meantime), the front buffer would contain an empty window!</p>
+<p>!!! example “ToDo”
+After the call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, flip the window again, and add another call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function for two seconds (otherwise you won’t see the effect of the second flip). Then, run the experiment again.</p>
+<p>By flipping the window again, the welcome text disappeared and was replaced by an empty window (because the front buffer was replaced by an empty back buffer). This underlines an important concept: <em>every time you flip the window, you start with an empty back buffer</em> (and you need to draw your stimuli again, if you want to show them again on the next flip).</p>
+</div>
+<div class="section" id="responses">
+<h2>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">¶</a></h2>
+<p>After welcoming our participant, let’s add some instructions. Like we did in the Builder experiment, let’s also make sure that, after reading the instructions, the participant can continue the experiment by pressing enter (‘return’). This gives us an excuse to introduce the topic of working with participant responses!</p>
+<p>But first, let’s create a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the instructions:</p>
+<p>!!! quote “Instructions”
+In this experiment, you will see emotional faces (either happy or angry) with a word above the image (either “happy” or “angry”).
+Importantly, you need to respond to the EXPRESSION of the face and ignore the word. You respond with the arrow keys:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    HAPPY expression = left&lt;br&gt;
+    ANGRY expression = right
+    
+    (Press ‘enter’ to start the experiment!)
+</pre></div>
+</div>
+<p>!!! example “ToDo”
+Initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with the text above and store it in a variable named <code class="docutils literal notranslate"><span class="pre">instruct_txt_stim</span></code>.</p>
+<ul class="simple">
+<li><p>Stuff about <code class="docutils literal notranslate"><span class="pre">waitKeys</span></code>.</p></li>
+<li><p>Multiple components</p></li>
+</ul>
+</div>
+<div class="section" id="timing-revisited">
+<h2>Timing revisited<a class="headerlink" href="#timing-revisited" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>clock vs. frames</p></li>
+<li><p>Check how long it takes to initialize a stimulus</p></li>
+<li><p>Stuff about autoDraw</p></li>
+</ul>
+</div>
+<div class="section" id="logging-onsets">
+<h2>Logging onsets<a class="headerlink" href="#logging-onsets" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="saving-data">
+<h2>Saving data<a class="headerlink" href="#saving-data" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">The PsychoPy Coder (part 1)</a>
+    <a class='right-next' id="next-link" href="psychopy_how_to_continue.html" title="next page">How to continue with PsychoPy?</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lukas Snoek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

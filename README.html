@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to introPy &#8212; introPy</title>
+    <title>introPy &#8212; introPy</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,7 +57,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting started" href="getting_started/installation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -74,7 +73,7 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="#">
+<a class="navbar-brand text-wrap" href="index.html">
   
   <img src="_static/logo.png" class="logo" alt="logo">
   
@@ -88,8 +87,8 @@
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
    Welcome to introPy
   </a>
  </li>
@@ -234,7 +233,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/index.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/README.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -254,10 +253,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/index.md"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/README.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -283,36 +282,31 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prerequisites">
-   Prerequisites
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#teaching-philosophy">
-   Teaching philosophy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examination">
-   Examination
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-goals">
-   Learning goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-started">
-   Getting started
+  <a class="reference internal nav-link" href="#usage">
+   Usage
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-the-book">
+     Building the book
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hosting-the-book">
+     Hosting the book
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributors">
+   Contributors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#credits">
+   Credits
+  </a>
  </li>
 </ul>
 
@@ -325,115 +319,40 @@
         
               <div>
                 
-  <div class="section" id="welcome-to-intropy">
-<h1>Welcome to <em>introPy</em><a class="headerlink" href="#welcome-to-intropy" title="Permalink to this headline">¶</a></h1>
-<p>This website contains information about the two-week Python &amp; PsychoPy course taught at the Research Master Psychology (University of Amsterdam). The material itself is hosted on Github in <a class="reference external" href="https://github.com/lukassnoek/introPy">this repository</a>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This website is under construction and may change considerably!</p>
-</div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>As this two-week Python course is preceded by a two-week <em>R</em> course in the Research Master Psychology, we assume that students are familiar with basic programming concepts (such as variables, conditionals, loops, and functions). Familiarity with Python is not necessary. Those that already have some experience with Python, however, may find the tutorials from this course (too) easy. To challenge those people, we included several more difficult (optional) exercises in the tutorials!</p>
-</div>
-<div class="section" id="teaching-philosophy">
-<h2>Teaching philosophy<a class="headerlink" href="#teaching-philosophy" title="Permalink to this headline">¶</a></h2>
-<p>We believe in <em>learning by doing</em>. Most of your time will be spent by working on exercises, which we call <em>ToDos</em>. Although these exercises are ungraded, we highly recommend that you try to do them. If you manage to work through all of them, getting a decent grade on this course is expected.</p>
-</div>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>In week 1, you will learn the basics of Python. We assume that you have some programming experience in other languages (e.g., Matlab or R). In week 2, you will learn about the Python package <a class="reference external" href="https://www.psychopy.org/">PsychoPy</a>, which you can use to program experiments. The preliminary program can be found below.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Week</p></th>
-<th class="head"><p>Day</p></th>
-<th class="head"><p>Format</p></th>
-<th class="head"><p>Topic</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Mo.</p></td>
-<td><p>Lecture</p></td>
-<td><p>Introduction to Python</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>Mo.</p></td>
-<td><p>Tutorial</p></td>
-<td><p>Python essentials</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>We.</p></td>
-<td><p>Lecture</p></td>
-<td><p>Working with data</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>We.</p></td>
-<td><p>Tutorial</p></td>
-<td><p>Matplotlib + Pandas + Numpy</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Fr.</p></td>
-<td><p>Assigment</p></td>
-<td><p>All of the above</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Mo.</p></td>
-<td><p>Lecture</p></td>
-<td><p>Introduction to stimulus presentation</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>Mo.</p></td>
-<td><p>Tutorial</p></td>
-<td><p>PsychoPy Builder</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>We.</p></td>
-<td><p>-</p></td>
-<td><p>No lecture!</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>We.</p></td>
-<td><p>Tutorial</p></td>
-<td><p>PsychoPy Coder</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Fr.</p></td>
-<td><p>Exam</p></td>
-<td><p>Create a PsychoPy experiment from scratch!</p></td>
-</tr>
-</tbody>
-</table>
-<p>Expect to spend about 20-40 hours per week on this course (as is expected for a four week, full-time 6 EC course), which includes watching the lecture, doing the tutorials (including exercises), and working on the assignments. The amount of time you need for this course depends, of course, on your previous experience with programming in general, and programming in Python specifically.</p>
-</div>
-<div class="section" id="examination">
-<h2>Examination<a class="headerlink" href="#examination" title="Permalink to this headline">¶</a></h2>
-<p>For students from the Research Master taking this course, there will be two graded assignments: one on Friday in week 1 and one on Friday in week 2 (but the latter might be postponed). The assignment in week 1 will involve a task in which you need to use your Python and Pandas skills to preprocess some data, perform several simple analyses, and use Matplotlib to visualize the results. This will be done in a Jupyter notebook on our Jupyterhub server. For the assignment in week 2, you’ll have to program an experiment from scratch using the PsychoPy Coder interface.</p>
-<p>For both assignments, you have 3 hours to complete it. It’s an “open-book” assignment, but you have to do it on your (i.e., no collaboration with your fellow students), and you’ll have to be present on Zoom during those three hours. The assignments are based only on the material discussed in the tutorials; the material that is indicated to be <em>optional</em> won’t be part of either of the assignments. About 80% of the assignment will be similar in difficulty as most exercises (“ToDos”) in the tutorials, but about 20% of the assignment will feature substantially more difficult exercises (similar in difficulty, but not in content, to the optional exercises from the tutorials). In other words, if you complete all tutorials, getting an 8 (out of 10) for the assignments is definitely doable. But getting a(n even) better grade will be more challenging!</p>
-</div>
-<div class="section" id="learning-goals">
-<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">¶</a></h2>
-<p>At the end of this course, you will …</p>
+  <div class="section" id="intropy">
+<h1>introPy<a class="headerlink" href="#intropy" title="Permalink to this headline">¶</a></h1>
+<p>An introduction to Python and PsychoPy.</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="building-the-book">
+<h3>Building the book<a class="headerlink" href="#building-the-book" title="Permalink to this headline">¶</a></h3>
+<p>If you’d like to develop on and build the introPy book, you should:</p>
 <ul class="simple">
-<li><p>know the major differences between Python and R;</p></li>
-<li><p>know the (dis)advantages of Python relative to other programming languages;</p></li>
-<li><p>understand the concept of “object-oriented programming”;</p></li>
-<li><p>be able to create basic Python scripts;</p></li>
-<li><p>be able to implement basic data processing operations and visualization using <a class="reference external" href="https://pandas.pydata.org/"><em>pandas</em></a> and <a class="reference external" href="https://matplotlib.org/"><em>matplotlib</em></a>;</p></li>
-<li><p>know the basics of stimulus presentation;</p></li>
-<li><p>be able to implement simple experiments using the PsychoPy Builder and Coder interface.</p></li>
+<li><p>Clone this repository and run</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code> (it is recommended you do this within a virtual environment)</p></li>
+<li><p>(Recommended) Remove the existing <code class="docutils literal notranslate"><span class="pre">introPy/_build/</span></code> directory</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">introPy/</span></code></p></li>
 </ul>
-<p>Importantly, this course focuses on the <em>basics</em> of Python and PsychoPy, but we have highlighted several resources that you may use to continue your Python/PsychoPy journey <a class="reference internal" href="week_2/psychopy_how_to_continue.html"><span class="doc std std-doc">here</span></a>.</p>
+<p>A fully-rendered HTML version of the book will be built in <code class="docutils literal notranslate"><span class="pre">introPy/_build/html/</span></code>.</p>
 </div>
-<div class="section" id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>Go to the <a class="reference internal" href="getting_started/installation.html"><span class="doc std std-doc"><em>Getting Started</em></span></a> page for installation instructions!</p>
-<div class="toctree-wrapper compound">
+<div class="section" id="hosting-the-book">
+<h3>Hosting the book<a class="headerlink" href="#hosting-the-book" title="Permalink to this headline">¶</a></h3>
+<p>The html version of the book is hosted on the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch of this repo. A GitHub actions workflow has been created that automatically builds and pushes the book to this branch on a push or pull request to main.</p>
+<p>If you wish to disable this automation, you may remove the GitHub actions workflow and build the book manually by:</p>
+<ul class="simple">
+<li><p>Navigating to your local build; and running,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ghp-import</span> <span class="pre">-n</span> <span class="pre">-p</span> <span class="pre">-f</span> <span class="pre">introPy/_build/html</span></code></p></li>
+</ul>
+<p>This will automatically push your build to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch. More information on this hosting process can be found <a class="reference external" href="https://jupyterbook.org/publish/gh-pages.html#manually-host-your-book-with-github-pages">here</a>.</p>
 </div>
-<div class="toctree-wrapper compound">
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>We welcome and recognize all contributions. You can see a list of current contributors in the <a class="reference external" href="https://github.com/lukassnoek/intropy/graphs/contributors">contributors tab</a>.</p>
 </div>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p>This project is created using the excellent open source <a class="reference external" href="https://jupyterbook.org/">Jupyter Book project</a> and the <a class="reference external" href="https://github.com/executablebooks/cookiecutter-jupyter-book">executablebooks/cookiecutter-jupyter-book template</a>.</p>
 </div>
 </div>
 
@@ -465,7 +384,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="getting_started/installation.html" title="next page">Getting started</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

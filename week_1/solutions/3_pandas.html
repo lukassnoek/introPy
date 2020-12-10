@@ -1,0 +1,1649 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Pandas &#8212; introPy</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction to Numpy" href="4_numpy.html" />
+    <link rel="prev" title="Introduction to Matplotlib" href="2_matplotlib.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">introPy</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to introPy
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/installation.html">
+   Getting started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/jupyter.html">
+   The Jupyter ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/for_educators.html">
+   Information for educators
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Week 1 (Python)
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python.html">
+   Python essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_introduction.html">
+   Introduction to Python (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_python_basics.html">
+   Python basics (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_matplotlib.html">
+   Introduction to Matplotlib (T)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction to Pandas (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_numpy.html">
+   Introduction to Numpy (T)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Week 2 (PsychoPy)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week_2/psychopy.html">
+   PsychoPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week_2/intro_psychopy.html">
+   Introduction to PsychoPy (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week_2/psychopy_builder_part1.html">
+   PsychoPy Builder, part 1 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week_2/psychopy_builder_part2.html">
+   PsychoPy Builder, part 2 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week_2/psychopy_coder_part1.html">
+   PsychoPy Coder, part 1 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week_2/psychopy_coder_part2.html">
+   PsychoPy Coder, part 2 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week_2/psychopy_how_to_continue.html">
+   How to continue with PsychoPy?
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/week_1/solutions/3_pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lukassnoek/introPy"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_1/solutions/3_pandas.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/week_1/solutions/3_pandas.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/week_1/tutorials/3_pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframes">
+   Dataframes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-dataframes-from-scratch">
+     Creating dataframes from scratch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing">
+   Indexing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing-with-loc">
+     Indexing with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       loc
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intermezzo-series-vs-dataframes">
+     Intermezzo: Series vs. Dataframes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing-with-iloc">
+     Indexing with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       iloc
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-indexing">
+     Boolean indexing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-and-removing-rows-and-columns">
+   Adding and removing rows and columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframe-operations">
+   Dataframe operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aggregation-advanced-optional">
+   Aggregation (advanced / optional)
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-pandas">
+<h1>Introduction to Pandas<a class="headerlink" href="#introduction-to-pandas" title="Permalink to this headline">¶</a></h1>
+<p>Pandas is a Python package that contains functionality for data analysis and manipulatoin. It is used mostly for “table-like” data, i.e., data that can be organized in 2D tables with observations organized across rows and variables across columns. With Pandas, you can do most of the data processing routines you might know from R. (R contains more extensive statistics-related functionality, though.)</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Dataframes</p></li>
+<li><p>Indexing</p></li>
+<li><p>Dataframe operations</p></li>
+<li><p>Aggregation (optional)</p></li>
+</ol>
+</div>
+<div class="section" id="dataframes">
+<h2>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h2>
+<p>Alright, let’s get started. The Pandas package isis usually imported as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Although Pandas contains several functions for processing data, the package is very object-oriented. Specifically, most of its functionality is implemented in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> class, which is similar to R’s <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> (or <a class="reference external" href="https://tibble.tidyverse.org/">tibble</a>).</p>
+<p>Now, you can actually create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object using different methods. You can create it from scratch (in Python) or you can load it from an external file, like a CSV (comma-separated value) file or an Excel file. The latter is probably the most often used, so let’s take a look at that. We created some data from a (very small) hypothetical working memory experiment, which we saved in a CSV file (where each column is separated by commas, hence the name). To load in this data, we will use the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;example_data.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># you may ignore this line</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To view its contents, we can just enter <code class="docutils literal notranslate"><span class="pre">df</span></code> as the last line in a code cell (so without <code class="docutils literal notranslate"><span class="pre">print</span></code>) and run the cell. This way, Jupyter notebooks will actually render the dataframes nicely:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25</td>
+      <td>A</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-02</td>
+      <td>21</td>
+      <td>B</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28</td>
+      <td>A</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25</td>
+      <td>B</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: The <tt>pd.read_csv</tt> is in fact a very flexible function and has a lot of arguments to tweak it according to your needs. Check out its <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">documentation</a> to get an overview of its arguments! For example, try to load the same data (from <tt>example_data.csv</tt>), but include only the "age" and "wm_score" columns, and store this 2-column dataframe in a variable named <tt>df_todo</tt>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df_todo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;example_data.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;wm_score&#39;</span><span class="p">])</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">df_todo</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;wm_score&#39;</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Something went wrong ... :-(&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Well done!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
+</div>
+<p>As mentioned, Pandas dataframes assume that its rows represent different observations (here: participants) and its columns represent different variables (here: participant ID, age, condition, and working memory score). Apart from the dataframe’s values (e.g., “sub-01”, “sub-02” and 25, 21), the dataframe also contains column names (here: “participant_id”, “age”, “condition”, “wm_score”) and row names (0, 1, 2, 3). The row names are usually referred to as the dataframe’s <em>index</em>. The column names can be accessed using the <code class="docutils literal notranslate"><span class="pre">columns</span></code> attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Actually, this is a specific object called an Index, but</span>
+<span class="c1"># you can forget about that for now</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;participant_id&#39;, &#39;age&#39;, &#39;condition&#39;, &#39;wm_score&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>… and the row index can be accessed using the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Again, it is a specific object, which you may ignore for now</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([0, 1, 2, 3], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class='alert alert-success' style='padding-bottom:10px'>
+    <b>Note</b>: there is no reason that the column names should be strings and the index should be integers. It completely valid to use, for example, integers as column names and strings as index values!
+</div><div class="section" id="creating-dataframes-from-scratch">
+<h3>Creating dataframes from scratch<a class="headerlink" href="#creating-dataframes-from-scratch" title="Permalink to this headline">¶</a></h3>
+<p>In some situations, you may want to create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object from scratch. Although there are different ways to do this, arguably the easiest way is to pass a dictionary to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;var1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;var2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span>  <span class="s1">&#39;c&#39;</span><span class="p">]}</span>
+<span class="n">some_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">some_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>var1</th>
+      <th>var2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> class automatically infers the column names from the dictionary keys and creates a default integer index starting at 0.</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: You can also specify the index explicitly by passing a list to the <tt>index</tt> parameter (see also the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">documentation</a>). Using the variable <tt>data</tt> again, create a new dataframe (called <tt>df_todo</tt>) but use "x", "y", "z" for the index. 
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
+<span class="n">df_todo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">df_todo</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong ...&quot;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Well done!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yes! Well done!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indexing">
+<h2>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h2>
+<p>One important operation you need to now is how to select (or “extract”) particular rows and/or columns. There are, in fact, multiple ways to do this, but we recommend sticking with <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>.</p>
+<div class="section" id="indexing-with-loc">
+<h3>Indexing with <code class="docutils literal notranslate"><span class="pre">loc</span></code><a class="headerlink" href="#indexing-with-loc" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">loc</span></code> indexer selects rows and/or columns based on their name (similar to indexing a dictionary). You always need to supply the <code class="docutils literal notranslate"><span class="pre">loc</span></code> indexer both your row selection and your column selection. In general, it should be used as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_selection</span><span class="p">,</span> <span class="n">column_selection</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">row_selection</span></code> and <code class="docutils literal notranslate"><span class="pre">column_selection</span></code> may be either a single row/column name or a list of row/column names. For example, if you’d want to select the first two rows and the “age” and “wm_score” columns, you could do the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;wm_score&#39;</span><span class="p">]]</span>
+<span class="n">df_subset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21</td>
+      <td>48</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that other indexing methods also exist, like indexing columns directly (e.g., <code class="docutils literal notranslate"><span class="pre">df['age']</span></code>), or indexing columns by accessing them as attributes (e.g., <code class="docutils literal notranslate"><span class="pre">df.age</span></code>). We strongly suggest always using <code class="docutils literal notranslate"><span class="pre">loc</span></code> (and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>), though, for consistency (also because this method is the most versatile).</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Select the second and fourth row and the "participant_id" and "condition" columns from the dataframe (<tt>df</tt>) and store the result in a new variable named <tt>df_todo</tt>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df_todo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;participant_id&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">]]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">df_todo</span><span class="p">[</span><span class="s1">&#39;participant_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;sub-02&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-04&#39;</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong ...&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">df_todo</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong ...&quot;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Well done!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that you can also select <em>all</em> rows or columns at once using the colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>). For example, if you’d want to select all rows from the “age” and “wm_score” columns, you can do the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;wm_score&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>28</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="intermezzo-series-vs-dataframes">
+<h3>Intermezzo: Series vs. Dataframes<a class="headerlink" href="#intermezzo-series-vs-dataframes" title="Permalink to this headline">¶</a></h3>
+<p>Before continuing with position-based indexing using <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, we need to quickly discuss pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> objects. <code class="docutils literal notranslate"><span class="pre">Series</span></code> are basically single-column (or single-row) dataframes. For example, if we’d select a single column from our example dataframe, we’d have a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">srs</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span>  <span class="c1"># note the absence of the list</span>
+<span class="n">srs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    25
+1    21
+2    28
+3    25
+Name: age, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">srs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p>As such, you can think of <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects as a collection of <code class="docutils literal notranslate"><span class="pre">Series</span></code> objects. As opposed to <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object, <code class="docutils literal notranslate"><span class="pre">Series</span></code> object does not have column names (but its original column name can be accessed through the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute), but it <em>does</em> have an index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">srs</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([0, 1, 2, 3], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We won’t discuss <code class="docutils literal notranslate"><span class="pre">Series</span></code> in this notebook, as in practice you’ll mostly work with <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects (but we wanted to show it to you in case you encounter them).</p>
+<div class='alert alert-success' style='padding-bottom:10px'>
+    <b>Tip</b>: Want to select a single column/row, but still want pandas to return a dataframe? Make sure you use a list to index the single column/row!<br><br>That is, use:<br><tt>df.loc[:, ['age']]</tt><br>and not:<br><tt>df.loc[:, 'age']</tt>).
+</div></div>
+<div class="section" id="indexing-with-iloc">
+<h3>Indexing with <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#indexing-with-iloc" title="Permalink to this headline">¶</a></h3>
+<p>Instead of selecting subsets from dataframes based on their column names and row names (index) using <code class="docutils literal notranslate"><span class="pre">loc</span></code>, you can also do so using the “integer-location” of the subsets using <code class="docutils literal notranslate"><span class="pre">iloc</span></code>. This method of indexing follows the same rules as indexing lists. For example, you can simply select specific columns, e.g., the first and fourth column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-02</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>But you can also use negative indices (counting from the end) or using slices:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take the first and last row and every second column starting at 1</span>
+<span class="c1"># i.e., all odd columns</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Using a row and column slice, select the first three rows and the last three columns of the <tt>df</tt> dataframe and store it a new variable named <tt>df_todo</tt>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df_todo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">df_todo</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Row index is incorrect!&quot;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">df_todo</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">,</span> <span class="s1">&#39;wm_score&#39;</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Column index is incorrect!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="boolean-indexing">
+<h3>Boolean indexing<a class="headerlink" href="#boolean-indexing" title="Permalink to this headline">¶</a></h3>
+<p>A last, slightly trickier, indexing method is <em>boolean indexing</em>. This method is often used to select a specific subset of rows from a dataframe. It essentially boils down to creating a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object with boolean values (i.e., <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values) and using that in combination with <code class="docutils literal notranslate"><span class="pre">loc</span></code>.</p>
+<p>For example, suppose that you want to select all participants (i.e., rows) who are older than 21. First, you need to create a boolean series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_idx</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">21</span>
+<span class="n">b_idx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1    False
+2     True
+3     True
+Name: age, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>… and then, you can use it together with <code class="docutils literal notranslate"><span class="pre">loc</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">b_idx</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25</td>
+      <td>A</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28</td>
+      <td>A</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25</td>
+      <td>B</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can, of course, also do this within a single line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25</td>
+      <td>A</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28</td>
+      <td>A</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25</td>
+      <td>B</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Using boolean indexing, select all participants in condition A and store it in new variable named <tt>conA_pp</tt>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">conA_pp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">:]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">conA_pp</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Make sure you only filter the rows, not the columns!&quot;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">conA_pp</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hmm, the indexing operation didn&#39;t go as expected ...&quot;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WELL DONE!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WELL DONE!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-and-removing-rows-and-columns">
+<h2>Adding and removing rows and columns<a class="headerlink" href="#adding-and-removing-rows-and-columns" title="Permalink to this headline">¶</a></h2>
+<p>When working with dataframes, at some point you’ll may want to add columns and/or rows. You can actually use the <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> indexers for this as well. For example, if you would like to add a new column named “nationality” to the dataframe, you can do the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: no list this time</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;nationality&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dutch&#39;</span><span class="p">,</span> <span class="s1">&#39;British&#39;</span><span class="p">,</span> <span class="s1">&#39;Dutch&#39;</span><span class="p">,</span> <span class="s1">&#39;German&#39;</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+      <th>nationality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25</td>
+      <td>A</td>
+      <td>41</td>
+      <td>Dutch</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-02</td>
+      <td>21</td>
+      <td>B</td>
+      <td>48</td>
+      <td>British</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28</td>
+      <td>A</td>
+      <td>34</td>
+      <td>Dutch</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25</td>
+      <td>B</td>
+      <td>39</td>
+      <td>German</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>In the above cell we basically used <code class="docutils literal notranslate"><span class="pre">loc</span></code> to assign a list of values to a new column named “nationality”. Importantly, this list should have the same number of values as the number of rows of the dataframe.</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: In the same way as shown above, you can add rows to the dataframe. You got some new data from "sub-05" (a 23 year old French participant who was part of condition B and had a working memory score of 51). Add this to the existing dataframe (<tt>df</tt>) in the code cell below. Make sure not to overwrite the existing data by choosing a new index value (e.g., 4).
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sub-05&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="s1">&#39;French&#39;</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;participant_id&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;sub-05&#39;</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hmm, the participant_id of the new row does not seem to be correct ...&quot;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">23</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hmm, the age of the new row does not seem to be correct ...&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hmm, the condition of the new row does not seem to be correct ...&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;wm_score&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">51</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hmm, the wm_score of the new row does not seem to be correct ...&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;nationality&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;French&#39;</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hmm, the nationality of the new row does not seem to be correct ...&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CORRECT!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CORRECT!
+</pre></div>
+</div>
+</div>
+</div>
+<p>To delete a row or column, you can use the <code class="docutils literal notranslate"><span class="pre">drop</span></code> method (see the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html">documentation</a> for more details). You can drop both columns (using the argument <code class="docutils literal notranslate"><span class="pre">columns</span></code>) and rows (using the argument <code class="docutils literal notranslate"><span class="pre">rows</span></code>) at the same time. For example, if I’d want to drop data fram “sub-05” and the entire “nationality” column, we could do the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;nationality&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25.0</td>
+      <td>A</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-02</td>
+      <td>21.0</td>
+      <td>B</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28.0</td>
+      <td>A</td>
+      <td>34.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25.0</td>
+      <td>B</td>
+      <td>39.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that the dataframe is not automatically updated! If we want to <em>replace</em> the original dataframe, we need to assign the result of the <code class="docutils literal notranslate"><span class="pre">drop</span></code> call to the original variable name (<code class="docutils literal notranslate"><span class="pre">df</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;nationality&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Try running the above cell again. You'll get an error! Do you understand why?
+</div></div>
+<div class="section" id="dataframe-operations">
+<h2>Dataframe operations<a class="headerlink" href="#dataframe-operations" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (and <code class="docutils literal notranslate"><span class="pre">Series</span></code>) objects have a lot of methods that implement common computational and statistical operations. Often, these methods return a new <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or <code class="docutils literal notranslate"><span class="pre">Series</span></code> object with the result from the operation. For example, a useful method is <code class="docutils literal notranslate"><span class="pre">describe</span></code>, which returns a set of descriptive statistics for all numeric columns (i.e., it will automatically skip non-numeric columns):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>4.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>24.750000</td>
+      <td>40.500000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.872281</td>
+      <td>5.802298</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>21.000000</td>
+      <td>34.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>24.000000</td>
+      <td>37.750000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>25.000000</td>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>25.750000</td>
+      <td>42.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>28.000000</td>
+      <td>48.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Separate operations, like computing the mean, are also available:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that it returns a Series, because it consists</span>
+<span class="c1"># of a single column (with two values)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age         24.75
+wm_score    40.50
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Compute the standard deviation of the "age" column only using the appropriate dataframe method (google this!) and store single value in a new variable named <tt>age_sd</tt>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">age_sd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="nb">round</span><span class="p">(</span><span class="n">age_sd</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">2.872</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong ...&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Well done!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aggregation-advanced-optional">
+<h2>Aggregation (advanced / optional)<a class="headerlink" href="#aggregation-advanced-optional" title="Permalink to this headline">¶</a></h2>
+<p>In the context of data analysis and statistics, you may want to perform operations separately for different subsets of the data. For example, you may want to compute the mean age separately for the different conditions. You may know this aggregation operation as creating a “pivot table”. With pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects, this can be easily done using the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method in combination with a particular operation.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method, you define by which factor you want to group your data (e.g., “condition”) and you may subsequently “chain” it with another method (e.g, <code class="docutils literal notranslate"><span class="pre">mean</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">means</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;condition&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">means</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+    <tr>
+      <th>condition</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>26.5</td>
+      <td>37.5</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>23.0</td>
+      <td>43.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that the group factor becomes the index in the resulting dataframe! Again, the mean operation is only performed for the numeric columns. To explain all of the functionality of the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method probably needs a completely separate tutorial, so let’s just finish with a relatively more difficult (and optional) ToDo.</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Below, we simulate a dataset with reaction time data (in ms.) across four groups ('A', 'B', 'C', 'D') of 25 participants each. Suppose that we want to, for each group separately, a one-sided t-test of reaction time (against a population mean of 300 ms.). Create a dataframe with 3 columns ("mean", "std", and "t_value") and 4 rows ('A', 'B', 'C', 'D', representing the groups), where the "t_value" column should contain t-values corresponding to the groups.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">25</span>
+<span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rt&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="n">cond</span><span class="p">})</span>
+<span class="n">df_final</span>
+
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="c1"># Not necessarily the most elegant solution!</span>
+<span class="n">df_stats</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df_stats</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span>
+<span class="n">df_stats</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_stats</span><span class="p">[</span><span class="s1">&#39;t_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">300</span><span class="p">)</span> <span class="o">/</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">df_stats</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+      <th>t_value</th>
+    </tr>
+    <tr>
+      <th>condition</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>289.942357</td>
+      <td>46.397118</td>
+      <td>-1.476559</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>286.647525</td>
+      <td>60.784731</td>
+      <td>-1.712634</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>291.063054</td>
+      <td>69.373691</td>
+      <td>-1.072980</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>303.270039</td>
+      <td>76.454090</td>
+      <td>0.373984</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;t_value&#39;</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The dataframe does not contain the right columns!&quot;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The dataframe does not contain the right index!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;t_value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.477</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.713</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.073</span><span class="p">,</span> <span class="mf">0.374</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;T-values are not yet correct!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YOU&#39;RE AMAZING!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>YOU&#39;RE AMAZING!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week_1/solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="2_matplotlib.html" title="previous page">Introduction to Matplotlib</a>
+    <a class='right-next' id="next-link" href="4_numpy.html" title="next page">Introduction to Numpy</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lukas Snoek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
