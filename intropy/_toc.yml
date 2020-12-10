@@ -11,15 +11,15 @@
 - part: Week 1 (Python)
   chapters:
   - file: week_1/python
-  - file: week_1/solutions/0_introduction
+  - file: solutions/week_1/0_introduction
     title: Introduction to Python (T)
-  - file: week_1/solutions/1_python_basics
+  - file: solutions/week_1/1_python_basics
     title: Python basics (T)
-  - file: week_1/solutions/2_matplotlib
+  - file: solutions/week_1/2_matplotlib
     title: Introduction to Matplotlib (T)
-  - file: week_1/solutions/3_pandas
+  - file: solutions/week_1/3_pandas
     title: Introduction to Pandas (T)
-  - file: week_1/solutions/4_numpy
+  - file: solutions/week_1/4_numpy
     title: Introduction to Numpy (T)
 
 - part: Week 2 (PsychoPy)

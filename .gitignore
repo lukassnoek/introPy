@@ -132,16 +132,12 @@ site/
 # Custom
 **/my_awesome_figure.*
 **/gradebook.db
-intropy/week_2/tutorials/data
-intropy/week_2/solutions/data
-intropy/week_2/tutorials/intropy_demo*.py
-intropy/week_2/tutorialsstroop*.*py*
-intropy/week_2/tutorials/conditions.xlsx
-intropy/week_2/solutions/stroop*.py
-intropy/week_1/solutions/assignment_week1.ipynb
-intropy/week_1/tutorials/assignment_week1.ipynb
-intropy/week_2/solutions/assignment_week1.ipynb
-intropy/week_2/tutorials/assignment_week1.ipynb
+intropy/*/week_2/data
+intropy/*/week_2/intropy_demo*.py
+intropy/*/week_2/stroop*.*py*
+intropy/tutorials/week_2/conditions.xlsx
+intropy/solutions/week_2/stroop*.py
+intropy/*/week_1/assignment_week1.ipynb
 intropy/_build/
 
 **/.DS_Store

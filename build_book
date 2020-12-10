@@ -8,26 +8,26 @@ jupyter-book build intropy
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     OS=linux
     echo "Probably on GH actions!"
-    nb_html=$(ls intropy/_build/html/week_1/solutions/*.html)
+    nb_html=$(ls intropy/_build/html/solutions/week_1/*.html)
 else
     OS=mac
     echo "Working on Mac!"
-    nb_html=$(ls intropy/_build/html/week_1/solutions/*.html)
+    nb_html=$(ls intropy/_build/html/solutions/week_1/*.html)
 fi
 
 for nb in $nb_html; do
     echo "Fixing $nb ..."
     nb_name=$(basename $nb)
     nb_name=${nb_name/.html/}
-    to_replace="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/week_1/solutions/${nb_name}.ipynb&branch=master"
+    to_replace="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/solutions/week_1/${nb_name}.ipynb&branch=master"
     
     # Replace Jupyterhub url
     if [ $OS == linux ]; then
         sed -i "s+${to_replace}+https://neuroimaging.lukas-snoek.com+g" $nb
-        sed -i "s+lab/tree/intropy/week_1/solutions+lab/tree/intropy/week_1/tutorials+g" $nb
+        sed -i "s+solutions/week_1+tutorials/week_1+g" $nb
     else
         sed -i '' "s+${to_replace}+https://neuroimaging.lukas-snoek.com+g" $nb
-        sed -i '' "s+week_1/solutions+week_1/tutorials+g" $nb
+        sed -i '' "s+solutions/week_1+tutorials/week_1+g" $nb
     fi
 
     # Fix admonitions

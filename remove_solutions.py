@@ -1,6 +1,6 @@
 from glob import glob
 
-files = sorted(glob('intropy/_build/html/week_1/solutions/*.html'))
+files = sorted(glob('intropy/_build/html/solutions/week_1/*.html'))
 for f in files:
 
     print("Removing solutions from %s ..." % f)

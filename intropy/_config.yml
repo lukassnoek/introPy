@@ -12,8 +12,8 @@ logo                        : img/logo.png  # A path to the book logo
 
 # Global settings
 only_build_toc_files        : true
-exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "week_?/tutorials/*ipynb",
-                               "**.pytest_cache", "week_1/*/assignment*.ipynb", "week_2/assignment_week2.md",
+exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "tutorials/week_?/*ipynb",
+                               "**.pytest_cache", "*/week_1/assignment*.ipynb", "week_2/assignment_week2.md",
                                "README.md", "CONTRIBUTING.md", "CONDUCT.md"]
 
 execute:
