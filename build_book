@@ -8,7 +8,7 @@ jupyter-book build intropy
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     OS=linux
     echo "Probably on GH actions!"
-    nb_html=$(ls week_1/solutions/*.html)
+    nb_html=$(ls intropy/_build/html/week_1/solutions/*.html)
 else
     OS=mac
     echo "Working on Mac!"
