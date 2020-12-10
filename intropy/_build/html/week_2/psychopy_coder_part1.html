@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The PsychoPy Coder (part 1) &#8212; introPy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The PsychoPy Coder (part 2)" href="psychopy_coder_part2.html" />
+    <link rel="prev" title="A Builder experiment from scratch" href="psychopy_builder_part2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">introPy</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to introPy
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/installation.html">
+   Getting started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/jupyter.html">
+   The Jupyter ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/for_educators.html">
+   Information for educators
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Week 1 (Python)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/python.html">
+   Python essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/0_introduction.html">
+   Introduction to Python (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/1_python_basics.html">
+   Python basics (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/2_matplotlib.html">
+   Introduction to Matplotlib (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/3_pandas.html">
+   Introduction to Pandas (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/solutions/4_numpy.html">
+   Introduction to Numpy (T)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Week 2 (PsychoPy)
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy.html">
+   PsychoPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_psychopy.html">
+   Introduction to PsychoPy (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy_builder_part1.html">
+   PsychoPy Builder, part 1 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy_builder_part2.html">
+   PsychoPy Builder, part 2 (T)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   PsychoPy Coder, part 1 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy_coder_part2.html">
+   PsychoPy Coder, part 2 (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="psychopy_how_to_continue.html">
+   How to continue with PsychoPy?
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week_2/psychopy_coder_part1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lukassnoek/introPy"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_2/psychopy_coder_part1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/week_2/psychopy_coder_part1.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-psychopy-package">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     psychopy
+    </span>
+   </code>
+   package
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-coder-interface">
+   The Coder interface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dialog-boxes">
+   Dialog boxes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-window">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Window
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing-clocks">
+   Timing &amp; clocks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quitting-the-experiment">
+   Quitting the experiment
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-psychopy-coder-part-1">
+<h1>The PsychoPy Coder (part 1)<a class="headerlink" href="#the-psychopy-coder-part-1" title="Permalink to this headline">¶</a></h1>
+<p>At last, we’ll discuss the PsychoPy Coder! In this tutorial, we explain the basics of the Coder interface. In the next (and final) tutorial, we’ll discuss the Coder interface in more detail. Like in the previous Builder tutorial, we will explain the concepts by walking you through the process of programming a real experiment. This time, we will create a variant of the classical color-word Stroop task, the <em>emotion-word Stroop</em> task, in which participants are presented with images of emotional facial expressions in combination with words describing emotions that are congruent with the images (e.g., an angry expression with the word “angry”) or incongruent with the images (e.g., a happy exression with the word “angry”).</p>
+<div class="section" id="the-psychopy-package">
+<h2>The <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package<a class="headerlink" href="#the-psychopy-package" title="Permalink to this headline">¶</a></h2>
+<p>When using the Builder interace, you’ve seen that, “under the hood”, PsychoPy converts your Builder experiment to a Python script, which is then executed to run your experiment. If you look at this generated Python script closely, you’ll see that most of the code is based on functions and classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package. Whereas the Builder interface generates such code from your graphical experiment, in the Coder interface you’ll write your experiment using functionality from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package directly!</p>
+<p>!!! tip
+If you plan on programming your PsychoPy experiment (so <em>not</em> use the Builder interface), you technically do not need the entire “standalone” PsychoPy package; installing the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package would suffice and you could just write your experiments in your favorite editor (like <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>). However, as mentioned on the <a class="reference internal" href="../getting_started/installation.html"><span class="doc std std-doc">Getting started</span></a> page, getting the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package to work is not easy, which is why we recommend the “batteries included” standalone version of PsychoPy.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package contains different modules for different features. For example, the <code class="docutils literal notranslate"><span class="pre">visual</span></code> module contains a class to specify and create a window and a large set of visual components (like text, image, and movie components) and the <code class="docutils literal notranslate"><span class="pre">event</span></code> module contains code to work with “events” such as mouse clicks/movement and keyboard presses. Check out PsychoPy’s <a class="reference external" href="https://www.psychopy.org/api/api.html">reference manual</a> for a complete overview of the package’s modules.</p>
+<p>As you will see, most of PsychoPy’s functionality (like the different <em>components</em>) is implemented in custom classes, so your experience with object-oriented programming as discussed in week 1 will be very useful!</p>
+<p>!!! info
+In this tutorial, you’ll notice that many of the properties of Builder elements (e.g., the <em>Experiment settings</em> and Builder components like <em>text</em> and <em>image</em> components) have the same name and can take the same values as the attributes of the corresponding classes in the Coder interface!</p>
+</div>
+<div class="section" id="the-coder-interface">
+<h2>The Coder interface<a class="headerlink" href="#the-coder-interface" title="Permalink to this headline">¶</a></h2>
+<p>Now, let’s get started by opening the Coder interface.</p>
+<p>!!! example “ToDo”
+Open the Coder interface (<em>View</em> → <em>Open Coder view</em>). You may close the <em>Builder</em> interface for now.</p>
+<p>Like the Builder interface, the Coder interface has several subwindows (panes). The panel on the left represents the <em>Source assistant</em>, which lists all files in the current working directory (in the <em>File Browser</em> tab) and information about the Python modules in the current working directory specifically (in the <em>Structure</em> tab).</p>
+<p>!!! example “ToDo”
+By default, PsychoPy’s current directory is its installation path. Although this is not strictly necessary for this tutorial, change it to the <code class="docutils literal notranslate"><span class="pre">tutorials/week_2</span></code> directory by clicking on the right arrow (<em>Jump to another folder</em>).</p>
+<p>At the bottom of the Coder interface in the <em>Shelf</em> pane, you’ll find a so-called “Python shell”. You can think of it as a type of command line (like we discussed in the first Jupyter notebook of week 1), but specifically for Python code. You can only run a single line at once, but it’ll show the result immediately.</p>
+<p>!!! example “ToDo”
+Try writing some valid Python code in the Python shell (and pressing enter to run it), e.g., <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code>. Note that the Python shell will remember variables if you define them, just like Jupyter notebooks, so you can also run multiple commands like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```python
+&gt;&gt;&gt; a = 5
+&gt;&gt;&gt; b = a ** 2
+&gt;&gt;&gt; b - a
+```
+</pre></div>
+</div>
+<p>This Python shell is very useful to debug or try out short code snippets. For example, if you forgot what the function <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">len</span></code> returns, you can for example run the command <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">len([1,</span> <span class="pre">2])</span></code> in the Python shell to find out (spoiler: an integer).</p>
+<p>Finally, the last pane in the middle is PsychoPy’s code editor. Here, you can open any plain-text file (not just Python files!) which you can modify and save. In practice, of course, you’ll probably mostly work with Python files in this editor. Like most code editors, the Psychopy code editor also does some code formatting and syntax highlighting. One thing you’ll notice is that it by default uses two spaces (in contrast to the more conventional four spaces) for indentation.</p>
+<p>Right now, there are probably no active files in your Psychopy code editor, so let’s create one for our emotion-word Stroop task!</p>
+<p>!!! example “ToDo”
+Create a new Python file (<em>File</em> → <em>New</em>) and save it as <code class="docutils literal notranslate"><span class="pre">emo_stroop.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">tutorials/week_2</span></code> directory.</p>
+<p>Although you learned in week 1 that Python files should be run in a terminal on the command line (e.g., <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">emo_stroop.py</span></code>), Python files within the PsychoPy coder are actually run the same way as Builder experiments: by clicking on the big green play (►) button!</p>
+<p>!!! example “ToDo”
+Add some code to your <code class="docutils literal notranslate"><span class="pre">exp_stroop.py</span></code> file, e.g., <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">print(&quot;PsychoPy</span> <span class="pre">4evah&quot;)</span></code>, and run the file.</p>
+<p>After clicking the <em>Run experiment</em> button, the <em>Experiment runner</em> window should pop up, displaying something like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Running:/Path/to/your/file/emo_stroop.py ####</span>
+<span class="n">PsychoPy</span> <span class="mi">4</span><span class="n">evah</span>
+<span class="c1">##### Experiment ended. #####</span>
+</pre></div>
+</div>
+<p>As you can see, the <em>Experiment runner</em> shows your print statement; remember this, as it is a nice way to debug your experiments!</p>
+</div>
+<div class="section" id="dialog-boxes">
+<h2>Dialog boxes<a class="headerlink" href="#dialog-boxes" title="Permalink to this headline">¶</a></h2>
+<p>Arguably the first step in many experiments is providing the experiment with some information about the current session, such as the participant number, condition the participant is in, etc. In Builder experiments, you can implement this in the <em>Experiment settings</em> (under the <em>Basic</em> tab). The equivalent functionality in the Coder interface is implemented in the <code class="docutils literal notranslate"><span class="pre">psychopy.gui</span></code> module.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">psychopy.gui</span></code> module contains different classes to create <a class="reference external" href="https://en.wikipedia.org/wiki/Dialog_box">dialog boxes</a>, but arguably the easiest one to use is the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> class. This class needs a single mandatory argument upon initialization: a dictionary in which the keys represent the dialog’s fields (e.g., “participant_id”) and the values represent the default for each field. (If you set a value to an empty string, <code class="docutils literal notranslate"><span class="pre">''</span></code>, there won’t be a default value.)</p>
+<p>For example, if you’d like a dialog box in which the participant number can be filled in, you can do the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exp_info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>  <span class="c1"># no default!</span>
+<span class="n">dlg</span> <span class="o">=</span> <span class="n">DlgFromDict</span><span class="p">(</span><span class="n">exp_info</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that it is quite important to create the dictionary before passing it to the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> class instead of passing it directly, e.g., <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">DlgFromDict({'participant_nr':</span> <span class="pre">''})</span></code>. This is because PsychoPy will modify the dictionary (i.e., the variable <code class="docutils literal notranslate"><span class="pre">exp_info</span></code> in the code snippet above) with the information filled in by the participant/experimenter.</p>
+<p>!!! example “ToDo”
+In your experiment, create a dialog box with the fields “participant_nr” and “age”, in which the participant number should have the default <code class="docutils literal notranslate"><span class="pre">99</span></code> (for testing purposes) but age should not get a default value. Don’t forget to import the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> class first! Then, run your experiment.</p>
+<p>As you can see, when you run the experiment, a dialog box appears! After you filled in the required information, you can click <em>OK</em> to start the experiment. Notably, after you fill in the fields of the dialog box (e.g., with participant number <code class="docutils literal notranslate"><span class="pre">01</span></code> and an age of <code class="docutils literal notranslate"><span class="pre">29</span></code>), you can access this information from the original dictionary passed to the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> class (i.e., <code class="docutils literal notranslate"><span class="pre">example_info</span></code> in the code snippet above). For example, <code class="docutils literal notranslate"><span class="pre">exp_info['age']</span></code> will return the age that the participant filled in (e.g., <code class="docutils literal notranslate"><span class="pre">29</span></code>).</p>
+<p>!!! warning
+The type of the values from the dictionary depend on the type of the variables you initialized the dictionary with. For example, if you initialize a particular value with an empty string (i.e., <code class="docutils literal notranslate"><span class="pre">''</span></code>, such as with “participant_nr” in the code snippet above), then the value representing that field will also be a string, even if you fill in a number (such as <code class="docutils literal notranslate"><span class="pre">1</span></code>)!</p>
+<p>Let’s do an exercise to see whether everything’s clear so far.</p>
+<p>!!! example “ToDo”
+Given the dialog box configuration from the previous ToDo, include a print statement to your script that will print out the following: “Started the experiment for participant … with age …”, where the triple dots are replaced by whatever you filled in when running the experiment.</p>
+<p>Currently, it doesn’t matter whether the user clicked on <em>OK</em> or <em>Cancel</em> in the dialog box — in both cases, PsychoPy would have continued with the script. It would be nice to actually quit the experiment when the user pressed <em>Cancel</em>. To do so, we can use the attribute <code class="docutils literal notranslate"><span class="pre">OK</span></code> from the dialog box object, which is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> when the user clicks on <em>OK</em> and is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> when the user clicks on <em>Cancel</em>. To quit the experiment, we can use the function <code class="docutils literal notranslate"><span class="pre">quit</span></code> from the <code class="docutils literal notranslate"><span class="pre">psychopy.core</span></code> module. Then, we can implement something like the following to quit the experiment when the user clicked on <em>Cancel</em> instead of <em>OK</em> (assuming the dialog box object is named <code class="docutils literal notranslate"><span class="pre">dlg</span></code> and the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function has already been imported):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">dlg</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span>
+    <span class="c1"># Maybe add a nice print statement?</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User pressed &#39;Cancel&#39;!&quot;</span><span class="p">)</span>
+    <span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We recommend adding this snippet right after initialization of the dialog box in every experiment that actually uses a dialog box! Now, those that want a challenge, try the following (optional) ToDo.</p>
+<p>!!! example “ToDo (optional)”
+Add some code after the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">dlg.OK</span></code> code block that also quits the experiment when the user fills in an invalid participant number (let’s say, anything higher than 99) or an invalid age (let’s say, below 18). Try running the experiment with different values for these two options to see whether your implementation works as expected!</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> in fact can be customized much by using different arguments upon initialization. Check out the <a class="reference external" href="https://www.psychopy.org/api/gui.html">documentation</a> to learn more.</p>
+<p>Now, so far we haven’t really discussed how to actually create proper experiments, so let’s start with arguably the most important element of Coder exeriments: the <code class="docutils literal notranslate"><span class="pre">Window</span></code>.</p>
+</div>
+<div class="section" id="the-window">
+<h2>The <code class="docutils literal notranslate"><span class="pre">Window</span></code><a class="headerlink" href="#the-window" title="Permalink to this headline">¶</a></h2>
+<p>One of the most important classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package is the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class, which defines the window in which you are going to run your experiment. It is quite a complex class, with many different attributes and methods; we’ll discuss the most important ones in this tutorial.</p>
+<p>You can import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class from the <code class="docutils literal notranslate"><span class="pre">visual</span></code> module of the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package (i.e., <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">Window</span></code>). This, by itself, does nothing; for the experiment window to appear, we need to intialize an object with the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class. There are <em>a lot</em> of arguments that can be used upon initialization (for an overview, see the <a class="reference external" href="https://www.psychopy.org/api/visual/window.html">docs</a>), but all arguments have sensible defaults, so you can initialize a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that you may use any variable name for your <code class="docutils literal notranslate"><span class="pre">Window</span></code> object, but we recommend naming it <code class="docutils literal notranslate"><span class="pre">win</span></code> like in the code snippet above, as it’s short but descriptive.</p>
+<p>!!! example “ToDo”
+Initialize a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object as shown in the above code snippet and run your experiment! Don’t forget to also import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class!</p>
+<p>When running the current experiment, you should briefly see a gray window pop up. This is the “default” experiment window. We can, of course, change the way it looks by passing it arguments upon initialization! We can, for example, change the size by passing a tuple with the width and height in pixels to the argument <code class="docutils literal notranslate"><span class="pre">size</span></code>. For example, if you’d want a window of (for some reason) 400 (width) by 800 (height) pixels, you’d initialize your <code class="docutils literal notranslate"><span class="pre">Window</span></code> as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Most of the times, though, you’d probably want to run your experiment in “full-screen” mode. To do so, pass <code class="docutils literal notranslate"><span class="pre">True</span></code> to the argument <code class="docutils literal notranslate"><span class="pre">fullscr</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">win</span> <span class="pre">=</span> <span class="pre">Window(fullscr=True)</span></code>). Note that if you specify <code class="docutils literal notranslate"><span class="pre">fullscr=True</span></code> but leave the window’s <code class="docutils literal notranslate"><span class="pre">size</span></code> at its default (i.e., <code class="docutils literal notranslate"><span class="pre">(800,</span> <span class="pre">600)</span></code>), you’ll see a warning in the <em>Experiment running</em> saying “User requested fullscreen with size [800, 600], but screen is actually … Using actual size”. This warning is harmless and can be ignored, but if you want to prevent this warning, you should specify the actual size of your monitor as well (e.g., <code class="docutils literal notranslate"><span class="pre">size=(1920,</span> <span class="pre">1080)</span></code> for an HD monitor).</p>
+<p>You can also change the window’s background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument.</p>
+<p>!!! example “ToDo”
+Although we don’t recommend doing so in a real experiment, try making the window’s background color bright blue. Want a more challenging exercise? Try to set the background to bright orange. Hint: note that PsychoPy assumes that RGB values range from -1 (minimum) to 1 (maximum), not from 0 to 255!</p>
+<p>Another important argument of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class is the <code class="docutils literal notranslate"><span class="pre">monitor</span></code>, to which you can pass the name of the monitor, as defined in the monitor center, you want to use for this experiment. For example, if you defined a monitor in the monitor center with the name “laptop”, you can pass this configuration to the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;laptop&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>!!! example “ToDo (optional; advanced)”
+If you don’t want to use the monitor center at all (e.g., when you’re programming your experiments in an external code editor), you can also programmatically using the <code class="docutils literal notranslate"><span class="pre">Monitor</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.monitor</span></code> module. Try creating a monitor configuration for your own laptop/desktop monitor. Make sure you set the monitor’s size (in pixels), width (in cm), and distance between you to the monitor (in cm). The <a class="reference external" href="https://www.psychopy.org/api/monitors.html">documentation of the <code class="docutils literal notranslate"><span class="pre">monitor</span></code> module</a> contains all info you need to do this!</p>
+<p>Finally, the last important argument of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class is the type of <em>units</em> that should be used by default for your components (which we’ll discuss later), such as “norm” (for normalized units), “deg” (for visual degree angle), and “pix” (for pixels). As said before, there are in fact many more arguments to pass to the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class (see the <a class="reference external" href="https://www.psychopy.org/api/visual/window.html">documentation</a> for an overview), but we believe that the ones we discussed here are most important to know and that the other arguments all have sensible defaults.</p>
+<p>!!! example “ToDo”
+Let’s create a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object that we’ll use for the rest of our emotion-word Stroop experiment! Make sure it is shown in full-screen mode, uses normalized units, uses the monitor specification of your own laptop/desktop monitor, and has a black background. Run your experiment to see whether it looks like expected!</p>
+<p>Note that you can also change <code class="docutils literal notranslate"><span class="pre">Window</span></code> attributes after creating the object by directly editing the attributes. For example, if you’d want to change the units after initialization to pixels, you can do the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">win</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;pix&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="timing-clocks">
+<h2>Timing &amp; clocks<a class="headerlink" href="#timing-clocks" title="Permalink to this headline">¶</a></h2>
+<p>When you run the current experiment, you’ll only see a black screen for like a second or so before it disappears again. The reason why the window doesn’t stay open is because we don’t tell it to! It is important to realize that PsychoPy will run the experiment script from top to bottom (like any Python file is run, actually) and will close the window once the script ends. Put differently, you can interpret the script as a chronological chain of events from the top of the script (beginning) to the bottom of the script (end).</p>
+<p>So, if you want to keep the window open for a little longer, we can simply tell PsychoPy so! There are, in fact, different ways to do this, but arguably the easiest way is using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function from the <a class="reference external" href="https://www.psychopy.org/api/core.html"><code class="docutils literal notranslate"><span class="pre">psychopy.core</span></code></a> module. We can pass this function a number corresponding to the amount of time (in seconds) PsychoPy should wait before continuing with the rest of the script.</p>
+<p>!!! example “ToDo”
+Import the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function from the <code class="docutils literal notranslate"><span class="pre">psychopy.core</span></code> module and, after initializing the window, use it to make PsychoPy wait 2 seconds. Then, run the experiment.</p>
+<p>When you ran the experiment after adding the call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, you may have noticed that the window was active for more than 2 seconds. This because, as we mentioned earlier, it takes a while to close the window.</p>
+<p>Another important timing-related concept in PsychoPy is “clocks”. Clocks allow you to precisely keep track of the timing of events, which is especially important in studies that need strict control of stimulus onsets and duration, such as psychophysics and neuroimaging experiments. This functionality in PsychoPy is implemented in, you guessed it, the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class (from the <code class="docutils literal notranslate"><span class="pre">psychopy.core</span></code> module). The <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class does not require any arguments upon initialization, so you can simply create a <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The variable name, <code class="docutils literal notranslate"><span class="pre">clock</span></code>, is of course arbitrary; name it whatever you like! Upon initialization, the clock’s time is set to 0. If you, at some point, want to know how much time has passed since the clock’s initialization, you can call the <code class="docutils literal notranslate"><span class="pre">getTime</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t_since_init</span> <span class="o">=</span> <span class="n">clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t_since_init</span><span class="p">)</span>  <span class="c1"># prints time (in sec.)</span>
+</pre></div>
+</div>
+<p>Now, with our knowledge about clocks, let’s check whether the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function actually makes PsychoPy wait as long as we tell it.</p>
+<p>!!! example “ToDo”
+Import the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class and, after creating a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object, initialize it. Then, query the time using <code class="docutils literal notranslate"><span class="pre">getTime</span></code> and store it in a variable (e.g., <code class="docutils literal notranslate"><span class="pre">t_before_wait</span></code>). Aftewards, make PsychoPy wait for 2 seconds (using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function), and finally, query the time again and store in another variable (e.g., <code class="docutils literal notranslate"><span class="pre">t_after_wait</span></code>). Make your script print the time before <code class="docutils literal notranslate"><span class="pre">wait</span></code> call, after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call, and the difference between those two times. Then, run the experiment.</p>
+<p>If you implemented the ToDo correctly, you should see that the time just after initialization of the clock is very close to zero (e.g., <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">7.83892915e-06</span></code>) and that both the time after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call and the difference before and after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call is approximately <code class="docutils literal notranslate"><span class="pre">2</span></code> seconds — just like we expected!</p>
+<p>Two other important methods of the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class are <code class="docutils literal notranslate"><span class="pre">reset</span></code>, which sets the clock’s time back to zero, and <code class="docutils literal notranslate"><span class="pre">add</span></code>, which — paradoxically — subtracts time from the clock. These two features will be discussed in detail in the next tutorial.</p>
+</div>
+<div class="section" id="quitting-the-experiment">
+<h2>Quitting the experiment<a class="headerlink" href="#quitting-the-experiment" title="Permalink to this headline">¶</a></h2>
+<p>As you’ve seen so far, when the Python interpreter arrives at the end of your script, the PsychoPy window automatically closes and the Python process finishes. In the context of PsychoPy experiments, however, it is good practice to end the experiment by explicitly closing the window using the window’s <code class="docutils literal notranslate"><span class="pre">close</span></code> method <em>and</em> then calling the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">core.psychopy</span></code> module (as we did before in the section on dialog boxes). Although not strictly necessary, calling the <code class="docutils literal notranslate"><span class="pre">close</span></code> method and the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function perform a bit of bookkeeping that may prevent issues, so we recommend always including this at the very end of your script!</p>
+<p>!!! example “ToDo”
+At the end of your script, add the code to close your window and to quit the experiment. While you’re at it, remove the calls to the <code class="docutils literal notranslate"><span class="pre">getTime</span></code> methods and the associated <code class="docutils literal notranslate"><span class="pre">print</span></code> statements, such that you only have the imports, code related to the dialog box, window and clock initializations, and the calls to the <code class="docutils literal notranslate"><span class="pre">close</span></code> method and <code class="docutils literal notranslate"><span class="pre">quit</span></code> function left.</p>
+<p>This tutorial features some of the most important, but arguably boring, aspects of programming experiments in the PsychoPy Coder, so let’s continue with the <a class="reference internal" href="psychopy_coder_part2.html"><span class="doc std std-doc">next (and final) tutorial</span></a> which discusses creating components and other fun stuff!</p>
+<p>!!! tip
+If you want the “solution” to the implementations from the ToDos, check out the file <code class="docutils literal notranslate"><span class="pre">solutions_coder_part1.py</span></code> (from the <code class="docutils literal notranslate"><span class="pre">solutions/week2</span></code> directory) in the PsychoPy editor, which contains the code from most ToDos.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="psychopy_builder_part2.html" title="previous page">A Builder experiment from scratch</a>
+    <a class='right-next' id="next-link" href="psychopy_coder_part2.html" title="next page">The PsychoPy Coder (part 2)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lukas Snoek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,135 @@
+2.1313 	INFO 	Loaded monitor calibration from ['2020_11_26 16:05']
+2.8253 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7ff48eb6d8d0>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7ff492d1b358>, multiSample=False, name='window1', numSamples=2, pos=[360.0, 225.0], screen=0, size=array([2880, 1800]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+2.8275 	EXP 	window1: mouseVisible = True
+2.8276 	EXP 	window1: recordFrameIntervals = False
+2.9912 	EXP 	window1: recordFrameIntervals = True
+3.1734 	DEBUG 	Screen (0) actual frame rate measured at 60.45
+3.1734 	EXP 	window1: recordFrameIntervals = False
+3.4375 	EXP 	Created hello = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='hello', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Hello, dear Python aficionado.', units='height', win=Window(...), wrapWidth=1)
+3.4489 	EXP 	Created welcome = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='welcome', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+3.4623 	EXP 	Created wait_key = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.075, italic=False, languageStyle='LTR', name='wait_key', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+3.6796 	EXP 	Created stim = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='stim', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=512, units='height', win=Window(...))
+3.6893 	EXP 	Created gabor_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='gabor_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='And what about a fancy “gabor wavelet”?', units='height', win=Window(...), wrapWidth=1)
+3.7084 	EXP 	Created gabor_stim = GratingStim(__class__=<class 'psychopy.visual.grating.GratingStim'>, autoDraw=False, autoLog=True, blendmode='avg', color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, interpolate=True, mask='gauss', maskParams=None, name='gabor_stim', opacity=1.0, ori=0.0, phase=array([0., 0.]), pos=array([0., 0.]), rgbPedestal=array([0., 0., 0.]), sf=array([10., 10.]), size=array([0.5, 0.5]), tex='sin', texRes=512, units='height', win=Window(...))
+3.7161 	EXP 	Created txt1 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.075, italic=False, languageStyle='LTR', name='txt1', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+3.7194 	EXP 	Created txt2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.075, italic=False, languageStyle='LTR', name='txt2', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='But let’s stop here …', units='height', win=Window(...), wrapWidth=1)
+3.7239 	EXP 	Created txt3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='txt3', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Goodbye!', units='height', win=Window(...), wrapWidth=1)
+3.7386 	EXP 	hello: autoDraw = True
+4.3355 	DATA 	Keypress: t
+4.8589 	DATA 	Keypress: q
+5.3748 	DATA 	Keypress: escape
+8.0272 	EXP 	window1: mouseVisible = True
+8.0273 	DEBUG 	Saving data for intropy_demo ExperimentHandler
+8.0278 	INFO 	saved data to /Users/lukas/education/introPy/tutorials/week_2/data/sub-01.psydat
+8.0283 	INFO 	saved data to '/Users/lukas/education/introPy/tutorials/week_2/data/sub-01.csv'
+0.2583 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+6.8791 	INFO 	Loaded monitor calibration from ['2020_11_26 16:05']
+7.4832 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7ffded671a90>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7ffded25d4e0>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+7.4835 	EXP 	window1: mouseVisible = True
+7.4835 	EXP 	window1: recordFrameIntervals = False
+7.6483 	EXP 	window1: recordFrameIntervals = True
+7.8328 	DEBUG 	Screen (0) actual frame rate measured at 59.86
+7.8328 	EXP 	window1: recordFrameIntervals = False
+8.2388 	INFO 	saved data to '/Users/lukas/education/introPy/tutorials/week_2/data/sub-01_24.csv'
+8.2397 	INFO 	saved data to /Users/lukas/education/introPy/tutorials/week_2/data/sub-01_24.psydat
+10.8049 	EXP 	window1: mouseVisible = True
+10.8051 	DEBUG 	Saving data for stroop ExperimentHandler
+0.3061 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+6.1175 	INFO 	Loaded monitor calibration from ['2020_11_26 16:05']
+6.7092 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fadfe3a2a58>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7fae023a1518>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+6.7094 	EXP 	window1: mouseVisible = True
+6.7094 	EXP 	window1: recordFrameIntervals = False
+6.8760 	EXP 	window1: recordFrameIntervals = True
+7.0595 	DEBUG 	Screen (0) actual frame rate measured at 59.91
+7.0595 	EXP 	window1: recordFrameIntervals = False
+7.5117 	EXP 	Created welcome_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='welcome_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1)
+7.5219 	EXP 	welcome_txt: autoDraw = True
+10.5257 	EXP 	welcome_txt: autoDraw = False
+10.5257 	EXP 	welcome_txt: autoDraw = False
+10.5272 	INFO 	saved data to '/Users/lukas/education/introPy/tutorials/week_2/data/sub-01_25.csv'
+10.5282 	INFO 	saved data to /Users/lukas/education/introPy/tutorials/week_2/data/sub-01_25.psydat
+13.0748 	EXP 	window1: mouseVisible = True
+13.0750 	DEBUG 	Saving data for stroop ExperimentHandler
+0.2696 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+6.4463 	INFO 	Loaded monitor calibration from ['2020_11_26 16:05']
+7.0298 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fd912630a58>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7fd9124a3518>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+7.0300 	EXP 	window1: mouseVisible = True
+7.0301 	EXP 	window1: recordFrameIntervals = False
+7.1966 	EXP 	window1: recordFrameIntervals = True
+7.3801 	DEBUG 	Screen (0) actual frame rate measured at 59.96
+7.3802 	EXP 	window1: recordFrameIntervals = False
+7.7990 	EXP 	Created welcome_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='welcome_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Welcome to this experiment!', units='norm', win=Window(...), wrapWidth=1)
+7.8090 	EXP 	welcome_txt: autoDraw = True
+10.8134 	EXP 	welcome_txt: autoDraw = False
+10.8134 	EXP 	welcome_txt: autoDraw = False
+10.8166 	INFO 	saved data to '/Users/lukas/education/introPy/tutorials/week_2/data/sub-01_26.csv'
+10.8177 	INFO 	saved data to /Users/lukas/education/introPy/tutorials/week_2/data/sub-01_26.psydat
+13.3547 	EXP 	window1: mouseVisible = True
+13.3549 	DEBUG 	Saving data for stroop ExperimentHandler
+0.3264 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+6.7252 	INFO 	Loaded monitor calibration from ['2020_11_26 16:05']
+7.3005 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f8081f32a90>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f8081d9a710>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+7.3007 	EXP 	window1: mouseVisible = True
+7.3007 	EXP 	window1: recordFrameIntervals = False
+7.4669 	EXP 	window1: recordFrameIntervals = True
+7.6497 	DEBUG 	Screen (0) actual frame rate measured at 60.17
+7.6498 	EXP 	window1: recordFrameIntervals = False
+8.0648 	EXP 	Created welcome_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='welcome_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Welcome to this experiment!', units='norm', win=Window(...), wrapWidth=1)
+8.0920 	EXP 	Created instructions_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instructions_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1)
+8.4307 	EXP 	welcome_txt: autoDraw = True
+11.4348 	EXP 	welcome_txt: autoDraw = False
+11.4348 	EXP 	welcome_txt: autoDraw = False
+11.4348 	EXP 	instructions_txt: autoDraw = True
+18.9531 	DATA 	Keypress: return
+18.9649 	EXP 	instructions_txt: autoDraw = False
+18.9658 	INFO 	saved data to '/Users/lukas/education/introPy/tutorials/week_2/data/sub-01_27.csv'
+18.9665 	INFO 	saved data to /Users/lukas/education/introPy/tutorials/week_2/data/sub-01_27.psydat
+21.5121 	EXP 	window1: mouseVisible = True
+21.5124 	DEBUG 	Saving data for stroop ExperimentHandler
+0.2829 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+6.1604 	INFO 	Loaded monitor calibration from ['2020_11_26 16:05']
+6.7405 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f90f7531b00>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f90f7236c50>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+6.7407 	EXP 	window1: mouseVisible = True
+6.7408 	EXP 	window1: recordFrameIntervals = False
+6.9065 	EXP 	window1: recordFrameIntervals = True
+7.0899 	DEBUG 	Screen (0) actual frame rate measured at 60.00
+7.0899 	EXP 	window1: recordFrameIntervals = False
+7.5354 	EXP 	Created welcome_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='welcome_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Welcome to this experiment!', units='norm', win=Window(...), wrapWidth=1)
+7.5628 	EXP 	Created instructions_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instructions_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1)
+7.8954 	EXP 	Created polygon = Polygon(__class__=<class 'psychopy.visual.polygon.Polygon'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=0.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='polygon', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([0.01, 0.01]), units='norm', vertices=ndarray(...), win=Window(...))
+7.9054 	EXP 	welcome_txt: autoDraw = True
+10.9054 	EXP 	welcome_txt: autoDraw = False
+10.9054 	EXP 	welcome_txt: autoDraw = False
+10.9054 	EXP 	instructions_txt: autoDraw = True
+12.1197 	DATA 	Keypress: return
+12.1231 	EXP 	instructions_txt: autoDraw = False
+12.1231 	EXP 	polygon: autoDraw = True
+14.1223 	EXP 	polygon: autoDraw = False
+14.1223 	EXP 	polygon: autoDraw = False
+14.1269 	INFO 	saved data to '/Users/lukas/education/introPy/tutorials/week_2/data/sub-01_28.csv'
+14.1283 	INFO 	saved data to /Users/lukas/education/introPy/tutorials/week_2/data/sub-01_28.psydat
+16.6707 	EXP 	window1: mouseVisible = True
+16.6709 	DEBUG 	Saving data for stroop ExperimentHandler
+0.2703 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+5.6834 	INFO 	Loaded monitor calibration from ['2020_11_26 16:05']
+6.2635 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fb11fe33b00>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7fb11fe9e8d0>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+6.2637 	EXP 	window1: mouseVisible = True
+6.2638 	EXP 	window1: recordFrameIntervals = False
+6.4288 	EXP 	window1: recordFrameIntervals = True
+6.6116 	DEBUG 	Screen (0) actual frame rate measured at 60.12
+6.6116 	EXP 	window1: recordFrameIntervals = False
+6.9878 	EXP 	Created welcome_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='welcome_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Welcome to this experiment!', units='norm', win=Window(...), wrapWidth=1)
+7.0155 	EXP 	Created instructions_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instructions_txt', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1)
+7.3475 	EXP 	Created polygon = Polygon(__class__=<class 'psychopy.visual.polygon.Polygon'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=0.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='polygon', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([0.01, 0.01]), units='norm', vertices=ndarray(...), win=Window(...))
+7.3571 	EXP 	welcome_txt: autoDraw = True
+10.3623 	EXP 	welcome_txt: autoDraw = False
+10.3623 	EXP 	welcome_txt: autoDraw = False
+10.3623 	EXP 	instructions_txt: autoDraw = True
+10.8407 	DATA 	Keypress: return
+10.8455 	EXP 	instructions_txt: autoDraw = False
+10.8455 	EXP 	polygon: autoDraw = True
+12.8614 	EXP 	polygon: autoDraw = False
+12.8631 	INFO 	saved data to '/Users/lukas/education/introPy/tutorials/week_2/data/sub-01_29.csv'
+12.8642 	INFO 	saved data to /Users/lukas/education/introPy/tutorials/week_2/data/sub-01_29.psydat
+15.4043 	EXP 	window1: mouseVisible = True
+15.4045 	DEBUG 	Saving data for stroop ExperimentHandler

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -e
+
+# First, build book
+#jupyter-book build intropy
+
+# Then, fix Jupyterhub path and Binder path
+nb_html=$(ls intropy/_build/html/week_1/solutions/*.html)
+for nb in $nb_html; do
+    nb_name=$(basename $nb)
+    nb_name=${nb_name/.html/}
+    to_replace="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/week_1/solutions/${nb_name}.ipynb&branch=master"
+
+    # Replace Jupyterhub url
+    sed -i '' "s+${to_replace}+https://neuroimaging.lukas-snoek.com+g" $nb
+
+    # Replace Binder url
+    sed -i '' "s+lab/tree/week_1/solutions+lab/tree/week_1/tutorials+g" $nb
+
+    # Fix admonitions
+    for ad in warning info success danger; do
+        sed -i '' "s+<div class='alert alert-${ad}'>+<div class='alert alert-${ad}' style='padding-bottom:10px'>+g" $nb
+        sed -i '' 's+<div class="alert alert-${ad}">+<div class="alert alert-${ad}" style="padding-bottom:10px">+g' $nb
+    done
+done
+

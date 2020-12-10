@@ -1,0 +1,38 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+- file: index
+
+- part: Getting started
+  chapters:
+  - file: getting_started/installation
+  - file: getting_started/jupyter
+  - file: getting_started/for_educators
+
+- part: Week 1 (Python)
+  chapters:
+  - file: week_1/python
+  - file: week_1/solutions/0_introduction
+    title: Introduction to Python (T)
+  - file: week_1/solutions/1_python_basics
+    title: Python basics (T)
+  - file: week_1/solutions/2_matplotlib
+    title: Introduction to Matplotlib (T)
+  - file: week_1/solutions/3_pandas
+    title: Introduction to Pandas (T)
+  - file: week_1/solutions/4_numpy
+    title: Introduction to Numpy (T)
+
+- part: Week 2 (PsychoPy)
+  chapters:
+  - file: week_2/psychopy
+  - file: week_2/intro_psychopy
+    title: Introduction to PsychoPy (T)
+  - file: week_2/psychopy_builder_part1
+    title: PsychoPy Builder, part 1 (T)
+  - file: week_2/psychopy_builder_part2
+    title: PsychoPy Builder, part 2 (T)
+  - file: week_2/psychopy_coder_part1
+    title: PsychoPy Coder, part 1 (T)
+  - file: week_2/psychopy_coder_part2
+    title: PsychoPy Coder, part 2 (T)
+  - file: week_2/psychopy_how_to_continue

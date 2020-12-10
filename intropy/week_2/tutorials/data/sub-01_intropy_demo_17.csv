@@ -1,0 +1,6 @@
+﻿image,stimuli.thisRepN,stimuli.thisTrialN,stimuli.thisN,stimuli.thisIndex,hello.started,hello.stopped,welcome.started,welcome.stopped,wait_key.started,wait_key.stopped,key_resp.keys,key_resp.rt,key_resp.started,key_resp.stopped,stim.started,stim.stopped,gabor_txt.started,gabor_txt.stopped,gabor_stim.started,gabor_stim.stopped,txt1.started,txt1.stopped,txt2.started,txt2.stopped,txt3.started,txt3.stopped,participant,age,date,expName,psychopyVersion,frameRate,
+,,,,,6.727032170980237,8.736405568022747,8.719569422013592,10.71946738101542,10.703266059979796,None,return,2.4955215769587085,10.703266059979796,None,,,,,,,,,,,,,01,,2020_Nov_26_1738,intropy_demo,2020.2.8,60.0136531122334,
+Python.png,0,0,0,0,,,,,,,,,,,13.257094205007888,None,,,,,,,,,,,01,,2020_Nov_26_1738,intropy_demo,2020.2.8,60.0136531122334,
+Matlab.png,0,1,1,2,,,,,,,,,,,14.239392891991884,None,,,,,,,,,,,01,,2020_Nov_26_1738,intropy_demo,2020.2.8,60.0136531122334,
+R.png,0,2,2,1,,,,,,,,,,,15.247677313978784,None,,,,,,,,,,,01,,2020_Nov_26_1738,intropy_demo,2020.2.8,60.0136531122334,
+,,,,,,,,,,,,,,,,,16.23664897598792,18.241266832978,18.22542129800422,None,20.23590096697444,22.236238413024694,22.20293423201656,24.202259058016352,24.202259058016352,None,,,,,,,
