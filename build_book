@@ -15,7 +15,7 @@ for nb in $nb_html; do
     sed -i "s+${to_replace}+https://neuroimaging.lukas-snoek.com+g" $nb
 
     # Replace Binder url
-    sed -i "s+lab/tree/week_1/solutions+lab/tree/week_1/tutorials+g" $nb
+    sed -i "s+lab/tree/intropy/week_1/solutions+lab/tree/intropy/week_1/tutorials+g" $nb
 
     # Fix admonitions
     for ad in warning info success danger; do
