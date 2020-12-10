@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to Numpy &#8212; introPy</title>
+    <title>Introduction to Numpy (tutorial) &#8212; introPy</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="PsychoPy" href="../../week_2/psychopy.html" />
-    <link rel="prev" title="Introduction to Pandas" href="3_pandas.html" />
+    <link rel="prev" title="Introduction to Pandas (tutorial)" href="3_pandas.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -124,7 +124,7 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../python.html">
+  <a class="reference internal" href="../../week_1/python.html">
    Python essentials
   </a>
  </li>
@@ -235,7 +235,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/week_1/solutions/4_numpy.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/tutorials/week_1/4_numpy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -255,10 +255,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_1/solutions/4_numpy.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Ftutorials/week_1/4_numpy.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_1/solutions/4_numpy.ipynb"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/tutorials/week_1/4_numpy.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -278,7 +278,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/tutorials/4_numpy.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/tutorials/week_1/4_numpy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -374,8 +374,8 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-numpy">
-<h1>Introduction to Numpy<a class="headerlink" href="#introduction-to-numpy" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="introduction-to-numpy-tutorial">
+<h1>Introduction to Numpy (tutorial)<a class="headerlink" href="#introduction-to-numpy-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>This notebook is about Numpy, Python’s core library for numeric computing. Knowing how to use Numpy is <em>essential</em> in domains such as machine learning, neuroimaging analysis, and image processing.</p>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
@@ -460,7 +460,7 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.67 ms ± 115 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.4 ms ± 33.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -476,8 +476,8 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.7 µs ± 211 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-Numpy is 464 times faster than base Python!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.6 µs ± 25.9 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+Numpy is 642 times faster than base Python!
 </pre></div>
 </div>
 </div>
@@ -738,16 +738,16 @@ Filled array
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]] 
 
-[[0.3872252  0.32994148 0.14497529 0.35704184 0.62243552 0.08918773
-  0.90856247 0.90651172 0.08854886 0.88635566]
- [0.94100332 0.99601202 0.96970233 0.59352358 0.55332703 0.59860192
-  0.83450898 0.92702133 0.27567647 0.16075569]
- [0.87308616 0.19910153 0.91422764 0.28968708 0.96770713 0.12032205
-  0.61930755 0.1076604  0.04966692 0.81939282]
- [0.30805275 0.61869252 0.05122827 0.04550154 0.72930184 0.0113812
-  0.37185408 0.12062538 0.08445058 0.18935223]
- [0.88252901 0.86516846 0.48217156 0.3696709  0.46659185 0.62742426
-  0.62445936 0.862425   0.71852949 0.74872056]]
+[[0.80942751 0.75711786 0.28374251 0.10619301 0.97872227 0.7099628
+  0.69603538 0.91901032 0.19563793 0.50235198]
+ [0.15149416 0.35584765 0.53891912 0.1584256  0.53461935 0.01530111
+  0.6537071  0.26473818 0.29494613 0.79449662]
+ [0.20763353 0.87167662 0.98564551 0.66826882 0.26486576 0.88084031
+  0.63116062 0.2716953  0.38458591 0.86327406]
+ [0.02279006 0.89237178 0.47640367 0.85000415 0.7347913  0.87626712
+  0.76032629 0.84984172 0.32161925 0.59348988]
+ [0.13566478 0.62677271 0.89250089 0.11951552 0.01926256 0.56573353
+  0.51115402 0.95361494 0.82629558 0.55421251]]
 </pre></div>
 </div>
 </div>
@@ -1274,9 +1274,8 @@ Is the results from the numpy function the same as the corresponding method? Ans
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of my_array: 2.582 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transpose of my_array:
+
+Transpose of my_array:
 array([[1, 4, 7],
        [2, 5, 8],
        [3, 6, 9]]) 
@@ -1358,9 +1357,7 @@ Use the round() method with the named argument 5:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial shape: (5, 2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
+[0 1 2 3 4 5 6 7 8 9]
 Shape after ravel(): (10,)
 </pre></div>
 </div>
@@ -1454,8 +1451,9 @@ Shape after ravel(): (10,)
 
 The size (number of element) in the array is:
 9 
-
-The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -1481,9 +1479,8 @@ The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Size (number of elements) of array:
 9 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of array:
+
+Shape of array:
 (3, 3) 
 
 Number of dimensions:
@@ -1602,8 +1599,9 @@ array([[1., 2.],
 y: 
 array([[5., 6.],
        [7., 8.]]) 
-
-x+y: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x+y: 
 array([[ 6.,  8.],
        [10., 12.]]) 
 </pre></div>
@@ -1640,9 +1638,8 @@ array([[ 6.,  8.],
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-4. -4.]
  [-4. -4.]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-4. -4.]
+
+[[-4. -4.]
  [-4. -4.]]
 </pre></div>
 </div>
@@ -1806,9 +1803,8 @@ array([[ 6.,  8.],
 
 Sum over ALL elements of x:
 21 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum across rows of x:
+
+Sum across rows of x:
 [ 9 12] 
 
 Sum across columns of x:
@@ -1828,11 +1824,11 @@ Sum across columns of x:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.13 ms ± 63.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.27 ms ± 19.9 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>69.6 µs ± 1.28 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-Using the axis-argument is 44.998 times faster than a for-loop!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64.1 µs ± 34.5 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+Using the axis-argument is 50.973 times faster than a for-loop!
 </pre></div>
 </div>
 </div>
@@ -2073,7 +2069,7 @@ x_{j}\ \mathrm{standardized} = \frac{(x_{j} - \bar{x_{j}})}{\mathrm{std}(x_{j})}
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./week_1/solutions"
+            path: "./tutorials/week_1"
         },
         predefinedOutput: true
     }
@@ -2088,7 +2084,7 @@ x_{j}\ \mathrm{standardized} = \frac{(x_{j} - \bar{x_{j}})}{\mathrm{std}(x_{j})}
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="3_pandas.html" title="previous page">Introduction to Pandas</a>
+    <a class='left-prev' id="prev-link" href="3_pandas.html" title="previous page">Introduction to Pandas (tutorial)</a>
     <a class='right-next' id="next-link" href="../../week_2/psychopy.html" title="next page">PsychoPy</a>
 
     </div>

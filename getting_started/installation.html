@@ -129,27 +129,27 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/solutions/0_introduction.html">
+  <a class="reference internal" href="../solutions/week_1/0_introduction.html">
    Introduction to Python (T)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/solutions/1_python_basics.html">
+  <a class="reference internal" href="../solutions/week_1/1_python_basics.html">
    Python basics (T)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/solutions/2_matplotlib.html">
+  <a class="reference internal" href="../solutions/week_1/2_matplotlib.html">
    Introduction to Matplotlib (T)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/solutions/3_pandas.html">
+  <a class="reference internal" href="../solutions/week_1/3_pandas.html">
    Introduction to Pandas (T)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/solutions/4_numpy.html">
+  <a class="reference internal" href="../solutions/week_1/4_numpy.html">
    Introduction to Numpy (T)
   </a>
  </li>
@@ -329,12 +329,15 @@
 <p>For this course, we of course need a working installation of Python. There are two options: you download Python yourself (see below) or you use an online environment preconfigured with a working Python installlation.</p>
 <div class="section" id="online-access-to-python">
 <h3>Online access to Python<a class="headerlink" href="#online-access-to-python" title="Permalink to this headline">¶</a></h3>
-<p>For students of the Research Master Psychology, we have set up an external server with Python (through <a class="reference external" href="https://jupyter.org/hub">Jupyterhub</a>, which is explained <a class="reference internal" href="jupyter.html"><span class="doc std std-doc">here</span></a>) which can be used to do the tutorials; so no need to download Python yourself. The course’s Canvas page outlines how to access the server. Alternatively, you may use <a class="reference external" href="https://mybinder.org/">Binder</a>, which is a service that provides an online Python environment with the course’s materials. You can take a look at our own Jupyterhub instance or a Binder-run instance by clicking on the buttons below. Note that our own Jupyterhub instance is only accessible to students from the Research Master Psychology who are enrolled in the “Programming for Psychology” course. Note that you must be connected to UvA VPN to be able to access the UvA server.</p>
-<p><a class="reference external" href="https://neuroimaging.lukas-snoek.com"><img alt="UvA2" src="https://badgen.net/badge/UvA/Jupyterhub/orange" /></a>
-<a class="reference external" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<p>For students of the Research Master Psychology, we have set up an external server with Python (through <a class="reference external" href="https://jupyter.org/hub">Jupyterhub</a>, which is explained <a class="reference internal" href="jupyter.html"><span class="doc std std-doc">here</span></a>) which can be used to do the tutorials of week 1; so no need to download Python yourself. The course’s Canvas page outlines how to access the server. Alternatively, you may use <a class="reference external" href="https://mybinder.org/">Binder</a>, which is a service that provides an online Python environment with the course’s materials. Note that our own Jupyterhub instance is only accessible to students from the Research Master Psychology who are enrolled in the “Programming for Psychology” course. Note that you must be connected to UvA VPN to be able to access the UvA server.</p>
+<p>The tutorials of week 1 are embedded on this website as well (i.e., the pages on the left with the <code class="docutils literal notranslate"><span class="pre">(T)</span></code>), but these are not interactive, i.e., you cannot add, edit, or run the code. To start the tutorials as interactive notebooks, click on the “rocket” button on the top right and choose <em>JupyterHub</em> (UvA students only) or <em>Binder</em> (anyone). This will launch an online environment in which you can interactively run the material. Note that the “rocket” button is only available for actual tutorials.</p>
 <p>In the online environment, you’ll see a lot of files. The course material is stored in the <em>tutorials</em> folder. The <em>solutions</em> folder contains the same material, but with solutions to the exercises in the tutorials. You can ignore the rest of the files (which have to do with configuration and the contents of this website).</p>
-<p>!!! warning
-Note that Binder does not save your notebooks! After you quit Binder (or it times out after an hour of inactivity), all progress is lost (but you can download your notebooks/files). Our own Jupyterhub <em>does</em> save the files.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Note that Binder does not save your notebooks! After you quit Binder (or it times out after an hour of inactivity), all progress is lost (but you can download your notebooks/files). Our own Jupyterhub *does* save the files.
+</pre></div>
+</div>
+</div>
 <p>More information on how to get started with the tutorials, go to the <a class="reference internal" href="../week_1/python.html"><span class="doc std std-doc">week 1 page</span></a>.</p>
 </div>
 <div class="section" id="installing-python-on-your-own-computer">
@@ -374,8 +377,12 @@ Note that Binder does not save your notebooks! After you quit Binder (or it time
 <div class="section" id="psychopy">
 <h2>PsychoPy<a class="headerlink" href="#psychopy" title="Permalink to this headline">¶</a></h2>
 <p>In the second week of the course, we are going to use <a class="reference external" href="https://www.psychopy.org/">PsychoPy</a>, a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> and installing the complete “standalone” PsychoPy software package. If you have a working version of Python already, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package can be installed as a regular third-party package through <a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/">pip</a>. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package to work properly is all but trivial. Instead, we <em>highly</em> recommend installing the <a class="reference external" href="https://www.psychopy.org/download.html">“standalone” version of PsychoPy</a>. The standalone version does not only contain a working version of the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy <em>Builder</em> interface) to create experiments without programming.</p>
-<p>!!! note
-Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the <a class="reference external" href="https://www.psychopy.org/">standalone PsychoPy version</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the [standalone PsychoPy version](https://www.psychopy.org/).
+</pre></div>
+</div>
+</div>
 <p>To test whether the installation was successful and everything works as expected do the following:</p>
 <ul class="simple">
 <li><p>Start PsychoPy (this should open three windows);</p></li>
