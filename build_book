@@ -42,3 +42,5 @@ for nb in $nb_html; do
     done
     # Note to self: if you want to run the above loop on Mac, change `sed -i "s+..."` to `sed -i '' "s+..."`
 done
+
+python remove_solutions.py

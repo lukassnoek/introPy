@@ -142,6 +142,6 @@ intropy/week_1/solutions/assignment_week1.ipynb
 intropy/week_1/tutorials/assignment_week1.ipynb
 intropy/week_2/solutions/assignment_week1.ipynb
 intropy/week_2/tutorials/assignment_week1.ipynb
-intropy/_build
+#intropy/_build/
 
 **/.DS_Store
