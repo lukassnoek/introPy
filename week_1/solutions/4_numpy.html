@@ -285,7 +285,7 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/week_1/solutions/4_numpy.ipynb&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -460,7 +460,7 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.67 ms ± 140 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.23 ms ± 309 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -476,8 +476,8 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.8 µs ± 209 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-Numpy is 655 times faster than base Python!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.8 µs ± 280 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+Numpy is 461 times faster than base Python!
 </pre></div>
 </div>
 </div>
@@ -768,16 +768,16 @@ Filled array
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]] 
 
-[[0.46334656 0.44066331 0.77687593 0.924808   0.37215596 0.00853786
-  0.40595878 0.44544219 0.94378486 0.20902465]
- [0.3674779  0.05529517 0.78439328 0.28567315 0.22874765 0.17682699
-  0.81949151 0.67289712 0.29979131 0.8608298 ]
- [0.97476473 0.25535876 0.68961691 0.38069519 0.7890797  0.25338992
-  0.12374899 0.69621986 0.73690771 0.67996421]
- [0.66127258 0.22429078 0.15148749 0.36249061 0.43422725 0.89622253
-  0.03036964 0.85487728 0.32788313 0.52784153]
- [0.63234323 0.09028122 0.75222489 0.96580446 0.57696987 0.00494141
-  0.28758281 0.00464245 0.476221   0.05277589]]
+[[0.92587457 0.33911202 0.68606691 0.37957269 0.08726463 0.17849124
+  0.14589424 0.71846275 0.28375191 0.29540246]
+ [0.00378493 0.90166736 0.73006533 0.86925014 0.15613025 0.80728569
+  0.14648324 0.13303179 0.18897992 0.79464302]
+ [0.71290819 0.50618261 0.27562431 0.51811718 0.63323678 0.64005904
+  0.95839885 0.75405296 0.80668843 0.86119682]
+ [0.94630182 0.4946911  0.68454012 0.66790326 0.74753943 0.98083065
+  0.8832622  0.75184907 0.07147133 0.49788374]
+ [0.07719274 0.29344446 0.84792583 0.22759829 0.98943466 0.97192338
+  0.9716645  0.07907266 0.990254   0.53209044]]
 </pre></div>
 </div>
 </div>
@@ -1260,6 +1260,9 @@ array([ True, False,  True,  True]) (&lt;class &#39;numpy.bool_&#39;&gt;)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1286,8 +1289,9 @@ array([ True, False,  True,  True]) (&lt;class &#39;numpy.bool_&#39;&gt;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9] 
-
-The mean of the array is: 4.500000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the array is: 4.500000
 The mean of the array (computed by its corresponding method) is: 4.500000
 Is the results from the numpy function the same as the corresponding method? Answer: True
 </pre></div>
@@ -1363,8 +1367,9 @@ Use the round() method with the argument 3:
 [[0.327 0.305 0.844]
  [0.624 0.293 0.714]
  [0.345 0.587 0.993]] 
-
-Use the round() method with the named argument 5:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Use the round() method with the named argument 5:
 [[0.32711 0.30513 0.84403]
  [0.62392 0.29344 0.71361]
  [0.34459 0.58656 0.99263]] 
@@ -1499,9 +1504,7 @@ Shape after ravel(): (10,)
  [7 8 9]] 
 
 The size (number of element) in the array is:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 
+9 
 
 The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
 </pre></div>
@@ -1649,8 +1652,9 @@ Correct! You stats wizard!
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: 
 array([[1., 2.],
        [3., 4.]]) 
-
-y: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y: 
 array([[5., 6.],
        [7., 8.]]) 
 
@@ -1761,9 +1765,8 @@ array([[ 6.,  8.],
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.0000e+00 6.4000e+01]
  [2.1870e+03 6.5536e+04]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.0000e+00 6.4000e+01]
+
+[[1.0000e+00 6.4000e+01]
  [2.1870e+03 6.5536e+04]]
 </pre></div>
 </div>
@@ -1854,7 +1857,9 @@ array([[ 6.,  8.],
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original array:
-[[1 2]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2]
  [3 4]
  [5 6]] 
 
@@ -1881,11 +1886,11 @@ Sum across columns of x:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.2 ms ± 84.3 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.91 ms ± 38.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.2 µs ± 52.6 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-Using the axis-argument is 49.006 times faster than a for-loop!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>67.7 µs ± 2.42 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+Using the axis-argument is 42.990 times faster than a for-loop!
 </pre></div>
 </div>
 </div>
