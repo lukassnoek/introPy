@@ -407,16 +407,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">7</span><span class="n">dd3504c366f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Although Pandas contains several functions for processing data, the package is very object-oriented. Specifically, most of its functionality is implemented in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> class, which is similar to R’s <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> (or <a class="reference external" href="https://tibble.tidyverse.org/">tibble</a>).</p>
 <p>Now, you can actually create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object using different methods. You can create it from scratch (in Python) or you can load it from an external file, like a CSV (comma-separated value) file or an Excel file. The latter is probably the most often used, so let’s take a look at that. We created some data from a (very small) hypothetical working memory experiment, which we saved in a CSV file (where each column is separated by commas, hence the name). To load in this data, we will use the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>:</p>
@@ -435,6 +425,63 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25</td>
+      <td>A</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-02</td>
+      <td>21</td>
+      <td>B</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28</td>
+      <td>A</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25</td>
+      <td>B</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: The <tt>pd.read_csv</tt> is in fact a very flexible function and has a lot of arguments to tweak it according to your needs. Check out its <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">documentation</a> to get an overview of its arguments! For example, try to load the same data (from <tt>example_data.csv</tt>), but include only the "age" and "wm_score" columns, and store this 2-column dataframe in a variable named <tt>df_todo</tt>.
@@ -455,6 +502,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <p>As mentioned, Pandas dataframes assume that its rows represent different observations (here: participants) and its columns represent different variables (here: participant ID, age, condition, and working memory score). Apart from the dataframe’s values (e.g., “sub-01”, “sub-02” and 25, 21), the dataframe also contains column names (here: “participant_id”, “age”, “condition”, “wm_score”) and row names (0, 1, 2, 3). The row names are usually referred to as the dataframe’s <em>index</em>. The column names can be accessed using the <code class="docutils literal notranslate"><span class="pre">columns</span></code> attribute:</p>
 <div class="cell docutils container">
@@ -465,12 +517,22 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;participant_id&#39;, &#39;age&#39;, &#39;condition&#39;, &#39;wm_score&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <p>… and the row index can be accessed using the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Again, it is a specific object, which you may ignore for now</span>
 <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([0, 1, 2, 3], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -488,6 +550,48 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>var1</th>
+      <th>var2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>As you can see, the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> class automatically infers the column names from the dictionary keys and creates a default integer index starting at 0.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -507,6 +611,11 @@
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong ...&quot;</span><span class="p">)</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Well done!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yes! Well done!
 </pre></div>
 </div>
 </div>
@@ -530,6 +639,43 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21</td>
+      <td>48</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Note that other indexing methods also exist, like indexing columns directly (e.g., <code class="docutils literal notranslate"><span class="pre">df['age']</span></code>), or indexing columns by accessing them as attributes (e.g., <code class="docutils literal notranslate"><span class="pre">df.age</span></code>). We strongly suggest always using <code class="docutils literal notranslate"><span class="pre">loc</span></code> (and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>), though, for consistency (also because this method is the most versatile).</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -554,6 +700,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <p>Note that you can also select <em>all</em> rows or columns at once using the colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>). For example, if you’d want to select all rows from the “age” and “wm_score” columns, you can do the following:</p>
 <div class="cell docutils container">
@@ -562,6 +713,53 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>28</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="intermezzo-series-vs-dataframes">
@@ -574,10 +772,24 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    25
+1    21
+2    28
+3    25
+Name: age, dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">srs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -586,6 +798,11 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">srs</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([0, 1, 2, 3], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -603,6 +820,53 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-02</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>But you can also use negative indices (counting from the end) or using slices:</p>
 <div class="cell docutils container">
@@ -613,6 +877,43 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Using a row and column slice, select the first three rows and the last three columns of the <tt>df</tt> dataframe and store it a new variable named <tt>df_todo</tt>.
@@ -647,6 +948,15 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1    False
+2     True
+3     True
+Name: age, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <p>… and then, you can use it together with <code class="docutils literal notranslate"><span class="pre">loc</span></code>:</p>
 <div class="cell docutils container">
@@ -655,6 +965,56 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25</td>
+      <td>A</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28</td>
+      <td>A</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25</td>
+      <td>B</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>You can, of course, also do this within a single line of code:</p>
 <div class="cell docutils container">
@@ -663,6 +1023,56 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25</td>
+      <td>A</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28</td>
+      <td>A</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25</td>
+      <td>B</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Using boolean indexing, select all participants in condition A and store it in new variable named <tt>conA_pp</tt>.
@@ -686,6 +1096,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WELL DONE!
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -700,6 +1115,68 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+      <th>nationality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25</td>
+      <td>A</td>
+      <td>41</td>
+      <td>Dutch</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-02</td>
+      <td>21</td>
+      <td>B</td>
+      <td>48</td>
+      <td>British</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28</td>
+      <td>A</td>
+      <td>34</td>
+      <td>Dutch</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25</td>
+      <td>B</td>
+      <td>39</td>
+      <td>German</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>In the above cell we basically used <code class="docutils literal notranslate"><span class="pre">loc</span></code> to assign a list of values to a new column named “nationality”. Importantly, this list should have the same number of values as the number of rows of the dataframe.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -733,6 +1210,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CORRECT!
+</pre></div>
+</div>
+</div>
 </div>
 <p>To delete a row or column, you can use the <code class="docutils literal notranslate"><span class="pre">drop</span></code> method (see the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html">documentation</a> for more details). You can drop both columns (using the argument <code class="docutils literal notranslate"><span class="pre">columns</span></code>) and rows (using the argument <code class="docutils literal notranslate"><span class="pre">rows</span></code>) at the same time. For example, if I’d want to drop data fram “sub-05” and the entire “nationality” column, we could do the following:</p>
 <div class="cell docutils container">
@@ -741,6 +1223,63 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>condition</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-01</td>
+      <td>25.0</td>
+      <td>A</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-02</td>
+      <td>21.0</td>
+      <td>B</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-03</td>
+      <td>28.0</td>
+      <td>A</td>
+      <td>34.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-04</td>
+      <td>25.0</td>
+      <td>B</td>
+      <td>39.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Note that the dataframe is not automatically updated! If we want to <em>replace</em> the original dataframe, we need to assign the result of the <code class="docutils literal notranslate"><span class="pre">drop</span></code> call to the original variable name (<code class="docutils literal notranslate"><span class="pre">df</span></code>):</p>
 <div class="cell docutils container">
@@ -762,6 +1301,73 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>4.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>24.750000</td>
+      <td>40.500000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.872281</td>
+      <td>5.802298</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>21.000000</td>
+      <td>34.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>24.000000</td>
+      <td>37.750000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>25.000000</td>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>25.750000</td>
+      <td>42.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>28.000000</td>
+      <td>48.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Separate operations, like computing the mean, are also available:</p>
 <div class="cell docutils container">
@@ -769,6 +1375,13 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that it returns a Series, because it consists</span>
 <span class="c1"># of a single column (with two values)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age         24.75
+wm_score    40.50
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -792,6 +1405,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="aggregation-advanced-optional">
@@ -805,6 +1423,48 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>wm_score</th>
+    </tr>
+    <tr>
+      <th>condition</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>26.5</td>
+      <td>37.5</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>23.0</td>
+      <td>43.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Note that the group factor becomes the index in the resulting dataframe! Again, the mean operation is only performed for the numeric columns. To explain all of the functionality of the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method probably needs a completely separate tutorial, so let’s just finish with a relatively more difficult (and optional) ToDo.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -822,6 +1482,64 @@
 <span class="c1"># YOUR SOLUTION HERE</span></pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+      <th>t_value</th>
+    </tr>
+    <tr>
+      <th>condition</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>289.942357</td>
+      <td>46.397118</td>
+      <td>-1.476559</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>286.647525</td>
+      <td>60.784731</td>
+      <td>-1.712634</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>291.063054</td>
+      <td>69.373691</td>
+      <td>-1.072980</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>303.270039</td>
+      <td>76.454090</td>
+      <td>0.373984</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -836,6 +1554,11 @@
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;T-values are not yet correct!&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YOU&#39;RE AMAZING!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>YOU&#39;RE AMAZING!
 </pre></div>
 </div>
 </div>

@@ -460,7 +460,7 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.26 ms ± 87.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.67 ms ± 115 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -476,8 +476,8 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.6 µs ± 33.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-Numpy is 633 times faster than base Python!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.7 µs ± 211 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+Numpy is 464 times faster than base Python!
 </pre></div>
 </div>
 </div>
@@ -738,16 +738,16 @@ Filled array
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]] 
 
-[[0.84540417 0.5901848  0.18190276 0.79492588 0.88728309 0.63466306
-  0.18944137 0.71800164 0.34956073 0.96856909]
- [0.13001604 0.53932083 0.5961455  0.45668185 0.76489592 0.44617974
-  0.72457863 0.18118676 0.11726356 0.23586028]
- [0.47910457 0.34207921 0.69742246 0.86117615 0.48272696 0.93307723
-  0.85525107 0.34025284 0.40612547 0.87713077]
- [0.28532191 0.32217134 0.71417205 0.12839866 0.36237413 0.52745615
-  0.77241696 0.60977561 0.05047504 0.58357582]
- [0.70525222 0.24599834 0.43831449 0.8172063  0.6834145  0.49926258
-  0.36498263 0.79927129 0.45428381 0.9747244 ]]
+[[0.3872252  0.32994148 0.14497529 0.35704184 0.62243552 0.08918773
+  0.90856247 0.90651172 0.08854886 0.88635566]
+ [0.94100332 0.99601202 0.96970233 0.59352358 0.55332703 0.59860192
+  0.83450898 0.92702133 0.27567647 0.16075569]
+ [0.87308616 0.19910153 0.91422764 0.28968708 0.96770713 0.12032205
+  0.61930755 0.1076604  0.04966692 0.81939282]
+ [0.30805275 0.61869252 0.05122827 0.04550154 0.72930184 0.0113812
+  0.37185408 0.12062538 0.08445058 0.18935223]
+ [0.88252901 0.86516846 0.48217156 0.3696709  0.46659185 0.62742426
+  0.62445936 0.862425   0.71852949 0.74872056]]
 </pre></div>
 </div>
 </div>
@@ -1274,8 +1274,9 @@ Is the results from the numpy function the same as the corresponding method? Ans
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of my_array: 2.582 
-
-Transpose of my_array:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transpose of my_array:
 array([[1, 4, 7],
        [2, 5, 8],
        [3, 6, 9]]) 
@@ -1312,9 +1313,8 @@ This argument may be named or unnamed - doesn’t matter. An example:</p>
 [[0.32710922 0.30512889 0.84403235]
  [0.6239239  0.29343832 0.71361229]
  [0.34459281 0.58655561 0.99263403]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Use the round() method with the argument 3:
+
+Use the round() method with the argument 3:
 [[0.327 0.305 0.844]
  [0.624 0.293 0.714]
  [0.345 0.587 0.993]] 
@@ -1358,7 +1358,9 @@ Use the round() method with the named argument 5:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial shape: (5, 2)
-[0 1 2 3 4 5 6 7 8 9]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
 Shape after ravel(): (10,)
 </pre></div>
 </div>
@@ -1479,8 +1481,9 @@ The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Size (number of elements) of array:
 9 
-
-Shape of array:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of array:
 (3, 3) 
 
 Number of dimensions:
@@ -1573,9 +1576,8 @@ Correct! You stats wizard!
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+
+[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
 </pre></div>
 </div>
 </div>
@@ -1638,8 +1640,9 @@ array([[ 6.,  8.],
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-4. -4.]
  [-4. -4.]] 
-
-[[-4. -4.]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-4. -4.]
  [-4. -4.]]
 </pre></div>
 </div>
@@ -1803,8 +1806,9 @@ array([[ 6.,  8.],
 
 Sum over ALL elements of x:
 21 
-
-Sum across rows of x:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum across rows of x:
 [ 9 12] 
 
 Sum across columns of x:
@@ -1824,11 +1828,11 @@ Sum across columns of x:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.91 ms ± 8.42 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.13 ms ± 63.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64.3 µs ± 56.5 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-Using the axis-argument is 45.317 times faster than a for-loop!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>69.6 µs ± 1.28 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+Using the axis-argument is 44.998 times faster than a for-loop!
 </pre></div>
 </div>
 </div>
