@@ -334,38 +334,37 @@
 <p>In the online environment, you’ll see a lot of files. The course material is stored in the <em>tutorials</em> folder. The <em>solutions</em> folder contains the same material, but with solutions to the exercises in the tutorials. You can ignore the rest of the files (which have to do with configuration and the contents of this website).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Note that Binder does not save your notebooks! After you quit Binder (or it times out after an hour of inactivity), all progress is lost (but you can download your notebooks/files). Our own Jupyterhub *does* save the files.
-</pre></div>
-</div>
+<p>Note that Binder does not save your notebooks! After you quit Binder (or it times out after an hour of inactivity), all progress is lost (but you can download your notebooks/files). Our own Jupyterhub <em>does</em> save the files.</p>
 </div>
 <p>More information on how to get started with the tutorials, go to the <a class="reference internal" href="../week_1/python.html"><span class="doc std std-doc">week 1 page</span></a>.</p>
 </div>
 <div class="section" id="installing-python-on-your-own-computer">
 <h3>Installing Python on your own computer<a class="headerlink" href="#installing-python-on-your-own-computer" title="Permalink to this headline">¶</a></h3>
 <p>If you want to install Python on your own computer, we <em>highly</em> recommend you install Python through the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda distribution</a>. In the box below, you can find detailed installation instructions (thanks to <a class="reference external" href="https://escience-academy.github.io/2020-12-07-parallel-python/">the Netherlands eScience Center</a>) specific to your operating system (Mac, Windows, or Linux).</p>
-<p>!!! example “todo”</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>=== &quot;Mac&quot;  
-
-    1. Open https://www.anaconda.com/products/individual#download-section with your web browser;
-    2. Download the Anaconda Installer with Python 3 for macOS (you can either use the Graphical or the Command Line Installer);
-    3. Install Python 3 by running the Anaconda Installer using all of the defaults for installation.
-
-    For a more detailed instruction, check out the video below:
-
-    &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/TcSAln46u9U&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-
-=== &quot;Windows&quot;
-
-    1. Open https://www.anaconda.com/products/individual#download-section with your web browser;
-    2. Download the Anaconda for Windows installer with Python 3. (If you are not sure which version to choose, you probably want the 64-bit Graphical Installer Anaconda3-...-Windows-x86_64.exe);
-    3. Install Python 3 by running the Anaconda Installer, using all of the defaults for installation except **make sure to check Add Anaconda to my PATH environment variable**.
-
-    For a more detailed instruction, check out the video below:
-
-    &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/xxQ0mzZ8UvA&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-
-    **Note**: the video tells you to use *git bash* to test your Python installation; you may ignore this. As explained below, Windows users should use the *Anaconda prompt* instead.
-</pre></div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="7f96a626-e41b-4514-877b-59e226e6daa4" name="973921c3-7717-48d4-99fb-47ea2e4c0a11" type="radio">
+</input><label class="tabbed-label" for="7f96a626-e41b-4514-877b-59e226e6daa4">
+Mac</label><div class="tabbed-content docutils">
+<ol class="simple">
+<li><p>Open https://www.anaconda.com/products/individual#download-section with your web browser;</p></li>
+<li><p>Download the Anaconda Installer with Python 3 for macOS (you can either use the Graphical or the Command Line Installer);</p></li>
+<li><p>Install Python 3 by running the Anaconda Installer using all of the defaults for installation.</p></li>
+</ol>
+<p>For a more detailed instruction, check out the video below:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TcSAln46u9U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<input id="507ffdb7-3736-4736-a0ea-7b23c3759320" name="973921c3-7717-48d4-99fb-47ea2e4c0a11" type="radio">
+</input><label class="tabbed-label" for="507ffdb7-3736-4736-a0ea-7b23c3759320">
+Windows</label><div class="tabbed-content docutils">
+<ol class="simple">
+<li><p>Open https://www.anaconda.com/products/individual#download-section with your web browser;</p></li>
+<li><p>Download the Anaconda for Windows installer with Python 3. (If you are not sure which version to choose, you probably want the 64-bit Graphical Installer Anaconda3-…-Windows-x86_64.exe);</p></li>
+<li><p>Install Python 3 by running the Anaconda Installer, using all of the defaults for installation except <strong>make sure to check Add Anaconda to my PATH environment variable</strong>.</p></li>
+</ol>
+<p>For a more detailed instruction, check out the video below:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xxQ0mzZ8UvA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p><strong>Note</strong>: the video tells you to use <em>git bash</em> to test your Python installation; you may ignore this. As explained below, Windows users should use the <em>Anaconda prompt</em> instead.</p>
+</div>
 </div>
 <p>After you have installed your own Python distribution, you can check whether it is working correctly by opening a terminal (on Mac/Linux) or Anaconda Prompt (on Windows) and running the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import sys; print(sys.executable)&quot;</span>
@@ -379,9 +378,7 @@
 <p>In the second week of the course, we are going to use <a class="reference external" href="https://www.psychopy.org/">PsychoPy</a>, a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> and installing the complete “standalone” PsychoPy software package. If you have a working version of Python already, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package can be installed as a regular third-party package through <a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/">pip</a>. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package to work properly is all but trivial. Instead, we <em>highly</em> recommend installing the <a class="reference external" href="https://www.psychopy.org/download.html">“standalone” version of PsychoPy</a>. The standalone version does not only contain a working version of the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy <em>Builder</em> interface) to create experiments without programming.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the [standalone PsychoPy version](https://www.psychopy.org/).
-</pre></div>
-</div>
+<p>Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the <a class="reference external" href="https://www.psychopy.org/">standalone PsychoPy version</a>.</p>
 </div>
 <p>To test whether the installation was successful and everything works as expected do the following:</p>
 <ul class="simple">
@@ -400,14 +397,13 @@
 <p>We use both <a class="reference external" href="https://jupyter.org/">Jupyter notebooks</a> and regular Python scripts for our tutorials. The materials are stored on <a class="reference external" href="https://github.com/lukassnoek/introPy">Github</a> and can be downloaded as a zip-file by clicking on the button below:</p>
 <p><a class="reference external" href="https://github.com/lukassnoek/introPy/archive/master.zip">Download materials</a>{: .md-button }</p>
 <p>After downloading the materials, please unzip the folder. Note that students from the Research Master course do not need the materials from week 1 (which are already on the server).</p>
-<p>!!! warning
-If you work with your own Python installation, you may need to install additional Python packages. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-pip install .
-```
-
-This is not necessary if you use Binder as your Python platform!
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you work with your own Python installation, you may need to install additional Python packages. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install .
 </pre></div>
+</div>
+<p>This is not necessary if you use Binder as your Python platform!</p>
 </div>
 <p>Before you start working on the course materials, read the next page on the <a class="reference internal" href="jupyter.html"><span class="doc std std-doc">Jupyter ecosystem</span></a>.</p>
 </div>

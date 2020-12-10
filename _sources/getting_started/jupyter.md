@@ -14,12 +14,12 @@ If you want to see how Jupyterlab looks like, click one of the two buttons below
 
 Note that, instead of using the Jupyterlab interface, you can also use the "classic" interface, which is less extensive but also "cleaner". To do so, click on *Help* &rarr; *Launch Classic Notebook* or change the word `lab` to the word `tree` in the URL. To change back from the classic interface to the Jupyterlab interface, change the word `lab` back to `tree` in the URL. 
 
-!!! info
-    If you have installed Python on your own computer, you can start the Jupyterlab interface by clicking on the JupyterLab icon in Anaconda Navigator (Mac/Windows) or running the following command in your terminal (Mac/Linux) or Anaconda prompt (Windows):
+```{note}
+If you have installed Python on your own computer, you can start the Jupyterlab interface by clicking on the JupyterLab icon in Anaconda Navigator (Mac/Windows) or running the following command in your terminal (Mac/Linux) or Anaconda prompt (Windows):
 
-    ```
     jupyter lab
-    ```
+
+```
 
 ## Jupyter notebooks
 Finally, we use "Jupyter notebooks" a lot in this course. Jupyter notebooks are very similar to R Markdown files. Like R Markdown files, you can mix text, code, plots, and mathematical formulas within a single document. Most of our tutorials are actually written in Jupyter notebooks. These notebooks are great for "interactive programming", in which it is easy to experiment, try out, and troubleshoot your code. Because this mode of programming is great for teaching, we will use Jupyter notebooks a lot in week 1. Interactive programing is not, however, the only way in which you use Python. In fact, a lot of people use Python in a non-interactive way by writing scripts. In this "script mode" (for lack of a better term), writing the code and running the code are done separately. The code interface of Psychopy, for example, cannot be used interactively and only supports "script mode". We will dicuss both "modes" in this course.
