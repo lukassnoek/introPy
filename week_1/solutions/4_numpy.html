@@ -278,7 +278,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/solutions/4_numpy.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/tutorials/4_numpy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -460,7 +460,7 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 ms ± 95.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.67 ms ± 140 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -476,8 +476,8 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.9 µs ± 111 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-Numpy is 477 times faster than base Python!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.8 µs ± 209 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+Numpy is 655 times faster than base Python!
 </pre></div>
 </div>
 </div>
@@ -768,16 +768,16 @@ Filled array
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]] 
 
-[[0.11468709 0.58523507 0.97213716 0.90849539 0.42786612 0.49031641
-  0.2258042  0.19946784 0.31162173 0.30093267]
- [0.71595542 0.92223242 0.00697477 0.15797383 0.62620098 0.61398203
-  0.25184016 0.14283788 0.25579635 0.90554622]
- [0.62264197 0.34334567 0.63913834 0.24717878 0.399131   0.12336746
-  0.28392755 0.05234738 0.94185997 0.18149712]
- [0.18476238 0.91559812 0.25391055 0.77676757 0.57753398 0.70374831
-  0.2155186  0.92634417 0.46188631 0.14013739]
- [0.3734502  0.1243869  0.6698417  0.80246662 0.4745264  0.77908428
-  0.65875177 0.10659095 0.39980056 0.44903308]]
+[[0.46334656 0.44066331 0.77687593 0.924808   0.37215596 0.00853786
+  0.40595878 0.44544219 0.94378486 0.20902465]
+ [0.3674779  0.05529517 0.78439328 0.28567315 0.22874765 0.17682699
+  0.81949151 0.67289712 0.29979131 0.8608298 ]
+ [0.97476473 0.25535876 0.68961691 0.38069519 0.7890797  0.25338992
+  0.12374899 0.69621986 0.73690771 0.67996421]
+ [0.66127258 0.22429078 0.15148749 0.36249061 0.43422725 0.89622253
+  0.03036964 0.85487728 0.32788313 0.52784153]
+ [0.63234323 0.09028122 0.75222489 0.96580446 0.57696987 0.00494141
+  0.28758281 0.00464245 0.476221   0.05277589]]
 </pre></div>
 </div>
 </div>
@@ -993,9 +993,8 @@ Filled array
 
 First row
 [1 2 3] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First column
+
+First column
 [1 4 7]
 </pre></div>
 </div>
@@ -1097,9 +1096,8 @@ The boolean array:
 [[ True False  True]
  [False  True False]
  [ True False  True]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result of indexing my_array with bool_array:
+
+Result of indexing my_array with bool_array:
 
 [1 3 5 7 9]
 </pre></div>
@@ -1360,9 +1358,8 @@ This argument may be named or unnamed - doesn’t matter. An example:</p>
 [[0.32710922 0.30512889 0.84403235]
  [0.6239239  0.29343832 0.71361229]
  [0.34459281 0.58655561 0.99263403]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Use the round() method with the argument 3:
+
+Use the round() method with the argument 3:
 [[0.327 0.305 0.844]
  [0.624 0.293 0.714]
  [0.345 0.587 0.993]] 
@@ -1502,7 +1499,9 @@ Shape after ravel(): (10,)
  [7 8 9]] 
 
 The size (number of element) in the array is:
-9 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 
 
 The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
 </pre></div>
@@ -1710,9 +1709,8 @@ array([[ 6.,  8.],
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5. 12.]
  [21. 32.]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5. 12.]
+
+[[ 5. 12.]
  [21. 32.]]
 </pre></div>
 </div>
@@ -1883,11 +1881,11 @@ Sum across columns of x:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1 ms ± 15.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.2 ms ± 84.3 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71.9 µs ± 482 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-Using the axis-argument is 43.141 times faster than a for-loop!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.2 µs ± 52.6 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+Using the axis-argument is 49.006 times faster than a for-loop!
 </pre></div>
 </div>
 </div>
