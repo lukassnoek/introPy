@@ -278,14 +278,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/solutions/2_matplotlib.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/tutorials/2_matplotlib.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/week_1/solutions/2_matplotlib.ipynb&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -396,9 +396,9 @@
 <img alt="../../_images/2_matplotlib_6_0.png" src="../../_images/2_matplotlib_6_0.png" />
 </div>
 </div>
-<div class='alert alert-success'>
+<div class='alert alert-success' style='padding-bottom:10px'>
     <b>Tip</b>: Note that the third argument, the "format", may be used to specify three things at once: whether you want "markers" (and which type of marker), whether you want a line (and which type of line), and which color the markers/line should have. So, to create red markers, you may specify "or" ("o" for circles as markers and "r" for red). To create a blue line, you may specify "-b". To create a yellow ("y") dotted line ("-.") with stars ("*") as markers, you may use "*-.y".
-</div><div class='alert alert-warning'>
+</div><div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Create the same plot as above, but with a green dashed line with diamonds as markers. Check out the <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html">plt.plot</a> documentation under "Notes" which particular linestyle you need for this! And check <a href="https://matplotlib.org/api/markers_api.html">this page</a> to see the name of the marker for diamonds! Make sure to write your code <b>above</b> the "<tt>ax2check = plt.gca()</tt>" snippet &mdash; we use this to check your plot automatically in the test cell! Also, do not include a <tt>plt.show</tt> call; this is done after the <tt>ax2check</tt> line (calling <tt>plt.show</tt> before <tt>ax2check</tt> will cause to test cell to malfunction).
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -459,12 +459,12 @@
 <img alt="../../_images/2_matplotlib_12_0.png" src="../../_images/2_matplotlib_12_0.png" />
 </div>
 </div>
-<div class='alert alert-danger'>
+<div class='alert alert-danger' style='padding-bottom:10px'>
     <b>Warning</b>: Importantly, in the context of Jupyter notebooks, each part of the plot should be defined in the same code cell; otherwise, they won't be included in the same figure.
 </div><p>As you can see, Matplotlib automatically creates the right legend! Make sure that the order of your labels (here: <code class="docutils literal notranslate"><span class="pre">['y',</span> <span class="pre">'y</span> <span class="pre">squared']</span></code>) matches the order of your plotting calls!</p>
-<div class='alert alert-success'>
+<div class='alert alert-success' style='padding-bottom:10px'>
     <b>Good to know</b>: If you plot multiple things in the same plot, Matplotlib will automatically choose a different color for the different things (first one is blue, second one is orange, third one is green, etc.). 
-</div><div class='alert alert-warning'>
+</div><div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, we define some new variables: <tt>z</tt>, the sine of z (<tt>sin_z</tt>), and the cosine of z (<tt>cos_z</tt>). Plot both the (<tt>z</tt>, <tt>sin_z</tt>) and (<tt>z</tt>, <tt>cos_z</tt>) collections as separate dashed lines in whatever (different) colors you like. Make sure to add a legend!
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -592,7 +592,7 @@
 <img alt="../../_images/2_matplotlib_28_0.png" src="../../_images/2_matplotlib_28_0.png" />
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, we again simulate some random data, but this time not from a uniform distribution, but from a normal distribution (with mean 0.5 and a standard deviation of 0.15). Plot both the uniform data (<tt>random_unif</tt>) and the normal data (<tt>random_norm</tt>) in the same plot, but with different colors (doesn't matter which). Make sure to use 10 bins for each histogram and make sure they are slightly transparent by setting the "alpha" level to 0.5 in both. Also, make sure the ticks and xtick labels are spaced 0.1 apart (i.e., a tick and label at 0, at 0.1, ..., until 1.0). And add a legend! To find out how to set the number of bins and the alpha level, check out the <a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html">documentation</a>!
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,7 +659,7 @@
 <p>Now, within the object-oriented approach, we can explain some of the more technical (but important!) concepts. One of those is that each Matplotlib plot consists of a <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object and one or more <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects. Essentially, the <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object represents the entire canvas that defines the, well, figure. The <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object(s) contains the actual visualizations that you want to include in the <code class="docutils literal notranslate"><span class="pre">Figure</span></code> (see figure below). Importantly, there may be one <em>or</em> multiple <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object within a given <code class="docutils literal notranslate"><span class="pre">Figure</span></code> (e.g., two line plots next to each other).</p>
 <p><img alt="mpl2" src="https://files.realpython.com/media/fig_map.bc8c7cabd823.png" /></p>
 <p><em>Figure from Brad Solomon, from <a class="reference external" href="https://realpython.com/python-matplotlib-guide/">https://realpython.com/python-matplotlib-guide/</a></em></p>
-<div class='alert alert-danger'>
+<div class='alert alert-danger' style='padding-bottom:10px'>
     <b>Warning</b>: Note that an <tt>Axes</tt> object is something different than the x-axis and y-axis ("axes") of a plot! 
 </div><p>Importantly, a <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object by itself doesn’t do anything. It just defines the canvas to drawn on, so to speak. <code class="docutils literal notranslate"><span class="pre">Figure</span></code> objects can be initialized using <code class="docutils literal notranslate"><span class="pre">plt.figure</span></code>, which takes several (optional) arguments like <code class="docutils literal notranslate"><span class="pre">figsize</span></code> (width and height in inches) and <code class="docutils literal notranslate"><span class="pre">dpi</span></code> (“dots per inch”, i.e., resolution). Let’s take a look:</p>
 <div class="cell docutils container">
@@ -746,7 +746,7 @@
 </div>
 </div>
 <p>Okay, time for an exercise!</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, using a so-called "random walk", we create some random numbers representing two time series. Let's pretend that this data represents the stock price of two companies (Tesla and Shell) across 100 consecutive days. Create a <tt>Figure</tt> of 12 (width) by 4 (height) inches and a single <tt>Axes</tt> onto which you plot this time series data (as lines). Label the axes appropriately and set the range of the x-axis from 1 to 100.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -896,7 +896,7 @@ example_data.csv
 <img alt="../../_images/2_matplotlib_61_0.png" src="../../_images/2_matplotlib_61_0.png" />
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: As you probably have noticed by now, if you don't explicitly give Matplotlib a range for the axes (using <tt>xlim</tt> and <tt>ylim</tt>), it will chose a suitable range itself, which results in separate ranges for the subplots in the above figure. To force the same range across subplots, set the arguments <tt>sharex</tt> and/or <tt>sharey</tt> to <tt>True</tt> in the <tt>plt.subplots</tt> call. Do this in the previous code cell to force the same range across the y-axes!
 </div><p>We can, of course, create figures with multiple columns <em>and</em> multiple rows. For example, to create a 2 by 2 grid of <code class="docutils literal notranslate"><span class="pre">Axes</span></code>, we can do the following:</p>
 <div class="cell docutils container">
@@ -910,7 +910,7 @@ example_data.csv
 <img alt="../../_images/2_matplotlib_64_0.png" src="../../_images/2_matplotlib_64_0.png" />
 </div>
 </div>
-<div class='alert alert-success'>
+<div class='alert alert-success' style='padding-bottom:10px'>
     <b>Tip</b>: Sometimes, like in the figure above, subplots may overlap slightly, especially in small figures. Matplotlib has a neat function to fix this: <tt>plt.tight_layout</tt>. Try adding it to the code cell above (after the <tt>plt.subplots</tt> line but before the <tt>plt.show()</tt> line).
 </div><p>Currently, the <code class="docutils literal notranslate"><span class="pre">axes</span></code> variable is a two-dimensional numpy array (because it has both multiple columns and multiple rows). We can double-check this by checking out the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute from the numpy array:</p>
 <div class="cell docutils container">
@@ -941,7 +941,7 @@ example_data.csv
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Extract the lower right <tt>Axes</tt> object and store it in a variable named <tt>lower_right_ax</tt>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1016,7 +1016,7 @@ example_data.csv
 </div>
 <p>We already created a quite complicated figure with 9 subplots (3 rows, 3 columns), which shows a sine wave with increasing frequencies (1, 3, 5) across columns and increasing amplitudes across rows (1, 2, 4). We’ll show this figure below:</p>
 <p><img alt="sines" src="../../_images/solution_sine_wave_plot.png" /></p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Try to recreate the figure above with your own code! Use a <tt>figsize</tt> of (10, 10). Good luck! (No test cell)
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">

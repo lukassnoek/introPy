@@ -278,14 +278,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/solutions/1_python_basics.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/tutorials/1_python_basics.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/week_1/solutions/1_python_basics.ipynb&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -770,7 +770,7 @@ Well done! 2 out of tests 2 passed
 </div>
 </div>
 </div>
-<div class='alert alert-success'>
+<div class='alert alert-success' style='padding-bottom:10px'>
     <b>Tip!</b>
     When you're working on your ToDo, it's often informative to print (intermediate) output/variables of your solution (in a new code cell for example). This might give insight into (potentially) failing tests! 
 </div></div>
@@ -834,7 +834,7 @@ True
 </div>
 </div>
 <p>(Although, technically, the keyword <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, and <code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code> can be used interchangeably.)</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Mess around with booleans in the cell below. Try some more complex things, like: <tt>not ((3 > 5) and not (5 > 2))</tt>. Do you understand why the result is the way it is? Try to follow the logic in the sequence of statements (no test cell).
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -930,7 +930,7 @@ In week 1 of the course, I will get a 95.000000 (or higher) on my quiz!
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Modify the variable <tt>to_print</tt> defined below, such that printing it (i.e., running <tt>print(to_print)</tt>) will print: "I love Python 4ever". So you'll have to "fill" the "%" placeholders using string formatting. That is, you have to put a <tt>%</tt> sign after the <tt>to_print</tt> variable and "fill" it with the correct inputs.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -975,7 +975,7 @@ In week 1 of the course, I will get a 95.000000 (or higher) on my quiz!
 </pre></div>
 </div>
 <p>To use this method, you have to preprend your string with the letter <tt>f</tt>!</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Using the variables below and the F-string method, create the following string (and print it): "There are five notebooks this week; OMG, way too many."
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1058,7 +1058,7 @@ The second-to-last element of list3 is: 5.300000
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: In the cell below, replace the element 'TO_REPLACE_1' with 'REPLACED' and the element 'TO_REPLACE_2' also with 'REPLACED' in the list <tt>todo_list</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1156,7 +1156,7 @@ The second-to-last element of list3 is: 5.300000
 </div>
 </div>
 <p>Importantly, slices are “end exclusive”, which means that if you slice from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">5</span></code>, you get the indices <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4</span></code>! While this may seem confusing at first, you’ll get used to it. To appreciate the use of “end exclusive indexing”, do the next ToDo.</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Slice the list below, <tt>to_be_split</tt>, into two separate lists: one called <tt>first_half</tt> with the first half of the list values, and one called <tt>second_half</tt>, with the second half of the list values.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1234,7 +1234,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 <p>We’ll use this construction (<code class="docutils literal notranslate"><span class="pre">list(range(x,</span> <span class="pre">y))</span></code>, or without the <code class="docutils literal notranslate"><span class="pre">list</span></code>) quite often in this course!</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list (<tt>my_list</tt>) below, extract the numbers 2, 3, 4, 5, and 6 using a slice and store it in a new variable named <tt>my_new_list</tt>!
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1264,7 +1264,7 @@ The second-to-last element of list3 is: 5.300000
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list below (<tt>my_list_2</tt>), extract the values <tt>[5, 7, 9, 11]</tt> using a slice (i.e., in a single operation!) and store it in a new variable named <tt>my_new_list_2</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1387,7 +1387,7 @@ The second-to-last element of list3 is: 5.300000
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: In the code cell below, add a new key to the dictionary <tt>my_dict</tt> named <tt>"rat"</tt> and with the value <tt>"nasty"</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1423,7 +1423,7 @@ The second-to-last element of list3 is: 5.300000
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Values of dictionaries can be any type of object, even dictionaries themselves! So, add a new key to the dictionary <tt>my_dict</tt> named <tt>"another_dict"</tt> with the value of <em>another</em> dictionary with the keys <tt>"a"</tt> and <tt>"b"</tt> and the corresponding values <tt>1</tt> and <tt>2</tt>. Also, try to figure out how to index the value <tt>1</tt> from the 'nested' dictionary (this is not graded, but try it nonetheless!).
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1594,7 +1594,7 @@ The second-to-last element of list3 is: 5.300000
 </div>
 </div>
 <p>Importantly, you can name the variable to which you assign the return value <em>anyway you like</em>. This doesn’t have to be <code class="docutils literal notranslate"><span class="pre">new_number</span></code>! Like above, we named it <code class="docutils literal notranslate"><span class="pre">value_contained_in_new_number</span></code>, but it really doesn’t matter.</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: In the code cell below, we've started writing a function named <tt>extract_last_element</tt> that takes one input-argument &mdash; a list &mdash; and returns the last element of the list. Some parts of the function are missing, though, which you need to write! When you're done, run the test-cell below it to check if it's right! 
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1640,7 +1640,7 @@ The second-to-last element of list3 is: 5.300000
 </div>
 </div>
 <p>Alright, that was probably relatively easy. Let’s do a slightly harder one.</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a completely new function named <tt>get_values_from_odd_indices</tt> (so you have to write the <tt>def ...</tt> part!) that takes one input-argument &mdash; a list &mdash; and returns all values from the odd indices of that list. So, suppose you have the following list: [2, 100, 25, 48, 92, -5, 12]. Your function should return: [100, 48, -5]. That is, the values from odd indices (here: 1, 3, 5; we exclude index zero!) Hint: slices might be useful here!
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1787,7 +1787,7 @@ Maximum: 3
 </div>
 </div>
 <p>Keep this feature of returning multiple things and tuple unpacking in mind for the rest of the course (you’ll definitely encounter it more often!).</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a function called <tt>get_length_first_and_last_value</tt> which takes a list as single input argument, and returns the length of the list (the first output), the first value of the list (the second output), and the last value of the list (the third output). So, e.g., for the list <tt>[0, 1, 2, 3, 4]</tt>, the function should return <tt>(5, 0, 4)</tt> (a tuple of length 3, with the three outputs). Note that it should work for lists of arbitrary lengths and value types!
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2094,7 +2094,7 @@ c 3
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Complete the function below &mdash; named `extract_values_smaller_than_0` &mdash; that takes a single list with numbers as input and returns a new list with <em>only the values smaller than 0</em> from the input-list. For example, suppose our input-list is: [2, -5.3, 1.8, 0.0, -205.1, 6029]. Then, the function should return: [-5.3, -205.1].<br><br>Hint: use an if-statement in combination with the <tt>.append()</tt> method of the empty list we initialized below (<tt>list_to_return</tt>) to fill the <tt>list_to_return</tt> variable in a for-loop. In other words, the function should contain an if-statement in a for-loop (in which you need to use the <tt>.append()</tt> method).
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2209,7 +2209,7 @@ c 3
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a list comprehension that adds the string <tt>'_check'</tt> to each value in the list <tt>my_list</tt> below, except if the value is 'B'. (This is an optional ToDo to practice list comprehensions.) Note that (in this particular use of list-comprehensions) you always need <em>both</em> a "if .." part <em>and</em> an "else ..." part! So, can you think of a way to add nothing to a string (i.e., the "else ...", when the element is not 'B', part of this list comprehension)? (No test cell.)
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2224,7 +2224,7 @@ c 3
 <div class="section" id="a-challenging-exercise-optional">
 <h3>A challenging exercise (optional)<a class="headerlink" href="#a-challenging-exercise-optional" title="Permalink to this headline">¶</a></h3>
 <p>For those that a challenge, try the following.</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a function ...
 </div></div>
 </div>
