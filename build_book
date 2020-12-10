@@ -22,5 +22,6 @@ for nb in $nb_html; do
         sed -i "s+<div class='alert alert-${ad}'>+<div class='alert alert-${ad}' style='padding-bottom:10px'>+g" $nb
         sed -i 's+<div class="alert alert-${ad}">+<div class="alert alert-${ad}" style="padding-bottom:10px">+g' $nb
     done
+    # Note to self: if you want to run the above loop on Mac, change `sed -i "s+..."` to `sed -i '' "s+..."`
 done
 

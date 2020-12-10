@@ -20,6 +20,7 @@ execute:
 # Online stuff
 repository:
   url                       : https://github.com/lukassnoek/introPy
+  path_to_book              : intropy
 
 launch_buttons:
   notebook_interface        : jupyterlab
