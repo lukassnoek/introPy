@@ -25,8 +25,8 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -258,7 +258,7 @@
             href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_1/solutions/0_introduction.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/week_1/solutions/0_introduction.ipynb"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_1/solutions/0_introduction.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -278,14 +278,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/week_1/tutorials/0_introduction.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/solutions/0_introduction.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/week_1/solutions/0_introduction.ipynb&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -536,14 +536,14 @@
 ## Two hashes creates a slightly smaller header (this goes up to four hashes)</p>
 <p><strong>Bold text</strong> can be created by enclosing text in **double asterisks** and italicized text can be created by enclosing text in *single asterisks*. You can even include URLs and insert images from the web; check this <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">link</a> for a cheatsheet with markdown syntax and options! All the special markdown-syntax and options will be converted to readable text <em>after running the text cell</em> (again, by pressing the “play” icon in the toolbar or by <code class="docutils literal notranslate"><span class="pre">ctr+Enter</span></code>).</p>
 <p>To insert a text (markdown) cell, insert a new cell (“Insert → Insert Cell Below” or “B” in command mode). Then, <em>while highlighting the new cell</em>, press “Cell → Cell Type → Markdown” on the toolbar on top of the notebook (or, while in command mode, press the “m” key; “m” refers to “markdown”). You should see the prompt (the <strong><code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[</span> <span class="pre">]</span></code></strong> thingie) disappear. Voilà, now it’s a text cell!</p>
-<div class="alert alert-warning" style="padding-bottom:10px">
+<div class="alert alert-warning">
 <b>ToDo</b>: Try it out yourself! Insert a new markdown cell and try to write the following (without peeking at this cell!):
 <p><strong>OMG</strong>, this is the most awesome Python tutorial <em>ever</em>.</p>
 </div></div>
 <div class="section" id="changing-cell-type">
 <h3>Changing cell type<a class="headerlink" href="#changing-cell-type" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes you might accidentally change the cell type from “code” to “markdown”. To change it back, you can click “Cell” → “Cell Type” → “Code” or “Markdown” (or use the shortcuts, in command mode, “m” for markdown or “y” for code).</p>
-<div class="alert alert-warning" style="padding-bottom:10px">
+<div class="alert alert-warning">
 <b>ToDo</b>: Try it out yourself! Change the code cell, which contains markdown, into a markdown cell!
 </div><div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -564,7 +564,7 @@ SyntaxError: invalid syntax
 <div class="section" id="getting-help">
 <h3>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
 <p>Throughout this course, you’ll encounter situations in which you have to use functions that you’d like to get some more information on, e.g. which inputs it expects. To get help on any python function you’d like to use, you can simply write the function-name appended with a “?” and run the cell. This will open a window below with the “docstring” (explanation of the function). Take for example the built-in function <strong><code class="docutils literal notranslate"><span class="pre">len()</span></code></strong>. To get some more information, simply type <code class="docutils literal notranslate"><span class="pre">len?</span></code> in a code cell and run the cell.</p>
-<div class="alert alert-warning" style="padding-bottom:10px">
+<div class="alert alert-warning">
     <b>ToDo</b>: Try it out yourself: create a code cell below, type <tt>len?</tt> and check the output!
 </div><p>If this method (i.e. appending with “?”) does not give you enough information, try to google (or just whatever search engine) the name of the function together with ‘python’ and, if you know from which package the function comes, the name of that package. For instance, for len() you could google: <a class="reference external" href="http://lmgtfy.com/?q=python+len">‘python len()’</a>, or later when you’ll use the numpy package, and you’d like to know how the <code class="docutils literal notranslate"><span class="pre">numpy.arange</span></code> function works you could google: “python numpy arange”.</p>
 <div class="alert alert-success">
@@ -617,7 +617,7 @@ SyntaxError: invalid syntax
 <p>We believe that the best way to learn how to do neuroimaging analysis is by <em>actually programming</em> the analyses yourself. You have already seen some of these (ungraded) exercises, which we call “ToDos” (formatted as <font color='orange'>orange</font> boxes): short programming exercises, which you get immediate feedback for using “tests” (more on this later). We highly recommend doing/answering the ToDos/ToThinks, because they are designed to improve your understanding of the material!</p>
 <p>Sometimes, you also encounter <font color='green'>Tips and Tricks</font>, which may contain advice, more information on a specific topic, or links to relevant websites or material.</p>
 <p>For example, a “ToDo” would look something like this:</p>
-<div class="alert alert-warning" style="padding-bottom:10px">
+<div class="alert alert-warning">
     <b>ToDo</b>: In the code-cell below, set the variable <tt>x</tt> to 5 (without quotes!) and remove the <tt>raise NotImplementedError</tt> statement.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -655,7 +655,7 @@ SyntaxError: invalid syntax
 </div>
 <p>In contrast to ToDos, you don’t get any immediate feedback on <font color='blue'>ToThinks</font> (because this cannot be automated). These ToThinks are designed to make you reflect on the study material.</p>
 <p>Now, let’s try another ToDo. Note that it is followed by two test-cells, which test different aspects of your implementation.</p>
-<div class="alert alert-warning" style="padding-bottom:10px">
+<div class="alert alert-warning">
     <b>ToDo</b>: In the code-cell below, set the variable <tt>y</tt> to <tt>x * 2</tt>, so you have to replace <tt>None</tt> with <tt>x * 2</tt> (yes, this is as easy as it sounds). Don't forget to remove the <tt>raise NotImplementedError</tt>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">

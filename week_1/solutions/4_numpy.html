@@ -25,8 +25,8 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -258,7 +258,7 @@
             href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_1/solutions/4_numpy.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/week_1/solutions/4_numpy.ipynb"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_1/solutions/4_numpy.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -278,14 +278,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/week_1/tutorials/4_numpy.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/week_1/solutions/4_numpy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/week_1/solutions/4_numpy.ipynb&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -460,7 +460,7 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.86 ms ± 572 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 ms ± 95.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -476,8 +476,8 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.18 µs ± 230 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-Numpy is 747 times faster than base Python!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.9 µs ± 111 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+Numpy is 477 times faster than base Python!
 </pre></div>
 </div>
 </div>
@@ -768,16 +768,16 @@ Filled array
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]] 
 
-[[0.79853558 0.69952563 0.30913304 0.37129156 0.36432613 0.00675189
-  0.15687083 0.36316331 0.4414786  0.55815154]
- [0.39630903 0.66133766 0.69478065 0.64223982 0.14548944 0.74446564
-  0.2603439  0.09927898 0.82936033 0.43112307]
- [0.50731273 0.25504825 0.60374024 0.01796441 0.31365308 0.94270292
-  0.13689005 0.07081003 0.10638966 0.82564966]
- [0.7518779  0.24985965 0.83537696 0.0316216  0.60819684 0.01314218
-  0.07356231 0.52517735 0.73879313 0.31768095]
- [0.01640651 0.95555983 0.26469642 0.41797841 0.60047413 0.40552525
-  0.81346356 0.34825228 0.60514802 0.32409425]]
+[[0.11468709 0.58523507 0.97213716 0.90849539 0.42786612 0.49031641
+  0.2258042  0.19946784 0.31162173 0.30093267]
+ [0.71595542 0.92223242 0.00697477 0.15797383 0.62620098 0.61398203
+  0.25184016 0.14283788 0.25579635 0.90554622]
+ [0.62264197 0.34334567 0.63913834 0.24717878 0.399131   0.12336746
+  0.28392755 0.05234738 0.94185997 0.18149712]
+ [0.18476238 0.91559812 0.25391055 0.77676757 0.57753398 0.70374831
+  0.2155186  0.92634417 0.46188631 0.14013739]
+ [0.3734502  0.1243869  0.6698417  0.80246662 0.4745264  0.77908428
+  0.65875177 0.10659095 0.39980056 0.44903308]]
 </pre></div>
 </div>
 </div>
@@ -993,8 +993,9 @@ Filled array
 
 First row
 [1 2 3] 
-
-First column
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First column
 [1 4 7]
 </pre></div>
 </div>
@@ -1096,8 +1097,9 @@ The boolean array:
 [[ True False  True]
  [False  True False]
  [ True False  True]] 
-
-Result of indexing my_array with bool_array:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result of indexing my_array with bool_array:
 
 [1 3 5 7 9]
 </pre></div>
@@ -1358,8 +1360,9 @@ This argument may be named or unnamed - doesn’t matter. An example:</p>
 [[0.32710922 0.30512889 0.84403235]
  [0.6239239  0.29343832 0.71361229]
  [0.34459281 0.58655561 0.99263403]] 
-
-Use the round() method with the argument 3:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Use the round() method with the argument 3:
 [[0.327 0.305 0.844]
  [0.624 0.293 0.714]
  [0.345 0.587 0.993]] 
@@ -1646,10 +1649,7 @@ Correct! You stats wizard!
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: 
 array([[1., 2.],
-       [3., 4.]])
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+       [3., 4.]]) 
 
 y: 
 array([[5., 6.],
@@ -1710,8 +1710,9 @@ array([[ 6.,  8.],
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5. 12.]
  [21. 32.]] 
-
-[[ 5. 12.]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5. 12.]
  [21. 32.]]
 </pre></div>
 </div>
@@ -1762,8 +1763,9 @@ array([[ 6.,  8.],
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.0000e+00 6.4000e+01]
  [2.1870e+03 6.5536e+04]] 
-
-[[1.0000e+00 6.4000e+01]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.0000e+00 6.4000e+01]
  [2.1870e+03 6.5536e+04]]
 </pre></div>
 </div>
@@ -1881,11 +1883,11 @@ Sum across columns of x:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.19 ms ± 13.5 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1 ms ± 15.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43.2 µs ± 2.32 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-Using the axis-argument is 50.778 times faster than a for-loop!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71.9 µs ± 482 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+Using the axis-argument is 43.141 times faster than a for-loop!
 </pre></div>
 </div>
 </div>
