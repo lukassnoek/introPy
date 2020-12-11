@@ -116,10 +116,10 @@ Create a new routine, named *init_fix*, with a single *Polygon* component repres
 After creating the *init_fix* routine, run the experiment to see whether it works as expected!
 
 :::{admonition,attention} ToThink
-If you run the experiment, the fixation dot may look more like an oval than a circle... Do you understand why? Do you know how to fix this?Hint: it has to do with the experiment's units.
+If you run the experiment, the fixation dot may look more like an oval than a circle... Do you understand why? Do you know how to fix this? Hint: it has to do with the experiment's units.
 :::
 
-If you want a challenge, try the (optional) ToDo below {cite}`thaler2013best`.
+If you want a challenge, try the (optional) ToDo below.
 
 :::{admonition,attention} ToDo
 In their article [What is the best fixation target? The effect of target shape on stability of fixational eye movements](https://www.sciencedirect.com/science/article/pii/S0042698912003380), Thaler and colleagues (2013) investigate the effect of different fixation targets on eye movements and find that the fixation target below leads to the fewest eye movements.

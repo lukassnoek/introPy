@@ -208,6 +208,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/for_developers.html">
+   For developers
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/CONTRIBUTING.html">
    Contributing
   </a>
@@ -1084,6 +1089,16 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">8</span><span class="n">d1718c2ea7b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">participant_1</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;Participant&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Let's make the <tt>__init__</tt> method actually do something! In the class definition below, add a print statement within the <tt>__init__</tt> function which prints out "Constructing a Participant object!". Make sure to add another indent (four spaces or a tab) for your print statement (just like the <tt>pass</tt> keyword in the <tt>__init__</tt> method above).
@@ -1112,12 +1127,6 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Constructing a Participant object!
-Awesome! You&#39;re doing great.
-</pre></div>
-</div>
-</div>
 </div>
 <p>As you can see in the test cell, whenver a <code class="docutils literal notranslate"><span class="pre">Participant</span></code> object is initialized, the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is triggered (under the hood)! You can do anything you like in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, but usually this method is used to “bind” attributes to it<strong>self</strong>, such as arguments given to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method. For example, let’s add a single argument (in addition to <code class="docutils literal notranslate"><span class="pre">self</span></code>) to the constructor, a subject number (an integer):</p>
 <div class="cell docutils container">
@@ -1138,11 +1147,6 @@ Awesome! You&#39;re doing great.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here (no test cell). &quot;&quot;&quot;</span>
 <span class="c1"># YOUR SOLUTION HERE</span></pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
 </div>
 </div>
 </div>
@@ -1174,11 +1178,6 @@ Awesome! You&#39;re doing great.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yeah! Well done!
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1190,11 +1189,6 @@ Awesome! You&#39;re doing great.
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Well done!&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;It should raise an error, but it isn&#39;t doing so ... &quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
 </pre></div>
 </div>
 </div>
@@ -1229,11 +1223,6 @@ Awesome! You&#39;re doing great.
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">participant_15</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">)</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">participant_15</span><span class="o">.</span><span class="n">larger_than_10</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>yes
 </pre></div>
 </div>
 </div>
@@ -1278,12 +1267,6 @@ Awesome! You&#39;re doing great.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
-no
-</pre></div>
-</div>
-</div>
 </div>
 <p>Now, let’s try a slightly harder ToDo!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -1318,11 +1301,6 @@ no
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The data attribute has not been updated ...&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EPIC! This wasn&#39;t easy, but everything works as expected!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EPIC! This wasn&#39;t easy, but everything works as expected!
 </pre></div>
 </div>
 </div>
@@ -1372,11 +1350,6 @@ A couple of hints:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>YES! Well done so far! Let&#39;s see how the next test cell goes ...
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1389,11 +1362,6 @@ A couple of hints:
 <span class="n">av</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i1</span> <span class="o">+</span> <span class="n">i2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">inp1</span><span class="p">,</span> <span class="n">inp2</span><span class="p">)]</span>
 <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">testp</span><span class="o">.</span><span class="n">current_average</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">av</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OMG. You&#39;re amazing!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OMG. You&#39;re amazing!
 </pre></div>
 </div>
 </div>
