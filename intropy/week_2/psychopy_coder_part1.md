@@ -1,4 +1,4 @@
-# The PsychoPy Coder (part 1)
+# The PsychoPy Coder, part 1 (tutorial)
 At last, we'll discuss the PsychoPy Coder! In this tutorial, we explain the basics of the Coder interface. In the next (and final) tutorial, we'll discuss the Coder interface in more detail. Like in the previous Builder tutorial, we will explain the concepts by walking you through the process of programming a real experiment. This time, we will create a variant of the classical color-word Stroop task, the *emotion-word Stroop* task, in which participants are presented with images of emotional facial expressions in combination with words describing emotions that are congruent with the images (e.g., an angry expression with the word "angry") or incongruent with the images (e.g., a happy exression with the word "angry").
 
 ## The `psychopy` package
@@ -41,7 +41,7 @@ Try writing some valid Python code in the Python shell (and pressing enter to ru
 ```
 :::
 
-This Python shell is very useful to debug or try out short code snippets. For example, if you forgot what the function `#!python len` returns, you can for example run the command `#!python len([1, 2])` in the Python shell to find out (spoiler: an integer). 
+This Python shell is very useful to debug or try out short code snippets. For example, if you forgot what the function `len` returns, you can for example run the command `len([1, 2])` in the Python shell to find out (spoiler: an integer). 
 
 Finally, the last pane in the middle is PsychoPy's code editor. Here, you can open any plain-text file (not just Python files!) which you can modify and save. In practice, of course, you'll probably mostly work with Python files in this editor. Like most code editors, the Psychopy code editor also does some code formatting and syntax highlighting. One thing you'll notice is that it by default uses two spaces (in contrast to the more conventional four spaces) for indentation.
 
@@ -54,7 +54,7 @@ Create a new Python file (*File* &rarr; *New*) and save it as `emo_stroop.py` in
 Although you learned in week 1 that Python files should be run in a terminal on the command line (e.g., `python emo_stroop.py`), Python files within the PsychoPy coder are actually run the same way as Builder experiments: by clicking on the big green play (&#9658;) button!
 
 :::{admonition,attention} ToDo
-Add some code to your `exp_stroop.py` file, e.g., `#!python print("PsychoPy 4evah")`, and run the file.
+Add some code to your `exp_stroop.py` file, e.g., `print("PsychoPy 4evah")`, and run the file.
 :::
 
 After clicking the *Run experiment* button, the *Experiment runner* window should pop up, displaying something like the following:
@@ -79,7 +79,7 @@ exp_info = {'participant_nr': ''}  # no default!
 dlg = DlgFromDict(exp_info)
 ```
 
-Note that it is quite important to create the dictionary before passing it to the `DlgFromDict` class instead of passing it directly, e.g., `#!python DlgFromDict({'participant_nr': ''})`. This is because PsychoPy will modify the dictionary (i.e., the variable `exp_info` in the code snippet above) with the information filled in by the participant/experimenter.
+Note that it is quite important to create the dictionary before passing it to the `DlgFromDict` class instead of passing it directly, e.g., `DlgFromDict({'participant_nr': ''})`. This is because PsychoPy will modify the dictionary (i.e., the variable `exp_info` in the code snippet above) with the information filled in by the participant/experimenter.
 
 :::{admonition,attention} ToDo
 In your experiment, create a dialog box with the fields "participant_nr" and "age", in which the participant number should have the default `99` (for testing purposes) but age should not get a default value. Don't forget to import the `DlgFromDict` class first! Then, run your experiment.
@@ -119,7 +119,7 @@ Now, so far we haven't really discussed how to actually create proper experiment
 ## The `Window`
 One of the most important classes from the `psychopy` package is the `Window` class, which defines the window in which you are going to run your experiment. It is quite a complex class, with many different attributes and methods; we'll discuss the most important ones in this tutorial.
 
-You can import the `Window` class from the `visual` module of the `psychopy` package (i.e., `#!python from psychopy.visual import Window`). This, by itself, does nothing; for the experiment window to appear, we need to intialize an object with the `Window` class. There are *a lot* of arguments that can be used upon initialization (for an overview, see the [docs](https://www.psychopy.org/api/visual/window.html)), but all arguments have sensible defaults, so you can initialize a `Window` object as follows:
+You can import the `Window` class from the `visual` module of the `psychopy` package (i.e., `from psychopy.visual import Window`). This, by itself, does nothing; for the experiment window to appear, we need to intialize an object with the `Window` class. There are *a lot* of arguments that can be used upon initialization (for an overview, see the [docs](https://www.psychopy.org/api/visual/window.html)), but all arguments have sensible defaults, so you can initialize a `Window` object as follows:
 
 ```python
 win = Window()
@@ -137,7 +137,7 @@ When running the current experiment, you should briefly see a gray window pop up
 win = Window(size=(400, 800))
 ```
 
-Most of the times, though, you'd probably want to run your experiment in "full-screen" mode. To do so, pass `True` to the argument `fullscr` (i.e., `#!python win = Window(fullscr=True)`). Note that if you specify `fullscr=True` but leave the window's `size` at its default (i.e., `(800, 600)`), you'll see a warning in the *Experiment running* saying "User requested fullscreen with size [800, 600], but screen is actually ... Using actual size". This warning is harmless and can be ignored, but if you want to prevent this warning, you should specify the actual size of your monitor as well (e.g., `size=(1920, 1080)` for an HD monitor).
+Most of the times, though, you'd probably want to run your experiment in "full-screen" mode. To do so, pass `True` to the argument `fullscr` (i.e., `win = Window(fullscr=True)`). Note that if you specify `fullscr=True` but leave the window's `size` at its default (i.e., `(800, 600)`), you'll see a warning in the *Experiment running* saying "User requested fullscreen with size [800, 600], but screen is actually ... Using actual size". This warning is harmless and can be ignored, but if you want to prevent this warning, you should specify the actual size of your monitor as well (e.g., `size=(1920, 1080)` for an HD monitor).
 
 You can also change the window's background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the `color` argument.
 
@@ -197,7 +197,7 @@ Now, with our knowledge about clocks, let's check whether the `wait` function ac
 Import the `Clock` class and, after creating a `Window` object, initialize it. Then, query the time using `getTime` and store it in a variable (e.g., `t_before_wait`). Aftewards, make PsychoPy wait for 2 seconds (using the `wait` function), and finally, query the time again and store in another variable (e.g., `t_after_wait`). Make your script print the time before `wait` call, after the `wait` call, and the difference between those two times. Then, run the experiment.
 :::
 
-If you implemented the ToDo correctly, you should see that the time just after initialization of the clock is very close to zero (e.g., `#!python 7.83892915e-06`) and that both the time after the `wait` call and the difference before and after the `wait` call is approximately `2` seconds &mdash; just like we expected!
+If you implemented the ToDo correctly, you should see that the time just after initialization of the clock is very close to zero (e.g., `7.83892915e-06`) and that both the time after the `wait` call and the difference before and after the `wait` call is approximately `2` seconds &mdash; just like we expected!
 
 Two other important methods of the `Clock` class are `reset`, which sets the clock's time back to zero, and `add`, which &mdash; paradoxically &mdash; subtracts time from the clock. These two features will be discussed in detail in the next tutorial.
 

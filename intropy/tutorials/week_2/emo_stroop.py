@@ -48,13 +48,18 @@ Importantly, you need to respond to the EXPRESSION of the face and ignore the wo
     
 (Press ‘enter’ to start the experiment!)
  """
+
 instruct_txt = TextStim(win, instruct_txt, alignText='left', height=0.085)
 instruct_txt.draw()
 win.flip()
 
 kb = Keyboard()
-while 'return' not in kb.getKeys():
-    pass
+while True:
+    keys = kb.getKeys()
+    if 'return' in keys:
+        for key in keys:
+            print(f"The {key.name} key was pressed within {key.rt} seconds for a total of {key.duration} seconds.")
+        break
 
 # Finish experiment by closing window and quitting
 win.close()
