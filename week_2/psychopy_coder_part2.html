@@ -102,8 +102,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/about.html">
+   About this course
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../getting_started/installation.html">
-   Getting started
+   Installation
   </a>
  </li>
  <li class="toctree-l1">
@@ -111,15 +116,10 @@
    The Jupyter ecosystem
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../getting_started/for_educators.html">
-   Information for educators
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Week 1 (Python)
+  Python (week 1)
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -156,7 +156,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Week 2 (PsychoPy)
+  PsychoPy (week 2)
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -193,6 +193,28 @@
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy_how_to_continue.html">
    How to continue with PsychoPy?
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/CONTRIBUTING.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/CONDUCT.html">
+   Code of Conduct
   </a>
  </li>
 </ul>
@@ -339,41 +361,51 @@
 <span class="n">welcome_txt_stim</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Welcome to this experiment!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>!!! example “ToDo”
-Paste the code snippet above into your script, after initializing the window and clock. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Paste the code snippet above into your script, after initializing the window and clock. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
+</div>
 </div>
 <div class="section" id="drawin-flippin">
 <h2>Drawin’ &amp; flippin’<a class="headerlink" href="#drawin-flippin" title="Permalink to this headline">¶</a></h2>
 <p>When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! This is because you first need to <em>draw</em> the stimulus! This can be done by calling the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method that is included in each (visual) component class.</p>
-<p>!!! example “ToDo”
-After initialization of the text component, call the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method (without arguments) of the <code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code> variable. Then, run your experiment.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>After initialization of the text component, call the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method (without arguments) of the <code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code> variable. Then, run your experiment.</p>
+</div>
 <p>Argh, still no sign of the welcome text in the window! This is because your monitor contains <a class="reference external" href="https://en.wikipedia.org/wiki/Multiple_buffering">two buffers</a>, a “front buffer” (which is visible) and a “back buffer” (which isn’t), and components are always drawn on the back buffer! To make the drawn components visible, we need to flip the back buffer to the front, which can be done by calling the <code class="docutils literal notranslate"><span class="pre">flip</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> object. By splitting the operation of showing stimuli into two operations (drawing and flipping the back buffer), you can precisely control when you want your stimuli to appear (i.e., when calling <code class="docutils literal notranslate"><span class="pre">flip</span></code>).</p>
-<p>!!! example “ToDo”
-Right after the call to the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method of the text component (<code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code>), add a call to the <code class="docutils literal notranslate"><span class="pre">flip</span></code> method (without arguments) of the window (<code class="docutils literal notranslate"><span class="pre">win</span></code>). Then, run the experiment again.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Right after the call to the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method of the text component (<code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code>), add a call to the <code class="docutils literal notranslate"><span class="pre">flip</span></code> method (without arguments) of the window (<code class="docutils literal notranslate"><span class="pre">win</span></code>). Then, run the experiment again.</p>
+</div>
 <p>Finally, you should see the welcome text on the window, albeit quite briefly! Again, it is only shown briefly because PsychoPy will simply follow the script and immediatly go to the next lines (which presumably are those that close the window and quit the experiment). There are several ways in which you can specify how long a component is visible, which differ in how precisely they can determine the duration. One of the easiest ways is to add a call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function after the window flip.</p>
-<p>!!! example “ToDo”
-Using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, make PsychoPy wait for 2 seconds after flipping the window. Then, run the experiment again.</p>
-<p>Now you should see that the welcome text is visible for 2 seconds (actually, a bit longer because of the time it takes to shut down the experiment). In [one of the next sections](psychopy_coder_part2.md#Timing revisited), we will discuss other (and more precise) methods to manipulate the duration of stimuli.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, make PsychoPy wait for 2 seconds after flipping the window. Then, run the experiment again.</p>
+</div>
+<p>Now you should see that the welcome text is visible for 2 seconds (actually, a bit longer because of the time it takes to shut down the experiment). In one of the next sections, we will discuss other (and more precise) methods to manipulate the duration of stimuli.</p>
 <p>Note that after flipping the window such that the back buffer is moved to the front buffer, the back buffer is completely cleared. This means that when you’d flip the window <em>again</em> (without drawing any stuff in the meantime), the front buffer would contain an empty window!</p>
-<p>!!! example “ToDo”
-After the call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, flip the window again, and add another call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function for two seconds (otherwise you won’t see the effect of the second flip). Then, run the experiment again.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>After the call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, flip the window again, and add another call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function for two seconds (otherwise you won’t see the effect of the second flip). Then, run the experiment again.</p>
+</div>
 <p>By flipping the window again, the welcome text disappeared and was replaced by an empty window (because the front buffer was replaced by an empty back buffer). This underlines an important concept: <em>every time you flip the window, you start with an empty back buffer</em> (and you need to draw your stimuli again, if you want to show them again on the next flip).</p>
 </div>
 <div class="section" id="responses">
 <h2>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">¶</a></h2>
 <p>After welcoming our participant, let’s add some instructions. Like we did in the Builder experiment, let’s also make sure that, after reading the instructions, the participant can continue the experiment by pressing enter (‘return’). This gives us an excuse to introduce the topic of working with participant responses!</p>
 <p>But first, let’s create a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the instructions:</p>
-<p>!!! quote “Instructions”
-In this experiment, you will see emotional faces (either happy or angry) with a word above the image (either “happy” or “angry”).
+<blockquote>
+<div><p>In this experiment, you will see emotional faces (either happy or angry) with a word above the image (either “happy” or “angry”).
 Importantly, you need to respond to the EXPRESSION of the face and ignore the word. You respond with the arrow keys:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    HAPPY expression = left&lt;br&gt;
-    ANGRY expression = right
-    
-    (Press ‘enter’ to start the experiment!)
-</pre></div>
+<p>HAPPY expression = left<br>
+ANGRY expression = right</p>
+<p>(Press ‘enter’ to start the experiment!)</p>
+</div></blockquote>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with the text above and store it in a variable named <code class="docutils literal notranslate"><span class="pre">instruct_txt_stim</span></code>.</p>
 </div>
-<p>!!! example “ToDo”
-Initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with the text above and store it in a variable named <code class="docutils literal notranslate"><span class="pre">instruct_txt_stim</span></code>.</p>
 <ul class="simple">
 <li><p>Stuff about <code class="docutils literal notranslate"><span class="pre">waitKeys</span></code>.</p></li>
 <li><p>Multiple components</p></li>

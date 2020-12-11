@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Jupyter ecosystem &#8212; introPy</title>
+    <title>Bibliography &#8212; introPy</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python essentials" href="../week_1/python.html" />
-    <link rel="prev" title="Installation" href="installation.html" />
+    <link rel="next" title="Contributing" href="CONTRIBUTING.html" />
+    <link rel="prev" title="How to continue with PsychoPy?" href="../week_2/psychopy_how_to_continue.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -100,19 +100,19 @@
   Getting started
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="about.html">
+  <a class="reference internal" href="../getting_started/about.html">
    About this course
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="installation.html">
+  <a class="reference internal" href="../getting_started/installation.html">
    Installation
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/jupyter.html">
    The Jupyter ecosystem
   </a>
  </li>
@@ -201,19 +201,19 @@
   Misc
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../misc/bibliography.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Bibliography
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../misc/CONTRIBUTING.html">
+  <a class="reference internal" href="CONTRIBUTING.html">
    Contributing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../misc/CONDUCT.html">
+  <a class="reference internal" href="CONDUCT.html">
    Code of Conduct
   </a>
  </li>
@@ -257,7 +257,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/getting_started/jupyter.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/misc/bibliography.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -277,10 +277,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fgetting_started/jupyter.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fmisc/bibliography.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/getting_started/jupyter.md"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/misc/bibliography.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -300,30 +300,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyterhub">
-   JupyterHub
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyterlab">
-   JupyterLab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyter-notebooks">
-   Jupyter Notebooks
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -331,37 +307,20 @@
         
               <div>
                 
-  <div class="section" id="the-jupyter-ecosystem">
-<h1>The Jupyter ecosystem<a class="headerlink" href="#the-jupyter-ecosystem" title="Permalink to this headline">¶</a></h1>
-<p>In this course, we will use several tools from <em>project Jupyter</em> <a class="bibtex reference internal" href="../misc/bibliography.html#kluyver2016jupyter" id="id1">[KRKPerez+16]</a>. This project includes several nifty tools to make programming a little easier!</p>
-<div class="section" id="jupyterhub">
-<h2>JupyterHub<a class="headerlink" href="#jupyterhub" title="Permalink to this headline">¶</a></h2>
-<p>One tool that we use in this course is “JupyterHub”. This piece of software allows you to easily create a preconfigured Python environment on an external server — no need to install Python on your own computer anymore! You just go to the website/public IP associated with the external server and you can start programming! We run JupyterHub on our own server at the University of Amsterdam, which Research Master students can use for this course. Others may use the aforementioned tool “Binder” to create a JupyterHub instance themselves, which can be used for this course as well!</p>
-</div>
-<div class="section" id="jupyterlab">
-<h2>JupyterLab<a class="headerlink" href="#jupyterlab" title="Permalink to this headline">¶</a></h2>
-<p>Another tool we use is “JupyterLab”, which is an extensive integrated development environment (IDE) similar to RStudio. Because it is implemented in the browser, it combines well with JupyterHub (but it can also be used on your own computer). Using the JupyterLab interface, you can create text files and (Python) scripts, open interactive Python consoles, open terminals, and run so-called Jupyter Notebooks (for more info, check the <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">documentation</a>). Don’t worry if this doesn’t make sense to you at this point! We will explain the most important functionality step-by-step during the course.</p>
-<p>If you want to see how JupyterLab looks like, click one of the two buttons below, which will launch a Jupyterhub instance with a Jupyterlab interface that includes the course materials. The UvA JupyterHub is only accessible to Research Master Students enrolled in the “Programming for Psychology” course.</p>
-<p><a class="reference external" href="https://neuroimaging.lukas-snoek.com"><img alt="UvA" src="https://badgen.net/badge/UvA/Jupyterhub/orange" /></a>
-<a class="reference external" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
-<p>Note that, instead of using the JupyterLab interface, you can also use the “classic” interface, which is less extensive but also “cleaner”. To do so, click on <em>Help</em> → <em>Launch Classic Notebook</em> or change the word <code class="docutils literal notranslate"><span class="pre">lab</span></code> to the word <code class="docutils literal notranslate"><span class="pre">tree</span></code> in the URL. To change back from the classic interface to the Jupyterlab interface, change the word <code class="docutils literal notranslate"><span class="pre">lab</span></code> back to <code class="docutils literal notranslate"><span class="pre">tree</span></code> in the URL.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have installed Python on your own computer, you can start the Jupyterlab interface by clicking on the JupyterLab icon in Anaconda Navigator (Mac/Windows) or running the following command in your terminal (Mac/Linux) or Anaconda prompt (Windows):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter lab
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="jupyter-notebooks">
-<h2>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
-<p>Finally, we use “Jupyter Notebooks” a lot in this course. Jupyter notebooks are very similar to R Markdown files. Like R Markdown files, you can mix text, code, plots, and mathematical formulas within a single document (see gif below).</p>
-<p><img alt="jupyter_gif" src="https://miro.medium.com/max/2380/1*Y0wfx6EBWAGo_gfmUZHJLw.gif" />
-<em>Gif from Cornellius Yudha Wijaya on <a class="reference external" href="https://towardsdatascience.com/elevate-your-jupyter-notebook-environment-experience-9bdd1101aa54">towardsdatascience.com</a></em></p>
-<p>Most of our tutorials are actually written in Jupyter notebooks. These notebooks are great for “interactive programming”, in which it is easy to experiment, try out, and troubleshoot your code. Because this mode of programming is great for teaching, we will use Jupyter notebooks a lot in week 1. Interactive programing is not, however, the only way in which you use Python. In fact, a lot of people use Python in a non-interactive way by writing scripts. In this “script mode” (for lack of a better term), writing the code and running the code are done separately. The code interface of PsychoPy, for example, cannot be used interactively and only supports “script mode”. We will dicuss both modes in this course.</p>
-<p>If you want to check out Jupyter notebooks already, open Jupyterlab (using Binder, on the UvA server, or on your own computer) and click in the launcher on the <em>Python 3</em> tile under the <em>Notebook</em> header, which will open a new Jupyter notebook!</p>
-<p>Now, you should be ready to start on the course materials!</p>
-</div>
+  <div class="section" id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
+<p id="bibtex-bibliography-misc/bibliography-0"><dl class="citation">
+<dt class="bibtex label" id="hamrick2016creating"><span class="brackets">Ham16</span></dt>
+<dd><p>Jessica B Hamrick. Creating and grading ipython/jupyter notebook assignments with nbgrader. In <em>Proceedings of the 47th ACM Technical Symposium on Computing Science Education</em>, 242–242. 2016.</p>
+</dd>
+<dt class="bibtex label" id="kluyver2016jupyter"><span class="brackets">KRKPerez+16</span></dt>
+<dd><p>Thomas Kluyver, Benjamin Ragan-Kelley, Fernando Pérez, Brian E Granger, Matthias Bussonnier, Jonathan Frederic, Kyle Kelley, Jessica B Hamrick, Jason Grout, Sylvain Corlay, and others. Jupyter notebooks-a publishing format for reproducible computational workflows. In <em>ELPUB</em>, 87–90. 2016.</p>
+</dd>
+<dt class="bibtex label" id="peirce2019psychopy2"><span class="brackets">PGS+19</span></dt>
+<dd><p>Jonathan Peirce, Jeremy R Gray, Sol Simpson, Michael MacAskill, Richard Höchenberger, Hiroyuki Sogo, Erik Kastman, and Jonas Kristoffer Lindeløv. Psychopy2: experiments in behavior made easy. <em>Behavior research methods</em>, 51(1):195–203, 2019.</p>
+</dd>
+</dl>
+</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -377,7 +336,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./getting_started"
+            path: "./misc"
         },
         predefinedOutput: true
     }
@@ -392,8 +351,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="installation.html" title="previous page">Installation</a>
-    <a class='right-next' id="next-link" href="../week_1/python.html" title="next page">Python essentials</a>
+    <a class='left-prev' id="prev-link" href="../week_2/psychopy_how_to_continue.html" title="previous page">How to continue with PsychoPy?</a>
+    <a class='right-next' id="next-link" href="CONTRIBUTING.html" title="next page">Contributing</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

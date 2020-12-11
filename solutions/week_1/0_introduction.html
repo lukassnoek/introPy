@@ -102,8 +102,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/about.html">
+   About this course
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../getting_started/installation.html">
-   Getting started
+   Installation
   </a>
  </li>
  <li class="toctree-l1">
@@ -111,15 +116,10 @@
    The Jupyter ecosystem
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/for_educators.html">
-   Information for educators
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Week 1 (Python)
+  Python (week 1)
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -156,7 +156,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Week 2 (PsychoPy)
+  PsychoPy (week 2)
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -193,6 +193,28 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../week_2/psychopy_how_to_continue.html">
    How to continue with PsychoPy?
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/CONTRIBUTING.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/CONDUCT.html">
+   Code of Conduct
   </a>
  </li>
 </ul>
@@ -591,11 +613,6 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is y equal to 5? True
-</pre></div>
-</div>
-</div>
 </div>
 <p>Now, in a later part we might again define a variable <code class="docutils literal notranslate"><span class="pre">y</span></code>, but this time we define it to be 6.</p>
 <div class="cell docutils container">
@@ -644,11 +661,6 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
-</pre></div>
-</div>
-</div>
 </div>
 <p>In contrast to ToDos, you don’t get any immediate feedback on <font color='blue'>ToThinks</font> (because this cannot be automated). These ToThinks are designed to make you reflect on the study material.</p>
 <p>Now, let’s try another ToDo. Note that it is followed by two test-cells, which test different aspects of your implementation.</p>
@@ -676,11 +688,6 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correct!
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -692,11 +699,6 @@ SyntaxError: invalid syntax
     <span class="k">raise</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epic!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epic!
 </pre></div>
 </div>
 </div>
@@ -715,17 +717,6 @@ SyntaxError: invalid syntax
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable     Type      Data/Info
---------------------------------
-first_line   str       This is not printed
-last_line    str       But this is!
-plt          module    &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
-x            int       2
-y            int       4
 </pre></div>
 </div>
 </div>
@@ -800,11 +791,6 @@ y            int       4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
-</pre></div>
-</div>
-</div>
 </div>
 <p>So, it appears that the class of <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">str</span></code>, which stands for “string”!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -825,22 +811,12 @@ y            int       4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
-</pre></div>
-</div>
-</div>
 </div>
 <p>As you can see, this attribute of <code class="docutils literal notranslate"><span class="pre">x</span></code> returns the name of its class. (Note that you could achieve the same by running <code class="docutils literal notranslate"><span class="pre">type(x)</span></code>!) Think of attributes as things that describe properties of objects.</p>
 <p>As mentioned before, <em>methods</em> represent things that objects can <em>do</em>. For example, all string objects (like <code class="docutils literal notranslate"><span class="pre">x</span></code>) have the method <code class="docutils literal notranslate"><span class="pre">capitalize</span></code>, which can be run as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hello&#39;
 </pre></div>
 </div>
 </div>
@@ -862,11 +838,6 @@ y            int       4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cello&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>As you can see in the example above, methods are very much like <em>functions</em> in the sense that they (may) take some inputs and (may) return something. Importantly, often (but not always, as we’ll see in a minute) the results from the method operation are not automatically stored! So, if you want to store the result of a method call, assign the result to a (new) variable!</p>
 <div class="cell docutils container">
@@ -876,21 +847,11 @@ y            int       4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variable x_h2c contains: cello
-</pre></div>
-</div>
-</div>
 </div>
 <p>Importantly, the <code class="docutils literal notranslate"><span class="pre">x_h2c</span></code> variable is now a new object, again from the string class!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x_h2c</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
 </div>
 </div>
@@ -918,11 +879,6 @@ y            int       4
                          <span class="s2">&quot;call the right method (islower)?&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>  <span class="c1"># probably correct implementation then</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yay! Well done.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yay! Well done.
 </pre></div>
 </div>
 </div>
@@ -967,12 +923,6 @@ y            int       4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lukas
-29
-</pre></div>
-</div>
-</div>
 </div>
 <p>To find out which (other) attributes and methods a particular object has, you can either look at the source code (i.e., looking at the <code class="docutils literal notranslate"><span class="pre">utils.py</span></code> file in this case) or using the following Jupyter trick: in a code cell, type the name of the object followed by a period (.) and press TAB. This will create a pop-up with a list of the possible attributes (called “instances” in Jupyterlab) and methods (called simply “functions” in Jupyterlab).</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -991,11 +941,6 @@ y            int       4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi, I am Lukas!
-</pre></div>
-</div>
-</div>
 </div>
 <p>Other methods, like the <code class="docutils literal notranslate"><span class="pre">is_older_than_30</span></code> method, actually also return something:</p>
 <div class="cell docutils container">
@@ -1005,22 +950,12 @@ y            int       4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is Lukas older than 30? False
-</pre></div>
-</div>
-</div>
 </div>
 <p>Finally, some methods may not return anything but instead modify its own attributes! For example, the <code class="docutils literal notranslate"><span class="pre">increase_age</span></code> method takes a single input (an integer) that will increase the age attribute of the <code class="docutils literal notranslate"><span class="pre">Person</span></code> object by that number! For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_person</span><span class="o">.</span><span class="n">increase_age</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">random_person</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is now this old:&quot;</span><span class="p">,</span> <span class="n">random_person</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>  <span class="c1"># oh no!</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lukas is now this old: 30
 </pre></div>
 </div>
 </div>
@@ -1047,11 +982,6 @@ y            int       4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yes! Well done. I feel younger already.
-</pre></div>
-</div>
-</div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Create a new <tt>Person</tt> object with your own name and age and save it in a variable named <tt>my_self</tt>. Then, introduce yourself (using the <tt>introduce</tt> method) and pretend its your birthday and increase your age by 1 (using the <tt>increase_age</tt> method).
@@ -1059,11 +989,6 @@ y            int       4
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="c1"># YOUR SOLUTION HERE</span></pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi, I am Lukas!
-</pre></div>
 </div>
 </div>
 </div>
@@ -1077,11 +1002,6 @@ y            int       4
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Oh no! Did you enter a valid number for age upon initialization?&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Great work, </span><span class="si">{</span><span class="n">my_self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">! You&#39;re on a roll!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Great work, Lukas! You&#39;re on a roll!
 </pre></div>
 </div>
 </div>

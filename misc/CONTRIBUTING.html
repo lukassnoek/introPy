@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Information for educators &#8212; introPy</title>
+    <title>Contributing &#8212; introPy</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python essentials" href="../week_1/python.html" />
-    <link rel="prev" title="The Jupyter ecosystem" href="jupyter.html" />
+    <link rel="next" title="Code of Conduct" href="CONDUCT.html" />
+    <link rel="prev" title="Bibliography" href="bibliography.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -100,26 +100,26 @@
   Getting started
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="installation.html">
-   Getting started
+  <a class="reference internal" href="../getting_started/about.html">
+   About this course
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="jupyter.html">
+  <a class="reference internal" href="../getting_started/installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/jupyter.html">
    The Jupyter ecosystem
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Information for educators
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Week 1 (Python)
+  Python (week 1)
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -156,7 +156,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Week 2 (PsychoPy)
+  PsychoPy (week 2)
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -193,6 +193,28 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../week_2/psychopy_how_to_continue.html">
    How to continue with PsychoPy?
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibliography.html">
+   Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CONDUCT.html">
+   Code of Conduct
   </a>
  </li>
 </ul>
@@ -235,7 +257,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/getting_started/for_educators.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/misc/CONTRIBUTING.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -255,10 +277,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fgetting_started/for_educators.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fmisc/CONTRIBUTING.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/getting_started/for_educators.md"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/misc/CONTRIBUTING.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -284,18 +306,38 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#assignments">
-   Assignments
+  <a class="reference internal nav-link" href="#report-bugs">
+   Report Bugs
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mistakes-bugs-etc">
-   Mistakes/bugs/etc.
+  <a class="reference internal nav-link" href="#fix-bugs">
+   Fix Bugs
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attribution">
-   Attribution
+  <a class="reference internal nav-link" href="#implement-features">
+   Implement Features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-documentation">
+   Write Documentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submit-feedback">
+   Submit Feedback
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-started">
+   Get Started
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-of-conduct">
+   Code of Conduct
   </a>
  </li>
 </ul>
@@ -309,21 +351,62 @@
         
               <div>
                 
-  <div class="section" id="information-for-educators">
-<h1>Information for educators<a class="headerlink" href="#information-for-educators" title="Permalink to this headline">¶</a></h1>
-<p>All material from this course (except for the assignments, see below) is open-source and available under the <a class="reference external" href="https://github.com/lukassnoek/introPy/blob/master/LICENSE">BSD 3-clause license</a>. This allows redistribution and use, with or without modification, as long as proper attribution is given (see below). We would love it when others would use this material!</p>
-<div class="section" id="assignments">
-<h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
-<p>Although all tutorials are publicly available in the course’s <a class="reference external" href="https://github.com/lukassnoek/introPy">Github repository</a>, we do not publish the course’s assignments as this would enable students to start working on them before they are allowed to do so (and to share the answers). There are two assignments: one Jupyter notebook with several graded exercises testing the students’ Python, Pandas, and Matplotlib skills (week 1) and one extensive description of a PsychoPy experiment students have to implement using the PsychoPy Coder interface (week 2).</p>
-<p>If you’d like to get access to these assignments, please send Lukas an email (his email address can be found on his <a class="reference external" href="https://lukas-snoek.com/">website</a>).</p>
+  <div class="section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>Contributions are welcome, and they are greatly appreciated! Every little bit
+helps, and credit will always be given. You can contribute in the ways listed below.</p>
+<div class="section" id="report-bugs">
+<h2>Report Bugs<a class="headerlink" href="#report-bugs" title="Permalink to this headline">¶</a></h2>
+<p>Report bugs using GitHub issues.</p>
+<p>If you are reporting a bug, please include:</p>
+<ul class="simple">
+<li><p>Your operating system name and version.</p></li>
+<li><p>Any details about your local setup that might be helpful in troubleshooting.</p></li>
+<li><p>Detailed steps to reproduce the bug.</p></li>
+</ul>
 </div>
-<div class="section" id="mistakes-bugs-etc">
-<h2>Mistakes/bugs/etc.<a class="headerlink" href="#mistakes-bugs-etc" title="Permalink to this headline">¶</a></h2>
-<p>It’s very likely that this course contains (spelling) mistakes, inaccuracies, bugs, or other issues related to the text or code in the material. If you find such an issue, please let me know by submitting an issue on <a class="reference external" href="https://github.com/lukassnoek/introPy">Github</a>, or better yet, submit a pull request with your proposed fix to the issue! Your help is most welcome.</p>
+<div class="section" id="fix-bugs">
+<h2>Fix Bugs<a class="headerlink" href="#fix-bugs" title="Permalink to this headline">¶</a></h2>
+<p>Look through the GitHub issues for bugs. Anything tagged with “bug” and “help
+wanted” is open to whoever wants to implement it.</p>
 </div>
-<div class="section" id="attribution">
-<h2>Attribution<a class="headerlink" href="#attribution" title="Permalink to this headline">¶</a></h2>
-<p>To add: Zenodo DOI.</p>
+<div class="section" id="implement-features">
+<h2>Implement Features<a class="headerlink" href="#implement-features" title="Permalink to this headline">¶</a></h2>
+<p>Look through the GitHub issues for features. Anything tagged with “enhancement”
+and “help wanted” is open to whoever wants to implement it.</p>
+</div>
+<div class="section" id="write-documentation">
+<h2>Write Documentation<a class="headerlink" href="#write-documentation" title="Permalink to this headline">¶</a></h2>
+<p>introPy could always use more documentation, whether as part of the
+official introPy docs, in docstrings, or even on the web in blog posts,
+articles, and such.</p>
+</div>
+<div class="section" id="submit-feedback">
+<h2>Submit Feedback<a class="headerlink" href="#submit-feedback" title="Permalink to this headline">¶</a></h2>
+<p>The best way to send feedback is to file an issue on GitHub.</p>
+<p>If you are proposing a feature:</p>
+<ul class="simple">
+<li><p>Explain in detail how it would work.</p></li>
+<li><p>Keep the scope as narrow as possible, to make it easier to implement.</p></li>
+<li><p>Remember that this is a volunteer-driven project, and that contributions
+are welcome :)</p></li>
+</ul>
+</div>
+<div class="section" id="get-started">
+<h2>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h2>
+<p>Ready to contribute? Here’s how to set up <code class="docutils literal notranslate"><span class="pre">introPy</span></code> for local development.</p>
+<ol class="simple">
+<li><p>Fork the repo on GitHub.</p></li>
+<li><p>Clone your fork locally.</p></li>
+<li><p>Install your local copy into a virtualenv, e.g., using <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p></li>
+<li><p>Create a branch for local development and make changes locally.</p></li>
+<li><p>Commit your changes and push your branch to GitHub.</p></li>
+<li><p>Submit a pull request through the GitHub website.</p></li>
+</ol>
+</div>
+<div class="section" id="code-of-conduct">
+<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this headline">¶</a></h2>
+<p>Please note that the introPy project is released with a <a class="reference internal" href="CONDUCT.html"><span class="doc std std-doc">Contributor Code of Conduct</span></a>. By contributing to this project you agree to abide by its terms.</p>
 </div>
 </div>
 
@@ -340,7 +423,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./getting_started"
+            path: "./misc"
         },
         predefinedOutput: true
     }
@@ -355,8 +438,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="jupyter.html" title="previous page">The Jupyter ecosystem</a>
-    <a class='right-next' id="next-link" href="../week_1/python.html" title="next page">Python essentials</a>
+    <a class='left-prev' id="prev-link" href="bibliography.html" title="previous page">Bibliography</a>
+    <a class='right-next' id="next-link" href="CONDUCT.html" title="next page">Code of Conduct</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

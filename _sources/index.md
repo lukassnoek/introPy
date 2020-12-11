@@ -1,11 +1,11 @@
 Welcome to *introPy*
 ====================
 
-This website contains information about the two-week Python & PsychoPy course taught at the Research Master Psychology (University of Amsterdam). The material itself is hosted on Github in [this repository](https://github.com/lukassnoek/introPy).
+This website contains information about the two-week Python & PsychoPy course taught at the Research Master Psychology (University of Amsterdam). 
 
-```{warning}
-This website is under construction and may change considerably!
-```
+:::{warning}
+This website and the course materials are under construction and may change considerably!
+:::
 
 ## Prerequisites
 As this two-week Python course is preceded by a two-week *R* course in the Research Master Psychology, we assume that students are familiar with basic programming concepts (such as variables, conditionals, loops, and functions). Familiarity with Python is not necessary. Those that already have some experience with Python, however, may find the tutorials from this course (too) easy. To challenge those people, we included several more difficult (optional) exercises in the tutorials!
@@ -50,4 +50,4 @@ At the end of this course, you will ...
 Importantly, this course focuses on the *basics* of Python and PsychoPy, but we have highlighted several resources that you may use to continue your Python/PsychoPy journey [here](week_2/psychopy_how_to_continue.md).
 
 ## Getting started
-Go to the [*Getting Started*](getting_started/installation.md) page for installation instructions!
+Learn more about the course [here](getting_started/about.md) or [get started with the installation instructions](getting_started/installation.md).

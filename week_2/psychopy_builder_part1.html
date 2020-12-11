@@ -102,8 +102,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/about.html">
+   About this course
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../getting_started/installation.html">
-   Getting started
+   Installation
   </a>
  </li>
  <li class="toctree-l1">
@@ -111,15 +116,10 @@
    The Jupyter ecosystem
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../getting_started/for_educators.html">
-   Information for educators
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Week 1 (Python)
+  Python (week 1)
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -156,7 +156,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Week 2 (PsychoPy)
+  PsychoPy (week 2)
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -193,6 +193,28 @@
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy_how_to_continue.html">
    How to continue with PsychoPy?
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/CONTRIBUTING.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/CONDUCT.html">
+   Code of Conduct
   </a>
  </li>
 </ul>
@@ -325,13 +347,17 @@
 <h1>The PsychoPy Builder<a class="headerlink" href="#the-psychopy-builder" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial, we will discuss and show you how to use the <em>Builder</em> interface of PsychoPy. We will explain the basic elements of the Builder interface so that, in the next tutorial, we can focus more on the implementational details by building a new experiment from scratch.</p>
 <p>You might think, “Why learn how to use a graphical interface in a programming course?” The reason we first teach you how to use the <em>Builder</em> interface is because it allows us to focus on the structure of experiments before elaborating on the underlying code. Another advantage of Builder experiments is that they can be used online! (But this is beyond the scope of this course.)</p>
-<p>!!! example “ToDo”
-Read <a class="reference external" href="https://workshops.psychopy.org/3days/10introductions.html">this page</a> which discusses the respective advantages of the Builder and Coder interface in more detail.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Read <a class="reference external" href="https://workshops.psychopy.org/3days/10introductions.html">this page</a> which discusses the respective advantages of the Builder and Coder interface in more detail.</p>
+</div>
 <div class="section" id="builder-vs-coder">
 <h2>Builder vs. Coder<a class="headerlink" href="#builder-vs-coder" title="Permalink to this headline">¶</a></h2>
 <p>As discussed before, the Builder and Coder interfaces can both be used to create experiments. Whereas the Builder allows you create experiments graphically, the Coder allows you to program your experiment directly in Python. It is important to realize, though, that when PsychoPy runs Builder experiments, it actually first generates (or “compiles”) the experiment as a Python file (as if you created it using the Coder)!</p>
-<p>!!! example “ToDo”
-Let’s see this Builder-to-Coder compilation in action. If you haven’t loaded the demo Builder experiment (<code class="docutils literal notranslate"><span class="pre">intropy_demo.psyexp</span></code>), do so now. Then, click the <em>Compile to script</em> button (right of the <em>Edit experiment settings</em> button). This should open the <em>Coder</em> interface with the code equivalent of the demo Builder experiment!</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Let’s see this Builder-to-Coder compilation in action. If you haven’t loaded the demo Builder experiment (<code class="docutils literal notranslate"><span class="pre">intropy_demo.psyexp</span></code>), do so now. Then, click the <em>Compile to script</em> button (right of the <em>Edit experiment settings</em> button). This should open the <em>Coder</em> interface with the code equivalent of the demo Builder experiment!</p>
+</div>
 <p>The generated <code class="docutils literal notranslate"><span class="pre">intropy_demo.py</span></code> script contains the code necessary to run the experiment originally specified in the Builder interface (i.e., in the <code class="docutils literal notranslate"><span class="pre">intropy_demo.psyexp</span></code> file). In fact, everytime your run a Builder experiment on your own computer, Psychopy first generates the corresponding Python script, which is then executed to start the experiment.</p>
 <p>Most of the time, you can ignore the script associated with your Builder experiment. It may, however, give you some insight about what is going on “under the hood”. Take a look at the generated script; do you see elements from the demo experiment (e.g., the text or images shown during the demo experiment)?</p>
 </div>
@@ -341,28 +367,36 @@ Let’s see this Builder-to-Coder compilation in action. If you haven’t loaded
 <div class="section" id="the-routines-pane">
 <h3>The routines pane<a class="headerlink" href="#the-routines-pane" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://www.psychopy.org/builder/routines.html"><em>Routines</em> pane</a> consist of the different elements of your experiment, where each element gets its own tab. In the demo experiment, for example, there are four routines: <em>intro</em>, <em>show_stimulus</em>, <em>gabor</em>, and <em>wrap_up</em>. Each routine may consist of multiple components (e.g., text, images, and sounds). For example, if you click on the <em>intro</em> routine tab, the routine pane shows, across different “rows”, that this routine consists of three consecutive text components (<em>hello</em>, <em>welcome</em>, and <em>wait_key</em>) and a “keyboard” component (<em>key_resp</em>). Moreover, the routine pane also shows you the onset and offsets of the different components. Note that routines do not <em>have to</em> contain multiple components; for example, the <em>show_stimulus</em> routine only contains a single component (i.e., <em>stim</em>). It’s up to you how you how you structure your routines!</p>
-<p>!!! example “ToThink”
-In the <em>intro</em> routine, the <em>wait_key</em> and <em>key_resp</em> components seem to lack an explicit offset. Considering the demo experiment, do you understand why?</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToThink</p>
+<p>In the <em>intro</em> routine, the <em>wait_key</em> and <em>key_resp</em> components seem to lack an explicit offset. Considering the demo experiment, do you understand why?</p>
+</div>
 </div>
 <div class="section" id="the-components-pane">
 <h3>The components pane<a class="headerlink" href="#the-components-pane" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://www.psychopy.org/builder/components.html"><em>components</em> pane</a> contains, as you might have guessed, the different components you can include in your routines. Some of the most used components are listed under <em>favorites</em> (such as <em>text</em> and <em>image</em> components). The <em>stimuli</em> section contains various different stimulus components you might want to use in your experiment, such as <a class="reference external" href="https://www.psychopy.org/builder/components/dots.html">dot stimuli</a>, <a class="reference external" href="https://www.psychopy.org/builder/components/grating.html">gratings</a>, and <a class="reference external" href="https://www.psychopy.org/builder/components/sound.html">sounds</a>. The <em>responses</em> section contains several components that facilitate interaction with the participant. For example, the <a class="reference external" href="https://www.psychopy.org/builder/components/mouse.html">mouse component</a> allows you to record and use mouse movements and clicks and the <a class="reference external" href="https://www.psychopy.org/builder/components/ratingscale.html">rating scale component</a> creates a rating scale which you can use to collect ratings on, for example, questionnaire items.</p>
 <p>By clicking on a particular component, a pop-up appears in which you can set the <em>properties</em> of the component, such as the component name, onset and and duration, and several component-specific properties. For example, if you click on a <em>text</em> component, you can set the color, font, font size (“letter height”), position, and of course the text itself.</p>
-<p>!!! tip
-In the properties window, if you hover your cursor over the different options, you see a little window with an explanation of that option! Also, the PsychoPy documentation contains detailed information about each component. The easiest way to find the appropriate page is, in my experience, just googling “psychopy component {component name}”.</p>
-<p>!!! example “ToDo”
-Try finding the documentation page for the <em>image</em> component!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the properties window, if you hover your cursor over the different options, you see a little window with an explanation of that option! Also, the PsychoPy documentation contains detailed information about each component. The easiest way to find the appropriate page is, in my experience, just googling “psychopy component {component name}”.</p>
+</div>
 <p>In the properties window, if you click the “OK” button, PsychoPy will add this component to the currently active routine. If you want, you can still change the properties afterwards. We will discuss setting component properties in more detail in the next tutorial!</p>
-<p>!!! example “ToDo (optional)”
-Try adding another <em>text</em> component with the text “The end!” to the <em>wrap_up</em> routine. Make sure it immediately starts after the <em>goodbye</em> component and it lasts one second. Run the experiment to see whether it worked!</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo (optional)</p>
+<p>Try adding another <em>text</em> component with the text “The end!” to the <em>wrap_up</em> routine. Make sure it immediately starts after the <em>goodbye</em> component and it lasts one second. Run the experiment to see whether it worked!</p>
+</div>
 </div>
 <div class="section" id="the-flow-pane">
 <h3>The flow pane<a class="headerlink" href="#the-flow-pane" title="Permalink to this headline">¶</a></h3>
 <p>Finally, the <a class="reference external" href="https://www.psychopy.org/builder/flow.html"><em>flow</em> pane</a> shows and defines the order of your experiment’s routines. In the demo experiment, for example, the flow pane shows that the experiment starts with the <em>intro</em> routine, followed by the <em>show_stimulus</em> routine, and finally the <em>gabor</em> and <em>wrap_up</em> routines. The colors of the routines in the flow pane indicate whether the routines has a known and exact duration (green) or not (blue or red). For experiments in which precision of onsets/offsets is not crucial, this is not really important. But in experiments in which you want to be sure your routines’ onsets, offsets, and durations are precise (i.e., <a class="reference external" href="https://www.psychopy.org/general/timing/nonSlipTiming.html">non-slip timing</a> in PsychoPy lingo), such as in neuroimaging experiments, you want to make sure each routine is green.</p>
-<p>!!! example “ToThink”
-Do you understand why the <em>intro</em> routine is blue instead of green? Hint: the answer to this question is the same as to the previous <em>ToThink</em>.</p>
-<p>!!! example “ToDo (optional)”
-Try inserting a new routine at the end of the experiment flow (i.e., after the <em>goodbye</em> routine). For example, create a new routine called <em>the_end</em> (in the top menu: <em>Experiment</em> → <em>New routine</em>) with a single text component lasting 1 second. Then, to insert it in the experiment flow, click on <em>Insert Routine</em>, select your new routine, and click on the flow line in between <em>wrap_up</em> and the arrow head to insert it!</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToThink</p>
+<p>Do you understand why the <em>intro</em> routine is blue instead of green? Hint: the answer to this question is the same as to the previous <em>ToThink</em>.</p>
+</div>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo (optional)</p>
+<p>Try inserting a new routine at the end of the experiment flow (i.e., after the <em>goodbye</em> routine). For example, create a new routine called <em>the_end</em> (in the top menu: <em>Experiment</em> → <em>New routine</em>) with a single text component lasting 1 second. Then, to insert it in the experiment flow, click on <em>Insert Routine</em>, select your new routine, and click on the flow line in between <em>wrap_up</em> and the arrow head to insert it!</p>
+</div>
 <p>Anothing think you might encounter in the flow pane is “loops”, like the <em>stimulus_loop</em> in the demo experiment. This functionality allows you to, well, add loops across routines! In the demo experiment, we use this to repeat our <em>show_stimulus</em> routine for the three different images. This is, of course, much more efficient than creating three different routines (or, equivalently, a single routine with three image components)! We will discuss loops in more detail in the next tutorial!</p>
 <p>Alright, now you should know enough of the Builder functionality to start creating a new experiment, which we’ll do in the <a class="reference internal" href="psychopy_builder_part2.html"><span class="doc std std-doc">next tutorial</span></a>.</p>
 </div>
