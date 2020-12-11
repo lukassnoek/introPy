@@ -40,5 +40,6 @@
 - part: Misc
   chapters:
   - file: misc/bibliography
+  - file: misc/for_developers
   - file: misc/CONTRIBUTING
   - file: misc/CONDUCT
