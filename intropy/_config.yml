@@ -19,6 +19,9 @@ exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoin
 execute:
   timeout                   : 120    # The maximum time (in seconds) each notebook cell is allowed to run.
 
+parse:
+  myst_extended_syntax: true
+
 # Online stuff
 repository:
   url                       : https://github.com/lukassnoek/introPy

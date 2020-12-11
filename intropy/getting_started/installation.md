@@ -1,4 +1,4 @@
-# Getting started
+# Installation
 This pages describes how to download and install the software and materials needed for this course.
 
 ## Python
@@ -11,9 +11,9 @@ The tutorials of week 1 are embedded on this website as well (i.e., the pages on
 
 In the online environment, you'll see a lot of files. The course material is stored in the *tutorials* folder. The *solutions* folder contains the same material, but with solutions to the exercises in the tutorials. You can ignore the rest of the files (which have to do with configuration and the contents of this website).
 
-```{warning}
+:::{warning}
 Note that Binder does not save your notebooks! After you quit Binder (or it times out after an hour of inactivity), all progress is lost (but you can download your notebooks/files). Our own Jupyterhub *does* save the files.
-```
+:::
 
 More information on how to get started with the tutorials, go to the [week 1 page](../week_1/python.md).
 
@@ -55,9 +55,9 @@ This command should print out the location where you installed Python, e.g., `/U
 ## PsychoPy
 In the second week of the course, we are going to use [PsychoPy](https://www.psychopy.org/), a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package `psychopy` and installing the complete "standalone" PsychoPy software package. If you have a working version of Python already, the `psychopy` Python package can be installed as a regular third-party package through [pip](https://packaging.python.org/tutorials/installing-packages/). However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core `psychopy` package to work properly is all but trivial. Instead, we *highly* recommend installing the ["standalone" version of PsychoPy](https://www.psychopy.org/download.html). The standalone version does not only contain a working version of the `psychopy` package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy *Builder* interface) to create experiments without programming.
 
-```{note}
+:::{note}
 Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the [standalone PsychoPy version](https://www.psychopy.org/).
-```
+:::
 
 To test whether the installation was successful and everything works as expected do the following:
 
@@ -71,19 +71,18 @@ To test whether the installation was successful and everything works as expected
 * Your screen should turn black and start the experiment!
 
 ## Downloading the material
-We use both [Jupyter notebooks](https://jupyter.org/) and regular Python scripts for our tutorials. The materials are stored on [Github](https://github.com/lukassnoek/introPy) and can be downloaded as a zip-file by clicking on the button below:
+We use both [Jupyter notebooks](https://jupyter.org/) and regular Python scripts for our tutorials. The materials are stored on [Github](https://github.com/lukassnoek/introPy) and can be downloaded as a zip-file by clicking on the link below:
 
-
-[Download materials](https://github.com/lukassnoek/introPy/archive/master.zip){: .md-button }
+[Download materials](https://github.com/lukassnoek/introPy/archive/master.zip)
 
 After downloading the materials, please unzip the folder. Note that students from the Research Master course do not need the materials from week 1 (which are already on the server).
 
-```{warning}
+:::{warning}
 If you work with your own Python installation, you may need to install additional Python packages. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:
 
     pip install .
 
 This is not necessary if you use Binder as your Python platform!
-```
+:::
 
 Before you start working on the course materials, read the next page on the [Jupyter ecosystem](jupyter.md).
