@@ -987,6 +987,20 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">e05798e3ea08</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot; Tests the ToDo implementation above. &quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">if</span> <span class="n">random_person</span><span class="o">.</span><span class="n">age</span> <span class="o">!=</span> <span class="mi">29</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Oh no, </span><span class="si">{</span><span class="n">random_person</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not 29 but </span><span class="si">{</span><span class="n">random_person</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Well done. I feel younger already.&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;random_person&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Create a new <tt>Person</tt> object with your own name and age and save it in a variable named <tt>my_self</tt>. Then, introduce yourself (using the <tt>introduce</tt> method) and pretend its your birthday and increase your age by 1 (using the <tt>increase_age</tt> method).
@@ -1086,16 +1100,6 @@ SyntaxError: invalid syntax
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">participant_1</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">8</span><span class="n">d1718c2ea7b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">participant_1</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;Participant&#39; is not defined
 </pre></div>
 </div>
 </div>

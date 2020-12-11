@@ -1,4 +1,4 @@
-# The PsychoPy Coder (part 2)
+# The PsychoPy Coder, part 2 (tutorial)
 In the previous tutorial, we discussed most of the "administrative" stuff that needs to happen in any PsychoPy experiment. In this tutorial, we'll discuss how to actually add components to the experiment, interact with user responses, and work with the experiment data.
 
 ## Components
@@ -18,7 +18,7 @@ welcome_txt_stim = TextStim(win, text="Welcome to this experiment!")
 ```
 
 :::{admonition,attention} ToDo
-Paste the code snippet above into your script, after initializing the window and clock. Note: it's convention to put all import statements together at the top of your script, so make sure the `#!python from psychopy.visual import TextStim` part is on top of your script as well. Then, run the experiment.
+Paste the code snippet above into your script, after initializing the window and clock. Note: it's convention to put all import statements together at the top of your script, so make sure the `from psychopy.visual import TextStim` part is on top of your script as well. Then, run the experiment.
 :::
 
 ## Drawin' & flippin'
@@ -64,7 +64,39 @@ But first, let's create a `TextStim` with the instructions:
 > (Press ‘enter’ to start the experiment!)
 
 :::{admonition,attention} ToDo
-Initialize a `TextStim` object with the text above and store it in a variable named `instruct_txt_stim`.
+Initialize a `TextStim` object with the text above and store it in a variable named `instruct_txt_stim`. Make sure it is left-aligned and has a font size of 0.085 (check the [docs](https://www.psychopy.org/api/visual/textstim.html) to see how to do this).
+
+Tip: you can create multi-line strings easily by enclosing text in triple-quotes, e.g., `""" some multiline text etc etc """`. Then, call its `draw` method, flip the window to make it visible.
+:::
+
+Now, just like we added a Keyboard component in the Builder tutorials to interact with keyboard responses, we can use the `Keyboard` class from the `psychopy.hardware.keyboard` module to do the same in the Coder interface! [This class](https://www.psychopy.org/api/hardware/keyboard.html) has a method called `getKeys`, which will return a list `KeyPress` objects with information (as attributes) about the keys pressed since the last time `getKeys` was pressed.
+
+Alright, let's pick that apart a little bit.
+
+:::{admonition,attention} ToDo
+Add the correct import statement to the top of your script and then add the following Python code right after your last call to the window's `flip` method:
+
+```python
+kb = Keyboard()
+while True:
+    # getKeys returns a list (here: `keys`)
+    keys = kb.getKeys()
+
+    # check if the return key is in the list
+    if 'return' in keys:
+        # If so, break out of the loop!
+        break
+```
+
+Then, run the experiment.
+:::
+
+As you can see, you can implement the wait-for-keypress routine using a `while` loop in which you keep calling the keyboard's `getKeys` function and breaking out of it when the result of the `getKeys` method (a list) contains the key you want the participant to press.
+
+:::{admonition,attention} ToDo (optional/difficult)
+As mentioned before, the `getKeys` method returns a list of `KeyPress` objects. These objects contain several attributes with information about the key press: its name (`.name`, e.g., "return"), the reaction time in seconds relative to the initialization of the `Keyboard` class (`.rt`), the time in seconds the key went down in absolute time (`.tDown`), and the duration of the keypress (`.duration`). 
+
+Within the `if 'return' in key` block, for *each* key that has been pressed in the meantime, print in a single statement the name of the key, it's reaction time, and duration (e.g., "The 'a' key was pressed within 2.156 seconds for a total of 0.255 seconds").
 :::
 
 * Stuff about `waitKeys`.

@@ -1,4 +1,4 @@
-# Introduction to PsychoPy
+# Introduction to PsychoPy (tutorial)
 PsychoPy is currently the most used and complete Python package to create experiments. Before we will explain how to use it, please read the [overview](https://www.psychopy.org/about/overview.html) on the PsychoPy website.
 
 Now, let's familiarize ourselves with PsychoPy. Let's start by opening PsychoPy! After opening, you'll see a "Tip of the Day" pop-up; you may ignore that for now and close it.

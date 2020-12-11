@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The PsychoPy Coder (part 2) &#8212; introPy</title>
+    <title>The PsychoPy Coder, part 2 (tutorial) &#8212; introPy</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to continue with PsychoPy?" href="psychopy_how_to_continue.html" />
-    <link rel="prev" title="The PsychoPy Coder (part 1)" href="psychopy_coder_part1.html" />
+    <link rel="prev" title="The PsychoPy Coder, part 1 (tutorial)" href="psychopy_coder_part1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -351,8 +351,8 @@
         
               <div>
                 
-  <div class="section" id="the-psychopy-coder-part-2">
-<h1>The PsychoPy Coder (part 2)<a class="headerlink" href="#the-psychopy-coder-part-2" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-psychopy-coder-part-2-tutorial">
+<h1>The PsychoPy Coder, part 2 (tutorial)<a class="headerlink" href="#the-psychopy-coder-part-2-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment. In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with the experiment data.</p>
 <div class="section" id="components">
 <h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
@@ -368,7 +368,7 @@
 </div>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Paste the code snippet above into your script, after initializing the window and clock. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">#!python</span> <span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
+<p>Paste the code snippet above into your script, after initializing the window and clock. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
 </div>
 </div>
 <div class="section" id="drawin-flippin">
@@ -409,7 +409,32 @@ ANGRY expression = right</p>
 </div></blockquote>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with the text above and store it in a variable named <code class="docutils literal notranslate"><span class="pre">instruct_txt_stim</span></code>.</p>
+<p>Initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with the text above and store it in a variable named <code class="docutils literal notranslate"><span class="pre">instruct_txt_stim</span></code>. Make sure it is left-aligned and has a font size of 0.085 (check the <a class="reference external" href="https://www.psychopy.org/api/visual/textstim.html">docs</a> to see how to do this).</p>
+<p>Tip: you can create multi-line strings easily by enclosing text in triple-quotes, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span> <span class="pre">some</span> <span class="pre">multiline</span> <span class="pre">text</span> <span class="pre">etc</span> <span class="pre">etc</span> <span class="pre">&quot;&quot;&quot;</span></code>. Then, call its <code class="docutils literal notranslate"><span class="pre">draw</span></code> method, flip the window to make it visible.</p>
+</div>
+<p>Now, just like we added a Keyboard component in the Builder tutorials to interact with keyboard responses, we can use the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.hardware.keyboard</span></code> module to do the same in the Coder interface! <a class="reference external" href="https://www.psychopy.org/api/hardware/keyboard.html">This class</a> has a method called <code class="docutils literal notranslate"><span class="pre">getKeys</span></code>, which will return a list <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects with information (as attributes) about the keys pressed since the last time <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> was pressed.</p>
+<p>Alright, let’s pick that apart a little bit.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Add the correct import statement to the top of your script and then add the following Python code right after your last call to the window’s <code class="docutils literal notranslate"><span class="pre">flip</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="p">()</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># getKeys returns a list (here: `keys`)</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
+
+    <span class="c1"># check if the return key is in the list</span>
+    <span class="k">if</span> <span class="s1">&#39;return&#39;</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="c1"># If so, break out of the loop!</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+<p>Then, run the experiment.</p>
+</div>
+<p>As you can see, you can implement the wait-for-keypress routine using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop in which you keep calling the keyboard’s <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> function and breaking out of it when the result of the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method (a list) contains the key you want the participant to press.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo (optional/difficult)</p>
+<p>As mentioned before, the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method returns a list of <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects. These objects contain several attributes with information about the key press: its name (<code class="docutils literal notranslate"><span class="pre">.name</span></code>, e.g., “return”), the reaction time in seconds relative to the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class (<code class="docutils literal notranslate"><span class="pre">.rt</span></code>), the time in seconds the key went down in absolute time (<code class="docutils literal notranslate"><span class="pre">.tDown</span></code>), and the duration of the keypress (<code class="docutils literal notranslate"><span class="pre">.duration</span></code>).</p>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">'return'</span> <span class="pre">in</span> <span class="pre">key</span></code> block, for <em>each</em> key that has been pressed in the meantime, print in a single statement the name of the key, it’s reaction time, and duration (e.g., “The ‘a’ key was pressed within 2.156 seconds for a total of 0.255 seconds”).</p>
 </div>
 <ul class="simple">
 <li><p>Stuff about <code class="docutils literal notranslate"><span class="pre">waitKeys</span></code>.</p></li>
@@ -460,7 +485,7 @@ ANGRY expression = right</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">The PsychoPy Coder (part 1)</a>
+    <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">The PsychoPy Coder, part 1 (tutorial)</a>
     <a class='right-next' id="next-link" href="psychopy_how_to_continue.html" title="next page">How to continue with PsychoPy?</a>
 
     </div>

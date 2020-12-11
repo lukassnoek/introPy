@@ -17,14 +17,22 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-participant_1 = Participant()
+""" Tests the ToDo implementation above. """
+if random_person.age != 29:
+    raise ValueError(f"Oh no, {random_person.name} is not 29 but {random_person.age}!")
+else:
+    print("Yes! Well done. I feel younger already.")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-5-8d1718c2ea7b>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mparticipant_1[0m [0;34m=[0m [0mParticipant[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'Participant' is not defined
-NameError: name 'Participant' is not defined
+[0;32m<ipython-input-5-e05798e3ea08>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;34m""" Tests the ToDo implementation above. """[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mif[0m [0mrandom_person[0m[0;34m.[0m[0mage[0m [0;34m!=[0m [0;36m29[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34mf"Oh no, {random_person.name} is not 29 but {random_person.age}!"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mprint[0m[0;34m([0m[0;34m"Yes! Well done. I feel younger already."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'random_person' is not defined
+NameError: name 'random_person' is not defined
 
