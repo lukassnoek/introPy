@@ -1,6 +1,8 @@
 # Assignment week 2
 Program an N-back experiment.
 
+* Doesn't matter which timing method you use (wait/clock-based/frame-based)
+
 ## Grading key
 
 *Qualitative criteria*

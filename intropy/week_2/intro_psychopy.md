@@ -12,6 +12,10 @@ Psychopy by default opens three subwindows: the *PsychoPy Builder*, the *PsychoP
 
 To read more about the different interfaces, read the [Getting started](https://www.psychopy.org/gettingStarted.html) page on the PsychoPy website.
 
+:::{note}
+In this course's PsychoPy tutorials, we'll often refer to the PsychoPy documentation. This is not because we're too lazy to explain it ourselves. We do this because looking up and reading code/package documentation is an essential programming skill! Even experienced programmers (like your teachers) have to look up things in the documentation *all the time*.
+:::
+
 ## Running an experiment
 To get an idea what a PsychoPy experiment may look like, let's run a demo! We created a super simple demo that showcases some of the functionality of PsychoPy, which can be found in the materials: `tutorials/week_2/intropy_demo.psyexp`. In the next tutorial, we are going to discuss this in more detail. For now, run the demo by doing the following:
 

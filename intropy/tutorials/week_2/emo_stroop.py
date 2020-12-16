@@ -1,7 +1,9 @@
+import pandas as pd
 from psychopy.gui import DlgFromDict
 from psychopy.visual import Window
 from psychopy.core import Clock, quit, wait, getTime
-from psychopy.visual import TextStim
+from psychopy.event import Mouse
+from psychopy.visual import TextStim, Circle, Polygon, ShapeStim, ImageStim
 from psychopy.hardware.keyboard import Keyboard
 
 """
@@ -26,10 +28,14 @@ else:
 """
 # Initialize a fullscreen window with my monitor (HD format) size
 # and my monitor specification called "samsung" from the monitor center
-win = Window(size=(1920, 1080), fullscr=True, monitor='samsung')
+win = Window(size=(1920, 1080), fullscr=True, monitor='samsung', waitBlanking=True)
+
+# Also initialize a mouse, for later
+# We'll set it to invisible for now
+mouse = Mouse(visible=False)
 
 # Initialize a clock
-timer = Clock()
+clock = Clock()
 
 # We assume `win` already exists
 welcome_txt_stim = TextStim(win, text="Welcome to this experiment!")
@@ -52,15 +58,50 @@ Importantly, you need to respond to the EXPRESSION of the face and ignore the wo
 instruct_txt = TextStim(win, instruct_txt, alignText='left', height=0.085)
 instruct_txt.draw()
 win.flip()
-
+    
 kb = Keyboard()
 while True:
     keys = kb.getKeys()
     if 'return' in keys:
         for key in keys:
-            print(f"The {key.name} key was pressed within {key.rt} seconds for a total of {key.duration} seconds.")
+            print(f"The {key.name} key was pressed within {key.rt:.3f} seconds for a total of {key.duration:.3f} seconds.")
         break
+
+mouse.setVisible(True)
+click_txt = TextStim(win, "Click the button to start!", pos=(0, 0.5))
+click_txt.draw()
+
+button = Circle(win, fillColor=(1, -1, -1), size=(0.5625*0.25, 0.25))
+#button = Polygon(win, fillColor=(1, -1, -1), size=(0.5625*0.25, 0.25), edges=100)
+
+button.draw()
+win.flip()
+
+while True:
+    if mouse.isPressedIn(button):
+        mouse.setVisible(False)
+        break
+
+cond = pd.read_excel('emo_conditions.xlsx')
+cond = cond.sample(frac=1)
+
+stim_txt = TextStim(win, 'happy')
+stim_img = ImageStim(win, image='happy.png')
+
+for i in range(cond.shape[0]):
+    emo = cond.loc[i, 'smiley']
+    word = cond.loc[i, 'word']
+    stim_txt.setText(word)
+    stim_img.setImage(emo + '.png')
+    stim_txt.draw()
+    stim_img.draw()
+    
+# Start experiment!
+
+win.flip()
+t_end = clock.getTime() 
+print(t_end-t_start)
 
 # Finish experiment by closing window and quitting
 win.close()
-quit()
+quit()  
