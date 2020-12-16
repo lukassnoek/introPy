@@ -51,7 +51,7 @@ After the call to the `wait` function, flip the window again, and add another ca
 By flipping the window again, the welcome text disappeared and was replaced by an empty window (because the front buffer was replaced by an empty back buffer). This underlines an important concept: *every time you flip the window, you start with an empty back buffer* (and you need to draw your stimuli again, if you want to show them again on the next flip).
 
 ## Responses
-After welcoming our participant, let's add some instructions. Like we did in the Builder experiment, let's also make sure that, after reading the instructions, the participant can continue the experiment by pressing enter ('return'). This gives us an excuse to introduce the topic of working with participant responses!
+After welcoming our participant, let's add some instructions. Like we did in the Builder experiment, let's also make sure that, after reading the instructions, the participant can continue the experiment by pressing enter ("return"). This gives us an excuse to introduce the topic of working with participant responses!
 
 But first, let's create a `TextStim` with the instructions:
 
@@ -64,20 +64,25 @@ But first, let's create a `TextStim` with the instructions:
 > (Press ‘enter’ to start the experiment!)
 
 :::{admonition,attention} ToDo
-Initialize a `TextStim` object with the text above and store it in a variable named `instruct_txt_stim`. Make sure it is left-aligned and has a font size of 0.085 (check the [docs](https://www.psychopy.org/api/visual/textstim.html) to see how to do this).
+Initialize a `TextStim` object with the text above and store it in a variable named `instruct_txt_stim`. Make sure it is left-aligned and has a font size of 0.085 (check the [docs](https://www.psychopy.org/api/visual/textstim.html) to see how to do this). Then, draw the `TextStim` and flip the window to make it visible!
 
-Tip: you can create multi-line strings easily by enclosing text in triple-quotes, e.g., `""" some multiline text etc etc """`. Then, call its `draw` method, flip the window to make it visible.
+Tip: you can create multi-line strings easily by enclosing text in triple-quotes, e.g., `""" some multiline text etc etc """` (more info [here](https://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string)). Then, call its `draw` method, flip the window to make it visible.
 :::
 
+### Keyboard responses
 Now, just like we added a Keyboard component in the Builder tutorials to interact with keyboard responses, we can use the `Keyboard` class from the `psychopy.hardware.keyboard` module to do the same in the Coder interface! [This class](https://www.psychopy.org/api/hardware/keyboard.html) has a method called `getKeys`, which will return a list `KeyPress` objects with information (as attributes) about the keys pressed since the last time `getKeys` was pressed.
 
-Alright, let's pick that apart a little bit.
+To implement the "wait-for-key-to-continue" routine, we can keep querying the `getKeys` method until we detect a "return" key, after which we continue the experiment.
 
-:::{admonition,attention} ToDo
-Add the correct import statement to the top of your script and then add the following Python code right after your last call to the window's `flip` method:
+:::::{admonition,attention} ToDo
+Let's try to implement this! Import the `Keyboard` class at the top of your script and initialize a `Keyboard` object. Then, after drawing the instruction text (and the window flip), write some code that continually queries the `getKeys` function until it detects a "return" keypress and only then continues the script. Hint: a `while` loop (with a "break") would be useful here!
+
+When you're done, run the experiment!
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
 
 ```python
-kb = Keyboard()
+kb = Keyboard()  # initialize keyboard obj
 while True:
     # getKeys returns a list (here: `keys`)
     keys = kb.getKeys()
@@ -87,28 +92,176 @@ while True:
         # If so, break out of the loop!
         break
 ```
+````
 
-Then, run the experiment.
-:::
+:::::
 
-As you can see, you can implement the wait-for-keypress routine using a `while` loop in which you keep calling the keyboard's `getKeys` function and breaking out of it when the result of the `getKeys` method (a list) contains the key you want the participant to press.
+If you want to learn a little more about keyboard interaction, try the next (optional and more difficult) ToDo!
 
 :::{admonition,attention} ToDo (optional/difficult)
 As mentioned before, the `getKeys` method returns a list of `KeyPress` objects. These objects contain several attributes with information about the key press: its name (`.name`, e.g., "return"), the reaction time in seconds relative to the initialization of the `Keyboard` class (`.rt`), the time in seconds the key went down in absolute time (`.tDown`), and the duration of the keypress (`.duration`). 
 
-Within the `if 'return' in key` block, for *each* key that has been pressed in the meantime, print in a single statement the name of the key, it's reaction time, and duration (e.g., "The 'a' key was pressed within 2.156 seconds for a total of 0.255 seconds").
+For each detected key press, print in a single statement the name of the key, its reaction time, and duration (e.g., "The 'a' key was pressed within 2.156 seconds for a total of 0.255 seconds"). Using [F-strings](https://realpython.com/python-f-strings/) would we nice here!
 :::
 
-* Stuff about `waitKeys`.
-* Multiple components
+### Mouse responses (optional)
+Instead of interacting through the keyboard, you can interact with mouse responses of the participant. Whether you have participants respond with keyboard presses or with the mouse is of course up to you (and depends on your experiment)! For the sake of explaining how to implement interaction with mouse responses, let's add another screen to our experiments with a big, red button, which the participant has to click (with the mouse) in order to start the experiment.
+
+Just like with keyboard responses, the `psychopy` package contains a class, `Mouse` (from `psychopy.event`), which implements interaction with the mouse. As can been seen in [the documentation](https://www.psychopy.org/api/event.html), a `Mouse` object can be initialized with several optional arguments (`visible`, `newPos`, and `win`) and contains various methods to query information about the mouse position (`getPos`) and mouse clicks/presses (`getPressed`). You can even set the position of the mouse (`setPos`) and make the mouse (temporarily) (in)visible (`setVisible`)!
+
+:::{warning}
+In the [documentation of the `psychopy.event` module](https://www.psychopy.org/api/event.html), you can also see several functions for keyboard interaction, such as `waitKeys` and `getKeys`, which overlap in functionality with the previously discussed `keyboard` class. [It is recommended](https://discourse.psychopy.org/t/3-ways-to-get-keyboard-input-which-is-best/11184) to use the `keyboard` class instead of the functions from the `event` module!
+:::
+
+Alright, let's start with our implementation. First, we need to import the `Mouse` class and initialize a `Mouse` object.
+
+:::{admonition,attention} ToDo
+Import the `Mouse` class at the top of your script and then initialize a `Mouse` object. Importantly, as indicated in the documentation, initialization should be done *after* initializing your `Window` object. Using the `visible` argument when initializing the `Mouse` object, make sure the mouse is initially invisible (check the [docs](https://www.psychopy.org/api/event.html)).
+:::
+
+We also need to create a big, red button for the participant to click! To create shapes using the `psychopy` package, you can use the [`ShapeStim`](https://www.psychopy.org/api/visual/shapestim.html#psychopy.visual.ShapeStim) class. This is a very broad class that allows you to create arbitrary shapes, like lines and polygons, by specifying the [vertices](https://en.wikipedia.org/wiki/Vertex_(geometry)) of the shape. Specifying the vertices of a circle is quite time intensive, so you can use the more "specialized" `Polygon` or `Circle` classes instead. 
+
+:::{note}
+Technically, the `Circle` class is a [subclass](https://pybit.es/python-subclasses.html) of the `Polygon` class, and the `Polygon` class is itself a subclass of the `ShapeStim` class. Being a subclass of another class means that the subclass "inherits" all methods from its "parent class" (but possibly with different default arguments). The subclass itself may, of course, contain additional or different methods and attributes.
+:::
+
+:::::{admonition,attention} ToDo
+Add a big red button to the experiment using the `Polygon` or `Circle` class (up to you), store it in a variable named `button`, and draw it. As the `Polygon` and `Circle` classes are subclasses of the `ShapeStim` class, check out the [ShapeStim documentation](https://www.psychopy.org/api/visual/shapestim.html#psychopy.visual.ShapeStim) to see which arguments those classes take.
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+
+```python
+from psychopy.visual import Circle  # or Polygon
+
+# You may need to adjust the size if you have a rectangular screen (which is common)
+# to get a circle instead of an oval
+button = Circle(win, size=(0.25, 0.25), fillColor=(1, -1, -1))
+
+# Alternatively:
+# button = Polygon(edges=100, size=(0.25, 0.25), fillColor=(1, -1, -1))
+button.draw()
+```
+````
+
+:::::
+
+Showing the participant the red button by itself may be a bit confusing, so let's add a `TextStim` with the text `"Click the red button to start the experiment"`!
+
+:::{admonition,attention} ToDo
+Add a `TextStim` as outlined above. Make sure it doesn't overlap with the red button! Draw it and flip the window. Then, run the experiment to see whether it works. 
+:::
+
+At this moment, the only thing we need to implement is a routine that halts the experiment until the participant clicked on the button using their mouse. [As described in the documention](https://www.psychopy.org/api/event.html), the `Mouse` class contains a very useful method, `isPressedIn`, which takes a `ShapeStim` (or a `ShapeStim` subclass) as input and returns a boolean (`True` or `False`) referring to whether the mouse is currently clicking in the area of the shape.
+
+:::::{admonition,attention} ToDo
+Add code that halts the experiment until the participant clicked the red button. Again, a while loop may be useful in this routine! Also, make sure the mouse disappears after the participant clickerd the button (check out the [docs](https://www.psychopy.org/api/event.html) to see how to do this). 
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+while True:
+    if mouse.isPressedIn(button):
+        mouse.setVisible(False)
+        break
+```
+````
+
+When you're done, run the experiment to see whether it works!
+:::::
 
 ## Timing revisited
+Alright, now it's time for the most important part of our experiments: the trial loop! Just like the color-word Stroop experiment we implemented in the Builder, we'd like to create a set of trials in our emotion-word Stroop experiment. This also provides us with a nice opportunity to talk about duration and timing again!
 
-* clock vs. frames
-* Check how long it takes to initialize a stimulus
-* Stuff about autoDraw
+Often, you'd like to make sure your trials/stimuli are presented for a specific duration. This is often especially important for perception and psychophysics studies or neuroimaging studies in which you track stimulus processing at high temporal resolution (e.g., EEG/MEG and eyetracking studies). 
 
-## Logging onsets
+So far, we only showed you how to use the `wait` function to control stimulus duration. There are, however, two other and more precise methods, which we'll call *clock-based* timing and *frame-based* timing. We'll discuss these two methods in turn. But first, let's create a stimulus. As we're creating an emotion-word Stroop task, we'll need an image with a emotional facial expression and an emotion word. 
+
+To create an image, you can use the [`ImageStim`](https://www.psychopy.org/api/visual/imagestim.html) class from the `psychopy.visual` module. Apart from the mandatory argument `win` (the current window), it also needs an `image` (a path to the image file). In the `tutorials/week_2` directory, we included two images: `angry.png` and `happy.png`. Note that these images are smileys, because it's really hard to find proper facial expression stimuli without copyright ...
+
+:::::{admonition,attention} ToDo
+Import the `ImageStim` class, initialize an `ImageStim` object with the `angry.png` file (store this is in a variable with the name `stim_img`), and draw it. Also create a `TextStim` with the word "happy" placed above the smiley (store this is in a variable with the name `stim_txt`) and draw it. Then, flip the window and run the experiment to see whether it works as expected.
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+stim_img = ImageStim(win, image='angry.png')
+stim_img.draw()
+stim_txt = TextStim(win, text='happy', pos=(0, 0.5))
+stim_txt.draw()
+win.flip()
+```
+````
+:::::
+
+Now, suppose we want to show the image/text for a specific duration, let's say 500 milliseconds, after which it disappears and the participant has to make a response for the experiment to continue. (Note that this is different from the way we implemented the color-word Stroop experiment in the Builder tutorials.) One way to specify the duration is using a clock!
+
+### Clock-based timing
+In the previous tutorial, we defined a "clock" (using the `psychopy.core.Clock` class) to do some trivial timing checks, but they can be used in much more useful ways, like controlling the duration of stimuli. To showcase this, let's create a new "trial clock" just after we flipped the window, which visualized the emotion-word trial:
+
+```python
+trial_clock = Clock()
+```
+
+Now, using a while loop in combination with continuously calling the `getTime` method, we can keep showing the stimulus until the clock has passed 500 milliseconds.
+
+:::::{admonition,attention} ToDo
+Try implementing the aforementioned while loop such that the image/text of the trial is visible for 300 milliseconds and disappears afterwards. Hint: if you don't want to execute anything inside the while loop, you can use the keyword `pass`. This is necessary, because a loop in Python can't ever be completely "empty". Also, make sure the image/text actually disappears after
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+trial_clock = Clock()
+while trial_clock.getTime() < 0.3:
+    pass
+
+# We need to flip the window to actually make the stimuli disappear!
+win.flip()
+```
+````
+
+:::::
+
+Note that there is no need for our stimuli to be redrawn and our window to be flipped every iteration of the while loop! This is only necessary when you want to update your stimuli in the meantime (or when using the frame-based timing method, as discussed next).
+
+### Frame-based timing (optional)
+Although the clock-based method is reasonably accurate, it implicitly assumes that stimulus duration is *continuous*, while in reality it is discrete because it can only be drawn a specific number of screen refreshes! In other words, the *exact* duration of visual stimuli is some multiple of the number of screen refreshes. For example, if you have a 60 Hz screen (which refreshes every 1/60 seconds), a stimulus can be shown for 0.0167 seconds (1/60), 0.0333 seconds (2/60), 0.0500 seconds (3/60), etc. But it cannot be shown for, let's say, *exactly* 110 milliseconds. 
+
+::::{admonition,attention} ToThink
+Suppose you want to show a stimulus for 120 milliseconds on a monitor with a refresh rate of 60 Hz. What is the duration closest to 120 milliseconds you can achieve?
+
+```{dropdown} Click here to see the answer (but try to come up with the answer yourself first)!
+Dividing 120 milliseconds (0.120 seconds) by the refresh rate (1/60) you do not get a whole (integer) number, 7.2, meaning that 7 frames/flips is the best we can do, which results in 7 * (1/60) = 0.1167 seconds.
+```
+::::
+
+So, if you *really* care about the duration of your stimuli (e.g., in subliminal perception studies), you should specify the duration of your stimuli as a multiple of your refresh rate. Then, to implement this in your PsychoPy script, you can simply draw your stimuli and flip your window as often as the number of frames you want to show your stimuli. For example, if you want to show your stimulus for 60 frames (i.e., 1 
+second on a 60 Hz monitor), you simply do the drawing + flipping process 60 times!
+
+:::::{admonition,attention} ToDo
+Remove the your clock-based timing implementation (i.e., the while loop from the previous ToDo) and instead program a frame-based timing implementation instead (the duration should be 300 ms again). Hint: a for loop could be quite useful here!
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# 18 frames on a 60Hz monitor is 300 ms
+for frame in range(18):
+    # Draw stims again
+    stim_img.draw()
+    stim_txt.draw()
+    # Flip window to make visible
+    win.flip()
+
+# We need to flip the window to actually make the stimuli disappear!
+win.flip()
+```
+````
+:::::
+
+:::{tip}
+Instead of re-drawing your stimuli every iteration of the loop across frames, you can also set the attribute `autoDraw` of visual components to `True`. This will automatically draw those stimuli upon flipping the window, until you set this attribute to `False` again!
+:::
+
+## Trial loops
 
 
-## Saving data
+
+## Logging onsets (optional)
+
+
+## Keeping track of and saving data

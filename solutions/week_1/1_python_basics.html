@@ -418,8 +418,18 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advanced-loops-list-comprehensions-optional">
-     Advanced loops: list comprehensions (optional)
+    <a class="reference internal nav-link" href="#for-loops">
+     For loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-loops">
+     While loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-for-loops-list-comprehensions-optional">
+     Advanced for loops: list comprehensions (optional)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -1134,7 +1144,7 @@
 <h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>Dictionaries might be new for those who are used to MATLAB or R. Basically, a dictionary is an <em>unordered</em> list in which list entries have a name (which is also referred to as a “key”). To get a value from a dictionary, you have to use the “key” as index instead of using an integer (although, strictly speaking, keys can also be integers … but that’s not important for now).</p>
 <p>Let’s check out such a dictionary and how to index it. We build a dictionary using the following syntax:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>{some_key: value, another_key: another_value, etc: etc}`
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">some_key</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="n">another_key</span><span class="p">:</span> <span class="n">another_value</span><span class="p">,</span> <span class="n">etc</span><span class="p">:</span> <span class="n">etc</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>The keys can be anything! Strings, integers, lists … doesn’t matter! Mostly, though, strings are used as keys. So, let’s look at an example:</p>
@@ -1239,7 +1249,11 @@
 </div>
 </div>
 </div>
-</div>
+<div class='alert alert-success' style='padding-bottom:10px'>
+    <b>Tip</b>: Instead of using curly braces, you can also initialize dictionaries explicitly using the <tt>dict</tt> class:<br>
+    <tt>some_dict = dict(key1='value1', key2='value2')</tt><br>
+    Note, though, you have to use string-like keys in this approach (unlike the curly brace approach).
+</div></div>
 <div class="section" id="tuples">
 <h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
 <p>Tuples are very much like lists, but the main difference is that they are immutable. In other words, after creating them, they cannot be modified (their values cannot be replaced/altered):</p>
@@ -1621,7 +1635,10 @@ An example:</p>
 </div>
 <div class="section" id="loops">
 <h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
-<p>Loops in Python (for- and while-loops) are largely similar to MATLAB and R loops, with some minor differences in  their syntax:</p>
+<p>Loops in Python (for- and while-loops) are largely similar to MATLAB and R loops, with some minor differences in  their syntax. Again, just like in conditionals, indentation is important: each line within your loop needs to be consistently indented. Also, loops do not contain a keyword (like <code class="docutils literal notranslate"><span class="pre">end</span></code> in Matlab) or bracket (like a curly bracket in <em>R</em>) that determines the end of the loop; this is just determined by the indentation.</p>
+<div class="section" id="for-loops">
+<h3>For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
+<p>For loops are constructs that allow to loop over a predetermined number of elements within an object. Below, you can see an example of a for loop over a list of strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;monkey&#39;</span><span class="p">]</span>
@@ -1700,7 +1717,7 @@ An example:</p>
 </div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
-<b>ToDo</b>: Complete the function below &mdash; named `extract_values_smaller_than_0` &mdash; that takes a single list with numbers as input and returns a new list with <em>only the values smaller than 0</em> from the input-list. For example, suppose our input-list is: [2, -5.3, 1.8, 0.0, -205.1, 6029]. Then, the function should return: [-5.3, -205.1].<br><br>Hint: use an if-statement in combination with the <tt>.append()</tt> method of the empty list we initialized below (<tt>list_to_return</tt>) to fill the <tt>list_to_return</tt> variable in a for-loop. In other words, the function should contain an if-statement in a for-loop (in which you need to use the <tt>.append()</tt> method).
+    <b>ToDo</b>: Complete the function below &mdash; named <tt>extract_values_smaller_than_0</tt> &mdash; that takes a single list with numbers as input and returns a new list with <em>only the values smaller than 0</em> from the input-list. For example, suppose our input-list is: [2, -5.3, 1.8, 0.0, -205.1, 6029]. Then, the function should return: [-5.3, -205.1].<br><br>Hint: use an if-statement in combination with the <tt>.append()</tt> method of the empty list we initialized below (<tt>list_to_return</tt>) to fill the <tt>list_to_return</tt> variable in a for-loop. In other words, the function should contain an if-statement in a for-loop (in which you need to use the <tt>.append()</tt> method).
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
@@ -1751,8 +1768,85 @@ An example:</p>
 </div>
 </div>
 </div>
-<div class="section" id="advanced-loops-list-comprehensions-optional">
-<h3>Advanced loops: list comprehensions (optional)<a class="headerlink" href="#advanced-loops-list-comprehensions-optional" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="while-loops">
+<h3>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+<p>While loops are constructs that allow you to do something until a specific condition is met and are often used when you do not know the number of elements you want to loop over beforehand. For example, suppose we simulate a six-sided die roll using the <code class="docutils literal notranslate"><span class="pre">randint</span></code> (“random integer”) function. We can use a while loop to keep “rolling” the die until we roll a six (i.e., the condition):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="c1"># keep track of nr of rolls</span>
+<span class="c1"># (not necessary for the loop)</span>
+<span class="n">i_rolls</span> <span class="o">=</span> <span class="mi">0</span>  
+
+<span class="c1"># Conditional right after the `while` statement!</span>
+<span class="k">while</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Still haven&#39;t rolled a 6 ...&quot;</span><span class="p">)</span>
+    <span class="c1"># (Not strictly necessary, but nice to print out later)</span>
+    <span class="n">i_rolls</span> <span class="o">=</span> <span class="n">i_rolls</span> <span class="o">+</span> <span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;It took </span><span class="si">{</span><span class="n">i_rolls</span><span class="si">}</span><span class="s2"> to roll a six!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead of looping until the condition right after the while statement is met, you can also manually “break out” of the loop using the <code class="docutils literal notranslate"><span class="pre">break</span></code> keyword. For example, suppose you want to stop rolling the die after 3 rolls because it would otherwise take too long. You could implement this as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i_rolls</span> <span class="o">=</span> <span class="mi">0</span>  
+<span class="k">while</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Still haven&#39;t rolled a 6 ...&quot;</span><span class="p">)</span>
+    <span class="n">i_rolls</span> <span class="o">=</span> <span class="n">i_rolls</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i_rolls</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Takes too long! Breaking out ...&quot;</span><span class="p">)</span>
+        <span class="k">break</span>  <span class="c1"># break out of loop!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sometimes, you might see the <code class="docutils literal notranslate"><span class="pre">break</span></code> construct used in combination with a while loop that is always true (e.g., <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span> <span class="pre">...</span></code>; an “infinite loop”). For example, the first die roll example can also be implemented as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i_rolls</span> <span class="o">=</span> <span class="mi">0</span>  
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">roll</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">roll</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">break</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Still haven&#39;t rolled a 6 ...&quot;</span><span class="p">)</span>
+    <span class="n">i_rolls</span> <span class="o">=</span> <span class="n">i_rolls</span> <span class="o">+</span> <span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;It took </span><span class="si">{</span><span class="n">i_rolls</span><span class="si">}</span><span class="s2"> to roll a six!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both implementations are fine; it’s up to you what you prefer.</p>
+<div class='alert alert-success' style='padding-bottom:10px'>
+    <b>Tip</b>: the <tt>break</tt> keyword also works in for loops! You can use this if you want to terminate the loop earlier than expected.
+</div><div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Below, we created a function, <tt>random_string</tt>, which creates a random five-letter string. Create a while-loop that loops until a random string has been created that starts with "A" and ends with "Z". (No test cell.)
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+
+<span class="k">def</span> <span class="nf">random_string</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Generates a 5 letter random string. &quot;&quot;&quot;</span>
+    <span class="n">rs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">rs</span>
+
+<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+</div>
+</div>
+</div>
+<div class='alert alert-danger' style='padding-bottom:10px'>
+    <b>Warning</b>: Sometimes, you might run an infinite loop without a way to "break out" of it. When doing so in a (non-interactive) Python script, you can simply press control + C on your keyboard to interrupt the script, but in Jupyter notebooks, this doesn't work. Instead, you need to click on the "stop" button (next to the "run" button) to interrupt the cell! If even that doesn't work, you need to stop the entire kernel: <em>Kernel</em> &rarr; <em>Restart Kernel</em> (or <em>Shut Down Kernel</em>). 
+</div></div>
+<div class="section" id="advanced-for-loops-list-comprehensions-optional">
+<h3>Advanced for loops: list comprehensions (optional)<a class="headerlink" href="#advanced-for-loops-list-comprehensions-optional" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, writing (and reading!) for-loops can be confusing and lead to “ugly” code. Wouldn’t it be nice to represent (small) for-loops on a single line? Python has a way to do this: using what is called <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">comprehensions</span></code>. It does exactly the same thing as a for-loop: it takes a list, iterates over its entries (and does something with each entry), and (optionally) returns a (modified) list.</p>
 <p>Let’s look at an arbitrary example of a for-loop over a list:</p>
 <div class="cell docutils container">
@@ -1794,18 +1888,92 @@ An example:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo below (no test cell). &quot;&quot;&quot;</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+</div>
+</div>
+</div>
+<p>In addition to <em>list</em> comprehensions, Python also features <em>dictionary</em> comprehensions, <em>set</em> comprehensions, and <em>generator</em> comprehensions. As we haven’t discussed sets and generators (as these are somewhat more advanced and/or niche concepts), let’s check out an example of a dictionary comprehension. For example, suppose I want to initialize a dictionary with names of students as keys and an empty list as values (which will, at some point, be populated by grades for different assignments). I can do this using a dictionary comprehension:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;billy&#39;</span><span class="p">,</span> <span class="s1">&#39;sara&#39;</span><span class="p">,</span> <span class="s1">&#39;amir&#39;</span><span class="p">]</span>
+<span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span>
+<span class="c1"># This is the same as below:</span>
+<span class="c1"># grades = {}</span>
+<span class="c1"># for name in names:</span>
+<span class="c1">#     grades[name] = []</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>List comprehensions are somewhat of a more advanced Python concept, so if you don’t feel comfortable using them (correctly) in your future assignments, use regular for-loops by all means!</p>
+<p>List and dictionary comprehensions are more advanced Python concepts, so if you don’t feel comfortable using them (correctly) in your future assignments, use regular for-loops by all means!</p>
 </div>
 <div class="section" id="a-challenging-exercise-optional">
 <h3>A challenging exercise (optional)<a class="headerlink" href="#a-challenging-exercise-optional" title="Permalink to this headline">¶</a></h3>
-<p>For those that a challenge, try the following.</p>
+<p>For those that a challenge, try the following (very) difficult ToDo!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
-    <b>ToDo</b>: Write a function ...
-</div></div>
+    <b>ToDo</b>: When developing a new experiment, you may want to control the order and frequency of trials from different conditions such that the experiment does not become too predictable and does not feature more trials from one condition than another. Write a function that generates a list with a random sequence of trials from two conditions (either condition <tt>0</tt> or condition <tt>1</tt>). The number of trials in total is an argument to the function (<tt>n_trials</tt>) and may vary, but you may assume that it is an even number (and thus divisible by the number of conditions). The output of the function is a random list of numbers (either 0 or 1), for example: <tt>[0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, ..., 1, 1, 0]</tt>. There are, however, two conditions:
+<ol class="simple">
+<li><p>Each condition should have the same amount of trials;</p></li>
+<li><p>Each condition should have the same probability of being followed by any condition (often called “counterbalancing”).</p></li>
+</ol>
+<p>Condition 2 means that for a given trial of, for example, condition <tt>1</tt>, there is a 50% probability that this trial is followed by a trial of condition <tt>0</tt> and a 50% probability that this trial is followed by a trial of condition <tt>1</tt>. Note that it is impossible to <em>completely</em> counterbalance this proportion, because the last trial does not have trial after itself. Therefore, the counterbalancing may be off by 1 trial.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Complete the function below. &quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">generate_experiment_sequence</span><span class="p">(</span><span class="n">n_trials</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generates a sequence of trials across `n_cond` conditions.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_cond : int</span>
+<span class="sd">        Number of conditions</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    exp_seq : list</span>
+<span class="sd">        List of experimental sequence</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Check for multiple amounts of trials</span>
+<span class="k">for</span> <span class="n">n_trials</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">]:</span>
+
+    <span class="c1"># I&#39;m using numpy because I&#39;m lazy</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">generate_experiment_sequence</span><span class="p">(</span><span class="n">n_trials</span><span class="p">))</span>
+
+    <span class="c1"># Check equal frequencies</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="n">seq</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">seq</span><span class="p">[</span><span class="n">seq</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    
+    <span class="c1"># Check counterbalancing</span>
+    <span class="c1"># Compute proportion of 0 trials</span>
+    <span class="n">prop0</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">seq</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="c1"># eps = &quot;epsilon&quot; (tolerance)</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_trials</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c1"># Check if worse than tolerance</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">prop0</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not correctly counterbalanced&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CORRECT! THIS IS AMAZING!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alright! That was it for this tutorial. We discussed the most important syntax, data types, and constructs in Python. Sure, there are things that we haven’t discussed (e.g., <a class="reference external" href="https://realpython.com/python-sets/">sets</a>, <a class="reference external" href="https://realpython.com/introduction-to-python-generators/">generators</a>, <a class="reference external" href="https://realpython.com/inheritance-composition-python/">inheritance</a>, and such), but the material from this tutorial should be enough to get you started with Python (and the next tutorials)!</p>
+<p>You can continue with the next one about <em>Matplotlib</em> if you’re ready!</p>
+</div>
 </div>
 </div>
 

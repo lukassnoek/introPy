@@ -618,6 +618,11 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is y equal to 5? True
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now, in a later part we might again define a variable <code class="docutils literal notranslate"><span class="pre">y</span></code>, but this time we define it to be 6.</p>
 <div class="cell docutils container">
@@ -666,6 +671,11 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <p>In contrast to ToDos, you don’t get any immediate feedback on <font color='blue'>ToThinks</font> (because this cannot be automated). These ToThinks are designed to make you reflect on the study material.</p>
 <p>Now, let’s try another ToDo. Note that it is followed by two test-cells, which test different aspects of your implementation.</p>
@@ -693,6 +703,11 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correct!
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -704,6 +719,11 @@ SyntaxError: invalid syntax
     <span class="k">raise</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epic!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epic!
 </pre></div>
 </div>
 </div>
@@ -722,6 +742,17 @@ SyntaxError: invalid syntax
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable     Type      Data/Info
+--------------------------------
+first_line   str       This is not printed
+last_line    str       But this is!
+plt          module    &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
+x            int       2
+y            int       4
 </pre></div>
 </div>
 </div>
@@ -796,6 +827,11 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
 </div>
 <p>So, it appears that the class of <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">str</span></code>, which stands for “string”!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -816,12 +852,22 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
 </div>
 <p>As you can see, this attribute of <code class="docutils literal notranslate"><span class="pre">x</span></code> returns the name of its class. (Note that you could achieve the same by running <code class="docutils literal notranslate"><span class="pre">type(x)</span></code>!) Think of attributes as things that describe properties of objects.</p>
 <p>As mentioned before, <em>methods</em> represent things that objects can <em>do</em>. For example, all string objects (like <code class="docutils literal notranslate"><span class="pre">x</span></code>) have the method <code class="docutils literal notranslate"><span class="pre">capitalize</span></code>, which can be run as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hello&#39;
 </pre></div>
 </div>
 </div>
@@ -843,6 +889,11 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cello&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>As you can see in the example above, methods are very much like <em>functions</em> in the sense that they (may) take some inputs and (may) return something. Importantly, often (but not always, as we’ll see in a minute) the results from the method operation are not automatically stored! So, if you want to store the result of a method call, assign the result to a (new) variable!</p>
 <div class="cell docutils container">
@@ -852,11 +903,21 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variable x_h2c contains: cello
+</pre></div>
+</div>
+</div>
 </div>
 <p>Importantly, the <code class="docutils literal notranslate"><span class="pre">x_h2c</span></code> variable is now a new object, again from the string class!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x_h2c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
 </div>
 </div>
@@ -884,6 +945,11 @@ SyntaxError: invalid syntax
                          <span class="s2">&quot;call the right method (islower)?&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>  <span class="c1"># probably correct implementation then</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yay! Well done.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yay! Well done.
 </pre></div>
 </div>
 </div>
@@ -928,6 +994,12 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lukas
+29
+</pre></div>
+</div>
+</div>
 </div>
 <p>To find out which (other) attributes and methods a particular object has, you can either look at the source code (i.e., looking at the <code class="docutils literal notranslate"><span class="pre">utils.py</span></code> file in this case) or using the following Jupyter trick: in a code cell, type the name of the object followed by a period (.) and press TAB. This will create a pop-up with a list of the possible attributes (called “instances” in Jupyterlab) and methods (called simply “functions” in Jupyterlab).</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -946,6 +1018,11 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi, I am Lukas!
+</pre></div>
+</div>
+</div>
 </div>
 <p>Other methods, like the <code class="docutils literal notranslate"><span class="pre">is_older_than_30</span></code> method, actually also return something:</p>
 <div class="cell docutils container">
@@ -955,12 +1032,22 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is Lukas older than 30? False
+</pre></div>
+</div>
+</div>
 </div>
 <p>Finally, some methods may not return anything but instead modify its own attributes! For example, the <code class="docutils literal notranslate"><span class="pre">increase_age</span></code> method takes a single input (an integer) that will increase the age attribute of the <code class="docutils literal notranslate"><span class="pre">Person</span></code> object by that number! For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_person</span><span class="o">.</span><span class="n">increase_age</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">random_person</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is now this old:&quot;</span><span class="p">,</span> <span class="n">random_person</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>  <span class="c1"># oh no!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lukas is now this old: 30
 </pre></div>
 </div>
 </div>
@@ -988,16 +1075,7 @@ SyntaxError: invalid syntax
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">e05798e3ea08</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot; Tests the ToDo implementation above. &quot;&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">if</span> <span class="n">random_person</span><span class="o">.</span><span class="n">age</span> <span class="o">!=</span> <span class="mi">29</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Oh no, </span><span class="si">{</span><span class="n">random_person</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not 29 but </span><span class="si">{</span><span class="n">random_person</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Well done. I feel younger already.&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;random_person&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yes! Well done. I feel younger already.
 </pre></div>
 </div>
 </div>
@@ -1008,6 +1086,11 @@ SyntaxError: invalid syntax
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi, I am Lukas!
+</pre></div>
 </div>
 </div>
 </div>
@@ -1021,6 +1104,11 @@ SyntaxError: invalid syntax
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Oh no! Did you enter a valid number for age upon initialization?&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Great work, </span><span class="si">{</span><span class="n">my_self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">! You&#39;re on a roll!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Great work, Lukas! You&#39;re on a roll!
 </pre></div>
 </div>
 </div>
@@ -1131,6 +1219,12 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Constructing a Participant object!
+Awesome! You&#39;re doing great.
+</pre></div>
+</div>
+</div>
 </div>
 <p>As you can see in the test cell, whenver a <code class="docutils literal notranslate"><span class="pre">Participant</span></code> object is initialized, the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is triggered (under the hood)! You can do anything you like in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, but usually this method is used to “bind” attributes to it<strong>self</strong>, such as arguments given to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method. For example, let’s add a single argument (in addition to <code class="docutils literal notranslate"><span class="pre">self</span></code>) to the constructor, a subject number (an integer):</p>
 <div class="cell docutils container">
@@ -1151,6 +1245,11 @@ SyntaxError: invalid syntax
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here (no test cell). &quot;&quot;&quot;</span>
 <span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
 </div>
 </div>
 </div>
@@ -1182,6 +1281,11 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yeah! Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1193,6 +1297,11 @@ SyntaxError: invalid syntax
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Well done!&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;It should raise an error, but it isn&#39;t doing so ... &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
 </pre></div>
 </div>
 </div>
@@ -1227,6 +1336,11 @@ SyntaxError: invalid syntax
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">participant_15</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">)</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">participant_15</span><span class="o">.</span><span class="n">larger_than_10</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>yes
 </pre></div>
 </div>
 </div>
@@ -1271,6 +1385,12 @@ SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+no
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now, let’s try a slightly harder ToDo!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -1305,6 +1425,11 @@ SyntaxError: invalid syntax
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The data attribute has not been updated ...&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EPIC! This wasn&#39;t easy, but everything works as expected!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EPIC! This wasn&#39;t easy, but everything works as expected!
 </pre></div>
 </div>
 </div>
@@ -1354,6 +1479,11 @@ A couple of hints:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>YES! Well done so far! Let&#39;s see how the next test cell goes ...
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1366,6 +1496,11 @@ A couple of hints:
 <span class="n">av</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i1</span> <span class="o">+</span> <span class="n">i2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">inp1</span><span class="p">,</span> <span class="n">inp2</span><span class="p">)]</span>
 <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">testp</span><span class="o">.</span><span class="n">current_average</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">av</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OMG. You&#39;re amazing!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OMG. You&#39;re amazing!
 </pre></div>
 </div>
 </div>
