@@ -1,5 +1,5 @@
 from glob import glob
-
+"""
 files = sorted(glob('intropy/_build/html/solutions/week_1/*.html'))
 for f in files:
 
@@ -28,3 +28,4 @@ for f in files:
     with open(f, 'w') as f_out:
         for line in new:
             f_out.write(line)
+"""
