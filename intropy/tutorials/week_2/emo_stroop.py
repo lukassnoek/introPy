@@ -82,25 +82,71 @@ while True:
         mouse.setVisible(False)
         break
 
-cond = pd.read_excel('emo_conditions.xlsx')
-cond = cond.sample(frac=1)
+# TRIAL LOOP
+cond_df = pd.read_excel('emo_conditions.xlsx')
+cond_df = cond_df.sample(frac=1)
 
-stim_txt = TextStim(win, 'happy')
-stim_img = ImageStim(win, image='happy.png')
+fix = TextStim(win, '+')
+trial_clock = Clock()
 
-for i in range(cond.shape[0]):
-    emo = cond.loc[i, 'smiley']
-    word = cond.loc[i, 'word']
-    stim_txt.setText(word)
-    stim_img.setImage(emo + '.png')
-    stim_txt.draw()
-    stim_img.draw()
-    
-# Start experiment!
-
+# Initial fix
+fix.draw()
 win.flip()
-t_end = clock.getTime() 
-print(t_end-t_start)
+wait(1)
+
+for idx, row in cond_df.iterrows():
+    # Extract current word and smiley
+    curr_word = row['word']
+    curr_smil = row['smiley']
+
+    # Create and draw text/img
+    stim_txt = TextStim(win, curr_word, pos=(0, 0.3))
+    stim_img = ImageStim(win, curr_smil + '.png', )
+    stim_img.size *= 0.5
+
+    trial_clock.reset()
+    kb.clock.reset()
+    while trial_clock.getTime() < 2:
+        # Draw stuff
+        if trial_clock.getTime() < 0.5:
+            stim_txt.draw()
+            stim_img.draw()
+        else:
+            fix.draw()
+            
+        win.flip()
+        
+        # Get responses
+        resp = kb.getKeys()
+        if resp:
+            cond_df.loc[idx, 'rt'] = resp[-1].rt
+            cond_df.loc[idx, 'resp'] = resp[-1].name
+            if resp[-1].name == 'left' and curr_smil == 'happy':
+               cond_df.loc[idx, 'correct'] = 1
+            elif resp[-1].name ==  'right' and curr_smil == 'angry':
+                cond_df.loc[idx, 'correct'] = 1
+            else:
+                cond_df.loc[idx, 'correct'] = 0
+        
+effect = cond_df.groupby('congruence').mean()
+rt_con = effect.loc['congruent', 'rt']
+rt_incon = effect.loc['incongruent', 'rt']
+acc = cond_df['correct'].mean()
+
+txt = f"""
+Your reaction times are as follows:
+
+    Congruent: {rt_con:.3f}
+    Incongruent: {rt_incon:.3f}
+
+Overall accuracy: {acc:.3f}
+"""
+result = TextStim(win, txt)
+result.draw()
+win.flip()
+wait(5)
+
+cond_df.to_csv(f"sub-{exp_info['participant_id']}_results.csv")
 
 # Finish experiment by closing window and quitting
 win.close()

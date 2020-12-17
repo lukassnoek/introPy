@@ -257,9 +257,101 @@ win.flip()
 Instead of re-drawing your stimuli every iteration of the loop across frames, you can also set the attribute `autoDraw` of visual components to `True`. This will automatically draw those stimuli upon flipping the window, until you set this attribute to `False` again!
 :::
 
+:::{tip}
+For timing precision, it is very important that no other (CPU-heavy) programs are running while you're running your experiment! So make sure that, when you conduct actual experiments, you shut down all non-essential programs before starting your experiment.
+:::
+
 ## Trial loops
+So far, we only presented a single trial with a emotion word ("happy") and a(n angry) smiley. Like the color-word Stroop in the Builder tutorial, we'd like to present the participant multiple trials in which the two factors &mdash; emotion of the smiley (happy/angry) and the emotion word ("happy"/"angry") &mdash; vary.
 
+So how do we define the different conditions? One way would be two create two lists, one with emotion words and one with the emotion for the smileys, and to choose a random value of each list in each iteration of the trial loop. In such a simple experiment, however, we would recommend to pre-specify the conditions in a CSV or Excel file &mdash just like we did in the Builder tutorial.
 
+:::{admonition,attention} ToDo
+Create a CSV or Excel file with two columns (named `smiley` and `word`) and twenty rows (excluding column names) with either "happy" or "angry" such that there are five trials of each possible emotion-word combination (just like you did in the Builder tutorial). Save it in the same directory as your Python script with the same `emo_conditions.xlsx` (or `emo_conditions.csv`). (If you want to see the "solution", check out the `emo_conditions.xlsx` file in the `solutions/week_1` directory of the course materials).
+:::
+
+To load in the data, we can use our *pandas* skills! In case of a CSV file, we can use the `read_csv` function and in case of an Excel file, we can use the `read_excel` function.
+
+:::{admonition,attention} ToDo
+Read in your `emo_conditions.{csv,xlsx}` file and store the resulting `DataFrame` object in a variable named `cond_df` ("conditions dataframe").
+:::
+
+We could start writing our trial loop by now, but this would present the trials just like we defined in the conditions file. Often, you'd want to present the trials in a (semi-)random order. To do so, we can simply shuffle the dataframe, which can be easily done using the [`sample` method](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html) of `DataFrames` using a fraction (`frac`) of 1:
+
+```python
+cond_df = cond_df.sample(frac=1)
+```
+
+This method randomly samples all rows (because `frac=1`) from the dataframe, which is the same as shuffling it. The next step is to start writing a our trial loop! Because we have a fixed number of trials, we can use a for loop across the rows of our dataframe. The `iterrows` method of dataframes generates, row by row, the index and the row itself (as a `Series` object), so it's perfect for our purposes:
+
+```python
+for idx, row in cond_df.iterrows():
+    # Extract current word and smiley
+    curr_word = row['word']
+    curr_smil = row['smiley']
+```
+
+Then, after extracting the smiley and word conditions, we can initialize a `TextStim` with the current word and an `ImageStim` with the current smiley, draw them, flip the window and wait for as long as we want to show the stimulus, and repeat this process until our trial loop has finished!
+
+:::::{admonition,attention} ToDo
+Try finishing the loop in the previous code snippet as indicated above. For now, assume a duration 500 milliseconds. Run the experiment when you're done!
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+for idx, row in cond_df.iterrows():
+    # Extract current word and smiley
+    curr_word = row['word']
+    curr_smil = row['smiley']
+
+    # Create and draw text/img
+    stim_txt = TextStim(win, curr_word, pos=(0, 0.7))
+    stim_txt.draw()
+    stim_img = ImageStim(win, curr_smil + '.png')
+    stim_img.draw()
+
+    # Show
+    win.flip()
+    
+    # Wait a bit
+    wait(0.5)
+```
+````
+:::::
+
+At this point, the stimuli are following each other instantly! It would be nice to have a, let's say, 1.5 second interstimulus interval (ISI) between each trial showing a fixation target.
+
+:::::{admonition,attention} ToDo
+Add code to the loop to show a simple plus sign (+) as a fixation target during the ISI.
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# No need to define the fix inside the loop, because it doesn't change!
+fix = TextStim(win, '+')
+for idx, row in cond_df.iterrows():
+    # Extract current word and smiley
+    curr_word = row['word']
+    curr_smil = row['smiley']
+
+    # Create and draw text/img
+    stim_txt = TextStim(win, curr_word, pos=(0, 0.7))
+    stim_txt.draw()
+    stim_img = ImageStim(win, curr_smil + '.png')
+    stim_img.draw()
+
+    # Show
+    win.flip()
+    
+    # Wait a bit
+    wait(0.5)
+
+    fix.draw()
+    win.flip()
+    wait(1.5)
+```
+````
+:::::
+
+Voilà, that's all you need for the trial loop! [Something about responses]
 
 ## Logging onsets (optional)
 
