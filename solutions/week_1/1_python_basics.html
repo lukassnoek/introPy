@@ -153,6 +153,11 @@
    Introduction to Numpy (T)
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week_1/python_how_to_continue.html">
+   How to continue with Python?
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -392,12 +397,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions-and-methods">
-   Functions (and methods)
+   Functions and methods
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#methods-again">
-     Methods (again)
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -432,12 +442,12 @@
      Advanced for loops: list comprehensions (optional)
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-challenging-exercise-optional">
-     A challenging exercise (optional)
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-challenging-exercise-optional">
+   A challenging exercise (optional)
+  </a>
  </li>
 </ul>
 
@@ -824,6 +834,19 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>  <span class="c1"># see how many characters in this string</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In addition to designating strings with single or double quotes, you can also create (multi-line) strings using triple quotes (again, either using single or double quotes):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This quite a long string, which may span multiple </span>
+<span class="s2">lines but otherwise works just like a normal string, which can </span>
+<span class="s2">be printed and stuff and now I&#39;m out of inspiration to keep writing</span>
+<span class="s2">so I&#39;ll stop here.&quot;&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1294,7 +1317,9 @@
 </div>
 </div>
 <div class="section" id="functions-and-methods">
-<h2>Functions (and methods)<a class="headerlink" href="#functions-and-methods" title="Permalink to this headline">¶</a></h2>
+<h2>Functions and methods<a class="headerlink" href="#functions-and-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <p>Like any programming language, Python allows you to create your own custom functions. Writing your own functions is useful when, for example, you want to do a particular computation/task many times. Then, if you need to change the computation or task, you only have to change the function instead of manually editing your code every time you do the computation/task. If you’re familiar with other programming languages, you’ll see that the syntax of Python functions is quite similar to what you’re used to.</p>
 <p>A function definition in Python starts with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code>, followed by the function name and round brackets with the arguments to the function, and finally the contents of the function, like so (note the indentation with four spaces/tab!):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_awesome_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">):</span>
@@ -1532,9 +1557,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="methods-again">
-<h3>Methods (again)<a class="headerlink" href="#methods-again" title="Permalink to this headline">¶</a></h3>
-<p>However, in Python, functions are not the only things that allow you to ‘do’ things with data. As you’ve seen in the previous notebook, there are also methods! Different types of objects in Python, such as stings and lists, have their own set of methods. For example, the function you defined above (<code class="docutils literal notranslate"><span class="pre">extract_last_element()</span></code>) also exists as a method each list has, called <code class="docutils literal notranslate"><span class="pre">pop()</span></code>! (This is a builtin, standard, method that each list in Python has.) See for yourself in the block below.</p>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p>In Python, functions are not the only things that allow you to ‘do’ things with data. As you’ve seen in the previous notebook, there are also methods! Different types of objects in Python, such as stings and lists, have their own set of methods. For example, the function you defined above (<code class="docutils literal notranslate"><span class="pre">extract_last_element()</span></code>) also exists as a method each list has, called <code class="docutils literal notranslate"><span class="pre">pop()</span></code>! (This is a builtin, standard, method that each list in Python has.) See for yourself in the block below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span> 
@@ -1549,19 +1575,44 @@
 </div>
 </div>
 </div>
-<p>Not only lists, but also other data-types (such as strings, dictionaries, and, as we’ll see later, numpy arrays) have their own methods.</p>
-<p>We’ll show you a couple of (often-used) examples of methods in built-in data types:</p>
+<p>Not only lists, but also other data-types (such as strings, dictionaries, and, as we’ll see later, numpy arrays) have their own methods. We’ll show you a couple of (often-used) examples of methods in built-in data types.</p>
+<p>First, one often used method of lists is <code class="docutils literal notranslate"><span class="pre">append</span></code>, which takes in an object adds it to itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For lists, we have .append()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
 <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Add a new element to the end of the list using the append() method!</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Some often-used methods for dictionaries:</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Suppose we have a list of grades (the variable <tt>grades</tt> below) and we want to extend this list with two other grades (the variable <tt>new</tt> below). Use the <tt>append</tt> function to add the new grades to the <tt>grades</tt> variable such that it has six elements afterwards.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">]</span>
+<span class="n">new</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">]</span>
+
+<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the ToDo above. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">grades</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You added all new grades at once ... Do you understand what is going wrong?&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">grades</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">]</span> <span class="ow">or</span> <span class="n">grades</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="p">[</span><span class="mf">6.8</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something else went wrong ...&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YAY!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some often-used methods for dictionaries are <code class="docutils literal notranslate"><span class="pre">values</span></code> and <code class="docutils literal notranslate"><span class="pre">keys</span></code>, which return the dictionary’s values and keys, respectively. This may be useful in loops (as will be discussed later).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
@@ -1575,7 +1626,7 @@
 </div>
 </div>
 </div>
-<p>Some often-used methods for strings:</p>
+<p>Strings actually have a ton of useful methods that come in handy when manipulating and “cleaning up” text:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s1">&#39;Python is fun!&#39;</span>
@@ -1591,6 +1642,27 @@
 
 <span class="c1"># The .split(separator) splits a string into subparts (returned as a list)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>  <span class="c1"># split by whitespace</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Below, fix the string with typos (<tt>lots_of_typos</tt>) using (a combination of) string methods and store the result in a new variable named <tt>fixed_string</tt>. Note that you can "chain" different methods together on a single line (but this is not necessarily better/more readable)!
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="n">lots_of_typos</span> <span class="o">=</span> <span class="s2">&quot;My.name.is.Lukas.and.i.like.Pyton.&quot;</span>
+<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">fixed_string</span> <span class="o">!=</span> <span class="s2">&quot;My name is Lukas and I like Python.&quot;</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not completely correct yet ...&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Damn, you&#39;re a Python wizard!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1632,6 +1704,40 @@ An example:</p>
 </div>
 </div>
 <p>If-statements contain at least an <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword, but optionally also one or more <code class="docutils literal notranslate"><span class="pre">elif</span></code> (“else if”) statements and an optional <code class="docutils literal notranslate"><span class="pre">else</span></code> statement. We’ll practice this (in a <code class="docutils literal notranslate"><span class="pre">ToDo</span></code>) after the section on Loops.</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b> (optional): Write a function named <tt>juf</tt> that takes a single argument named <tt>number</tt> (an integer with a default of 1) and prints out the number <em>unless</em> the number is divisible by 7 (e.g., 14 or 21) <em>or</em> contains a 7 (e.g., 7, 27, or 77); in that case, it prints| "JUF!". (Apologies to the non-Dutchies for this reference.)
+<p><br>Hint: you may want to use the <a href="https://realpython.com/python-modulo-operator/">modulo operator (%)</a> to check the divisibility of a number by another number.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the ToDo above. &quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">spec</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">juf</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">spec</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;number&#39;</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The argument to juf is not called `number`!&quot;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">spec</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The default of `number` should be 1!&quot;</span><span class="p">)</span>
+
+<span class="c1"># The following should print out: 1, JUF!, JUF!, 22, JUF!, JUF!, 80</span>
+<span class="n">juf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">juf</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">juf</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">juf</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+<span class="n">juf</span><span class="p">(</span><span class="mi">63</span><span class="p">)</span>
+<span class="n">juf</span><span class="p">(</span><span class="mi">71</span><span class="p">)</span>
+<span class="n">juf</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="loops">
 <h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
@@ -1908,8 +2014,9 @@ An example:</p>
 </div>
 <p>List and dictionary comprehensions are more advanced Python concepts, so if you don’t feel comfortable using them (correctly) in your future assignments, use regular for-loops by all means!</p>
 </div>
+</div>
 <div class="section" id="a-challenging-exercise-optional">
-<h3>A challenging exercise (optional)<a class="headerlink" href="#a-challenging-exercise-optional" title="Permalink to this headline">¶</a></h3>
+<h2>A challenging exercise (optional)<a class="headerlink" href="#a-challenging-exercise-optional" title="Permalink to this headline">¶</a></h2>
 <p>For those that a challenge, try the following (very) difficult ToDo!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: When developing a new experiment, you may want to control the order and frequency of trials from different conditions such that the experiment does not become too predictable and does not feature more trials from one condition than another. Write a function that generates a list with a random sequence of trials from two conditions (either condition <tt>0</tt> or condition <tt>1</tt>). The number of trials in total is an argument to the function (<tt>n_trials</tt>) and may vary, but you may assume that it is an even number (and thus divisible by the number of conditions). The output of the function is a random list of numbers (either 0 or 1), for example: <tt>[0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, ..., 1, 1, 0]</tt>. There are, however, two conditions:
@@ -1973,7 +2080,6 @@ An example:</p>
 </div>
 <p>Alright! That was it for this tutorial. We discussed the most important syntax, data types, and constructs in Python. Sure, there are things that we haven’t discussed (e.g., <a class="reference external" href="https://realpython.com/python-sets/">sets</a>, <a class="reference external" href="https://realpython.com/introduction-to-python-generators/">generators</a>, <a class="reference external" href="https://realpython.com/inheritance-composition-python/">inheritance</a>, and such), but the material from this tutorial should be enough to get you started with Python (and the next tutorials)!</p>
 <p>You can continue with the next one about <em>Matplotlib</em> if you’re ready!</p>
-</div>
 </div>
 </div>
 
