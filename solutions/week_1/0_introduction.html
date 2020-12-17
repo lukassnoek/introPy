@@ -651,12 +651,15 @@ SyntaxError: invalid syntax
 <p>For example, a “ToDo” would look something like this:</p>
 <div class="alert alert-warning">
     <b>ToDo</b>: In the code-cell below, set the variable <tt>x</tt> to 5 (without quotes!) and remove the <tt>raise NotImplementedError</tt> statement.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;not yet 5&#39;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -686,12 +689,15 @@ SyntaxError: invalid syntax
 <p>Now, let’s try another ToDo. Note that it is followed by two test-cells, which test different aspects of your implementation.</p>
 <div class="alert alert-warning">
     <b>ToDo</b>: In the code-cell below, set the variable <tt>y</tt> to <tt>x * 2</tt>, so you have to replace <tt>None</tt> with <tt>x * 2</tt> (yes, this is as easy as it sounds). Don't forget to remove the <tt>raise NotImplementedError</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">y</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -930,10 +936,13 @@ y            int       4
 <p>This is highlighting the fact about Python we mentioned earlier: <em>everything is an object!</em></p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: In the code cell below, using the variable <tt>x</tt>, call the method <tt>islower</tt> and save the result in a new variable <tt>is_x_lowercase</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implement the ToDo here</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">is_x_lowercase</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">islower</span><span class="p">()</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1062,10 +1071,13 @@ y            int       4
     <b>Warning!</b> If you save the "result" from a method call in a new variable even though that method doesn't return something, Python won't crash but save the result as <tt>None</tt>! So if you ever notice that one of your variables is <tt>None</tt>, this might have happened!
 </div><div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Lukas doesn't like to be 30 years old. Can you make him 29 again? Watch out: if you run the command <tt>increase_age</tt> multiple times, the <tt>age</tt> attribute will also be modified multiple times!
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">random_person</span><span class="o">.</span><span class="n">increase_age</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1087,10 +1099,15 @@ y            int       4
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Create a new <tt>Person</tt> object with your own name and age and save it in a variable named <tt>my_self</tt>. Then, introduce yourself (using the <tt>introduce</tt> method) and pretend its your birthday and increase your age by 1 (using the <tt>increase_age</tt> method).
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">my_self</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Lukas&quot;</span><span class="p">,</span> <span class="mi">29</span><span class="p">)</span>
+<span class="n">my_self</span><span class="o">.</span><span class="n">introduce</span><span class="p">()</span>
+<span class="n">my_self</span><span class="o">.</span><span class="n">increase_age</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
@@ -1199,7 +1216,7 @@ y            int       4
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Let's make the <tt>__init__</tt> method actually do something! In the class definition below, add a print statement within the <tt>__init__</tt> function which prints out "Constructing a Participant object!". Make sure to add another indent (four spaces or a tab) for your print statement (just like the <tt>pass</tt> keyword in the <tt>__init__</tt> method above).
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 
@@ -1208,7 +1225,10 @@ y            int       4
 <span class="sd">    across a multiline string using triple quotes. For example, we might add &#39;A class to represent</span>
 <span class="sd">    participants in our study&#39;. &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+        <span class="c1">### BEGIN SOLUTION</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Constructing a Participant object!&quot;</span><span class="p">)</span>
+        <span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1246,10 +1266,14 @@ Awesome! You&#39;re doing great.
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, initialize a new <tt>Participant</tt> object with a particular participant number (e.g., `1`). Then, try to access that attribute (<tt>sub_nr</tt>) from your new object! What happens if you don't supply a participant number when calling <tt>Participant</tt>?
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here (no test cell). &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">participant_x</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">participant_x</span><span class="o">.</span><span class="n">sub_nr</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
@@ -1261,12 +1285,20 @@ Awesome! You&#39;re doing great.
 <p>As you can see, whenever you construct a new <code class="docutils literal notranslate"><span class="pre">Participant</span></code> object (and thus implicitly call the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method) the <code class="docutils literal notranslate"><span class="pre">self</span></code> argument is actually ignored. The <code class="docutils literal notranslate"><span class="pre">self</span></code> argument in classes function as a sort of placeholder (or template) in the class that will be “filled in” by the specific object once it is initialized. In other words, anything that is referenced by <code class="docutils literal notranslate"><span class="pre">self</span></code> in the <em>class definition</em> is referenced by the object name after initialization. This concept will become more clear when we’ll discuss other class methods later.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, rewrite the <tt>__init__</tt> method to accept (apart from <tt>self</tt>) two arguments: <tt>sub_nr</tt> <em>and</em> <tt>condition</tt>, a string (which should be either a "caffeine" or "water"). Then, make sure the value of the <tt>condition</tt> argument is bound to <tt>self</tt> such that the object will have a <tt>condition</tt> attribute. Bonus for those with more programming experience: raise a <tt>ValueError</tt> whenever the condition is something else than "caffeine" and "water".
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="k">class</span> <span class="nc">Participant</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; A class to represent participants in our study. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sub_nr</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sub_nr</span> <span class="o">=</span> <span class="n">sub_nr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;caffeine&#39;</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Please choose &#39;condition&#39; from [&#39;caffeine&#39;, &#39;water&#39;]!&quot;</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1400,14 +1432,24 @@ no
 <p>Now, let’s try a slightly harder ToDo!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Create a new method, <tt>add_data</tt>, that takes as a list of numbers as a single (apart from <tt>self</tt>) input argument named <tt>data</tt> and checks whether its length is larger than 4. You can use the built-in function <tt>len</tt> for this. If the list of numbers is larger than 4, add it as an attribute named <tt>data</tt>. If it isn't, do not add it as an attribute. Make sure to pre-set the <tt>data</tt> attribute! 
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="k">class</span> <span class="nc">Participant</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; A class to represent participants in our study. &quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sub_nr</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+        <span class="c1">### BEGIN SOLUTION</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sub_nr</span> <span class="o">=</span> <span class="n">sub_nr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+        
+    <span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1448,13 +1490,44 @@ A couple of hints:
     <li>Make sure to pre-set all attributes upon initialization!</li>
     <li>Do not cheat by using external packages such as Numpy ;-) </li>
 </ul>
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="k">class</span> <span class="nc">Participant</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; A class to represent participants in our study. &quot;&quot;&quot;</span>
 
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sub_nr</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sub_nr</span> <span class="o">=</span> <span class="n">sub_nr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_average</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        
+    <span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">d</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">average_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Note: this implementation is not completely correct! Because it won&#39;t</span>
+<span class="sd">        average the numbers correctly whenever this method is called for more than once!</span>
+<span class="sd">        Technically, a running average should be used. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_average</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="n">av</span> <span class="o">=</span> <span class="n">d</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_average</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">av</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>

@@ -618,10 +618,13 @@
 </div>
 <div class="alert alert-warning">
     <b>ToDo</b>: Import the function <tt>randn</tt> (which generates random numbers from a standard normal distribution) from the numpy subpackage <tt>random</tt> and rename it <tt>random_normal_generator</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span> <span class="k">as</span> <span class="n">random_normal_generator</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -737,11 +740,14 @@
 </div>
 <div class="alert alert-warning">
     <b>ToDo</b>: In the cell below, make a new variable, <tt>y</tt>, which should contain <tt>x</tt> minus 5, of which the result is subsequently raised to the 4th power. 
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">4</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -898,12 +904,16 @@
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Modify the variable <tt>to_print</tt> defined below, such that printing it (i.e., running <tt>print(to_print)</tt>) will print: "I love Python 4ever". So you'll have to "fill" the "%" placeholders using string formatting. That is, you have to put a <tt>%</tt> sign after the <tt>to_print</tt> variable and "fill" it with the correct inputs.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">to_print</span> <span class="o">=</span> <span class="s2">&quot;I love </span><span class="si">%s</span><span class="s2"> </span><span class="si">%i</span><span class="s2">ever&quot;</span>
 
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">to_print</span> <span class="o">=</span> <span class="s2">&quot;I love </span><span class="si">%s</span><span class="s2"> </span><span class="si">%i</span><span class="s2">ever&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">to_print</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -929,14 +939,17 @@
 <p>To use this method, you have to preprend your string with the letter <tt>f</tt>!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Using the variables below and the F-string method, create the following string (and print it): "There are five notebooks this week; OMG, way too many."
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. (no test cell)&quot;&quot;&quot;</span>
 <span class="n">n_notebooks</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">oh_my_god</span> <span class="o">=</span> <span class="s2">&quot;OMG&quot;</span>
 <span class="n">many_or_few</span> <span class="o">=</span> <span class="s2">&quot;many&quot;</span>
 
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">n_notebooks</span><span class="si">}</span><span class="s2"> notebooks this week; </span><span class="si">{</span><span class="n">oh_my_god</span><span class="si">}</span><span class="s2">, way too </span><span class="si">{</span><span class="n">many_or_few</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -990,11 +1003,15 @@
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: In the cell below, replace the element 'TO_REPLACE_1' with 'REPLACED' and the element 'TO_REPLACE_2' also with 'REPLACED' in the list <tt>todo_list</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="n">todo_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;TO_REPLACE_1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1038</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;TO_REPLACE_2&#39;</span><span class="p">]]]</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">todo_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;REPLACED&#39;</span>
+<span class="n">todo_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;REPLACED&#39;</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1054,11 +1071,19 @@
 <p>Importantly, slices are “end exclusive”, which means that if you slice from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">5</span></code>, you get the indices <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4</span></code>! While this may seem confusing at first, you’ll get used to it. To appreciate the use of “end exclusive indexing”, do the next ToDo.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Slice the list below, <tt>to_be_split</tt>, into two separate lists: one called <tt>first_half</tt> with the first half of the list values, and one called <tt>second_half</tt>, with the second half of the list values.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="n">to_be_split</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">to_be_split</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">first_half</span> <span class="o">=</span> <span class="n">to_be_split</span><span class="p">[:</span><span class="n">mid</span><span class="p">]</span>
+<span class="n">second_half</span> <span class="o">=</span> <span class="n">to_be_split</span><span class="p">[</span><span class="n">mid</span><span class="p">:]</span>
+<span class="c1"># or just:</span>
+<span class="c1"># to_be_split[:8]</span>
+<span class="c1"># to_be_split[8:]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1108,11 +1133,14 @@
 <p>We’ll use this construction (<code class="docutils literal notranslate"><span class="pre">list(range(x,</span> <span class="pre">y))</span></code>, or without the <code class="docutils literal notranslate"><span class="pre">list</span></code>) quite often in this course!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list (<tt>my_list</tt>) below, extract the numbers 2, 3, 4, 5, and 6 using a slice and store it in a new variable named <tt>my_new_list</tt>!
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">my_new_list</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1130,11 +1158,14 @@
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list below (<tt>my_list_2</tt>), extract the values <tt>[5, 7, 9, 11]</tt> using a slice (i.e., in a single operation!) and store it in a new variable named <tt>my_new_list_2</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">my_list_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">my_new_list_2</span> <span class="o">=</span> <span class="n">my_list_2</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1215,10 +1246,13 @@
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: In the code cell below, add a new key to the dictionary <tt>my_dict</tt> named <tt>"rat"</tt> and with the value <tt>"nasty"</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;rat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;nasty&#39;</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1243,10 +1277,13 @@
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Values of dictionaries can be any type of object, even dictionaries themselves! So, add a new key to the dictionary <tt>my_dict</tt> named <tt>"another_dict"</tt> with the value of <em>another</em> dictionary with the keys <tt>"a"</tt> and <tt>"b"</tt> and the corresponding values <tt>1</tt> and <tt>2</tt>. Also, try to figure out how to index the value <tt>1</tt> from the 'nested' dictionary (this is not graded, but try it nonetheless!).
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;another_dict&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1369,12 +1406,16 @@
 <p>Importantly, you can name the variable to which you assign the return value <em>anyway you like</em>. This doesn’t have to be <code class="docutils literal notranslate"><span class="pre">new_number</span></code>! Like above, we named it <code class="docutils literal notranslate"><span class="pre">value_contained_in_new_number</span></code>, but it really doesn’t matter.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: In the code cell below, we've started writing a function named <tt>extract_last_element</tt> that takes one input-argument &mdash; a list &mdash; and returns the last element of the list. Some parts of the function are missing, though, which you need to write! When you're done, run the test-cell below it to check if it's right! 
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="k">def</span> <span class="nf">extract_last_element</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
     
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">last_element</span> <span class="o">=</span> <span class="n">input_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">last_element</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1406,10 +1447,14 @@
 <p>Alright, that was probably relatively easy. Let’s do a slightly harder one.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a completely new function named <tt>get_values_from_odd_indices</tt> (so you have to write the <tt>def ...</tt> part!) that takes one input-argument &mdash; a list &mdash; and returns all values from the odd indices of that list. So, suppose you have the following list: [2, 100, 25, 48, 92, -5, 12]. Your function should return: [100, 48, -5]. That is, the values from odd indices (here: 1, 3, 5; we exclude index zero!) Hint: slices might be useful here!
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your function here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="k">def</span> <span class="nf">get_values_from_odd_indices</span><span class="p">(</span><span class="n">in_list</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">in_list</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1522,10 +1567,14 @@
 <p>Keep this feature of returning multiple things and tuple unpacking in mind for the rest of the course (you’ll definitely encounter it more often!).</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a function called <tt>get_length_first_and_last_value</tt> which takes a list as single input argument, and returns the length of the list (the first output), the first value of the list (the second output), and the last value of the list (the third output). So, e.g., for the list <tt>[0, 1, 2, 3, 4]</tt>, the function should return <tt>(5, 0, 4)</tt> (a tuple of length 3, with the three outputs). Note that it should work for lists of arbitrary lengths and value types!
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the function here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="k">def</span> <span class="nf">get_length_first_and_last_value</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">),</span> <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1588,13 +1637,17 @@
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Suppose we have a list of grades (the variable <tt>grades</tt> below) and we want to extend this list with two other grades (the variable <tt>new</tt> below). Use the <tt>append</tt> function to add the new grades to the <tt>grades</tt> variable such that it has six elements afterwards.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">]</span>
 <span class="n">new</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">]</span>
 
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">grades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">grades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1648,11 +1701,16 @@
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, fix the string with typos (<tt>lots_of_typos</tt>) using (a combination of) string methods and store the result in a new variable named <tt>fixed_string</tt>. Note that you can "chain" different methods together on a single line (but this is not necessarily better/more readable)!
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">lots_of_typos</span> <span class="o">=</span> <span class="s2">&quot;My.name.is.Lukas.and.i.like.Pyton.&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">fixed_string</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lots_of_typos</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Pyton &#39;</span><span class="p">,</span> <span class="s1">&#39;Python.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; i &#39;</span><span class="p">,</span> <span class="s1">&#39; I &#39;</span><span class="p">)</span>
+<span class="c1"># Or:</span>
+<span class="c1"># fixed_string = lots_of_typos.replace(&#39;.&#39;, &#39; &#39;).replace(&#39;Pyton &#39;, &#39;Python.&#39;).replace(&#39; i &#39;, &#39; I &#39;)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1707,10 +1765,18 @@ An example:</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b> (optional): Write a function named <tt>juf</tt> that takes a single argument named <tt>number</tt> (an integer with a default of 1) and prints out the number <em>unless</em> the number is divisible by 7 (e.g., 14 or 21) <em>or</em> contains a 7 (e.g., 7, 27, or 77); in that case, it prints| "JUF!". (Apologies to the non-Dutchies for this reference.)
 <p><br>Hint: you may want to use the <a href="https://realpython.com/python-modulo-operator/">modulo operator (%)</a> to check the divisibility of a number by another number.</p>
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="k">def</span> <span class="nf">juf</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="s1">&#39;7&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="ow">or</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;JUF!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1727,13 +1793,8 @@ An example:</p>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The default of `number` should be 1!&quot;</span><span class="p">)</span>
 
 <span class="c1"># The following should print out: 1, JUF!, JUF!, 22, JUF!, JUF!, 80</span>
-<span class="n">juf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">juf</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">juf</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
-<span class="n">juf</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
-<span class="n">juf</span><span class="p">(</span><span class="mi">63</span><span class="p">)</span>
-<span class="n">juf</span><span class="p">(</span><span class="mi">71</span><span class="p">)</span>
-<span class="n">juf</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">80</span><span class="p">]:</span>
+    <span class="n">juf</span><span class="p">(</span><span class="n">nb</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1824,7 +1885,7 @@ An example:</p>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Complete the function below &mdash; named <tt>extract_values_smaller_than_0</tt> &mdash; that takes a single list with numbers as input and returns a new list with <em>only the values smaller than 0</em> from the input-list. For example, suppose our input-list is: [2, -5.3, 1.8, 0.0, -205.1, 6029]. Then, the function should return: [-5.3, -205.1].<br><br>Hint: use an if-statement in combination with the <tt>.append()</tt> method of the empty list we initialized below (<tt>list_to_return</tt>) to fill the <tt>list_to_return</tt> variable in a for-loop. In other words, the function should contain an if-statement in a for-loop (in which you need to use the <tt>.append()</tt> method).
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="c1"># Complete the function below (make sure to remove raise NotImplementedError!)</span>
@@ -1833,7 +1894,13 @@ An example:</p>
     <span class="c1"># We initialize an empty list here (which you need to fill using a for-loop)</span>
     <span class="n">list_to_return</span> <span class="o">=</span> <span class="p">[]</span>
     
-<span class="c1"># YOUR SOLUTION HERE</span>    
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">list_to_return</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+    
     <span class="k">return</span> <span class="n">list_to_return</span>
 </pre></div>
 </div>
@@ -1933,7 +2000,7 @@ An example:</p>
     <b>Tip</b>: the <tt>break</tt> keyword also works in for loops! You can use this if you want to terminate the loop earlier than expected.
 </div><div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, we created a function, <tt>random_string</tt>, which creates a random five-letter string. Create a while-loop that loops until a random string has been created that starts with "A" and ends with "Z". (No test cell.)
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">string</span>
@@ -1944,7 +2011,14 @@ An example:</p>
     <span class="n">rs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">rs</span>
 
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">rs</span> <span class="o">=</span> <span class="n">random_string</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">rs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span> <span class="ow">and</span> <span class="n">rs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rs</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1990,11 +2064,14 @@ An example:</p>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a list comprehension that adds the string <tt>'_check'</tt> to each value in the list <tt>my_list</tt> below, except if the value is 'B'. (This is an optional ToDo to practice list comprehensions.) Note that (in this particular use of list-comprehensions) you always need <em>both</em> a "if .." part <em>and</em> an "else ..." part! So, can you think of a way to add nothing to a string (i.e., the "else ...", when the element is not 'B', part of this list comprehension)? (No test cell.)
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo below (no test cell). &quot;&quot;&quot;</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">my_list_checked</span> <span class="o">=</span> <span class="p">[</span><span class="n">elem</span> <span class="o">+</span> <span class="s1">&#39;_check&#39;</span> <span class="k">if</span> <span class="n">elem</span> <span class="o">!=</span> <span class="s1">&#39;B&#39;</span> <span class="k">else</span> <span class="n">elem</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -2025,7 +2102,7 @@ An example:</p>
 <li><p>Each condition should have the same probability of being followed by any condition (often called “counterbalancing”).</p></li>
 </ol>
 <p>Condition 2 means that for a given trial of, for example, condition <tt>1</tt>, there is a 50% probability that this trial is followed by a trial of condition <tt>0</tt> and a 50% probability that this trial is followed by a trial of condition <tt>1</tt>. Note that it is impossible to <em>completely</em> counterbalance this proportion, because the last trial does not have trial after itself. Therefore, the counterbalancing may be off by 1 trial.</p>
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Complete the function below. &quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">random</span>
@@ -2044,7 +2121,37 @@ An example:</p>
 <span class="sd">        List of experimental sequence</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="c1"># NOTE: this is not necessarily the best/most efficent</span>
+    <span class="c1"># solution!</span>
+    
+    <span class="c1"># Create sequence</span>
+    <span class="n">n_per_cond</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_trials</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">exp_seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">n_per_cond</span>
+    
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># Shuffle sequence</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">exp_seq</span><span class="p">)</span>
+        
+        <span class="c1"># Keep track of counts per condition {0, 1}</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]}</span>
+
+        <span class="c1"># Count all n+1 trial conditions for each condition</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">exp_seq</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">exp_seq</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">exp_seq</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># Check if proportions are correct!</span>
+        <span class="n">correct</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cond</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">count</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">correct</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">correct</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">correct</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">exp_seq</span>
+        <span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>

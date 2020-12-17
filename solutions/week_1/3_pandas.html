@@ -520,7 +520,10 @@
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df_todo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;example_data.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;wm_score&#39;</span><span class="p">])</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -712,10 +715,13 @@
 <p>Note that other indexing methods also exist, like indexing columns directly (e.g., <code class="docutils literal notranslate"><span class="pre">df['age']</span></code>), or indexing columns by accessing them as attributes (e.g., <code class="docutils literal notranslate"><span class="pre">df.age</span></code>). We strongly suggest always using <code class="docutils literal notranslate"><span class="pre">loc</span></code> (and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>), though, for consistency (also because this method is the most versatile).</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Select the second and fourth row and the "participant_id" and "condition" columns from the dataframe (<tt>df</tt>) and store the result in a new variable named <tt>df_todo</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df_todo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;participant_id&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">]]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -949,10 +955,13 @@ Name: age, dtype: int64
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Using a row and column slice, select the first three rows and the last three columns of the <tt>df</tt> dataframe and store it a new variable named <tt>df_todo</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df_todo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1108,10 +1117,13 @@ Name: age, dtype: bool
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Using boolean indexing, select all participants in condition A and store it in new variable named <tt>conA_pp</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">conA_pp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">:]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1213,10 +1225,13 @@ Name: age, dtype: bool
 <p>In the above cell we basically used <code class="docutils literal notranslate"><span class="pre">loc</span></code> to assign a list of values to a new column named “nationality”. Importantly, this list should have the same number of values as the number of rows of the dataframe.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: In the same way as shown above, you can add rows to the dataframe. You got some new data from "sub-05" (a 23 year old French participant who was part of condition B and had a working memory score of 51). Add this to the existing dataframe (<tt>df</tt>) in the code cell below. Make sure not to overwrite the existing data by choosing a new index value (e.g., 4).
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sub-05&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="s1">&#39;French&#39;</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1420,10 +1435,13 @@ dtype: float64
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Compute the standard deviation of the "age" column only using the appropriate dataframe method (google this!) and store single value in a new variable named <tt>age_sd</tt>.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">age_sd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1501,7 +1519,7 @@ dtype: float64
 <p>Note that the group factor becomes the index in the resulting dataframe! Again, the mean operation is only performed for the numeric columns. To explain all of the functionality of the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method probably needs a completely separate tutorial, so let’s just finish with a relatively more difficult (and optional) ToDo.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, we simulate a dataset with reaction time data (in ms.) across four groups ('A', 'B', 'C', 'D') of 25 participants each. Suppose that we want to, for each group separately, a one-sided t-test of reaction time (against a population mean of 300 ms.). Create a dataframe with 3 columns ("mean", "std", and "t_value") and 4 rows ('A', 'B', 'C', 'D', representing the groups), where the "t_value" column should contain t-values corresponding to the groups.
-</div><div class="cell docutils container">
+</div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -1511,7 +1529,15 @@ dtype: float64
 <span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rt&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="n">cond</span><span class="p">})</span>
 <span class="n">df_final</span>
 
-<span class="c1"># YOUR SOLUTION HERE</span></pre></div>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="c1"># Not necessarily the most elegant solution!</span>
+<span class="n">df_stats</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df_stats</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span>
+<span class="n">df_stats</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_stats</span><span class="p">[</span><span class="s1">&#39;t_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">300</span><span class="p">)</span> <span class="o">/</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">df_stats</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
