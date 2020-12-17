@@ -21,6 +21,7 @@
     title: Introduction to Pandas (T)
   - file: solutions/week_1/4_numpy
     title: Introduction to Numpy (T)
+  - file: week_1/python_how_to_continue
 
 - part: PsychoPy (week 2)
   chapters:

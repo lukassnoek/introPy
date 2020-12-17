@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-pytest --nbval --ignore=intropy/_build/ --ignore=intropy/week_1/tutorials/
+pytest --nbval --ignore=intropy/_build/ --ignore=intropy/tutorials/week_1

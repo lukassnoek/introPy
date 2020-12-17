@@ -8,7 +8,7 @@ This website and the course materials are under construction and may change cons
 :::
 
 ## Prerequisites
-As this two-week Python course is preceded by a two-week *R* course in the Research Master Psychology, we assume that students are familiar with basic programming concepts (such as variables, conditionals, loops, and functions). Familiarity with Python is not necessary. Those that already have some experience with Python, however, may find the tutorials from this course (too) easy. To challenge those people, we included several more difficult (optional) exercises in the tutorials!
+As this two-week Python course is preceded by a two-week *R* course in the Research Master Psychology, we assume that students are familiar with basic programming concepts (such as variables, conditionals, loops, and functions). Familiarity with Python is not necessary. Those that already have some experience with Python, however, may find the tutorials from this course (too) easy. To challenge those people, we included several more difficult (optional) sections and exercises in the tutorials!
 
 ## Teaching philosophy
 We believe in *learning by doing*. Most of your time will be spent by working on exercises, which we call *ToDos*. Although these exercises are ungraded, we highly recommend that you try to do them. If you manage to work through all of them, getting a decent grade on this course is expected.

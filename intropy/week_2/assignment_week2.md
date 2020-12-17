@@ -9,6 +9,7 @@ Program an N-back experiment.
 
 * Clear and unambiguous instructions;
 * Creativity
+* Coding style (consistency, efficiency, no redundancy, comments where needed)
 
 *Quantitative criteria*
 The following elements need to be incorporated:
