@@ -650,10 +650,105 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p class="admonition-title">Tip</p>
 <p>Instead of re-drawing your stimuli every iteration of the loop across frames, you can also set the attribute <code class="docutils literal notranslate"><span class="pre">autoDraw</span></code> of visual components to <code class="docutils literal notranslate"><span class="pre">True</span></code>. This will automatically draw those stimuli upon flipping the window, until you set this attribute to <code class="docutils literal notranslate"><span class="pre">False</span></code> again!</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For timing precision, it is very important that no other (CPU-heavy) programs are running while you’re running your experiment! So make sure that, when you conduct actual experiments, you shut down all non-essential programs before starting your experiment.</p>
+</div>
 </div>
 </div>
 <div class="section" id="trial-loops">
 <h2>Trial loops<a class="headerlink" href="#trial-loops" title="Permalink to this headline">¶</a></h2>
+<p>So far, we only presented a single trial with a emotion word (“happy”) and a(n angry) smiley. Like the color-word Stroop in the Builder tutorial, we’d like to present the participant multiple trials in which the two factors — emotion of the smiley (happy/angry) and the emotion word (“happy”/”angry”) — vary.</p>
+<p>So how do we define the different conditions? One way would be two create two lists, one with emotion words and one with the emotion for the smileys, and to choose a random value of each list in each iteration of the trial loop. In such a simple experiment, however, we would recommend to pre-specify the conditions in a CSV or Excel file &amp;mdash just like we did in the Builder tutorial.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Create a CSV or Excel file with two columns (named <code class="docutils literal notranslate"><span class="pre">smiley</span></code> and <code class="docutils literal notranslate"><span class="pre">word</span></code>) and twenty rows (excluding column names) with either “happy” or “angry” such that there are five trials of each possible emotion-word combination (just like you did in the Builder tutorial). Save it in the same directory as your Python script with the same <code class="docutils literal notranslate"><span class="pre">emo_conditions.xlsx</span></code> (or <code class="docutils literal notranslate"><span class="pre">emo_conditions.csv</span></code>). (If you want to see the “solution”, check out the <code class="docutils literal notranslate"><span class="pre">emo_conditions.xlsx</span></code> file in the <code class="docutils literal notranslate"><span class="pre">solutions/week_1</span></code> directory of the course materials).</p>
+</div>
+<p>To load in the data, we can use our <em>pandas</em> skills! In case of a CSV file, we can use the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function and in case of an Excel file, we can use the <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> function.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Read in your <code class="docutils literal notranslate"><span class="pre">emo_conditions.{csv,xlsx}</span></code> file and store the resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object in a variable named <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> (“conditions dataframe”).</p>
+</div>
+<p>We could start writing our trial loop by now, but this would present the trials just like we defined in the conditions file. Often, you’d want to present the trials in a (semi-)random order. To do so, we can simply shuffle the dataframe, which can be easily done using the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html"><code class="docutils literal notranslate"><span class="pre">sample</span></code> method</a> of <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> using a fraction (<code class="docutils literal notranslate"><span class="pre">frac</span></code>) of 1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cond_df</span> <span class="o">=</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This method randomly samples all rows (because <code class="docutils literal notranslate"><span class="pre">frac=1</span></code>) from the dataframe, which is the same as shuffling it. The next step is to start writing a our trial loop! Because we have a fixed number of trials, we can use a for loop across the rows of our dataframe. The <code class="docutils literal notranslate"><span class="pre">iterrows</span></code> method of dataframes generates, row by row, the index and the row itself (as a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object), so it’s perfect for our purposes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1"># Extract current word and smiley</span>
+    <span class="n">curr_word</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">]</span>
+    <span class="n">curr_smil</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;smiley&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then, after extracting the smiley and word conditions, we can initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the current word and an <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> with the current smiley, draw them, flip the window and wait for as long as we want to show the stimulus, and repeat this process until our trial loop has finished!</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Try finishing the loop in the previous code snippet as indicated above. For now, assume a duration 500 milliseconds. Run the experiment when you’re done!</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1"># Extract current word and smiley</span>
+    <span class="n">curr_word</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">]</span>
+    <span class="n">curr_smil</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;smiley&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Create and draw text/img</span>
+    <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
+    <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_smil</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+    <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+    <span class="c1"># Show</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    
+    <span class="c1"># Wait a bit</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<p>At this point, the stimuli are following each other instantly! It would be nice to have a, let’s say, 1.5 second interstimulus interval (ISI) between each trial showing a fixation target.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Add code to the loop to show a simple plus sign (+) as a fixation target during the ISI.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># No need to define the fix inside the loop, because it doesn&#39;t change!</span>
+<span class="n">fix</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1"># Extract current word and smiley</span>
+    <span class="n">curr_word</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">]</span>
+    <span class="n">curr_smil</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;smiley&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Create and draw text/img</span>
+    <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
+    <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_smil</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+    <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+    <span class="c1"># Show</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    
+    <span class="c1"># Wait a bit</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">fix</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<p>Voilà, that’s all you need for the trial loop! [Something about responses]</p>
 </div>
 <div class="section" id="logging-onsets-optional">
 <h2>Logging onsets (optional)<a class="headerlink" href="#logging-onsets-optional" title="Permalink to this headline">¶</a></h2>
