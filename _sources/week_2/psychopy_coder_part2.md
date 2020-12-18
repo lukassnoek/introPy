@@ -1,10 +1,14 @@
-# The PsychoPy Coder, part 2 (tutorial)
+# Creating a Coder experiment from scratch (tutorial)
 In the previous tutorial, we discussed most of the "administrative" stuff that needs to happen in any PsychoPy experiment. In this tutorial, we'll discuss how to actually add components to the experiment, interact with user responses, and work with the experiment data.
+
+:::{warning}
+PsychoPy is an incredibly versatile and flexible software package. The "downside" of this is that sometimes the same "thing" can be achieved in multiple different ways. In this tutorial, we'll highlight different approaches when appropriate, but remember that almost always these approaches are functionally equivalent, so it's up to you which approach you use!
+:::
 
 ## Components
 Like in the Builder, *components* are the "bread and butter" in the Coder interface as well. In the coder, however, these components are implemented in different classes from the `psychopy` package. For example, to add a text component, you can use the `TextStim` class from the `psychopy.visual` module and to add a sound component, you can use the `Sound` component from the `psychopy.sound` module. 
 
-Basically, every component from the Builder has an equivalent in the `psychopy` package. Moreover, each component has the same properties in the Builder as in the Coder. For example, the *color* and *font* properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a `TextStim` object with `font='Calibri'` and `color=(-1, -1, 1)`.
+Basically, every component from the Builder has an equivalent in the `psychopy` package. Moreover, each component has the same properties in the Builder as in the Coder. For example, the *color* and *font* properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a `TextStim` object with `font='Calibri'` and `color=(-1, -1, 1)`. We won't discuss all parameters from every component we discuss in this tutorial; you can find all parameters and what they mean in the [PsychoPy documentation](https://www.psychopy.org/api/index.html)!
 
 Importantly, all visual stimulus classes (like `TextStim`, but not `Sound`) additionally need one (mandatory) argument: a `Window` object! This allows to `TextStim` to interact with the window. So, let's recap: to initialize a component in the Coder interface, we need to (1) import the corresponding class and (2) initialize it with a `Window` object (in case of visual components) and optionally other arguments that modify the component's behavior or display. 
 
@@ -18,11 +22,34 @@ welcome_txt_stim = TextStim(win, text="Welcome to this experiment!")
 ```
 
 :::{admonition,attention} ToDo
-Paste the code snippet above into your script, after initializing the window and clock. Note: it's convention to put all import statements together at the top of your script, so make sure the `from psychopy.visual import TextStim` part is on top of your script as well. Then, run the experiment.
+Paste the code snippet above into your script, after initializing the window and clock, but change the initialization such that the text will be orange and set the font to Calibri. Note: it's convention to put all import statements together at the top of your script, so make sure the `from psychopy.visual import TextStim` part is on top of your script as well. Then, run the experiment.
 :::
 
-## Drawin' & flippin'
-When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! This is because you first need to *draw* the stimulus! This can be done by calling the `draw` method that is included in each (visual) component class.
+:::{warning} 
+Like we mentioned in the previous tutorial, if nothing happens when you run the experiment, your script may contain a (syntax) error! In that case, check the *Experiment runner* window to see what's wrong!
+:::
+
+Note that component properties (such as the text `font` and `color` of `TextStim`s) can also be set *after* initializing the object. Because these arguments are set as attributes during initialization in the `__init__` function, you can change these properties by changing the object's attributes. For example, if you want to change the font size (`height`) after initialization of a `TextStim` object, you can do the following:
+
+```python
+# Start with a height (font size) of 0.1
+some_txt = TextStim(win, "Hello!", height=0.1)
+
+# Later, increase it to 0.2
+some_txt.height = 0.2
+```
+
+In the documentation, you may have seen that some attributes can also be changed using a dedicated method, with the same name as the attribute but prefixed with "set". For example, changing the font size of a `TextStim` (as in the previous code snippet) could also be achieved as follows:
+
+```python
+some_txt = TextStim(win, "Hello!", height=0.1)
+some_txt.setHeight(0.2)
+```
+
+It really doesn't matter which method (setting the attribute directly or using the `set` method) you use &mdash; they do the same thing.
+
+## Drawing & flipping
+When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! As discussed in the lecture, this is because you first need to *draw* the stimulus! This can be done by calling the `draw` method that is included in each (visual) component class.
 
 :::{admonition,attention} ToDo
 After initialization of the text component, call the `draw` method (without arguments) of the `welcome_txt_stim` variable. Then, run your experiment.
@@ -69,103 +96,8 @@ Initialize a `TextStim` object with the text above and store it in a variable na
 Tip: you can create multi-line strings easily by enclosing text in triple-quotes, e.g., `""" some multiline text etc etc """` (more info [here](https://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string)). Then, call its `draw` method, flip the window to make it visible.
 :::
 
-### Keyboard responses
-Now, just like we added a Keyboard component in the Builder tutorials to interact with keyboard responses, we can use the `Keyboard` class from the `psychopy.hardware.keyboard` module to do the same in the Coder interface! [This class](https://www.psychopy.org/api/hardware/keyboard.html) has a method called `getKeys`, which will return a list `KeyPress` objects with information (as attributes) about the keys pressed since the last time `getKeys` was pressed.
-
-To implement the "wait-for-key-to-continue" routine, we can keep querying the `getKeys` method until we detect a "return" key, after which we continue the experiment.
-
 :::::{admonition,attention} ToDo
-Let's try to implement this! Import the `Keyboard` class at the top of your script and initialize a `Keyboard` object. Then, after drawing the instruction text (and the window flip), write some code that continually queries the `getKeys` function until it detects a "return" keypress and only then continues the script. Hint: a `while` loop (with a "break") would be useful here!
-
-When you're done, run the experiment!
-
-````{dropdown} Click here to show the solution (but try it yourself first!)
-
-```python
-kb = Keyboard()  # initialize keyboard obj
-while True:
-    # getKeys returns a list (here: `keys`)
-    keys = kb.getKeys()
-
-    # check if the return key is in the list
-    if 'return' in keys:
-        # If so, break out of the loop!
-        break
-```
-````
-
-:::::
-
-If you want to learn a little more about keyboard interaction, try the next (optional and more difficult) ToDo!
-
-:::{admonition,attention} ToDo (optional/difficult)
-As mentioned before, the `getKeys` method returns a list of `KeyPress` objects. These objects contain several attributes with information about the key press: its name (`.name`, e.g., "return"), the reaction time in seconds relative to the initialization of the `Keyboard` class (`.rt`), the time in seconds the key went down in absolute time (`.tDown`), and the duration of the keypress (`.duration`). 
-
-For each detected key press, print in a single statement the name of the key, its reaction time, and duration (e.g., "The 'a' key was pressed within 2.156 seconds for a total of 0.255 seconds"). Using [F-strings](https://realpython.com/python-f-strings/) would we nice here!
-:::
-
-### Mouse responses (optional)
-Instead of interacting through the keyboard, you can interact with mouse responses of the participant. Whether you have participants respond with keyboard presses or with the mouse is of course up to you (and depends on your experiment)! For the sake of explaining how to implement interaction with mouse responses, let's add another screen to our experiments with a big, red button, which the participant has to click (with the mouse) in order to start the experiment.
-
-Just like with keyboard responses, the `psychopy` package contains a class, `Mouse` (from `psychopy.event`), which implements interaction with the mouse. As can been seen in [the documentation](https://www.psychopy.org/api/event.html), a `Mouse` object can be initialized with several optional arguments (`visible`, `newPos`, and `win`) and contains various methods to query information about the mouse position (`getPos`) and mouse clicks/presses (`getPressed`). You can even set the position of the mouse (`setPos`) and make the mouse (temporarily) (in)visible (`setVisible`)!
-
-:::{warning}
-In the [documentation of the `psychopy.event` module](https://www.psychopy.org/api/event.html), you can also see several functions for keyboard interaction, such as `waitKeys` and `getKeys`, which overlap in functionality with the previously discussed `keyboard` class. [It is recommended](https://discourse.psychopy.org/t/3-ways-to-get-keyboard-input-which-is-best/11184) to use the `keyboard` class instead of the functions from the `event` module!
-:::
-
-Alright, let's start with our implementation. First, we need to import the `Mouse` class and initialize a `Mouse` object.
-
-:::{admonition,attention} ToDo
-Import the `Mouse` class at the top of your script and then initialize a `Mouse` object. Importantly, as indicated in the documentation, initialization should be done *after* initializing your `Window` object. Using the `visible` argument when initializing the `Mouse` object, make sure the mouse is initially invisible (check the [docs](https://www.psychopy.org/api/event.html)).
-:::
-
-We also need to create a big, red button for the participant to click! To create shapes using the `psychopy` package, you can use the [`ShapeStim`](https://www.psychopy.org/api/visual/shapestim.html#psychopy.visual.ShapeStim) class. This is a very broad class that allows you to create arbitrary shapes, like lines and polygons, by specifying the [vertices](https://en.wikipedia.org/wiki/Vertex_(geometry)) of the shape. Specifying the vertices of a circle is quite time intensive, so you can use the more "specialized" `Polygon` or `Circle` classes instead. 
-
-:::{note}
-Technically, the `Circle` class is a [subclass](https://pybit.es/python-subclasses.html) of the `Polygon` class, and the `Polygon` class is itself a subclass of the `ShapeStim` class. Being a subclass of another class means that the subclass "inherits" all methods from its "parent class" (but possibly with different default arguments). The subclass itself may, of course, contain additional or different methods and attributes.
-:::
-
-:::::{admonition,attention} ToDo
-Add a big red button to the experiment using the `Polygon` or `Circle` class (up to you), store it in a variable named `button`, and draw it. As the `Polygon` and `Circle` classes are subclasses of the `ShapeStim` class, check out the [ShapeStim documentation](https://www.psychopy.org/api/visual/shapestim.html#psychopy.visual.ShapeStim) to see which arguments those classes take.
-
-````{dropdown} Click here to show the solution (but try it yourself first!)
-
-```python
-from psychopy.visual import Circle  # or Polygon
-
-# You may need to adjust the size if you have a rectangular screen (which is common)
-# to get a circle instead of an oval
-button = Circle(win, size=(0.25, 0.25), fillColor=(1, -1, -1))
-
-# Alternatively:
-# button = Polygon(edges=100, size=(0.25, 0.25), fillColor=(1, -1, -1))
-button.draw()
-```
-````
-
-:::::
-
-Showing the participant the red button by itself may be a bit confusing, so let's add a `TextStim` with the text `"Click the red button to start the experiment"`!
-
-:::{admonition,attention} ToDo
-Add a `TextStim` as outlined above. Make sure it doesn't overlap with the red button! Draw it and flip the window. Then, run the experiment to see whether it works. 
-:::
-
-At this moment, the only thing we need to implement is a routine that halts the experiment until the participant clicked on the button using their mouse. [As described in the documention](https://www.psychopy.org/api/event.html), the `Mouse` class contains a very useful method, `isPressedIn`, which takes a `ShapeStim` (or a `ShapeStim` subclass) as input and returns a boolean (`True` or `False`) referring to whether the mouse is currently clicking in the area of the shape.
-
-:::::{admonition,attention} ToDo
-Add code that halts the experiment until the participant clicked the red button. Again, a while loop may be useful in this routine! Also, make sure the mouse disappears after the participant clickerd the button (check out the [docs](https://www.psychopy.org/api/event.html) to see how to do this). 
-
-````{dropdown} Click here to show the solution (but try it yourself first!)
-```python
-while True:
-    if mouse.isPressedIn(button):
-        mouse.setVisible(False)
-        break
-```
-````
-
-When you're done, run the experiment to see whether it works!
+Using the `Keyboard` class, make sure the experiment only advances when the participant presses the enter key. Check the previous tutorial if you forgot how to do this!
 :::::
 
 ## Timing revisited

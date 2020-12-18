@@ -1,4 +1,4 @@
-# A Builder experiment from scratch (tutorial)
+# Creating a Builder experiment from scratch (tutorial)
 Alright, now let's get to the interesting part: actually creating experiments! In this tutorial, we will guide you through creating a "Stroop task", step by step. If you are not familiar with the Stroop task, check out the video below!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/reUic5tyVwo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

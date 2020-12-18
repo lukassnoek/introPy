@@ -1,4 +1,4 @@
-# The PsychoPy Builder (tutorial)
+# Introduction to the PsychoPy Builder (tutorial)
 In this tutorial, we will discuss and show you how to use the *Builder* interface of PsychoPy. We will explain the basic elements of the Builder interface so that, in the next tutorial, we can focus more on the implementational details by building a new experiment from scratch.
 
 You might think, "Why learn how to use a graphical interface in a programming course?" The reason we first teach you how to use the *Builder* interface is because it allows us to focus on the structure of experiments before elaborating on the underlying code. Another advantage of Builder experiments is that they can be used online! (But this is beyond the scope of this course.)

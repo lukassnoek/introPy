@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The PsychoPy Coder, part 2 (tutorial) &#8212; introPy</title>
+    <title>Creating a Coder experiment from scratch (tutorial) &#8212; introPy</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to continue with PsychoPy?" href="psychopy_how_to_continue.html" />
-    <link rel="prev" title="The PsychoPy Coder, part 1 (tutorial)" href="psychopy_coder_part1.html" />
+    <link rel="prev" title="Introduction to the PsychoPy Coder (tutorial)" href="psychopy_coder_part1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -177,22 +177,22 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy_builder_part1.html">
-   PsychoPy Builder, part 1 (T)
+   Introduction to the Builder (T)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy_builder_part2.html">
-   PsychoPy Builder, part 2 (T)
+   A Builder experiment from scratch (T)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy_coder_part1.html">
-   PsychoPy Coder, part 1 (T)
+   Introduction to the Coder (T)
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   PsychoPy Coder, part 2 (T)
+   A Coder experiment from scratch (T)
   </a>
  </li>
  <li class="toctree-l1">
@@ -321,26 +321,14 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#drawin-flippin">
-   Drawin’ &amp; flippin’
+  <a class="reference internal nav-link" href="#drawing-flipping">
+   Drawing &amp; flipping
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#responses">
    Responses
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#keyboard-responses">
-     Keyboard responses
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mouse-responses-optional">
-     Mouse responses (optional)
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#timing-revisited">
@@ -385,13 +373,17 @@
         
               <div>
                 
-  <div class="section" id="the-psychopy-coder-part-2-tutorial">
-<h1>The PsychoPy Coder, part 2 (tutorial)<a class="headerlink" href="#the-psychopy-coder-part-2-tutorial" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="creating-a-coder-experiment-from-scratch-tutorial">
+<h1>Creating a Coder experiment from scratch (tutorial)<a class="headerlink" href="#creating-a-coder-experiment-from-scratch-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment. In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with the experiment data.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>PsychoPy is an incredibly versatile and flexible software package. The “downside” of this is that sometimes the same “thing” can be achieved in multiple different ways. In this tutorial, we’ll highlight different approaches when appropriate, but remember that almost always these approaches are functionally equivalent, so it’s up to you which approach you use!</p>
+</div>
 <div class="section" id="components">
 <h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
 <p>Like in the Builder, <em>components</em> are the “bread and butter” in the Coder interface as well. In the coder, however, these components are implemented in different classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. For example, to add a text component, you can use the <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module and to add a sound component, you can use the <code class="docutils literal notranslate"><span class="pre">Sound</span></code> component from the <code class="docutils literal notranslate"><span class="pre">psychopy.sound</span></code> module.</p>
-<p>Basically, every component from the Builder has an equivalent in the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. Moreover, each component has the same properties in the Builder as in the Coder. For example, the <em>color</em> and <em>font</em> properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with <code class="docutils literal notranslate"><span class="pre">font='Calibri'</span></code> and <code class="docutils literal notranslate"><span class="pre">color=(-1,</span> <span class="pre">-1,</span> <span class="pre">1)</span></code>.</p>
+<p>Basically, every component from the Builder has an equivalent in the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. Moreover, each component has the same properties in the Builder as in the Coder. For example, the <em>color</em> and <em>font</em> properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with <code class="docutils literal notranslate"><span class="pre">font='Calibri'</span></code> and <code class="docutils literal notranslate"><span class="pre">color=(-1,</span> <span class="pre">-1,</span> <span class="pre">1)</span></code>. We won’t discuss all parameters from every component we discuss in this tutorial; you can find all parameters and what they mean in the <a class="reference external" href="https://www.psychopy.org/api/index.html">PsychoPy documentation</a>!</p>
 <p>Importantly, all visual stimulus classes (like <code class="docutils literal notranslate"><span class="pre">TextStim</span></code>, but not <code class="docutils literal notranslate"><span class="pre">Sound</span></code>) additionally need one (mandatory) argument: a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object! This allows to <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> to interact with the window. So, let’s recap: to initialize a component in the Coder interface, we need to (1) import the corresponding class and (2) initialize it with a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object (in case of visual components) and optionally other arguments that modify the component’s behavior or display.</p>
 <p>Now, suppose you would like to welcome my participant by showing a short welcome message — “Welcome to this experiment!”. To do so, you’d need a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> which would need to be initialized as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">TextStim</span>
@@ -402,12 +394,30 @@
 </div>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Paste the code snippet above into your script, after initializing the window and clock. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
+<p>Paste the code snippet above into your script, after initializing the window and clock, but change the initialization such that the text will be orange and set the font to Calibri. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Like we mentioned in the previous tutorial, if nothing happens when you run the experiment, your script may contain a (syntax) error! In that case, check the <em>Experiment runner</em> window to see what’s wrong!</p>
 </div>
-<div class="section" id="drawin-flippin">
-<h2>Drawin’ &amp; flippin’<a class="headerlink" href="#drawin-flippin" title="Permalink to this headline">¶</a></h2>
-<p>When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! This is because you first need to <em>draw</em> the stimulus! This can be done by calling the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method that is included in each (visual) component class.</p>
+<p>Note that component properties (such as the text <code class="docutils literal notranslate"><span class="pre">font</span></code> and <code class="docutils literal notranslate"><span class="pre">color</span></code> of <code class="docutils literal notranslate"><span class="pre">TextStim</span></code>s) can also be set <em>after</em> initializing the object. Because these arguments are set as attributes during initialization in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function, you can change these properties by changing the object’s attributes. For example, if you want to change the font size (<code class="docutils literal notranslate"><span class="pre">height</span></code>) after initialization of a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object, you can do the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start with a height (font size) of 0.1</span>
+<span class="n">some_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s2">&quot;Hello!&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># Later, increase it to 0.2</span>
+<span class="n">some_txt</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mf">0.2</span>
+</pre></div>
+</div>
+<p>In the documentation, you may have seen that some attributes can also be changed using a dedicated method, with the same name as the attribute but prefixed with “set”. For example, changing the font size of a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> (as in the previous code snippet) could also be achieved as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">some_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s2">&quot;Hello!&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">some_txt</span><span class="o">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It really doesn’t matter which method (setting the attribute directly or using the <code class="docutils literal notranslate"><span class="pre">set</span></code> method) you use — they do the same thing.</p>
+</div>
+<div class="section" id="drawing-flipping">
+<h2>Drawing &amp; flipping<a class="headerlink" href="#drawing-flipping" title="Permalink to this headline">¶</a></h2>
+<p>When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! As discussed in the lecture, this is because you first need to <em>draw</em> the stimulus! This can be done by calling the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method that is included in each (visual) component class.</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
 <p>After initialization of the text component, call the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method (without arguments) of the <code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code> variable. Then, run your experiment.</p>
@@ -446,107 +456,9 @@ ANGRY expression = right</p>
 <p>Initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with the text above and store it in a variable named <code class="docutils literal notranslate"><span class="pre">instruct_txt_stim</span></code>. Make sure it is left-aligned and has a font size of 0.085 (check the <a class="reference external" href="https://www.psychopy.org/api/visual/textstim.html">docs</a> to see how to do this). Then, draw the <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> and flip the window to make it visible!</p>
 <p>Tip: you can create multi-line strings easily by enclosing text in triple-quotes, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span> <span class="pre">some</span> <span class="pre">multiline</span> <span class="pre">text</span> <span class="pre">etc</span> <span class="pre">etc</span> <span class="pre">&quot;&quot;&quot;</span></code> (more info <a class="reference external" href="https://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string">here</a>). Then, call its <code class="docutils literal notranslate"><span class="pre">draw</span></code> method, flip the window to make it visible.</p>
 </div>
-<div class="section" id="keyboard-responses">
-<h3>Keyboard responses<a class="headerlink" href="#keyboard-responses" title="Permalink to this headline">¶</a></h3>
-<p>Now, just like we added a Keyboard component in the Builder tutorials to interact with keyboard responses, we can use the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.hardware.keyboard</span></code> module to do the same in the Coder interface! <a class="reference external" href="https://www.psychopy.org/api/hardware/keyboard.html">This class</a> has a method called <code class="docutils literal notranslate"><span class="pre">getKeys</span></code>, which will return a list <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects with information (as attributes) about the keys pressed since the last time <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> was pressed.</p>
-<p>To implement the “wait-for-key-to-continue” routine, we can keep querying the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method until we detect a “return” key, after which we continue the experiment.</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Let’s try to implement this! Import the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class at the top of your script and initialize a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object. Then, after drawing the instruction text (and the window flip), write some code that continually queries the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> function until it detects a “return” keypress and only then continues the script. Hint: a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop (with a “break”) would be useful here!</p>
-<p>When you’re done, run the experiment!</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="p">()</span>  <span class="c1"># initialize keyboard obj</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># getKeys returns a list (here: `keys`)</span>
-    <span class="n">keys</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
-
-    <span class="c1"># check if the return key is in the list</span>
-    <span class="k">if</span> <span class="s1">&#39;return&#39;</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
-        <span class="c1"># If so, break out of the loop!</span>
-        <span class="k">break</span>
-</pre></div>
-</div>
-</div>
-</details></div>
-<p>If you want to learn a little more about keyboard interaction, try the next (optional and more difficult) ToDo!</p>
-<div class="attention admonition">
-<p class="admonition-title"> ToDo (optional/difficult)</p>
-<p>As mentioned before, the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method returns a list of <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects. These objects contain several attributes with information about the key press: its name (<code class="docutils literal notranslate"><span class="pre">.name</span></code>, e.g., “return”), the reaction time in seconds relative to the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class (<code class="docutils literal notranslate"><span class="pre">.rt</span></code>), the time in seconds the key went down in absolute time (<code class="docutils literal notranslate"><span class="pre">.tDown</span></code>), and the duration of the keypress (<code class="docutils literal notranslate"><span class="pre">.duration</span></code>).</p>
-<p>For each detected key press, print in a single statement the name of the key, its reaction time, and duration (e.g., “The ‘a’ key was pressed within 2.156 seconds for a total of 0.255 seconds”). Using <a class="reference external" href="https://realpython.com/python-f-strings/">F-strings</a> would we nice here!</p>
-</div>
-</div>
-<div class="section" id="mouse-responses-optional">
-<h3>Mouse responses (optional)<a class="headerlink" href="#mouse-responses-optional" title="Permalink to this headline">¶</a></h3>
-<p>Instead of interacting through the keyboard, you can interact with mouse responses of the participant. Whether you have participants respond with keyboard presses or with the mouse is of course up to you (and depends on your experiment)! For the sake of explaining how to implement interaction with mouse responses, let’s add another screen to our experiments with a big, red button, which the participant has to click (with the mouse) in order to start the experiment.</p>
-<p>Just like with keyboard responses, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package contains a class, <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> (from <code class="docutils literal notranslate"><span class="pre">psychopy.event</span></code>), which implements interaction with the mouse. As can been seen in <a class="reference external" href="https://www.psychopy.org/api/event.html">the documentation</a>, a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object can be initialized with several optional arguments (<code class="docutils literal notranslate"><span class="pre">visible</span></code>, <code class="docutils literal notranslate"><span class="pre">newPos</span></code>, and <code class="docutils literal notranslate"><span class="pre">win</span></code>) and contains various methods to query information about the mouse position (<code class="docutils literal notranslate"><span class="pre">getPos</span></code>) and mouse clicks/presses (<code class="docutils literal notranslate"><span class="pre">getPressed</span></code>). You can even set the position of the mouse (<code class="docutils literal notranslate"><span class="pre">setPos</span></code>) and make the mouse (temporarily) (in)visible (<code class="docutils literal notranslate"><span class="pre">setVisible</span></code>)!</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>In the <a class="reference external" href="https://www.psychopy.org/api/event.html">documentation of the <code class="docutils literal notranslate"><span class="pre">psychopy.event</span></code> module</a>, you can also see several functions for keyboard interaction, such as <code class="docutils literal notranslate"><span class="pre">waitKeys</span></code> and <code class="docutils literal notranslate"><span class="pre">getKeys</span></code>, which overlap in functionality with the previously discussed <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> class. <a class="reference external" href="https://discourse.psychopy.org/t/3-ways-to-get-keyboard-input-which-is-best/11184">It is recommended</a> to use the <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> class instead of the functions from the <code class="docutils literal notranslate"><span class="pre">event</span></code> module!</p>
-</div>
-<p>Alright, let’s start with our implementation. First, we need to import the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class and initialize a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object.</p>
-<div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
-<p>Import the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class at the top of your script and then initialize a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object. Importantly, as indicated in the documentation, initialization should be done <em>after</em> initializing your <code class="docutils literal notranslate"><span class="pre">Window</span></code> object. Using the <code class="docutils literal notranslate"><span class="pre">visible</span></code> argument when initializing the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object, make sure the mouse is initially invisible (check the <a class="reference external" href="https://www.psychopy.org/api/event.html">docs</a>).</p>
-</div>
-<p>We also need to create a big, red button for the participant to click! To create shapes using the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, you can use the <a class="reference external" href="https://www.psychopy.org/api/visual/shapestim.html#psychopy.visual.ShapeStim"><code class="docutils literal notranslate"><span class="pre">ShapeStim</span></code></a> class. This is a very broad class that allows you to create arbitrary shapes, like lines and polygons, by specifying the <a class="reference external" href="https://en.wikipedia.org/wiki/Vertex_(geometry)">vertices</a> of the shape. Specifying the vertices of a circle is quite time intensive, so you can use the more “specialized” <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> or <code class="docutils literal notranslate"><span class="pre">Circle</span></code> classes instead.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Technically, the <code class="docutils literal notranslate"><span class="pre">Circle</span></code> class is a <a class="reference external" href="https://pybit.es/python-subclasses.html">subclass</a> of the <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> class, and the <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> class is itself a subclass of the <code class="docutils literal notranslate"><span class="pre">ShapeStim</span></code> class. Being a subclass of another class means that the subclass “inherits” all methods from its “parent class” (but possibly with different default arguments). The subclass itself may, of course, contain additional or different methods and attributes.</p>
-</div>
-<div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
-<p>Add a big red button to the experiment using the <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> or <code class="docutils literal notranslate"><span class="pre">Circle</span></code> class (up to you), store it in a variable named <code class="docutils literal notranslate"><span class="pre">button</span></code>, and draw it. As the <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> and <code class="docutils literal notranslate"><span class="pre">Circle</span></code> classes are subclasses of the <code class="docutils literal notranslate"><span class="pre">ShapeStim</span></code> class, check out the <a class="reference external" href="https://www.psychopy.org/api/visual/shapestim.html#psychopy.visual.ShapeStim">ShapeStim documentation</a> to see which arguments those classes take.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">Circle</span>  <span class="c1"># or Polygon</span>
-
-<span class="c1"># You may need to adjust the size if you have a rectangular screen (which is common)</span>
-<span class="c1"># to get a circle instead of an oval</span>
-<span class="n">button</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="n">fillColor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="c1"># Alternatively:</span>
-<span class="c1"># button = Polygon(edges=100, size=(0.25, 0.25), fillColor=(1, -1, -1))</span>
-<span class="n">button</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details></div>
-<p>Showing the participant the red button by itself may be a bit confusing, so let’s add a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the text <code class="docutils literal notranslate"><span class="pre">&quot;Click</span> <span class="pre">the</span> <span class="pre">red</span> <span class="pre">button</span> <span class="pre">to</span> <span class="pre">start</span> <span class="pre">the</span> <span class="pre">experiment&quot;</span></code>!</p>
-<div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
-<p>Add a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> as outlined above. Make sure it doesn’t overlap with the red button! Draw it and flip the window. Then, run the experiment to see whether it works.</p>
-</div>
-<p>At this moment, the only thing we need to implement is a routine that halts the experiment until the participant clicked on the button using their mouse. <a class="reference external" href="https://www.psychopy.org/api/event.html">As described in the documention</a>, the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class contains a very useful method, <code class="docutils literal notranslate"><span class="pre">isPressedIn</span></code>, which takes a <code class="docutils literal notranslate"><span class="pre">ShapeStim</span></code> (or a <code class="docutils literal notranslate"><span class="pre">ShapeStim</span></code> subclass) as input and returns a boolean (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>) referring to whether the mouse is currently clicking in the area of the shape.</p>
-<div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
-<p>Add code that halts the experiment until the participant clicked the red button. Again, a while loop may be useful in this routine! Also, make sure the mouse disappears after the participant clickerd the button (check out the <a class="reference external" href="https://www.psychopy.org/api/event.html">docs</a> to see how to do this).</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">mouse</span><span class="o">.</span><span class="n">isPressedIn</span><span class="p">(</span><span class="n">button</span><span class="p">):</span>
-        <span class="n">mouse</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-        <span class="k">break</span>
-</pre></div>
-</div>
-</div>
-</details><p>When you’re done, run the experiment to see whether it works!</p>
-</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class, make sure the experiment only advances when the participant presses the enter key. Check the previous tutorial if you forgot how to do this!</p>
 </div>
 </div>
 <div class="section" id="timing-revisited">
@@ -786,7 +698,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">The PsychoPy Coder, part 1 (tutorial)</a>
+    <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">Introduction to the PsychoPy Coder (tutorial)</a>
     <a class='right-next' id="next-link" href="psychopy_how_to_continue.html" title="next page">How to continue with PsychoPy?</a>
 
     </div>

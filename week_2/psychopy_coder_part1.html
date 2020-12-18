@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The PsychoPy Coder, part 1 (tutorial) &#8212; introPy</title>
+    <title>Introduction to the PsychoPy Coder (tutorial) &#8212; introPy</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The PsychoPy Coder, part 2 (tutorial)" href="psychopy_coder_part2.html" />
-    <link rel="prev" title="A Builder experiment from scratch (tutorial)" href="psychopy_builder_part2.html" />
+    <link rel="next" title="Creating a Coder experiment from scratch (tutorial)" href="psychopy_coder_part2.html" />
+    <link rel="prev" title="Creating a Builder experiment from scratch (tutorial)" href="psychopy_builder_part2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -177,22 +177,22 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy_builder_part1.html">
-   PsychoPy Builder, part 1 (T)
+   Introduction to the Builder (T)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy_builder_part2.html">
-   PsychoPy Builder, part 2 (T)
+   A Builder experiment from scratch (T)
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   PsychoPy Coder, part 1 (T)
+   Introduction to the Coder (T)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy_coder_part2.html">
-   PsychoPy Coder, part 2 (T)
+   A Coder experiment from scratch (T)
   </a>
  </li>
  <li class="toctree-l1">
@@ -352,6 +352,23 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responses">
+   Responses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#keyboard-responses">
+     Keyboard responses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mouse-responses-optional">
+     Mouse responses (optional)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quitting-the-experiment">
    Quitting the experiment
   </a>
@@ -367,9 +384,9 @@
         
               <div>
                 
-  <div class="section" id="the-psychopy-coder-part-1-tutorial">
-<h1>The PsychoPy Coder, part 1 (tutorial)<a class="headerlink" href="#the-psychopy-coder-part-1-tutorial" title="Permalink to this headline">¶</a></h1>
-<p>At last, we’ll discuss the PsychoPy Coder! In this tutorial, we explain the basics of the Coder interface. In the next (and final) tutorial, we’ll discuss the Coder interface in more detail. Like in the previous Builder tutorial, we will explain the concepts by walking you through the process of programming a real experiment. This time, we will create a variant of the classical color-word Stroop task, the <em>emotion-word Stroop</em> task, in which participants are presented with images of emotional facial expressions in combination with words describing emotions that are congruent with the images (e.g., an angry expression with the word “angry”) or incongruent with the images (e.g., a happy exression with the word “angry”).</p>
+  <div class="section" id="introduction-to-the-psychopy-coder-tutorial">
+<h1>Introduction to the PsychoPy Coder (tutorial)<a class="headerlink" href="#introduction-to-the-psychopy-coder-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>At last, we’ll discuss the PsychoPy Coder! In this tutorial, we explain the basics of the Coder interface. It will be a somewhat more “dry” tutorial because we won’t actually create any stimuli or trials in this tutorial, because we’ll save that for the next tutorial. Like in the previous Builder tutorial, we will explain the concepts by walking you through the process of programming a real experiment. This time, we will create a variant of the classical color-word Stroop task, the <em>emotion-word Stroop</em> task, in which participants are presented with images of emotional facial expressions in combination with words describing emotions that are congruent with the images (e.g., an angry expression with the word “angry”) or incongruent with the images (e.g., a happy exression with the word “angry”).</p>
 <div class="section" id="the-psychopy-package">
 <h2>The <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package<a class="headerlink" href="#the-psychopy-package" title="Permalink to this headline">¶</a></h2>
 <p>When using the Builder interace, you’ve seen that, “under the hood”, PsychoPy converts your Builder experiment to a Python script, which is then executed to run your experiment. If you look at this generated Python script closely, you’ll see that most of the code is based on functions and classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package. Whereas the Builder interface generates such code from your graphical experiment, in the Coder interface you’ll write your experiment using functionality from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package directly!</p>
@@ -504,6 +521,10 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">win</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;pix&#39;</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It’s quite likely that, at some point in this or the next tutorial, you’ll run the experiment, but no window opens! This is likely caused by a (syntax) error somewhere in your script. If this happens, check the <em>Experiment runner</em> window for the error and its <a class="reference external" href="https://realpython.com/python-traceback">traceback</a>.</p>
+</div>
 </div>
 <div class="section" id="timing-clocks">
 <h2>Timing &amp; clocks<a class="headerlink" href="#timing-clocks" title="Permalink to this headline">¶</a></h2>
@@ -523,13 +544,206 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">t_since_init</span><span class="p">)</span>  <span class="c1"># prints time (in sec.)</span>
 </pre></div>
 </div>
-<p>Now, with our knowledge about clocks, let’s check whether the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function actually makes PsychoPy wait as long as we tell it.</p>
+<p>Now, with our knowledge about clocks, let’s check whether the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function actually makes PsychoPy wait as long as we tell it. (Of course it does, but it’s a nice way to practice how to use a <code class="docutils literal notranslate"><span class="pre">Clock</span></code>.)</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class and, after creating a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object, initialize it. Then, query the time using <code class="docutils literal notranslate"><span class="pre">getTime</span></code> and store it in a variable (e.g., <code class="docutils literal notranslate"><span class="pre">t_before_wait</span></code>). Aftewards, make PsychoPy wait for 2 seconds (using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function), and finally, query the time again and store in another variable (e.g., <code class="docutils literal notranslate"><span class="pre">t_after_wait</span></code>). Make your script print the time before <code class="docutils literal notranslate"><span class="pre">wait</span></code> call, after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call, and the difference between those two times. Then, run the experiment.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
+<span class="n">t_before</span> <span class="o">=</span> <span class="n">clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time before wait: </span><span class="si">{</span><span class="n">t_before</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">t_after</span> <span class="o">=</span> <span class="n">clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time after wait: </span><span class="si">{</span><span class="n">t_after</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">t_diff</span> <span class="o">=</span> <span class="n">t_after</span> <span class="o">-</span> <span class="n">t_before</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference: </span><span class="si">{t_diff:.3f}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+</details></div>
 <p>If you implemented the ToDo correctly, you should see that the time just after initialization of the clock is very close to zero (e.g., <code class="docutils literal notranslate"><span class="pre">7.83892915e-06</span></code>) and that both the time after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call and the difference before and after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call is approximately <code class="docutils literal notranslate"><span class="pre">2</span></code> seconds — just like we expected!</p>
-<p>Two other important methods of the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class are <code class="docutils literal notranslate"><span class="pre">reset</span></code>, which sets the clock’s time back to zero, and <code class="docutils literal notranslate"><span class="pre">add</span></code>, which — paradoxically — subtracts time from the clock. These two features will be discussed in detail in the next tutorial.</p>
+<p>Another important methods of the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class is <code class="docutils literal notranslate"><span class="pre">reset</span></code>, which sets the clock’s time back to zero. This feature becomes useful when you want to reuse a clock for multiple routines, i.e., just reset the clock just before you want to use it again!</p>
+</div>
+<div class="section" id="responses">
+<h2>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">¶</a></h2>
+<p>Another important aspect of experiments is handling and interacting with participant responses. Here, we limit ourselves to two ways of interaction: with a keyboard and with a mouse.</p>
+<div class="section" id="keyboard-responses">
+<h3>Keyboard responses<a class="headerlink" href="#keyboard-responses" title="Permalink to this headline">¶</a></h3>
+<p>To interact with keyboard responses, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package contains a — guess what — <a class="reference external" href="https://www.psychopy.org/api/hardware/keyboard.html"><code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class</a> in the <code class="docutils literal notranslate"><span class="pre">psychopy.hardware.keyboard</span></code> module. This class records all keypresses since its initialization, which you can save or use in your experiment. Although there are several arguments upon initialization (see the <a class="reference external" href="https://www.psychopy.org/api/hardware/keyboard.html">documentation</a>), these are all optional and have sensible defaults.</p>
+<p>One important attribute that <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> objects have is <code class="docutils literal notranslate"><span class="pre">clock</span></code>: a <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object to keep track of keypress onsets and reaction times (relative to the initialization of the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object).</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class (at the start of your script), initialize a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object (use the variable <code class="docutils literal notranslate"><span class="pre">kb</span></code>), wait for 1 second (use the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function), and print the time since the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> option using the <code class="docutils literal notranslate"><span class="pre">clock</span></code> attribute! Then, run the experiment and check the <em>Experiment runner</em> for the printed output.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># At the start of your script</span>
+<span class="kn">from</span> <span class="nn">psychopy.hardware.keyboard</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+
+<span class="c1"># At the end of your script</span>
+<span class="n">kb</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="p">()</span>
+<span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">t_since_init</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time since initialization of Keyboard: </span><span class="si">{</span><span class="n">t_since_init</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<p>Arguably the most important method of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class is the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method. This returns a list of keypresses pressed since the previous call to <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> or, if it is the first time the method is called, since the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>After the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object and the call to <code class="docutils literal notranslate"><span class="pre">wait</span></code> (from the previous ToDo), call the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> function and store the result in a variable (e.g., <code class="docutils literal notranslate"><span class="pre">keys</span></code>) and print this variable. Then, run the experiment and check the <em>Experiment runner</em> to see the printed output.</p>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method specifically returns a list of <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects! These objects are not just strings corresponding to the pressed keys (e.g., “a”, “b”, “return”, “left”, etc.), as you might expect. In fact, these <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects contain much more information that is contained in its attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: a string with the name of the pressed key (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;return&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code>, etc.);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rt</span></code>: a float with the time (in seconds) from start of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> clock (i.e., the <code class="docutils literal notranslate"><span class="pre">clock</span></code> attribute);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tDown</span></code>: a float with the abolute time (in seconds; unlikely you ever need this);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: a float with the time (in seconds) the key was pressed in (or <code class="docutils literal notranslate"><span class="pre">None</span></code> if still pressed in)</p></li>
+</ul>
+<p>Importantly, one common thing in working with keypresses is that you want to check whether a particular key was pressed. For example, suppose you want to check whether the particpant pressed the spacebar. To do so, you could write the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">keys</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
+<span class="n">spacebar_pressed</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;space&quot;</span><span class="p">:</span>
+        <span class="n">spacebar_pressed</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>As you can see, this requires quite a lot of code. That’s why PsychoPy added some “syntactic sugar” such that you can also do the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">keys</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
+<span class="c1"># Checks if &quot;space&quot; in the list of keypresses and returns</span>
+<span class="c1"># a boolean (True / False)</span>
+<span class="n">spacebar_pressed</span> <span class="o">=</span> <span class="s2">&quot;space&quot;</span> <span class="ow">in</span> <span class="n">keys</span>
+</pre></div>
+</div>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>One routine that is common in (PsychoPy) experiments, and one which we also discussed in the Builder tutorials, is the “press-a-key-to-continue” routine. This can be implemented in PsychoPy using a while loop in combination with the <code class="docutils literal notranslate"><span class="pre">keyGets</span></code> method of a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object. Try implementing this in your script such that you only advance with the experiment when you press the enter key (“return”). You may remove the code from the last two ToDos (to clean up your script a bit).</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot;return&quot;</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<p>If you want to learn a little more about keyboard interaction, try the next (optional and more difficult) ToDo!</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo (optional/difficult)</p>
+<p>As mentioned before, the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method returns a list of <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects with several attributes with information about the keypress. For a period of two seconds, for each detected key press, print in a single statement the name of the key, its reaction time, and duration (e.g., “The ‘a’ key was pressed within 2.156 seconds for a total of 0.255 seconds”). <a class="reference external" href="https://realpython.com/python-f-strings/">F-strings</a> would we nice here! (You may remove the code from the previous ToDo.)</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need to reset the clock!</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">kb</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="c1"># The `:.3f` part in the F-string makes sure the float is only displayed with 3 decimals!</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The &#39;</span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; key was pressed within </span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">rt</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds for a total of </span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">duration</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="mouse-responses-optional">
+<h3>Mouse responses (optional)<a class="headerlink" href="#mouse-responses-optional" title="Permalink to this headline">¶</a></h3>
+<p>Instead of interacting through the keyboard, you can interact with mouse responses of the participant. Whether you have participants respond with keyboard presses or with the mouse is of course up to you (and depends on your experiment)! For the sake of explaining how to implement interaction with mouse responses, let’s add another screen to our experiments with a big, red button, which the participant has to click (with the mouse) in order to start the experiment.</p>
+<p>Just like with keyboard responses, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package contains a class, <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> (from <code class="docutils literal notranslate"><span class="pre">psychopy.event</span></code>), which implements interaction with the mouse. As can been seen in <a class="reference external" href="https://www.psychopy.org/api/event.html">the documentation</a>, a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object can be initialized with several optional arguments (<code class="docutils literal notranslate"><span class="pre">visible</span></code>, <code class="docutils literal notranslate"><span class="pre">newPos</span></code>, and <code class="docutils literal notranslate"><span class="pre">win</span></code>) and contains various methods to query information about the mouse position (<code class="docutils literal notranslate"><span class="pre">getPos</span></code>) and mouse clicks/presses (<code class="docutils literal notranslate"><span class="pre">getPressed</span></code>). You can even set the position of the mouse (<code class="docutils literal notranslate"><span class="pre">setPos</span></code>) and make the mouse (temporarily) (in)visible (<code class="docutils literal notranslate"><span class="pre">setVisible</span></code>)!</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the <a class="reference external" href="https://www.psychopy.org/api/event.html">documentation of the <code class="docutils literal notranslate"><span class="pre">psychopy.event</span></code> module</a>, you can also see several functions for keyboard interaction, such as <code class="docutils literal notranslate"><span class="pre">waitKeys</span></code> and <code class="docutils literal notranslate"><span class="pre">getKeys</span></code>, which overlap in functionality with the previously discussed <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> class. <a class="reference external" href="https://discourse.psychopy.org/t/3-ways-to-get-keyboard-input-which-is-best/11184">It is recommended</a> to use the <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> class instead of the functions from the <code class="docutils literal notranslate"><span class="pre">event</span></code> module!</p>
+</div>
+<p>Now, let’s practice a bit with the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class!</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class and initialize a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method). Check the <a class="reference external" href="https://www.psychopy.org/api/event.html">documentation</a> to see what the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method returns exactly.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># At the top of the script</span>
+<span class="kn">from</span> <span class="nn">psychopy.event</span> <span class="kn">import</span> <span class="n">Mouse</span>
+
+<span class="n">mouse</span> <span class="o">=</span> <span class="n">Mouse</span><span class="p">()</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">buttons</span> <span class="o">=</span> <span class="n">mouse</span><span class="o">.</span><span class="n">getPressed</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">buttons</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<p>And another one for those who want a challenge.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class and initialize a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method). Check the <a class="reference external" href="https://www.psychopy.org/api/event.html">documentation</a> to see what the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method returns exactly.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># At the top of the script</span>
+<span class="kn">from</span> <span class="nn">psychopy.event</span> <span class="kn">import</span> <span class="n">Mouse</span>
+
+<span class="n">mouse</span> <span class="o">=</span> <span class="n">Mouse</span><span class="p">()</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">buttons</span> <span class="o">=</span> <span class="n">mouse</span><span class="o">.</span><span class="n">getPressed</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">buttons</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<p>And those who want a challenge, try the next one.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>With the <code class="docutils literal notranslate"><span class="pre">setPos</span></code> method, you can control the position of the cursor! Try moving the mouse to the upper left corner of the screen and then going to each other corner in a clockwise fashion, stopping for 0.5 seconds at each corner.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is just one solution! THere are many different implementations possible!</span>
+<span class="c1"># These numbers assume &quot;norm&quot; units</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">-.</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">-.</span><span class="mi">9</span><span class="p">,</span> <span class="o">-.</span><span class="mi">9</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">mouse</span><span class="o">.</span><span class="n">setPos</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
 </div>
 <div class="section" id="quitting-the-experiment">
 <h2>Quitting the experiment<a class="headerlink" href="#quitting-the-experiment" title="Permalink to this headline">¶</a></h2>
@@ -574,8 +788,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="psychopy_builder_part2.html" title="previous page">A Builder experiment from scratch (tutorial)</a>
-    <a class='right-next' id="next-link" href="psychopy_coder_part2.html" title="next page">The PsychoPy Coder, part 2 (tutorial)</a>
+    <a class='left-prev' id="prev-link" href="psychopy_builder_part2.html" title="previous page">Creating a Builder experiment from scratch (tutorial)</a>
+    <a class='right-next' id="next-link" href="psychopy_coder_part2.html" title="next page">Creating a Coder experiment from scratch (tutorial)</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
