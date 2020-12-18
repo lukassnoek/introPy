@@ -1,5 +1,5 @@
-# The PsychoPy Coder, part 1 (tutorial)
-At last, we'll discuss the PsychoPy Coder! In this tutorial, we explain the basics of the Coder interface. In the next (and final) tutorial, we'll discuss the Coder interface in more detail. Like in the previous Builder tutorial, we will explain the concepts by walking you through the process of programming a real experiment. This time, we will create a variant of the classical color-word Stroop task, the *emotion-word Stroop* task, in which participants are presented with images of emotional facial expressions in combination with words describing emotions that are congruent with the images (e.g., an angry expression with the word "angry") or incongruent with the images (e.g., a happy exression with the word "angry").
+# Introduction to the PsychoPy Coder (tutorial)
+At last, we'll discuss the PsychoPy Coder! In this tutorial, we explain the basics of the Coder interface. It will be a somewhat more "dry" tutorial because we won't actually create any stimuli or trials in this tutorial, because we'll save that for the next tutorial. Like in the previous Builder tutorial, we will explain the concepts by walking you through the process of programming a real experiment. This time, we will create a variant of the classical color-word Stroop task, the *emotion-word Stroop* task, in which participants are presented with images of emotional facial expressions in combination with words describing emotions that are congruent with the images (e.g., an angry expression with the word "angry") or incongruent with the images (e.g., a happy exression with the word "angry").
 
 ## The `psychopy` package
 When using the Builder interace, you've seen that, "under the hood", PsychoPy converts your Builder experiment to a Python script, which is then executed to run your experiment. If you look at this generated Python script closely, you'll see that most of the code is based on functions and classes from the `psychopy` Python package. Whereas the Builder interface generates such code from your graphical experiment, in the Coder interface you'll write your experiment using functionality from the `psychopy` package directly!
@@ -167,6 +167,10 @@ Note that you can also change `Window` attributes after creating the object by d
 win.units = 'pix'
 ```
 
+:::{warning} 
+It's quite likely that, at some point in this or the next tutorial, you'll run the experiment, but no window opens! This is likely caused by a (syntax) error somewhere in your script. If this happens, check the *Experiment runner* window for the error and its [traceback](https://realpython.com/python-traceback). 
+:::
+
 ## Timing & clocks
 When you run the current experiment, you'll only see a black screen for like a second or so before it disappears again. The reason why the window doesn't stay open is because we don't tell it to! It is important to realize that PsychoPy will run the experiment script from top to bottom (like any Python file is run, actually) and will close the window once the script ends. Put differently, you can interpret the script as a chronological chain of events from the top of the script (beginning) to the bottom of the script (end). 
 
@@ -191,15 +195,179 @@ t_since_init = clock.getTime()
 print(t_since_init)  # prints time (in sec.)
 ```
 
-Now, with our knowledge about clocks, let's check whether the `wait` function actually makes PsychoPy wait as long as we tell it. 
+Now, with our knowledge about clocks, let's check whether the `wait` function actually makes PsychoPy wait as long as we tell it. (Of course it does, but it's a nice way to practice how to use a `Clock`.)
 
-:::{admonition,attention} ToDo
+:::::{admonition,attention} ToDo
 Import the `Clock` class and, after creating a `Window` object, initialize it. Then, query the time using `getTime` and store it in a variable (e.g., `t_before_wait`). Aftewards, make PsychoPy wait for 2 seconds (using the `wait` function), and finally, query the time again and store in another variable (e.g., `t_after_wait`). Make your script print the time before `wait` call, after the `wait` call, and the difference between those two times. Then, run the experiment.
-:::
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+clock = Clock()
+t_before = clock.getTime()
+print(f"Time before wait: {t_before:.3f}")
+wait(2)
+t_after = clock.getTime()
+print(f"Time after wait: {t_after:.3f}")
+t_diff = t_after - t_before
+print("Difference: {t_diff:.3f}")
+````
+:::::
 
 If you implemented the ToDo correctly, you should see that the time just after initialization of the clock is very close to zero (e.g., `7.83892915e-06`) and that both the time after the `wait` call and the difference before and after the `wait` call is approximately `2` seconds &mdash; just like we expected!
 
-Two other important methods of the `Clock` class are `reset`, which sets the clock's time back to zero, and `add`, which &mdash; paradoxically &mdash; subtracts time from the clock. These two features will be discussed in detail in the next tutorial.
+Another important methods of the `Clock` class is `reset`, which sets the clock's time back to zero. This feature becomes useful when you want to reuse a clock for multiple routines, i.e., just reset the clock just before you want to use it again!
+
+## Responses
+Another important aspect of experiments is handling and interacting with participant responses. Here, we limit ourselves to two ways of interaction: with a keyboard and with a mouse.
+
+### Keyboard responses
+To interact with keyboard responses, the `psychopy` package contains a &mdash; guess what &mdash; [`Keyboard` class](https://www.psychopy.org/api/hardware/keyboard.html) in the `psychopy.hardware.keyboard` module. This class records all keypresses since its initialization, which you can save or use in your experiment. Although there are several arguments upon initialization (see the [documentation](https://www.psychopy.org/api/hardware/keyboard.html)), these are all optional and have sensible defaults.
+
+One important attribute that `Keyboard` objects have is `clock`: a `Clock` object to keep track of keypress onsets and reaction times (relative to the initialization of the `Clock` object). 
+
+:::::{admonition,attention} ToDo 
+Import the `Keyboard` class (at the start of your script), initialize a `Keyboard` object (use the variable `kb`), wait for 1 second (use the `wait` function), and print the time since the initialization of the `Keyboard` option using the `clock` attribute! Then, run the experiment and check the *Experiment runner* for the printed output.
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# At the start of your script
+from psychopy.hardware.keyboard import Keyboard
+
+# At the end of your script
+kb = Keyboard()
+wait(2)
+t_since_init = kb.getTime()
+print(f"Time since initialization of Keyboard: {t_since_init:.3f}")
+```
+````
+:::::
+
+Arguably the most important method of the `Keyboard` class is the `getKeys` method. This returns a list of keypresses pressed since the previous call to `getKeys` or, if it is the first time the method is called, since the initialization of the `Keyboard` object.
+
+:::::{admonition,attention} ToDo 
+After the initialization of the `Keyboard` object and the call to `wait` (from the previous ToDo), call the `getKeys` function and store the result in a variable (e.g., `keys`) and print this variable. Then, run the experiment and check the *Experiment runner* to see the printed output.
+:::::
+
+As you can see, the `getKeys` method specifically returns a list of `KeyPress` objects! These objects are not just strings corresponding to the pressed keys (e.g., "a", "b", "return", "left", etc.), as you might expect. In fact, these `KeyPress` objects contain much more information that is contained in its attributes:
+
+* `name`: a string with the name of the pressed key (e.g., `"a"`, `"b"`, `"return"`, `"left"`, etc.);
+* `rt`: a float with the time (in seconds) from start of the `Keyboard` clock (i.e., the `clock` attribute);
+* `tDown`: a float with the abolute time (in seconds; unlikely you ever need this);
+* `duration`: a float with the time (in seconds) the key was pressed in (or `None` if still pressed in)
+
+Importantly, one common thing in working with keypresses is that you want to check whether a particular key was pressed. For example, suppose you want to check whether the particpant pressed the spacebar. To do so, you could write the following:
+
+```python
+keys = kb.getKeys()
+spacebar_pressed = False
+for key in keys:
+    if key.name == "space":
+        spacebar_pressed = True
+```
+
+As you can see, this requires quite a lot of code. That's why PsychoPy added some "syntactic sugar" such that you can also do the following:
+
+```python
+keys = kb.getKeys()
+# Checks if "space" in the list of keypresses and returns
+# a boolean (True / False)
+spacebar_pressed = "space" in keys
+```
+
+:::::{admonition,attention} ToDo
+One routine that is common in (PsychoPy) experiments, and one which we also discussed in the Builder tutorials, is the "press-a-key-to-continue" routine. This can be implemented in PsychoPy using a while loop in combination with the `keyGets` method of a `Keyboard` object. Try implementing this in your script such that you only advance with the experiment when you press the enter key ("return"). You may remove the code from the last two ToDos (to clean up your script a bit).
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+while True:
+    keys = kb.getKeys()
+    if "return" in keys:
+        break
+```
+````
+:::::
+
+If you want to learn a little more about keyboard interaction, try the next (optional and more difficult) ToDo!
+
+:::::{admonition,attention} ToDo (optional/difficult)
+As mentioned before, the `getKeys` method returns a list of `KeyPress` objects with several attributes with information about the keypress. For a period of two seconds, for each detected key press, print in a single statement the name of the key, its reaction time, and duration (e.g., "The 'a' key was pressed within 2.156 seconds for a total of 0.255 seconds"). [F-strings](https://realpython.com/python-f-strings/) would we nice here! (You may remove the code from the previous ToDo.)
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# We need to reset the clock!
+kb.clock.reset()
+while kb.clock.getTime() < 2:
+    keys = kb.getKeys()
+    for key in keys:
+        # The `:.3f` part in the F-string makes sure the float is only displayed with 3 decimals!
+        print(f"The '{key.name}' key was pressed within {key.rt:.3f} seconds for a total of {key.duration:.3f} seconds")
+```
+````
+:::::
+
+### Mouse responses (optional)
+Instead of interacting through the keyboard, you can interact with mouse responses of the participant. Whether you have participants respond with keyboard presses or with the mouse is of course up to you (and depends on your experiment)! For the sake of explaining how to implement interaction with mouse responses, let's add another screen to our experiments with a big, red button, which the participant has to click (with the mouse) in order to start the experiment.
+
+Just like with keyboard responses, the `psychopy` package contains a class, `Mouse` (from `psychopy.event`), which implements interaction with the mouse. As can been seen in [the documentation](https://www.psychopy.org/api/event.html), a `Mouse` object can be initialized with several optional arguments (`visible`, `newPos`, and `win`) and contains various methods to query information about the mouse position (`getPos`) and mouse clicks/presses (`getPressed`). You can even set the position of the mouse (`setPos`) and make the mouse (temporarily) (in)visible (`setVisible`)!
+
+:::{warning}
+In the [documentation of the `psychopy.event` module](https://www.psychopy.org/api/event.html), you can also see several functions for keyboard interaction, such as `waitKeys` and `getKeys`, which overlap in functionality with the previously discussed `keyboard` class. [It is recommended](https://discourse.psychopy.org/t/3-ways-to-get-keyboard-input-which-is-best/11184) to use the `keyboard` class instead of the functions from the `event` module!
+:::
+
+Now, let's practice a bit with the `Mouse` class!
+
+:::::{admonition,attention} ToDo
+Import the `Mouse` class and initialize a `Mouse` object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the `getPressed` method). Check the [documentation](https://www.psychopy.org/api/event.html) to see what the `getPressed` method returns exactly.
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# At the top of the script
+from psychopy.event import Mouse
+
+mouse = Mouse()
+while True:
+    buttons = mouse.getPressed()
+    if buttons[0]:
+        break
+```
+````
+:::::
+
+And another one for those who want a challenge.
+
+:::::{admonition,attention} ToDo
+Import the `Mouse` class and initialize a `Mouse` object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the `getPressed` method). Check the [documentation](https://www.psychopy.org/api/event.html) to see what the `getPressed` method returns exactly.
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# At the top of the script
+from psychopy.event import Mouse
+
+mouse = Mouse()
+while True:
+    buttons = mouse.getPressed()
+    if buttons[0]:
+        break
+```
+````
+:::::
+
+And those who want a challenge, try the next one.
+:::::{admonition,attention} ToDo
+With the `setPos` method, you can control the position of the cursor! Try moving the mouse to the upper left corner of the screen and then going to each other corner in a clockwise fashion, stopping for 0.5 seconds at each corner.
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# This is just one solution! THere are many different implementations possible!
+# These numbers assume "norm" units
+x = [-.9, .9, .9, -.9]
+y = [.9, .9, -.9, -.9]
+for i in range(4):
+    mouse.setPos((x[i],y[i]))
+    wait(0.5)
+```
+````
+:::::
 
 ## Quitting the experiment
 As you've seen so far, when the Python interpreter arrives at the end of your script, the PsychoPy window automatically closes and the Python process finishes. In the context of PsychoPy experiments, however, it is good practice to end the experiment by explicitly closing the window using the window's `close` method *and* then calling the `quit` function from the `core.psychopy` module (as we did before in the section on dialog boxes). Although not strictly necessary, calling the `close` method and the `quit` function perform a bit of bookkeeping that may prevent issues, so we recommend always including this at the very end of your script!

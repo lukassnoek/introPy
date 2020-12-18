@@ -29,13 +29,13 @@
   - file: week_2/intro_psychopy
     title: Introduction to PsychoPy (T)
   - file: week_2/psychopy_builder_part1
-    title: PsychoPy Builder, part 1 (T)
+    title: Introduction to the Builder (T)
   - file: week_2/psychopy_builder_part2
-    title: PsychoPy Builder, part 2 (T)
+    title: A Builder experiment from scratch (T)
   - file: week_2/psychopy_coder_part1
-    title: PsychoPy Coder, part 1 (T)
+    title: Introduction to the Coder (T)
   - file: week_2/psychopy_coder_part2
-    title: PsychoPy Coder, part 2 (T)
+    title: A Coder experiment from scratch (T)
   - file: week_2/psychopy_how_to_continue
 
 - part: Misc
