@@ -362,7 +362,8 @@
 </div>
 <div class="section" id="builder-vs-coder">
 <h2>Builder vs. Coder<a class="headerlink" href="#builder-vs-coder" title="Permalink to this headline">¶</a></h2>
-<p>As discussed before, the Builder and Coder interfaces can both be used to create experiments. Whereas the Builder allows you create experiments graphically, the Coder allows you to program your experiment directly in Python. It is important to realize, though, that when PsychoPy runs Builder experiments, it actually first generates (or “compiles”) the experiment as a Python file (as if you created it using the Coder)!</p>
+<p>As discussed before, the Builder and Coder interfaces can both be used to create experiments. Whereas the Builder allows you create experiments graphically, the Coder allows you to program your experiment directly in Python. There are merits to both interfaces: the Builder interface allows you to quickly prototype and develop experiments, which can be run online with a single click, while the Coder interface offers immense flexibility and opportunity to harnass the power and versatility of Python (and Python packages)!</p>
+<p>It is important to realize, though, that when PsychoPy runs Builder experiments, it actually first generates (or “compiles”) the experiment as a Python script (as if you created it using the Coder)!</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
 <p>Let’s see this Builder-to-Coder compilation in action. If you haven’t loaded the demo Builder experiment (<code class="docutils literal notranslate"><span class="pre">intropy_demo.psyexp</span></code>), do so now. Then, click the <em>Compile to script</em> button (right of the <em>Edit experiment settings</em> button). This should open the <em>Coder</em> interface with the code equivalent of the demo Builder experiment!</p>

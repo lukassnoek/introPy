@@ -357,6 +357,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-slip-timing-optional">
+   Non-slip timing (optional)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wrapping-up">
    Wrapping up
   </a>
@@ -374,7 +379,7 @@
                 
   <div class="section" id="creating-a-coder-experiment-from-scratch-tutorial">
 <h1>Creating a Coder experiment from scratch (tutorial)<a class="headerlink" href="#creating-a-coder-experiment-from-scratch-tutorial" title="Permalink to this headline">¶</a></h1>
-<p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with user data.</p>
+<p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with user data. There are a lot of optional, more advanced topics/sections in this tutorial, so feel free to skip those if you are short on time.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>PsychoPy is an incredibly versatile and flexible software package. The “downside” of this is that sometimes the same “thing” can be achieved in multiple different ways. In this tutorial, we’ll highlight different approaches when appropriate, but remember that almost always these approaches are functionally equivalent, so it’s up to you which approach you use!</p>
@@ -777,8 +782,8 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p>Because the Coder, unlike the Builder, does not save <em>anything</em> by default, we need to save any data we want to store ourselves. One neat way to do so is to use the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object with the condition info to store information about the trials. For this experiment, let’s keep track and store three things: the participant response for each trial (“left”, “right”, or no keypress), the reaction time for each trial, and the onset of the stimulus.</p>
 <p>Let’s start with keeping track of the actual participant response. We’ll, of course, use the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class as discussed in the previous tutorial.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
-<p>Using a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object, make sure that both the participant response to each trial (either “left”, “right” or no response) and the reaction time are saved in the conditions <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">cond_df</span></code>). Store them in columns with the names <code class="docutils literal notranslate"><span class="pre">response</span></code> and <code class="docutils literal notranslate"><span class="pre">reaction_time</span></code>. In case of no response, save the response and reaction time as “n/a”. If there are multiple responses within a trial, make sure to save only the last one. Run the experiment when you’re done to see whether everything works as expected.</p>
+<p class="admonition-title"> ToDo (difficult!)</p>
+<p>Using a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object, make sure that both the participant response to each trial (either “left”, “right” or no response) and the reaction time are saved in the conditions <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">cond_df</span></code>). Store them in columns with the names <code class="docutils literal notranslate"><span class="pre">response</span></code> and <code class="docutils literal notranslate"><span class="pre">reaction_time</span></code>. In case of no response, save the response and reaction time as “n/a”. If there are multiple responses within a trial, make sure to save only the last one. Run the experiment when you’re done to see whether everything works as expected. <strong>Bonus</strong>: also save whether the response is correct, incorrect, or missing (“n/a”) for each trial (in a column named <code class="docutils literal notranslate"><span class="pre">response_correct</span></code>).</p>
 <p>Hint: to add the data (response/RT) to the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe, use the <code class="docutils literal notranslate"><span class="pre">loc</span></code> method! You can do these even if the column (<code class="docutils literal notranslate"><span class="pre">response</span></code> or <code class="docutils literal notranslate"><span class="pre">response_time</span></code>) does not yet exist!</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -827,21 +832,80 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 </div>
 </details></div>
-<p>One last thing that would be nice to save is the onset of each stimulus (i.e., the smiley+word combination). For most behavioral experiment this is probably not very interesting, but it is super important for neuroimaging (fMRI, EEG, or MEG) and physiological (eyetracking, ECG, EMG, etc.) experiment in case you want to analyze stimulus-related effects on brain or physiological activity! For neuroimaging/physiological data with a high sampling rate (e.g., electrophysiology), you have to be very precise in determining the stimulus onsets, as a difference of a couple of milliseconds may lead to very different effects and their interpretation!</p>
+<p>One last thing that would be nice to save is the onset of each stimulus (i.e., the smiley+word combination) and/or response. For most behavioral experiment this is probably not very interesting, but it is super important for neuroimaging (fMRI, EEG, or MEG) and physiological (eyetracking, ECG, EMG, etc.) experiment in case you want to analyze stimulus-related or response-related correlates in brain or physiological activity! For neuroimaging/physiological data with a high sampling rate (e.g., electrophysiology), you moreover have to be very precise in determining the stimulus onsets, as a difference of a couple of milliseconds may lead to very different effects and their interpretation!</p>
+<p>Alright, so it would be nice to save the onsets of our stimuli. But the onset relatively to … what, exactly? In other words, when do we want to start our clock that is going to keep track of the onsets? In case of neuroimaging/physiological studies, this is the moment you start your data acquisition (e.g., the first pulse of your fMRI experiment). At that moment, we would need to <code class="docutils literal notranslate"><span class="pre">reset</span></code> our clock such that it is in sync with the external data acquisition! We recommend to using a separate clock (a “global clock”, to differentiate it from the “trial clock” we talked about earlier) to keep track of the stimulus onsets.</p>
+<p>Then, assuming our clock has been reset at the appropriate moment, how do we make sure we save the stimulus onset <em>only</em> after the first flip? There are actually many ways in which you could do this!</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Try to think of a way to save the onset of each stimulus (in the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe) after the first flip and implement this in your script. You may use the global clock (the <code class="docutils literal notranslate"><span class="pre">clock</span></code> variable) we defined in the previous tutorial. Make sure to reset it before the trial loop! Also, after the end of the loop, make sure to save the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe to disk with the name: <code class="docutils literal notranslate"><span class="pre">sub-{participant</span> <span class="pre">nr}_events.csv</span></code> (where <code class="docutils literal notranslate"><span class="pre">participant</span> <span class="pre">nr</span></code> refers to the value from the dialog box).</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We left out the response/RT part for clarity</span>
+<span class="c1"># Reset &quot;global&quot; clock!</span>
+<span class="n">clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1"># Extract current word and smiley</span>
+    <span class="n">curr_word</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">]</span>
+    <span class="n">curr_smil</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;smiley&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Create and draw text/img</span>
+    <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+    <span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_smil</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="c1"># Initialize with None, which will be overwritten on </span>
+    <span class="c1"># the first flip</span>
+    <span class="n">onset</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">trial_clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        
+        <span class="k">if</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+            <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fix_target</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+            
+        <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+
+        <span class="c1"># Get onset only after the first flip!</span>
+        <span class="k">if</span> <span class="n">onset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">onset</span> <span class="o">=</span> <span class="n">clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="non-slip-timing-optional">
+<h2>Non-slip timing (optional)<a class="headerlink" href="#non-slip-timing-optional" title="Permalink to this headline">¶</a></h2>
+<p>If you managed to implement the last ToDo and you inspected the saved logfile, you might have noticed that the onsets seem to increase with a <em>little</em> more than 2 seconds. This inconsistency likely comes from the fact that the while loop we used to control the trial duration probably does not end neatly before the next screen refresh. Another reason is that the initialization of the new <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> and <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> takes a little time that causes the routine to take a little longer than two seconds.</p>
+<p>For most experiments, this issue is not really important, but for fMRI experiments it actually may be! This is because the data acquisition of fMRI scans is often predetermined (e.g., 250 “MRI volumes” of 2 seconds each → 500 seconds) and this issue may cause the experiment to “overshoot” the actual data acquisition (read more about this issue <a class="reference external" href="https://www.psychopy.org/general/timing/nonSlipTiming.html">here</a>).</p>
+<p>To fix this “overshoot” issue, we need to compensate for the inaccuracies in our stimulus/trial durations; this is sometimes called <a class="reference external" href="https://www.psychopy.org/general/timing/nonSlipTiming.html">non-slip timing</a>. One way we can compensate these “overshoots” is using the clock itself. Instead of using it as a “stopwatch” (looping until it has reached a value), we can use it as a “timer” (looping until it has no time left anymore). This can be done using the <code class="docutils literal notranslate"><span class="pre">add</span></code> method of <code class="docutils literal notranslate"><span class="pre">Clock</span></code> objects, which (paradoxically) subtract time from the clock. For example, if you’d call <code class="docutils literal notranslate"><span class="pre">add(2)</span></code> right after resetting a clock, <code class="docutils literal notranslate"><span class="pre">getTime</span></code> would return approximately -2. Using this approach, we could subsequently loop until the clock is at 0, at which point we know the routine took 2 seconds. Any “overshoot” will then automatically be corrected for in the next routine.</p>
+<p>Written out in code, this would look something like the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># Set the clock to approx. -2 seconds</span>
+    <span class="n">clock</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Do some stuff, like initializing components</span>
+    <span class="c1"># ...</span>
+
+    <span class="c1"># Loop until clock is at 0</span>
+    <span class="k">while</span> <span class="n">clock</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># do stuff</span>
+</pre></div>
+</div>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo (optional)</p>
+<p>Try implementing this non-slip timing approach in your emotion-word Stroop experiment. Then, run the experiment and check the resulting logfile. Is the overshoot issue fixed?</p>
+</div>
 </div>
 <div class="section" id="wrapping-up">
 <h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
-<p>Advanced features:</p>
-<ul class="simple">
-<li><p>Trialhandlers</p></li>
-<li><p>Eyetracker integration</p></li>
-<li><p>Sounds</p></li>
-<li><p>Serial ports</p></li>
-<li><p>Colorspaces</p></li>
-<li><p>Units</p></li>
-<li><p>ArrayStims</p></li>
-<li><p>Ratings</p></li>
-</ul>
+<p>Okay, that will have to do for this Coder tutorial. We discussed how to implement the most important experiment features using the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but the package offers much more than we discussed here (such as auditory components, colorspaces, array stimuli, rating stimuli, and eyetracker integration). We leave this up to you to explore on your own. On the <a class="reference internal" href="psychopy_how_to_continue.html"><span class="doc std std-doc">next page</span></a>, we included some resources to help you with this.</p>
 </div>
 </div>
 

@@ -1,5 +1,5 @@
 # Creating a Coder experiment from scratch (tutorial)
-In the previous tutorial, we discussed most of the "administrative" stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we'll discuss how to actually add components to the experiment, interact with user responses, and work with user data.
+In the previous tutorial, we discussed most of the "administrative" stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we'll discuss how to actually add components to the experiment, interact with user responses, and work with user data. There are a lot of optional, more advanced topics/sections in this tutorial, so feel free to skip those if you are short on time.
 
 :::{warning}
 PsychoPy is an incredibly versatile and flexible software package. The "downside" of this is that sometimes the same "thing" can be achieved in multiple different ways. In this tutorial, we'll highlight different approaches when appropriate, but remember that almost always these approaches are functionally equivalent, so it's up to you which approach you use!
@@ -399,8 +399,8 @@ Because the Coder, unlike the Builder, does not save *anything* by default, we n
 
 Let's start with keeping track of the actual participant response. We'll, of course, use the `Keyboard` class as discussed in the previous tutorial. 
 
-:::::{admonition,attention} ToDo
-Using a `Keyboard` object, make sure that both the participant response to each trial (either "left", "right" or no response) and the reaction time are saved in the conditions `DataFrame` (i.e., `cond_df`). Store them in columns with the names `response` and `reaction_time`. In case of no response, save the response and reaction time as "n/a". If there are multiple responses within a trial, make sure to save only the last one. Run the experiment when you're done to see whether everything works as expected.
+:::::{admonition,attention} ToDo (difficult!)
+Using a `Keyboard` object, make sure that both the participant response to each trial (either "left", "right" or no response) and the reaction time are saved in the conditions `DataFrame` (i.e., `cond_df`). Store them in columns with the names `response` and `reaction_time`. In case of no response, save the response and reaction time as "n/a". If there are multiple responses within a trial, make sure to save only the last one. Run the experiment when you're done to see whether everything works as expected. **Bonus**: also save whether the response is correct, incorrect, or missing ("n/a") for each trial (in a column named `response_correct`).
 
 Hint: to add the data (response/RT) to the `cond_df` dataframe, use the `loc` method! You can do these even if the column (`response` or `response_time`) does not yet exist!
 
@@ -446,18 +446,76 @@ for idx, row in cond_df.iterrows():
 ````
 :::::
 
-One last thing that would be nice to save is the onset of each stimulus (i.e., the smiley+word combination). For most behavioral experiment this is probably not very interesting, but it is super important for neuroimaging (fMRI, EEG, or MEG) and physiological (eyetracking, ECG, EMG, etc.) experiment in case you want to analyze stimulus-related effects on brain or physiological activity! For neuroimaging/physiological data with a high sampling rate (e.g., electrophysiology), you have to be very precise in determining the stimulus onsets, as a difference of a couple of milliseconds may lead to very different effects and their interpretation! 
+One last thing that would be nice to save is the onset of each stimulus (i.e., the smiley+word combination) and/or response. For most behavioral experiment this is probably not very interesting, but it is super important for neuroimaging (fMRI, EEG, or MEG) and physiological (eyetracking, ECG, EMG, etc.) experiment in case you want to analyze stimulus-related or response-related correlates in brain or physiological activity! For neuroimaging/physiological data with a high sampling rate (e.g., electrophysiology), you moreover have to be very precise in determining the stimulus onsets, as a difference of a couple of milliseconds may lead to very different effects and their interpretation! 
 
+Alright, so it would be nice to save the onsets of our stimuli. But the onset relatively to ... what, exactly? In other words, when do we want to start our clock that is going to keep track of the onsets? In case of neuroimaging/physiological studies, this is the moment you start your data acquisition (e.g., the first pulse of your fMRI experiment). At that moment, we would need to `reset` our clock such that it is in sync with the external data acquisition! We recommend to using a separate clock (a "global clock", to differentiate it from the "trial clock" we talked about earlier) to keep track of the stimulus onsets.
 
+Then, assuming our clock has been reset at the appropriate moment, how do we make sure we save the stimulus onset *only* after the first flip? There are actually many ways in which you could do this!
+
+:::::{admonition,attention} ToDo
+Try to think of a way to save the onset of each stimulus (in the `cond_df` dataframe) after the first flip and implement this in your script. You may use the global clock (the `clock` variable) we defined in the previous tutorial. Make sure to reset it before the trial loop! Also, after the end of the loop, make sure to save the `cond_df` dataframe to disk with the name: `sub-{participant nr}_events.csv` (where `participant nr` refers to the value from the dialog box).
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# We left out the response/RT part for clarity
+# Reset "global" clock!
+clock.reset()
+for idx, row in cond_df.iterrows():
+    # Extract current word and smiley
+    curr_word = row['word']
+    curr_smil = row['smiley']
+
+    # Create and draw text/img
+    stim_txt = TextStim(win, curr_word, pos=(0, 0.3))
+    stim_img = ImageStim(win, curr_smil + '.png', )
+
+    # Initialize with None, which will be overwritten on 
+    # the first flip
+    onset = None
+    trial_clock.reset()
+    while trial_clock.getTime() < 2:
+        
+        if trial_clock.getTime() < 0.5:
+            stim_txt.draw()
+            stim_img.draw()
+        else:
+            fix_target.draw()
+            
+        win.flip()
+
+        # Get onset only after the first flip!
+        if onset is None:
+            onset = clock.getTime()
+```
+````
+:::::
+
+## Non-slip timing (optional)
+If you managed to implement the last ToDo and you inspected the saved logfile, you might have noticed that the onsets seem to increase with a *little* more than 2 seconds. This inconsistency likely comes from the fact that the while loop we used to control the trial duration probably does not end neatly before the next screen refresh. Another reason is that the initialization of the new `TextStim` and `ImageStim` takes a little time that causes the routine to take a little longer than two seconds.
+
+For most experiments, this issue is not really important, but for fMRI experiments it actually may be! This is because the data acquisition of fMRI scans is often predetermined (e.g., 250 "MRI volumes" of 2 seconds each &rarr; 500 seconds) and this issue may cause the experiment to "overshoot" the actual data acquisition (read more about this issue [here](https://www.psychopy.org/general/timing/nonSlipTiming.html)).
+
+To fix this "overshoot" issue, we need to compensate for the inaccuracies in our stimulus/trial durations; this is sometimes called [non-slip timing](https://www.psychopy.org/general/timing/nonSlipTiming.html). One way we can compensate these "overshoots" is using the clock itself. Instead of using it as a "stopwatch" (looping until it has reached a value), we can use it as a "timer" (looping until it has no time left anymore). This can be done using the `add` method of `Clock` objects, which (paradoxically) subtract time from the clock. For example, if you'd call `add(2)` right after resetting a clock, `getTime` would return approximately -2. Using this approach, we could subsequently loop until the clock is at 0, at which point we know the routine took 2 seconds. Any "overshoot" will then automatically be corrected for in the next routine. 
+
+Written out in code, this would look something like the following:
+
+```python
+clock.reset()
+for i in range(10):
+    # Set the clock to approx. -2 seconds
+    clock.add(2)
+
+    # Do some stuff, like initializing components
+    # ...
+
+    # Loop until clock is at 0
+    while clock < 0:
+        pass  # do stuff
+```
+
+:::{admonition,attention} ToDo (optional)
+Try implementing this non-slip timing approach in your emotion-word Stroop experiment. Then, run the experiment and check the resulting logfile. Is the overshoot issue fixed?
+:::
 
 ## Wrapping up
-Advanced features:
-
-* Trialhandlers
-* Eyetracker integration
-* Sounds
-* Serial ports
-* Colorspaces
-* Units
-* ArrayStims
-* Ratings
+Okay, that will have to do for this Coder tutorial. We discussed how to implement the most important experiment features using the `psychopy` package, but the package offers much more than we discussed here (such as auditory components, colorspaces, array stimuli, rating stimuli, and eyetracker integration). We leave this up to you to explore on your own. On the [next page](psychopy_how_to_continue.md), we included some resources to help you with this.
