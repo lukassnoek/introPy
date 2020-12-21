@@ -1,5 +1,6 @@
+import pandas as pd
 from psychopy.gui import DlgFromDict
-from psychopy.visual import Window
+from psychopy.visual import Window, TextStim, ImageStim
 from psychopy.core import Clock, quit, wait
 from psychopy.event import Mouse
 from psychopy.hardware.keyboard import Keyboard
@@ -35,6 +36,7 @@ clock = Clock()
 
 # Initialize Keyboard
 kb = Keyboard()
+kb.clearEvents()
 
 ### START BODY OF EXPERIMENT ###
 #
@@ -83,11 +85,14 @@ cond_df = pd.read_excel('emo_conditions.xlsx')
 cond_df = cond_df.sample(frac=1)
 
 # Create fixation target (a plus sign)
-fix = TextStim(win, '+')
+fix_target = TextStim(win, '+')
 trial_clock = Clock()
 
+# START exp clock
+clock.reset()
+
 # Show initial fixation
-fix.draw()
+fix_target.draw()
 win.flip()
 wait(1)
 
@@ -101,6 +106,9 @@ for idx, row in cond_df.iterrows():
     stim_img = ImageStim(win, curr_smil + '.png', )
     stim_img.size *= 0.5  # make a bit smaller
 
+    # Initially, onset is undefined
+    cond_df.loc[idx, 'onset'] = -1
+
     trial_clock.reset()
     kb.clock.reset()
     while trial_clock.getTime() < 2:
@@ -110,19 +118,24 @@ for idx, row in cond_df.iterrows():
             stim_txt.draw()
             stim_img.draw()
         else:
-            fix.draw()
+            fix_target.draw()
             
         win.flip()
+        if cond_df.loc[idx, 'onset'] == -1:
+            cond_df.loc[idx, 'onset'] = clock.getTime()
         
         # Get responses
         resp = kb.getKeys()
         if resp:
-            
+            # Stop the experiment when 'q' is pressed
             if 'q' in resp:
                 quit()
 
+            # Log reaction time and response
             cond_df.loc[idx, 'rt'] = resp[-1].rt
             cond_df.loc[idx, 'resp'] = resp[-1].name
+
+            # Log correct/incorrect
             if resp[-1].name == 'left' and curr_smil == 'happy':
                cond_df.loc[idx, 'correct'] = 1
             elif resp[-1].name ==  'right' and curr_smil == 'angry':
@@ -148,7 +161,7 @@ result.draw()
 win.flip()
 wait(5)
 
-cond_df.to_csv(f"sub-{exp_info['participant_id']}_results.csv")
+cond_df.to_csv(f"sub-{exp_info['participant_nr']}_results.csv")
 
 # Finish experiment by closing window and quitting
 win.close()
