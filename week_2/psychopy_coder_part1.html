@@ -40,7 +40,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -499,6 +498,10 @@
 </pre></div>
 </div>
 <p>Most of the times, though, you’d probably want to run your experiment in “full-screen” mode. To do so, pass <code class="docutils literal notranslate"><span class="pre">True</span></code> to the argument <code class="docutils literal notranslate"><span class="pre">fullscr</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">win</span> <span class="pre">=</span> <span class="pre">Window(fullscr=True)</span></code>). Note that if you specify <code class="docutils literal notranslate"><span class="pre">fullscr=True</span></code> but leave the window’s <code class="docutils literal notranslate"><span class="pre">size</span></code> at its default (i.e., <code class="docutils literal notranslate"><span class="pre">(800,</span> <span class="pre">600)</span></code>), you’ll see a warning in the <em>Experiment running</em> saying “User requested fullscreen with size [800, 600], but screen is actually … Using actual size”. This warning is harmless and can be ignored, but if you want to prevent this warning, you should specify the actual size of your monitor as well (e.g., <code class="docutils literal notranslate"><span class="pre">size=(1920,</span> <span class="pre">1080)</span></code> for an HD monitor).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you run the experiment in full-screen mode (i.e., <code class="docutils literal notranslate"><span class="pre">fullscr=True</span></code>), there is no easy way to quit the experiment unless you included this in your experiment (which we’ll discuss later). So if you, for example, accidentally create an infinite loop (!), you’d be “stuck” inside the PsychoPy window. As such, we recommend not running your experiments in full-screen mode until you’re completely done and ready to run it “for real”. Then, swithc on full-screen mode, because that actually may improve timing precision quite a bit!</p>
+</div>
 <p>You can also change the window’s background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument.</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
@@ -750,12 +753,8 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p>As you’ve seen so far, when the Python interpreter arrives at the end of your script, the PsychoPy window automatically closes and the Python process finishes. In the context of PsychoPy experiments, however, it is good practice to end the experiment by explicitly closing the window using the window’s <code class="docutils literal notranslate"><span class="pre">close</span></code> method <em>and</em> then calling the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">core.psychopy</span></code> module (as we did before in the section on dialog boxes). Although not strictly necessary, calling the <code class="docutils literal notranslate"><span class="pre">close</span></code> method and the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function perform a bit of bookkeeping that may prevent issues, so we recommend always including this at the very end of your script!</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>At the end of your script, add the code to close your window and to quit the experiment. While you’re at it, remove the calls to the <code class="docutils literal notranslate"><span class="pre">getTime</span></code> methods and the associated <code class="docutils literal notranslate"><span class="pre">print</span></code> statements, such that you only have the imports, code related to the dialog box, window and clock initializations, and the calls to the <code class="docutils literal notranslate"><span class="pre">close</span></code> method and <code class="docutils literal notranslate"><span class="pre">quit</span></code> function left.</p>
-</div>
+<p>At the end of your script, add the code to close your window and to quit the experiment. :::</p>
 <p>This tutorial features some of the most important, but arguably boring, aspects of programming experiments in the PsychoPy Coder, so let’s continue with the <a class="reference internal" href="psychopy_coder_part2.html"><span class="doc std std-doc">next (and final) tutorial</span></a> which discusses creating components and other fun stuff!</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you want the “solution” to the implementations from the ToDos, check out the file <code class="docutils literal notranslate"><span class="pre">solutions_coder_part1.py</span></code> (from the <code class="docutils literal notranslate"><span class="pre">solutions/week2</span></code> directory) in the PsychoPy editor, which contains the code from most ToDos.</p>
 </div>
 </div>
 </div>

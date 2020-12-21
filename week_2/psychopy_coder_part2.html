@@ -40,7 +40,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -353,13 +352,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#logging-onsets-optional">
-   Logging onsets (optional)
+  <a class="reference internal nav-link" href="#saving-responses-and-stimulus-onsets">
+   Saving responses and stimulus onsets
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#keeping-track-of-and-saving-data">
-   Keeping track of and saving data
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
   </a>
  </li>
 </ul>
@@ -375,16 +374,76 @@
                 
   <div class="section" id="creating-a-coder-experiment-from-scratch-tutorial">
 <h1>Creating a Coder experiment from scratch (tutorial)<a class="headerlink" href="#creating-a-coder-experiment-from-scratch-tutorial" title="Permalink to this headline">¶</a></h1>
-<p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment. In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with the experiment data.</p>
+<p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with user data.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>PsychoPy is an incredibly versatile and flexible software package. The “downside” of this is that sometimes the same “thing” can be achieved in multiple different ways. In this tutorial, we’ll highlight different approaches when appropriate, but remember that almost always these approaches are functionally equivalent, so it’s up to you which approach you use!</p>
 </div>
-<div class="section" id="components">
+<p>We of course assume you finished the previous tutorial already. In this tutorial, we are going to continue our experiment with what we ended up with from the last tutorial. If you want, you can copy the (correct) code from the previous tutorial below, which we’ll extend in this tutorial.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to reveal the template!<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psychopy.gui</span> <span class="kn">import</span> <span class="n">DlgFromDict</span>
+<span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="kn">from</span> <span class="nn">psychopy.core</span> <span class="kn">import</span> <span class="n">Clock</span><span class="p">,</span> <span class="n">quit</span><span class="p">,</span> <span class="n">wait</span>
+<span class="kn">from</span> <span class="nn">psychopy.event</span> <span class="kn">import</span> <span class="n">Mouse</span>
+<span class="kn">from</span> <span class="nn">psychopy.hardware.keyboard</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+
+<span class="c1">### DIALOG BOX ROUTINE ###</span>
+<span class="n">exp_info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
+<span class="n">dlg</span> <span class="o">=</span> <span class="n">DlgFromDict</span><span class="p">(</span><span class="n">exp_info</span><span class="p">)</span>
+
+<span class="c1"># If pressed Cancel, abort!</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">dlg</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span>
+    <span class="n">quit</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Quit when either the participant nr or age is not filled in</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]:</span>
+        <span class="n">quit</span><span class="p">()</span>
+        
+    <span class="c1"># Also quit in case of invalid participant nr or age</span>
+    <span class="k">if</span> <span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">99</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="n">quit</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># let&#39;s star the experiment!</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Started experiment for participant </span><span class="si">{</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> &quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot;with age </span><span class="si">{</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize a fullscreen window with my monitor (HD format) size</span>
+<span class="c1"># and my monitor specification called &quot;samsung&quot; from the monitor center</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">),</span> <span class="n">fullscr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;samsung&#39;</span><span class="p">)</span>
+
+<span class="c1"># Also initialize a mouse, for later</span>
+<span class="c1"># We&#39;ll set it to invisible for now</span>
+<span class="n">mouse</span> <span class="o">=</span> <span class="n">Mouse</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Initialize a (global) clock</span>
+<span class="n">clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
+
+<span class="c1"># Initialize Keyboard</span>
+<span class="n">kb</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="p">()</span>
+
+<span class="c1">### START BODY OF EXPERIMENT ###</span>
+<span class="c1">#</span>
+<span class="c1"># This is where we&#39;ll add stuff from the second</span>
+<span class="c1"># Coder tutorial.</span>
+<span class="c1">#</span>
+<span class="c1">### END BODY OF EXPERIMENT ###</span>
+
+<span class="c1"># Finish experiment by closing window and quitting</span>
+<span class="n">win</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details><div class="section" id="components">
 <h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
 <p>Like in the Builder, <em>components</em> are the “bread and butter” in the Coder interface as well. In the coder, however, these components are implemented in different classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. For example, to add a text component, you can use the <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module and to add a sound component, you can use the <code class="docutils literal notranslate"><span class="pre">Sound</span></code> component from the <code class="docutils literal notranslate"><span class="pre">psychopy.sound</span></code> module.</p>
-<p>Basically, every component from the Builder has an equivalent in the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. Moreover, each component has the same properties in the Builder as in the Coder. For example, the <em>color</em> and <em>font</em> properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with <code class="docutils literal notranslate"><span class="pre">font='Calibri'</span></code> and <code class="docutils literal notranslate"><span class="pre">color=(-1,</span> <span class="pre">-1,</span> <span class="pre">1)</span></code>. We won’t discuss all parameters from every component we discuss in this tutorial; you can find all parameters and what they mean in the <a class="reference external" href="https://www.psychopy.org/api/index.html">PsychoPy documentation</a>!</p>
-<p>Importantly, all visual stimulus classes (like <code class="docutils literal notranslate"><span class="pre">TextStim</span></code>, but not <code class="docutils literal notranslate"><span class="pre">Sound</span></code>) additionally need one (mandatory) argument: a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object! This allows to <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> to interact with the window. So, let’s recap: to initialize a component in the Coder interface, we need to (1) import the corresponding class and (2) initialize it with a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object (in case of visual components) and optionally other arguments that modify the component’s behavior or display.</p>
+<p>Basically, every component from the Builder has an equivalent in the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. Moreover, each component has largely the same properties in the Builder as in the Coder. For example, the <em>color</em> and <em>font</em> properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with <code class="docutils literal notranslate"><span class="pre">font='Calibri'</span></code> and <code class="docutils literal notranslate"><span class="pre">color=(-1,</span> <span class="pre">-1,</span> <span class="pre">1)</span></code>. We won’t discuss all parameters from every component we discuss in this tutorial; you can find all parameters and what they mean in the <a class="reference external" href="https://www.psychopy.org/api/index.html">PsychoPy documentation</a>!</p>
+<p>Importantly, all <em>visual</em> stimulus classes (like <code class="docutils literal notranslate"><span class="pre">TextStim</span></code>, but not <code class="docutils literal notranslate"><span class="pre">Sound</span></code>) additionally need one (mandatory) argument: a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object! This allows to <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> to interact with the window. So, let’s recap: to initialize a component in the Coder interface, we need to (1) import the corresponding class and (2) initialize it with a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object (in case of visual components) and optionally other arguments that modify the component’s behavior or display.</p>
 <p>Now, suppose you would like to welcome my participant by showing a short welcome message — “Welcome to this experiment!”. To do so, you’d need a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> which would need to be initialized as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">TextStim</span>
 
@@ -427,12 +486,12 @@
 <p class="admonition-title"> ToDo</p>
 <p>Right after the call to the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method of the text component (<code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code>), add a call to the <code class="docutils literal notranslate"><span class="pre">flip</span></code> method (without arguments) of the window (<code class="docutils literal notranslate"><span class="pre">win</span></code>). Then, run the experiment again.</p>
 </div>
-<p>Finally, you should see the welcome text on the window, albeit quite briefly! Again, it is only shown briefly because PsychoPy will simply follow the script and immediatly go to the next lines (which presumably are those that close the window and quit the experiment). There are several ways in which you can specify how long a component is visible, which differ in how precisely they can determine the duration. One of the easiest ways is to add a call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function after the window flip.</p>
+<p>Finally, you should see the welcome text on the window, albeit quite briefly! Again, it is only shown briefly because PsychoPy will simply follow the script and immediatly go to the next lines (which presumably are those that close the window and quit the experiment, like we discussed in the previous tutorial). There are several ways in which you can specify how long a component is visible, which differ in how precisely they can determine the duration. One of the easiest ways is to add a call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function after the window flip.</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, make PsychoPy wait for 2 seconds after flipping the window. Then, run the experiment again.</p>
 </div>
-<p>Now you should see that the welcome text is visible for 2 seconds (actually, a bit longer because of the time it takes to shut down the experiment). In one of the next sections, we will discuss other (and more precise) methods to manipulate the duration of stimuli.</p>
+<p>Now you should see that the welcome text is visible for 2 seconds (actually, a bit longer because of the time it takes to shut down the experiment). In one of the next sections, we will discuss other, and more precise, methods to manipulate the duration of stimuli.</p>
 <p>Note that after flipping the window such that the back buffer is moved to the front buffer, the back buffer is completely cleared. This means that when you’d flip the window <em>again</em> (without drawing any stuff in the meantime), the front buffer would contain an empty window!</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
@@ -465,11 +524,16 @@ ANGRY expression = right</p>
 <h2>Timing revisited<a class="headerlink" href="#timing-revisited" title="Permalink to this headline">¶</a></h2>
 <p>Alright, now it’s time for the most important part of our experiments: the trial loop! Just like the color-word Stroop experiment we implemented in the Builder, we’d like to create a set of trials in our emotion-word Stroop experiment. This also provides us with a nice opportunity to talk about duration and timing again!</p>
 <p>Often, you’d like to make sure your trials/stimuli are presented for a specific duration. This is often especially important for perception and psychophysics studies or neuroimaging studies in which you track stimulus processing at high temporal resolution (e.g., EEG/MEG and eyetracking studies).</p>
-<p>So far, we only showed you how to use the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function to control stimulus duration. There are, however, two other and more precise methods, which we’ll call <em>clock-based</em> timing and <em>frame-based</em> timing. We’ll discuss these two methods in turn. But first, let’s create a stimulus. As we’re creating an emotion-word Stroop task, we’ll need an image with a emotional facial expression and an emotion word.</p>
-<p>To create an image, you can use the <a class="reference external" href="https://www.psychopy.org/api/visual/imagestim.html"><code class="docutils literal notranslate"><span class="pre">ImageStim</span></code></a> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module. Apart from the mandatory argument <code class="docutils literal notranslate"><span class="pre">win</span></code> (the current window), it also needs an <code class="docutils literal notranslate"><span class="pre">image</span></code> (a path to the image file). In the <code class="docutils literal notranslate"><span class="pre">tutorials/week_2</span></code> directory, we included two images: <code class="docutils literal notranslate"><span class="pre">angry.png</span></code> and <code class="docutils literal notranslate"><span class="pre">happy.png</span></code>. Note that these images are smileys, because it’s really hard to find proper facial expression stimuli without copyright …</p>
+<p>So far, we only showed you how to use the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function to control stimulus duration. There are, however, two other and more precise methods, which we’ll call <em>clock-based</em> timing and <em>frame-based</em> timing. We’ll discuss these two methods in turn. But first, let’s discuss how we want to structure our trial.</p>
+<p>Like we did in the Builder experiment, let our trial routine include the emotion-word stimulus and a subsequent fixation target. Unlike our Builder experiment, let’s only present the stimulus for a fixed amount of time, let’s say 500 milliseconds, which is followed by a fixation cross (a simple “+” sign) for 1500 milliseconds. As such, our trial will take (500 + 1500 = ) 2000 milliseconds; this is sometimes called the inter-<strong>trial</strong> interval (ITI), i.e., the time from the onset of one trial to the onset of the next trial.Figure 1 shows how this routine would have looked like in the Builder view.</p>
+<div class="figure align-default" id="emo-stroop-trial-routine">
+<img alt="../_images/trial_routine_emo_stroop.png" src="../_images/trial_routine_emo_stroop.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">The trial routine of the emotion-word Stroop experiment.</span><a class="headerlink" href="#emo-stroop-trial-routine" title="Permalink to this image">¶</a></p>
+</div>
+<p>As we’re creating an emotion-word Stroop task, we’ll need an image with a emotional facial expression and an emotion word. To create an image, you can use the <a class="reference external" href="https://www.psychopy.org/api/visual/imagestim.html"><code class="docutils literal notranslate"><span class="pre">ImageStim</span></code></a> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module. Apart from the mandatory argument <code class="docutils literal notranslate"><span class="pre">win</span></code> (the current window), it also needs an <code class="docutils literal notranslate"><span class="pre">image</span></code> (a path to the image file). In the <code class="docutils literal notranslate"><span class="pre">tutorials/week_2</span></code> directory, we included two images: <code class="docutils literal notranslate"><span class="pre">angry.png</span></code> and <code class="docutils literal notranslate"><span class="pre">happy.png</span></code>. Note that these images are smileys, because it’s really hard to find proper facial expression stimuli without copyright …</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Import the <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> class, initialize an <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> object with the <code class="docutils literal notranslate"><span class="pre">angry.png</span></code> file (store this is in a variable with the name <code class="docutils literal notranslate"><span class="pre">stim_img</span></code>), and draw it. Also create a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the word “happy” placed above the smiley (store this is in a variable with the name <code class="docutils literal notranslate"><span class="pre">stim_txt</span></code>) and draw it. Then, flip the window and run the experiment to see whether it works as expected.</p>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> class, initialize an <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> object with the <code class="docutils literal notranslate"><span class="pre">angry.png</span></code> file (store this is in a variable with the name <code class="docutils literal notranslate"><span class="pre">stim_img</span></code>), and draw it. Also create a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the word “happy” placed above the smiley (store this is in a variable with the name <code class="docutils literal notranslate"><span class="pre">stim_txt</span></code>) and draw it. Then, flip the window and run the experiment to see whether it works as expected. You should only see the smiley briefly.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
@@ -486,17 +550,10 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 </div>
 </details></div>
-<p>Now, suppose we want to show the image/text for a specific duration, let’s say 500 milliseconds, after which it disappears and the participant has to make a response for the experiment to continue. (Note that this is different from the way we implemented the color-word Stroop experiment in the Builder tutorials.) One way to specify the duration is using a clock!</p>
-<div class="section" id="clock-based-timing">
-<h3>Clock-based timing<a class="headerlink" href="#clock-based-timing" title="Permalink to this headline">¶</a></h3>
-<p>In the previous tutorial, we defined a “clock” (using the <code class="docutils literal notranslate"><span class="pre">psychopy.core.Clock</span></code> class) to do some trivial timing checks, but they can be used in much more useful ways, like controlling the duration of stimuli. To showcase this, let’s create a new “trial clock” just after we flipped the window, which visualized the emotion-word trial:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trial_clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Now, using a while loop in combination with continuously calling the <code class="docutils literal notranslate"><span class="pre">getTime</span></code> method, we can keep showing the stimulus until the clock has passed 500 milliseconds.</p>
+<p>Disregarding the timimg issue completely for now, let’s also create a fixation target to show after the smiley.</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Try implementing the aforementioned while loop such that the image/text of the trial is visible for 300 milliseconds and disappears afterwards. Hint: if you don’t want to execute anything inside the while loop, you can use the keyword <code class="docutils literal notranslate"><span class="pre">pass</span></code>. This is necessary, because a loop in Python can’t ever be completely “empty”. Also, make sure the image/text actually disappears after</p>
+<p>Initialize a fixation target with a “+” sign using a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> (store it in a variable named <code class="docutils literal notranslate"><span class="pre">fix_target</span></code>) and draw and show it after showing the stimulus image (<code class="docutils literal notranslate"><span class="pre">angry.png</span></code>) and stimulus text (“happy”). Then, run the experiment (you should only see the stimulus and subsequent fixation cross very briefly; we’ll fix that in the next section).</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
@@ -504,21 +561,64 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trial_clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
-<span class="k">while</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># We need to flip the window to actually make the stimuli disappear!</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This comes immediately after the code from the previous ToDo</span>
+<span class="n">fix_target</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">fix_target</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details></div>
-<p>Note that there is no need for our stimuli to be redrawn and our window to be flipped every iteration of the while loop! This is only necessary when you want to update your stimuli in the meantime (or when using the frame-based timing method, as discussed next).</p>
+<p>At this point, we haven’t specified for <em>how long</em> we’d like to show our stimulus and fixation target! After showing the stimulus, it will immediately advance to drawing and showing the fixation target (showing both, effectively, for only one frame or “flip”). One way to control this duration is, as discussed before, using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function: we could add a call to wait after showing the stimulus (for 500 ms.) and after showing the fixation target (for 1500 ms.). This would definitely work, but the next two sections outline two slightly more precise methods to do so.</p>
+<div class="section" id="clock-based-timing">
+<h3>Clock-based timing<a class="headerlink" href="#clock-based-timing" title="Permalink to this headline">¶</a></h3>
+<p>In the previous tutorial, we defined a “clock” (using the <code class="docutils literal notranslate"><span class="pre">psychopy.core.Clock</span></code> class) to do some trivial timing checks, but they can be used in much more useful ways, like controlling the duration of stimuli. We <em>could</em> use the previously defined “global” clock (the <code class="docutils literal notranslate"><span class="pre">clock</span></code> variable from the previous tutorial) for this, but we’ll actually need that for logging trial onsets later (in an optional section). Instead, let’s create a new <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object to keep track of the duration of our trial components, which we’ll call <code class="docutils literal notranslate"><span class="pre">trial_clock</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trial_clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>At initialization, the clock is at ~0 seconds. Using a while loop, we can use this clock to continuously draw the stimulus (if the clock &lt; 500 ms) or the fixation target (if the clock is between 500 and 2000 ms) and flip the window!</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Implement the aforementioned while loop in which either the stimulus (smiley and emotion word) or the fixation target is shown, depending on the time since the initialization of the clock (so you need an if-else statement as well)!</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We assume that the fix_target and stim_txt/stim_img are</span>
+<span class="c1"># already defined!</span>
+<span class="k">while</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="c1"># Draw stimulus or fix depending on time</span>
+    <span class="k">if</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+        <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fix_target</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    
+    <span class="c1"># Show whatever is drawn!</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<p>You may think: why redraw the components (and flip the window) on <em>every</em> iteration? This is, indeed, not necessary; technically, you only need to draw each component once (the stimulus at 0 ms and the fixation target at 500 ms). However, when programming more complex experiments, you’ll notice that this convention of drawing your components and flipping your windows <em>every iteration</em> actually yields very readable code. Also, (re)drawing the stimuli and flipping the window every iteration does not incur much of a performance hit, as most of the heavy lifting is done by your computer’s graphics card (and not your CPU).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Instead of re-drawing your stimuli every iteration of the loop across frames, you can also set the attribute <code class="docutils literal notranslate"><span class="pre">autoDraw</span></code> of visual components to <code class="docutils literal notranslate"><span class="pre">True</span></code>. This will automatically draw those stimuli upon flipping the window, until you set this attribute to <code class="docutils literal notranslate"><span class="pre">False</span></code> again!</p>
+</div>
 </div>
 <div class="section" id="frame-based-timing-optional">
 <h3>Frame-based timing (optional)<a class="headerlink" href="#frame-based-timing-optional" title="Permalink to this headline">¶</a></h3>
-<p>Although the clock-based method is reasonably accurate, it implicitly assumes that stimulus duration is <em>continuous</em>, while in reality it is discrete because it can only be drawn a specific number of screen refreshes! In other words, the <em>exact</em> duration of visual stimuli is some multiple of the number of screen refreshes. For example, if you have a 60 Hz screen (which refreshes every 1/60 seconds), a stimulus can be shown for 0.0167 seconds (1/60), 0.0333 seconds (2/60), 0.0500 seconds (3/60), etc. But it cannot be shown for, let’s say, <em>exactly</em> 110 milliseconds.</p>
+<p>Although the clock-based method is reasonably accurate, it implicitly assumes that stimulus duration is <em>continuous</em>, while in reality it is discrete! This is because your monitor “draws” your screen contents at the <em>refresh rate</em> of your monitor. Most standard laptop screens and external computer monitors have a refresh rate of 60 Hz, meaning that it is technically able to redraw the entire screen 60 times per second. The first two minutes of video below explains the concept of refresh rate quite well:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YCWZ_kWTB9w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="sidebar">
+<p class="sidebar-title">Refresh vs. frame rate</p>
+<p>One way to think about the difference between refresh and frame rate is that the former is determined (and limited) by your monitor while the latter is determined (and limited) by your graphics processor (as well as your monitor).</p>
+</div>
+<p>Note that the video also talks about the <em>frame rate</em> (or <em>frames per second</em>, FPS). This concept is related to the refresh rate, but it quantifies how often your screen can <em>actuallly</em> (in reality) be refreshed. Ideally, the refresh rate and the frame rate are exactly the same, but when you’re playing very high resolution video games or are running intricate PsychoPy experiments in which you’re drawing many visual components, your graphics processor may not be able to draw everything in time! When this happens, you’re likely “dropping frames” (for more explanation about this, check out the <a class="reference external" href="https://www.psychopy.org/general/timing/detectingFrameDrops.html">PsychoPy docs</a>).</p>
+<p>The fact that monitors are limited by their refresh rate means that the <em>exact</em> duration of visual stimuli is some multiple of the number of screen refreshes. For example, if you have a 60 Hz screen (which refreshes every 1/60 seconds), a stimulus can be shown for 0.0167 seconds (1/60), 0.0333 seconds (2/60), 0.0500 seconds (3/60), etc. But it cannot be shown for, let’s say, <em>exactly</em> 110 milliseconds.</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToThink</p>
 <p>Suppose you want to show a stimulus for 120 milliseconds on a monitor with a refresh rate of 60 Hz. What is the duration closest to 120 milliseconds you can achieve?</p>
@@ -529,14 +629,15 @@ Click here to see the answer (but try to come up with the answer yourself first)
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
-<p class="card-text">Dividing 120 milliseconds (0.120 seconds) by the refresh rate (1/60) you do not get a whole (integer) number, 7.2, meaning that 7 frames/flips is the best we can do, which results in 7 * (1/60) = 0.1167 seconds.</p>
+<p class="card-text">Dividing 120 milliseconds (0.120 seconds) by the refresh rate (1/60) does not result in a whole (integer) number, namely 7.2. This means that 7 frames/flips is the best we can do, which results in 7 * (1/60) = 0.1167 seconds.</p>
 </div>
 </details></div>
 <p>So, if you <em>really</em> care about the duration of your stimuli (e.g., in subliminal perception studies), you should specify the duration of your stimuli as a multiple of your refresh rate. Then, to implement this in your PsychoPy script, you can simply draw your stimuli and flip your window as often as the number of frames you want to show your stimuli. For example, if you want to show your stimulus for 60 frames (i.e., 1
 second on a 60 Hz monitor), you simply do the drawing + flipping process 60 times!</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Remove the your clock-based timing implementation (i.e., the while loop from the previous ToDo) and instead program a frame-based timing implementation instead (the duration should be 300 ms again). Hint: a for loop could be quite useful here!</p>
+<p>Remove the your clock-based timing implementation (i.e., the while loop from the previous ToDo) and instead program a frame-based timing implementation instead (the duration should be 500 ms for the stimulus and 1500 ms for the fixation target again). Hint: instead of the while loop in the clock-based timing example, you may want to use a for-loop here …
+Run the experiment when you’re done!</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
@@ -544,39 +645,40 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 18 frames on a 60Hz monitor is 300 ms</span>
-<span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">18</span><span class="p">):</span>
-    <span class="c1"># Draw stims again</span>
-    <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-    <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-    <span class="c1"># Flip window to make visible</span>
-    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll assume you have a 60Hz monitor</span>
+<span class="c1"># 120 frames on a 60Hz monitor is 2000 ms</span>
+<span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">120</span><span class="p">):</span>
 
-<span class="c1"># We need to flip the window to actually make the stimuli disappear!</span>
-<span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">frame</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fix_target</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Instead of re-drawing your stimuli every iteration of the loop across frames, you can also set the attribute <code class="docutils literal notranslate"><span class="pre">autoDraw</span></code> of visual components to <code class="docutils literal notranslate"><span class="pre">True</span></code>. This will automatically draw those stimuli upon flipping the window, until you set this attribute to <code class="docutils literal notranslate"><span class="pre">False</span></code> again!</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For timing precision, it is very important that no other (CPU-heavy) programs are running while you’re running your experiment! So make sure that, when you conduct actual experiments, you shut down all non-essential programs before starting your experiment.</p>
+<p>For timing precision and preventing dropped frames, it is very important that no other (CPU-heavy) programs are running while you’re running your experiment! So make sure that, when you conduct actual experiments, you shut down all non-essential programs before starting your experiment.</p>
 </div>
 </div>
 </div>
 <div class="section" id="trial-loops">
 <h2>Trial loops<a class="headerlink" href="#trial-loops" title="Permalink to this headline">¶</a></h2>
-<p>So far, we only presented a single trial with a emotion word (“happy”) and a(n angry) smiley. Like the color-word Stroop in the Builder tutorial, we’d like to present the participant multiple trials in which the two factors — emotion of the smiley (happy/angry) and the emotion word (“happy”/”angry”) — vary.</p>
-<p>So how do we define the different conditions? One way would be two create two lists, one with emotion words and one with the emotion for the smileys, and to choose a random value of each list in each iteration of the trial loop. In such a simple experiment, however, we would recommend to pre-specify the conditions in a CSV or Excel file &amp;mdash just like we did in the Builder tutorial.</p>
+<p>So far, we only presented a <em>single</em> trial with a emotion word (“happy”) and a(n angry) smiley (i.e., an incongruent trial). Like the color-word Stroop in the Builder tutorial, we’d like to present the participant multiple trials in which the two factors — emotion of the smiley (happy/angry) and the emotion word (“happy”/”angry”) — vary.</p>
+<p>So how do we define the different conditions? One way would be two create two lists, one with emotion words and one with the emotion for the smileys, and to choose a random value of each list in each iteration of the trial loop. In our current simple experiment, however, we would recommend to pre-specify the conditions in a CSV or Excel file &amp;mdash just like we did in the Builder tutorial!</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Create a CSV or Excel file with two columns (named <code class="docutils literal notranslate"><span class="pre">smiley</span></code> and <code class="docutils literal notranslate"><span class="pre">word</span></code>) and twenty rows (excluding column names) with either “happy” or “angry” such that there are five trials of each possible emotion-word combination (just like you did in the Builder tutorial). Save it in the same directory as your Python script with the same <code class="docutils literal notranslate"><span class="pre">emo_conditions.xlsx</span></code> (or <code class="docutils literal notranslate"><span class="pre">emo_conditions.csv</span></code>). (If you want to see the “solution”, check out the <code class="docutils literal notranslate"><span class="pre">emo_conditions.xlsx</span></code> file in the <code class="docutils literal notranslate"><span class="pre">solutions/week_1</span></code> directory of the course materials).</p>
+<p>Create a CSV or Excel file with two columns (named <code class="docutils literal notranslate"><span class="pre">smiley</span></code> and <code class="docutils literal notranslate"><span class="pre">word</span></code>) and, let’s say, twenty rows (excluding column names) with either “happy” or “angry” such that there are five trials of each possible emotion-word combination (just like you did in the Builder tutorial). Save it in the same directory as your Python script with the name <code class="docutils literal notranslate"><span class="pre">emo_conditions.xlsx</span></code> (or <code class="docutils literal notranslate"><span class="pre">emo_conditions.csv</span></code>). (If you want to see the “solution”, check out the <code class="docutils literal notranslate"><span class="pre">emo_conditions.xlsx</span></code> file in the <code class="docutils literal notranslate"><span class="pre">solutions/week_1</span></code> directory of the course materials).</p>
 </div>
-<p>To load in the data, we can use our <em>pandas</em> skills! In case of a CSV file, we can use the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function and in case of an Excel file, we can use the <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> function.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Instead of counterbalancing the conditions (here: emotion word and smiley type) yourself, you can use the <code class="docutils literal notranslate"><span class="pre">TrialHandler</span></code> class from the <a class="reference external" href="https://www.psychopy.org/api/data.html"><code class="docutils literal notranslate"><span class="pre">psychopy.data</span></code> module</a>, which counterbalances the conditions across trials for you! In addition to simple counterbalancing, this module also contains some very fancy classes for psychophysics “staircases” and such.</p>
+</div>
+<p>To load in the data, we can use our <em>pandas</em> skills! In case of a CSV file, we can use the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function and in case of an Excel file, we can use the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code class="docutils literal notranslate"><span class="pre">read_excel</span></code> function</a>.</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
 <p>Read in your <code class="docutils literal notranslate"><span class="pre">emo_conditions.{csv,xlsx}</span></code> file and store the resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object in a variable named <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> (“conditions dataframe”).</p>
@@ -592,10 +694,10 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
     <span class="n">curr_smil</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;smiley&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Then, after extracting the smiley and word conditions, we can initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the current word and an <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> with the current smiley, draw them, flip the window and wait for as long as we want to show the stimulus, and repeat this process until our trial loop has finished!</p>
+<p>Then, after extracting the smiley and word conditions, we can initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the current word and an <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> with the current smiley and then draw/flip them in a clock-based or frame-based loop, and repeat this process until our trial loop has finished! Important: when using the clock-based timing approach, make sure to <em>reset</em> your clock to 0 at every new iteration/trial (using the clock’s <a class="reference external" href="https://www.psychopy.org/api/core.html"><code class="docutils literal notranslate"><span class="pre">reset</span></code> method</a>).</p>
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
-<p>Try finishing the loop in the previous code snippet as indicated above. For now, assume a duration 500 milliseconds. Run the experiment when you’re done!</p>
+<p>Try finishing the loop in the previous code snippet as indicated above. You may use either clock-based or frame-based timing. Run the experiment when you’re done!</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
@@ -609,24 +711,29 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
     <span class="n">curr_smil</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;smiley&#39;</span><span class="p">]</span>
 
     <span class="c1"># Create and draw text/img</span>
-    <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
-    <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-    <span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_smil</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">)</span>
-    <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+    <span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_smil</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="p">)</span>
 
-    <span class="c1"># Show</span>
-    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
-    
-    <span class="c1"># Wait a bit</span>
-    <span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># Using clock-based timing here</span>
+    <span class="n">trial_clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1"># Draw stuff</span>
+        
+        <span class="k">if</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+            <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fix_target</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+            
+        <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details></div>
-<p>At this point, the stimuli are following each other instantly! It would be nice to have a, let’s say, 1.5 second interstimulus interval (ISI) between each trial showing a fixation target.</p>
+<p>Alright, we are 95% done! The trial loop works as expected, but it’s currently not keeping track of any experimental information, like participant responses and stimulus onsets, which is discussed in the next section.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
-<p>Add code to the loop to show a simple plus sign (+) as a fixation target during the ISI.</p>
+<p class="admonition-title"> ToDo (optional)</p>
+<p>Perhaps twenty trials are a little too few to estimate any meaningful effect … To increase our statistical power (for whatever effect we’re trying to estimate), we can simply repeat our trial loop a number of times (like the <code class="docutils literal notranslate"><span class="pre">nReps</span></code> property of Builder loops). Try to implement this such that the trial loop is repeated five times. Make sure that each repetition uses a different random order of trials.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
@@ -634,39 +741,107 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># No need to define the fix inside the loop, because it doesn&#39;t change!</span>
-<span class="n">fix</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">N_REPS</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># 5 repetitions for now</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_REPS</span><span class="p">):</span>
+    <span class="c1"># Shuffle the conditions again!</span>
+    <span class="n">cond_df</span> <span class="o">=</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="c1"># Extract current word and smiley</span>
+        <span class="n">curr_word</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">]</span>
+        <span class="n">curr_smil</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;smiley&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Create and draw text/img</span>
+        <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+        <span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_smil</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="p">)</span>
+
+        <span class="c1"># Using clock-based timing here</span>
+        <span class="n">trial_clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># Draw stuff</span>
+            
+            <span class="k">if</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+                <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+                <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fix_target</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+                
+            <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="saving-responses-and-stimulus-onsets">
+<h2>Saving responses and stimulus onsets<a class="headerlink" href="#saving-responses-and-stimulus-onsets" title="Permalink to this headline">¶</a></h2>
+<p>After the experimental session, we’d of course like to save some data from the experiment, whether that is just the onsets of the stimuli/trials (like in passive viewing paradigms in neuroimaging) or extensive participant response data (like in psychophysics experiments).</p>
+<p>Because the Coder, unlike the Builder, does not save <em>anything</em> by default, we need to save any data we want to store ourselves. One neat way to do so is to use the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object with the condition info to store information about the trials. For this experiment, let’s keep track and store three things: the participant response for each trial (“left”, “right”, or no keypress), the reaction time for each trial, and the onset of the stimulus.</p>
+<p>Let’s start with keeping track of the actual participant response. We’ll, of course, use the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class as discussed in the previous tutorial.</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Using a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object, make sure that both the participant response to each trial (either “left”, “right” or no response) and the reaction time are saved in the conditions <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">cond_df</span></code>). Store them in columns with the names <code class="docutils literal notranslate"><span class="pre">response</span></code> and <code class="docutils literal notranslate"><span class="pre">reaction_time</span></code>. In case of no response, save the response and reaction time as “n/a”. If there are multiple responses within a trial, make sure to save only the last one. Run the experiment when you’re done to see whether everything works as expected.</p>
+<p>Hint: to add the data (response/RT) to the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe, use the <code class="docutils literal notranslate"><span class="pre">loc</span></code> method! You can do these even if the column (<code class="docutils literal notranslate"><span class="pre">response</span></code> or <code class="docutils literal notranslate"><span class="pre">response_time</span></code>) does not yet exist!</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize keyboard if not done already</span>
+<span class="n">kb</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="c1"># Extract current word and smiley</span>
     <span class="n">curr_word</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">]</span>
     <span class="n">curr_smil</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;smiley&#39;</span><span class="p">]</span>
 
     <span class="c1"># Create and draw text/img</span>
-    <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
-    <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-    <span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_smil</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">)</span>
-    <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+    <span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">curr_smil</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="p">)</span>
 
-    <span class="c1"># Show</span>
-    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
-    
-    <span class="c1"># Wait a bit</span>
-    <span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># Set initially to &quot;n/a&quot;</span>
+    <span class="n">cond_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;n/a&quot;</span>
+    <span class="n">cond_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;reaction_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;n/a&quot;</span>
 
-    <span class="n">fix</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-    <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
-    <span class="n">wait</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="c1"># Using clock-based timing here</span>
+    <span class="n">trial_clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="n">kb</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1"># Draw stuff</span>
+        
+        <span class="k">if</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">stim_txt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+            <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fix_target</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+            
+        <span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+
+        <span class="c1"># Get responses</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getKeys</span><span class="p">([</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if not an empty list ...</span>
+            <span class="c1"># Only pick the last one [-1]</span>
+            <span class="c1"># Overwrite existing data with current one!</span>
+            <span class="n">cond_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">cond_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;reaction_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">rt</span>
 </pre></div>
 </div>
 </div>
 </details></div>
-<p>Voilà, that’s all you need for the trial loop! [Something about responses]</p>
+<p>One last thing that would be nice to save is the onset of each stimulus (i.e., the smiley+word combination). For most behavioral experiment this is probably not very interesting, but it is super important for neuroimaging (fMRI, EEG, or MEG) and physiological (eyetracking, ECG, EMG, etc.) experiment in case you want to analyze stimulus-related effects on brain or physiological activity! For neuroimaging/physiological data with a high sampling rate (e.g., electrophysiology), you have to be very precise in determining the stimulus onsets, as a difference of a couple of milliseconds may lead to very different effects and their interpretation!</p>
 </div>
-<div class="section" id="logging-onsets-optional">
-<h2>Logging onsets (optional)<a class="headerlink" href="#logging-onsets-optional" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="keeping-track-of-and-saving-data">
-<h2>Keeping track of and saving data<a class="headerlink" href="#keeping-track-of-and-saving-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="wrapping-up">
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
+<p>Advanced features:</p>
+<ul class="simple">
+<li><p>Trialhandlers</p></li>
+<li><p>Eyetracker integration</p></li>
+<li><p>Sounds</p></li>
+<li><p>Serial ports</p></li>
+<li><p>Colorspaces</p></li>
+<li><p>Units</p></li>
+<li><p>ArrayStims</p></li>
+<li><p>Ratings</p></li>
+</ul>
 </div>
 </div>
 
