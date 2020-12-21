@@ -1,13 +1,11 @@
-import pandas as pd
 from psychopy.gui import DlgFromDict
 from psychopy.visual import Window
-from psychopy.core import Clock, quit, wait, getTime
+from psychopy.core import Clock, quit, wait
 from psychopy.event import Mouse
-from psychopy.visual import TextStim, Circle, Polygon, ShapeStim, ImageStim
 from psychopy.hardware.keyboard import Keyboard
 
 ### DIALOG BOX ROUTINE ###
-exp_info = {'participant_nr': 99, 'age': '29'}
+exp_info = {'participant_nr': 99, 'age': ''}
 dlg = DlgFromDict(exp_info)
 
 # If pressed Cancel, abort!
@@ -29,20 +27,21 @@ else:
 # and my monitor specification called "samsung" from the monitor center
 win = Window(size=(1920, 1080), fullscr=False, monitor='samsung')
 
-# Also initialize a mouse, for later
-# We'll set it to invisible for now
+# Also initialize a mouse, although we're not going to use it
 mouse = Mouse(visible=False)
 
 # Initialize a (global) clock
 clock = Clock()
 
-mouse.setVisible(True)
-x = [-.95, .95, .95, -.95]
-y = [.95, .95, -.95, -.95]
-for i in range(4):
-    mouse.setPos((x[i],y[i]))
-    wait(2)
-quit()
+# Initialize Keyboard
+kb = Keyboard()
+
+### START BODY OF EXPERIMENT ###
+#
+# This is where we'll add stuff from the second
+# Coder tutorial.
+#
+### END BODY OF EXPERIMENT ###
 
 ### WELCOME ROUTINE ###
 # Create a welcome screen and show for 2 seconds
@@ -78,26 +77,6 @@ while True:
             print(f"The {key.name} key was pressed within {key.rt:.3f} seconds for a total of {key.duration:.3f} seconds.")
         break  # break out of the loop!
 
-### CLICK-BUTTON-TO-START ROUTINE ###
-# Make mouse visible for click-button-to-start screen
-mouse.setVisible(True)
-
-# Create text + button
-click_txt = TextStim(win, "Click the button to start!", pos=(0, 0.5))
-click_txt.draw()
-        
-button = Circle(win, fillColor=(1, -1, -1), size=(0.5625*0.25, 0.25))
-# Alternative using Polygon
-#button = Polygon(win, fillColor=(1, -1, -1), size=(0.5625*0.25, 0.25), edges=100)
-
-button.draw()
-win.flip()
-
-while True:
-    if mouse.isPressedIn(button):
-        mouse.setVisible(False)
-        break
-
 ### TRIAL LOOP ROUTINE ###
 # Read in conditions file
 cond_df = pd.read_excel('emo_conditions.xlsx')
@@ -120,7 +99,7 @@ for idx, row in cond_df.iterrows():
     # Create and draw text/img
     stim_txt = TextStim(win, curr_word, pos=(0, 0.3))
     stim_img = ImageStim(win, curr_smil + '.png', )
-    stim_img.size *= 0.5
+    stim_img.size *= 0.5  # make a bit smaller
 
     trial_clock.reset()
     kb.clock.reset()

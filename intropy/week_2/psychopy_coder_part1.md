@@ -139,6 +139,10 @@ win = Window(size=(400, 800))
 
 Most of the times, though, you'd probably want to run your experiment in "full-screen" mode. To do so, pass `True` to the argument `fullscr` (i.e., `win = Window(fullscr=True)`). Note that if you specify `fullscr=True` but leave the window's `size` at its default (i.e., `(800, 600)`), you'll see a warning in the *Experiment running* saying "User requested fullscreen with size [800, 600], but screen is actually ... Using actual size". This warning is harmless and can be ignored, but if you want to prevent this warning, you should specify the actual size of your monitor as well (e.g., `size=(1920, 1080)` for an HD monitor).
 
+:::{warning}
+When you run the experiment in full-screen mode (i.e., `fullscr=True`), there is no easy way to quit the experiment unless you included this in your experiment (which we'll discuss later). So if you, for example, accidentally create an infinite loop (!), you'd be "stuck" inside the PsychoPy window. As such, we recommend not running your experiments in full-screen mode until you're completely done and ready to run it "for real". Then, swithc on full-screen mode, because that actually may improve timing precision quite a bit! 
+:::
+
 You can also change the window's background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the `color` argument.
 
 :::{admonition,attention} ToDo
@@ -373,11 +377,6 @@ for i in range(4):
 As you've seen so far, when the Python interpreter arrives at the end of your script, the PsychoPy window automatically closes and the Python process finishes. In the context of PsychoPy experiments, however, it is good practice to end the experiment by explicitly closing the window using the window's `close` method *and* then calling the `quit` function from the `core.psychopy` module (as we did before in the section on dialog boxes). Although not strictly necessary, calling the `close` method and the `quit` function perform a bit of bookkeeping that may prevent issues, so we recommend always including this at the very end of your script!
 
 :::{admonition,attention} ToDo
-At the end of your script, add the code to close your window and to quit the experiment. While you're at it, remove the calls to the `getTime` methods and the associated `print` statements, such that you only have the imports, code related to the dialog box, window and clock initializations, and the calls to the `close` method and `quit` function left.
-:::
+At the end of your script, add the code to close your window and to quit the experiment. :::
 
 This tutorial features some of the most important, but arguably boring, aspects of programming experiments in the PsychoPy Coder, so let's continue with the [next (and final) tutorial](psychopy_coder_part2.md) which discusses creating components and other fun stuff!
-
-:::{tip}
-If you want the "solution" to the implementations from the ToDos, check out the file `solutions_coder_part1.py` (from the `solutions/week2` directory) in the PsychoPy editor, which contains the code from most ToDos.
-:::
