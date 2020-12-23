@@ -137,7 +137,7 @@ intropy/*/week_2/intropy_demo*.py
 intropy/*/week_2/stroop*.*py*
 intropy/tutorials/week_2/conditions.xlsx
 intropy/solutions/week_2/stroop*.py
-intropy/*/week_1/assignment_week1.ipynb
+intropy/*/assignment
 intropy/_build/
 
 **/.DS_Store
