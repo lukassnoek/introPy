@@ -3,7 +3,7 @@ Alright, now let's get to the interesting part: actually creating experiments! I
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/reUic5tyVwo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Using the Builder interface, we are going to create a simple color-word Stroop experiment, including instructions, with two conditions: *congruent* (trials in which the text color matches the word, e.g., <span style="color:red">red</span>) and *incongruent* (trials in which the text color is different from the word, e.g., <span style="color:green">red</span>). Along the way, we explain several PsychoPy features, which you will practice with in *ToDos*. A finished Stroop experiment is availabel under `solutions/week_2/stroop.psyexp`, but we highly recommend that you first try to complete the exercises without peaking at the solution! 
+Using the Builder interface, we are going to create a simple color-word Stroop experiment, including instructions, with two conditions: *congruent* (trials in which the text color matches the word, e.g., <span style="color:red">red</span>) and *incongruent* (trials in which the text color is different from the word, e.g., <span style="color:green">red</span>). Along the way, we explain several PsychoPy features, which you will practice with in *ToDos*. A finished Stroop experiment is available under `solutions/week_2/Builder/stroop.psyexp`, but we highly recommend that you first try to complete the exercises without peaking at the solution!
 
 :::{warning}
 Make sure you save your experiment (*File* &rarr; *Save*, or `cmd/ctrl + s`) often during this tutorial!
