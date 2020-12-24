@@ -1,7 +1,8 @@
 jupyter-book
-matplotlib
-numpy
 ghp-import
+numpy
+scipy
 pandas
+matplotlib
 pytest
 nbval
