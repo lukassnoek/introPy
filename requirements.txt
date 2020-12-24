@@ -3,4 +3,5 @@ matplotlib
 numpy
 ghp-import
 pandas
-sphinxcontrib-bibtex<2.0.0
+pytest
+nbval
