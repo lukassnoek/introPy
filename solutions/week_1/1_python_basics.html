@@ -585,16 +585,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">5</span><span class="n">d5f6068cbaf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Now you can call functions from the ndimage subpackage,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># e.g. gaussian_filter</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6 6 5]
 </pre></div>
 </div>
 </div>
@@ -611,6 +602,11 @@
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom_test</span> <span class="k">as</span> <span class="n">omg_binomial_testing_so_cool</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">omg_binomial_testing_so_cool</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.001953125
 </pre></div>
 </div>
 </div>
@@ -640,6 +636,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Great! Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -651,6 +652,11 @@
     <span class="k">raise</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correct!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correct!
 </pre></div>
 </div>
 </div>
@@ -684,6 +690,14 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-11-da5c90d24878&gt;&quot;</span><span class="gt">, line </span><span class="mi">3</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block
+</pre></div>
+</div>
+</div>
 </div>
 <div class="alert alert-warning">
 <b>ToDo</b>: Fix the code block above by identing it correctly. (No test cell.)
@@ -704,6 +718,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is of type &lt;class &#39;int&#39;&gt;
+y is of type &lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Let’s try to apply arithmetic to x as defined above with some basic operations:</p>
 <div class="cell docutils container">
@@ -713,6 +733,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># Division;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># Multiplication;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Exponentiation;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+2
+1.5
+6
+9
 </pre></div>
 </div>
 </div>
@@ -733,6 +762,12 @@
 
 <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span> <span class="c1"># This is the same as: x = x * 2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+10
 </pre></div>
 </div>
 </div>
@@ -774,6 +809,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done! 1 out of tests 2 passed
+Well done! 2 out of tests 2 passed
+</pre></div>
+</div>
+</div>
 </div>
 <div class='alert alert-success' style='padding-bottom:10px'>
     <b>Tip!</b>
@@ -794,6 +835,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+the ouput is of type &lt;class &#39;bool&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Some more examples of Boolean operators:</p>
 <div class="cell docutils container">
@@ -802,6 +849,12 @@
 <span class="n">bool_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># True, because, well, 5 is 5</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bool_1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bool_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
 </pre></div>
 </div>
 </div>
@@ -814,6 +867,14 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">bool_1</span> <span class="ow">or</span> <span class="n">bool_2</span><span class="p">)</span>   <span class="c1"># Logical OR, either one of them has to be True</span>
 <span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">bool_1</span><span class="p">)</span>         <span class="c1"># Logical NOT, the inverse of bool_1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bool_1</span> <span class="o">!=</span> <span class="n">bool_2</span><span class="p">)</span>   <span class="c1"># Logical XOR, yields True when bool_1 and bool_2 are not equal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+True
+True
 </pre></div>
 </div>
 </div>
@@ -842,6 +903,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+5
+</pre></div>
+</div>
+</div>
 </div>
 <p>In addition to designating strings with single or double quotes, you can also create (multi-line) strings using triple quotes (again, either using single or double quotes):</p>
 <div class="cell docutils container">
@@ -855,12 +922,25 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This quite a long string, which may span multiple 
+lines but otherwise works just like a normal string, which can 
+be printed and stuff and now I&#39;m out of inspiration to keep writing
+so I&#39;ll stop here.
+</pre></div>
+</div>
+</div>
 </div>
 <p>A very nice feature of Python strings is that they are easy to concatenate: just use ‘+’!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hw</span> <span class="o">=</span> <span class="n">h</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">w</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span> <span class="c1"># String concatenation</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello, world!
 </pre></div>
 </div>
 </div>
@@ -882,6 +962,15 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before formatting:
+My favorite programming language is: %s
+
+After formatting:
+My favorite programming language is: Python
+</pre></div>
+</div>
+</div>
 </div>
 <p>You can also use specific placeholders for different data types:</p>
 <div class="cell docutils container">
@@ -900,6 +989,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is week 1 of the Python mini course
+I will get a 99.500000 on my quiz this week!
+In week 1 of the course, I will get a 95.000000 (or higher) on my quiz!
+</pre></div>
+</div>
+</div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Modify the variable <tt>to_print</tt> defined below, such that printing it (i.e., running <tt>print(to_print)</tt>) will print: "I love Python 4ever". So you'll have to "fill" the "%" placeholders using string formatting. That is, you have to put a <tt>%</tt> sign after the <tt>to_print</tt> variable and "fill" it with the correct inputs.
@@ -915,6 +1011,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I love Python 4ever
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -926,6 +1027,11 @@
     <span class="k">raise</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Well done!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
 </pre></div>
 </div>
 </div>
@@ -948,6 +1054,11 @@
 <span class="c1">### BEGIN SOLUTION</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">n_notebooks</span><span class="si">}</span><span class="s2"> notebooks this week; </span><span class="si">{</span><span class="n">oh_my_god</span><span class="si">}</span><span class="s2">, way too </span><span class="si">{</span><span class="n">many_or_few</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 5 notebooks this week; OMG, way too many.
 </pre></div>
 </div>
 </div>
@@ -981,6 +1092,14 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The first element of list1 is: 3
+The second element of list2 is: world
+The last element of list3 is: -999
+The second-to-last element of list3 is: 5.300000
+</pre></div>
+</div>
+</div>
 </div>
 <p>Note that you can also use negative indices! Negative indices start indexing from the end of the list, so <code class="docutils literal notranslate"><span class="pre">[-1]</span></code> indexes the last element, <code class="docutils literal notranslate"><span class="pre">[-2]</span></code> indexes the second-to-last element, etc.</p>
 <p>We cannot only ‘extract’ element from lists using indexing, but we can also replace them! This works as follows:</p>
@@ -996,6 +1115,12 @@
 <span class="c1"># so if we want to index the element &#39;A&#39; in some_list, we do:</span>
 <span class="n">some_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ANOTHER STRING&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">some_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[100, 2, 3, [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]]
+[100, 2, 3, [&#39;ANOTHER STRING&#39;, &#39;B&#39;, &#39;C&#39;]]
 </pre></div>
 </div>
 </div>
@@ -1023,6 +1148,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <p>In addition to accessing list elements one at a time, Python provides concise syntax to access specific parts of a list (sublists); this is known as <em>slicing</em>.</p>
 <p>Let’s look at some slice operations:</p>
@@ -1030,6 +1160,11 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>         <span class="c1"># Our original list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </pre></div>
 </div>
 </div>
@@ -1041,11 +1176,21 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a slice from index 2 to the end; prints &quot;[2, 3, 4, 5, 6, 7, 8, 9]&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5, 6, 7, 8, 9]
 </pre></div>
 </div>
 </div>
@@ -1057,12 +1202,22 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Slice indices can be negative; prints [&quot;0, 1, 2, 3, 4, 5, 6, 7, 8]&quot;,</span>
 <span class="c1"># so everything up to (but not including) the last element</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8]
 </pre></div>
 </div>
 </div>
@@ -1095,6 +1250,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <p>Apart from the syntax <code class="docutils literal notranslate"><span class="pre">[from:to]</span></code>, you can also specify a “stride” (sort of step-size) of your slice using the syntax <code class="docutils literal notranslate"><span class="pre">[from:to:stride]</span></code>:</p>
 <div class="cell docutils container">
@@ -1107,12 +1267,23 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8]
+[1, 4, 7]
+</pre></div>
+</div>
+</div>
 </div>
 <p>With ‘normal’ indexing of lists, you can only index a subsequently set/replace one element at the time. With slices, however, you can set multiple elements at the same time:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span> <span class="c1"># Assign a new sublist to a slice</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>         <span class="c1"># Prints &quot;[0, 1, 100, 200, 4, 5, 6, 7, 8, 9]&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 100, 200, 4, 5, 6, 7, 8, 9]
 </pre></div>
 </div>
 </div>
@@ -1154,6 +1325,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list below (<tt>my_list_2</tt>), extract the values <tt>[5, 7, 9, 11]</tt> using a slice (i.e., in a single operation!) and store it in a new variable named <tt>my_new_list_2</tt>.
@@ -1181,6 +1357,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <p><em>Note</em>: you can index <em>strings</em> the same way as you index lists! Try to see it this way: a string is, quite literally, a <em>string</em> (“list”) of characters. So, to get the first letter of some string s (e.g, ‘this is a string’), you simply write: <code class="docutils literal notranslate"><span class="pre">s[0]</span></code>. To get first 5 characters, you write <code class="docutils literal notranslate"><span class="pre">s[:5]</span></code>, etc etc. Remember this!</p>
 <div class="cell docutils container">
@@ -1188,6 +1369,11 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out string slicing/indexing below</span>
 <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;python programming&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pto r
 </pre></div>
 </div>
 </div>
@@ -1216,12 +1402,22 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cute
+</pre></div>
+</div>
+</div>
 </div>
 <p>Adding new key-value pairs to dictionaries is easy! Just index it with a new key, and assign the value to it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;fish&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;wet&#39;</span>     <span class="c1"># Set an entry in a dictionary</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;fish&#39;</span><span class="p">])</span>      <span class="c1"># Prints &quot;wet&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wet
 </pre></div>
 </div>
 </div>
@@ -1234,11 +1430,26 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;omg&#39;, &#39;so&#39;, &#39;cute&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>If you try to ‘index’ a dictionary with a key that doesn’t exist, it raises a “KeyError”, which means you’re trying to index something that doesn’t exist:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;monkey&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">52</span><span class="o">-</span><span class="mi">1</span><span class="n">a38ea043328</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;monkey&#39;</span><span class="p">])</span>
+
+<span class="ne">KeyError</span>: &#39;monkey&#39;
 </pre></div>
 </div>
 </div>
@@ -1270,6 +1481,11 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of key &#39;rat&#39; is &#39;</span><span class="si">%s</span><span class="s2">&#39; and NOT &#39;nasty&#39;&quot;</span> <span class="o">%</span> <span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;rat&#39;</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Well done!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
 </pre></div>
 </div>
 </div>
@@ -1307,6 +1523,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <div class='alert alert-success' style='padding-bottom:10px'>
     <b>Tip</b>: Instead of using curly braces, you can also initialize dictionaries explicitly using the <tt>dict</tt> class:<br>
@@ -1325,6 +1546,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 3]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -1332,6 +1558,21 @@
 <span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># you can print parts of tuple ...</span>
 <span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># but you cannot modify it!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">58</span><span class="o">-</span><span class="mi">7</span><span class="n">ce594ed6f91</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># you can print parts of tuple ...</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># but you cannot modify it!</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
 </pre></div>
 </div>
 </div>
@@ -1346,6 +1587,12 @@
 <span class="n">outputs</span> <span class="o">=</span> <span class="n">my_epic_function</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">outputs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, 20)
+&lt;class &#39;tuple&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -1383,6 +1630,18 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">61</span><span class="o">-</span><span class="n">f2efc27a07fb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># This will give an error!</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">add_2_to_a_number</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">new_number</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;new_number&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>So, to access the <em>value</em> of <code class="docutils literal notranslate"><span class="pre">new_number</span></code> (that is, <em>not</em> <code class="docutils literal notranslate"><span class="pre">new_number</span></code> itself, but its associated value), we need to return it:</p>
 <div class="cell docutils container">
@@ -1398,6 +1657,11 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value_contained_in_new_number</span> <span class="o">=</span> <span class="n">add_2_to_a_number_fixed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results of function &#39;add_2_to_a_number&#39; with argument &#39;5&#39;: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">value_contained_in_new_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of function &#39;add_2_to_a_number&#39; with argument &#39;5&#39;: 7
 </pre></div>
 </div>
 </div>
@@ -1442,6 +1706,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GREAT! All seems to be correct :-)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Alright, that was probably relatively easy. Let’s do a slightly harder one.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
@@ -1478,6 +1747,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done (also run the next cell with tests)!
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1501,6 +1775,11 @@
     <span class="k">raise</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Well done!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
 </pre></div>
 </div>
 </div>
@@ -1540,6 +1819,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 3)
+&lt;class &#39;tuple&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can now “unpack” the tuple (i.e., extract the separate values) in several ways. One way is to simply index the values:</p>
 <div class="cell docutils container">
@@ -1553,12 +1838,23 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum: 0
+Maximum: 3
+</pre></div>
+</div>
+</div>
 </div>
 <p>Alternatively, we can already “extract” one value, let’s say the maximum (index 1 of the tuple) right after calling the function, so we can skip dealing with the tuple altogether:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maximum</span> <span class="o">=</span> <span class="n">minmax_of_list</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># The [1] extracts the maximum from the output of the function immediately!</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">maximum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum: 3
 </pre></div>
 </div>
 </div>
@@ -1604,6 +1900,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="methods">
@@ -1622,6 +1923,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+15
+15
+</pre></div>
+</div>
+</div>
 </div>
 <p>Not only lists, but also other data-types (such as strings, dictionaries, and, as we’ll see later, numpy arrays) have their own methods. We’ll show you a couple of (often-used) examples of methods in built-in data types.</p>
 <p>First, one often used method of lists is <code class="docutils literal notranslate"><span class="pre">append</span></code>, which takes in an object adds it to itself.</p>
@@ -1630,6 +1938,11 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
 <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Add a new element to the end of the list using the append() method!</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 10, 15, 20]
 </pre></div>
 </div>
 </div>
@@ -1663,6 +1976,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>YAY!
+</pre></div>
+</div>
+</div>
 </div>
 <p>Some often-used methods for dictionaries are <code class="docutils literal notranslate"><span class="pre">values</span></code> and <code class="docutils literal notranslate"><span class="pre">keys</span></code>, which return the dictionary’s values and keys, respectively. This may be useful in loops (as will be discussed later).</p>
 <div class="cell docutils container">
@@ -1674,6 +1992,12 @@
 
 <span class="c1"># And the .keys() method returns all the keys of the dictionary</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">my_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2]
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 </pre></div>
 </div>
 </div>
@@ -1694,6 +2018,14 @@
 
 <span class="c1"># The .split(separator) splits a string into subparts (returned as a list)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>  <span class="c1"># split by whitespace</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PYTHON IS FUN!
+2
+Python is awesome!
+[&#39;Python&#39;, &#39;is&#39;, &#39;fun!&#39;]
 </pre></div>
 </div>
 </div>
@@ -1723,6 +2055,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Damn, you&#39;re a Python wizard!
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="default-arguments-in-functions-methods">
@@ -1736,6 +2073,13 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">exponentiate_number</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># now it uses the default!</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">exponentiate_number</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="c1"># now it &quot;overwrites&quot; the default and uses power=10</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">exponentiate_number</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># also note that you can &#39;name&#39; arguments </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+1024
+1024
 </pre></div>
 </div>
 </div>
@@ -1756,6 +2100,11 @@ An example:</p>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is smaller than 0&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x must be exactly 0!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is larger than 0
 </pre></div>
 </div>
 </div>
@@ -1797,6 +2146,17 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+JUF!
+JUF!
+22
+JUF!
+JUF!
+80
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="loops">
@@ -1813,6 +2173,13 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cat
+dog
+monkey
+</pre></div>
+</div>
+</div>
 </div>
 <p>Basically, each data type that is also an “iterable” (something that you can iterate over) can be used in loops, including lists, dictionaries, and tuples.</p>
 <div class="cell docutils container">
@@ -1821,6 +2188,13 @@ An example:</p>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
 </pre></div>
 </div>
 </div>
@@ -1848,6 +2222,13 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loop iteration number (index) = 0, value = a
+Loop iteration number (index) = 1, value = b
+Loop iteration number (index) = 2, value = c
+</pre></div>
+</div>
+</div>
 </div>
 <p>Apart from lists, you can also loop over tuples:</p>
 <div class="cell docutils container">
@@ -1856,6 +2237,13 @@ An example:</p>
 <span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_tuple</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
 </pre></div>
 </div>
 </div>
@@ -1872,12 +2260,26 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Looping over both the keys and the entries</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a 1
+b 2
+c 3
 </pre></div>
 </div>
 </div>
@@ -1939,6 +2341,11 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EPIC! Well done!
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="while-loops">
@@ -1959,6 +2366,18 @@ An example:</p>
     <span class="n">i_rolls</span> <span class="o">=</span> <span class="n">i_rolls</span> <span class="o">+</span> <span class="mi">1</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;It took </span><span class="si">{</span><span class="n">i_rolls</span><span class="si">}</span><span class="s2"> to roll a six!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+It took 7 to roll a six!
 </pre></div>
 </div>
 </div>
@@ -1993,6 +2412,14 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+It took 3 to roll a six!
+</pre></div>
+</div>
+</div>
 </div>
 <p>Both implementations are fine; it’s up to you what you prefer.</p>
 <div class='alert alert-success' style='padding-bottom:10px'>
@@ -2020,6 +2447,11 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>APCPZ
+</pre></div>
+</div>
+</div>
 </div>
 <div class='alert alert-danger' style='padding-bottom:10px'>
     <b>Warning</b>: Sometimes, you might run an infinite loop without a way to "break out" of it. When doing so in a (non-interactive) Python script, you can simply press control + C on your keyboard to interrupt the script, but in Jupyter notebooks, this doesn't work. Instead, you need to click on the "stop" button (next to the "run" button) to interrupt the cell! If even that doesn't work, you need to stop the entire kernel: <em>Kernel</em> &rarr; <em>Restart Kernel</em> (or <em>Shut Down Kernel</em>). 
@@ -2040,6 +2472,11 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16]
+</pre></div>
+</div>
+</div>
 </div>
 <p>You can make this code simpler using a list comprehension:</p>
 <div class="cell docutils container">
@@ -2050,6 +2487,11 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Also, list comprehensions may contain if-statements!</p>
 <div class="cell docutils container">
@@ -2057,6 +2499,11 @@ An example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string_nums</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]</span>
 <span class="n">starts_with_t</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;yes&#39;</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;t&#39;</span> <span class="k">else</span> <span class="s1">&#39;no&#39;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">string_nums</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">starts_with_t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;no&#39;, &#39;yes&#39;, &#39;yes&#39;]
 </pre></div>
 </div>
 </div>
@@ -2087,6 +2534,11 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alright! Well done!
+</pre></div>
+</div>
+</div>
 </div>
 <p>In addition to <em>list</em> comprehensions, Python also features <em>dictionary</em> comprehensions, <em>set</em> comprehensions, and <em>generator</em> comprehensions. As we haven’t discussed sets and generators (as these are somewhat more advanced and/or niche concepts), let’s check out an example of a dictionary comprehension. For example, suppose I want to initialize a dictionary with names of students as keys and an empty list as values (which will, at some point, be populated by grades for different assignments). I can do this using a dictionary comprehension:</p>
 <div class="cell docutils container">
@@ -2098,6 +2550,11 @@ An example:</p>
 <span class="c1"># grades = {}</span>
 <span class="c1"># for name in names:</span>
 <span class="c1">#     grades[name] = []</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;billy&#39;: [], &#39;sara&#39;: [], &#39;amir&#39;: []}
 </pre></div>
 </div>
 </div>
@@ -2194,6 +2651,11 @@ An example:</p>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not correctly counterbalanced&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CORRECT! THIS IS AMAZING!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CORRECT! THIS IS AMAZING!
 </pre></div>
 </div>
 </div>
