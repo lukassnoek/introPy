@@ -1,30 +1,3 @@
-c = get_config()
-
-###############################################################################
-# Begin additions by nbgrader quickstart
-###############################################################################
-
-# You only need this if you are running nbgrader on a shared
-# server set up.
-c.CourseDirectory.course_id = "introPy"
-
-# Update this list with other assignments you want
-#c.CourseDirectory.db_assignments = [dict(name="ps1")]
-
-# Change the students in this list with that actual students in
-# your course
-#c.CourseDirectory.db_students = [
-#    dict(id="bitdiddle", first_name="Ben", last_name="Bitdiddle"),
-#    dict(id="hacker", first_name="Alyssa", last_name="Hacker"),
-#    dict(id="reasoner", first_name="Louis", last_name="Reasoner")
-#]
-
-#c.IncludeHeaderFooter.header = "source/header.ipynb"
-
-###############################################################################
-# End additions by nbgrader quickstart
-###############################################################################
-
 # Configuration file for nbgrader-generate-config.
 
 #------------------------------------------------------------------------------
@@ -94,7 +67,9 @@ c.CourseDirectory.course_id = "introPy"
 ## A key that is unique per instructor and course. This can be specified, either
 #  by setting the config option, or using the --course option on the command
 #  line.
-#c.CourseDirectory.course_id = ''
+#c.CourseDirectory.course_id = 'fMRI-pattern-analysis'
+#c.CourseDirectory.course_id = 'fMRI-introduction'
+c.CourseDirectory.course_id = 'intropy'
 
 ## A list of assignments that will be created in the database. Each item in the
 #  list should be a dictionary with the following keys:
@@ -143,7 +118,7 @@ c.CourseDirectory.course_id = "introPy"
 
 ## List of file names or file globs. Upon copying directories recursively,
 #  matching files and directories will be ignored with a debug message.
-c.CourseDirectory.ignore = ['.ipynb_checkpoints', '*.pyc', '__pycache__', 'feedback', 'solution_sine_wave_plot.png']
+#c.CourseDirectory.ignore = ['.ipynb_checkpoints', '*.pyc', '__pycache__', 'feedback']
 
 ## List of file names or file globs. Upon copying directories recursively, non
 #  matching files will be ignored with a debug message.
@@ -165,7 +140,8 @@ c.CourseDirectory.release_directory = 'tutorials'
 ## The root directory for the course files (that includes the `source`,
 #  `release`, `submitted`, `autograded`, etc. directories). Defaults to the
 #  current working directory.
-c.CourseDirectory.root = '/Users/lukas/education/intropy/intropy'
+#c.CourseDirectory.root = '/home/jupyter-niadmin/NI-edu-admin/fMRI-introduction'
+c.CourseDirectory.root = '/home/jupyter-niadmin/intropy/intropy'
 
 ## The name of the directory that contains the master/instructor version of
 #  assignments. This corresponds to the `nbgrader_step` variable in the
@@ -494,7 +470,7 @@ c.CourseDirectory.source_directory = 'solutions'
 #  
 #  `None` or `-1` will disable the timeout. If `timeout_func` is set, it
 #  overrides `timeout`.
-#c.ExecutePreprocessor.timeout = 30
+c.ExecutePreprocessor.timeout = 300
 
 ## A callable which, when given the cell source as input, returns the time to
 #  wait (in seconds) for output from cell executions. If a cell execution takes
@@ -537,7 +513,7 @@ c.CourseDirectory.source_directory = 'solutions'
 ## Removes the output from all code cells in a notebook.
 
 ## 
-#c.ClearOutputPreprocessor.remove_metadata_fields = {'collapsed', 'scrolled'}
+#c.ClearOutputPreprocessor.remove_metadata_fields = {'scrolled', 'collapsed'}
 
 #------------------------------------------------------------------------------
 # ClearOutput(NbGraderPreprocessor,ClearOutputPreprocessor) configuration
