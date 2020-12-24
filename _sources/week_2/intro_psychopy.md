@@ -7,7 +7,7 @@ Now, let's familiarize ourselves with PsychoPy. Let's start by opening PsychoPy!
 On Mac, PsychoPy might not open right after starting it. In that case, clicking on the icon again seems to work.
 :::
 
-## Subwindows 
+## Subwindows
 Psychopy by default opens three subwindows: the *PsychoPy Builder*, the *PsychoPy Coder*, and the *Experiment runner*. The *Builder* is the graphical interface of PsychoPy, which you can use to create experiments without any code, whereas the *Coder* interface provides an editor in which you can program experiments using Python code (as provided by the PsychoPy package). The *Experiment runner* is a tool to create complex *sets* of experiments/tasks (e.g., a battery of different tasks or questionnaires). It also provides a "log" of whatever is happening in your experiment when you run it. In this tutorial, we will only discuss some general PsychoPy features, for which the *Builder* interface suffices, so you may close the *Coder* interface and the *Experiment runner* for now. 
 
 To read more about the different interfaces, read the [Getting started](https://www.psychopy.org/gettingStarted.html) page on the PsychoPy website.
