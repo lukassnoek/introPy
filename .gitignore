@@ -139,5 +139,5 @@ intropy/tutorials/week_2/conditions.xlsx
 intropy/solutions/week_2/stroop*.py
 intropy/*/assignment
 intropy/_build/
-
+intropy/config/*.py
 **/.DS_Store
