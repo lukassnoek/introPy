@@ -122,7 +122,7 @@ If you run the experiment, the fixation dot may look more like an oval than a ci
 If you want a challenge, try the (optional) ToDo below.
 
 :::{admonition,attention} ToDo
-In their article [What is the best fixation target? The effect of target shape on stability of fixational eye movements](https://www.sciencedirect.com/science/article/pii/S0042698912003380), Thaler and colleagues (2013) investigate the effect of different fixation targets on eye movements and find that the fixation target below leads to the fewest eye movements.
+In their article [What is the best fixation target? The effect of target shape on stability of fixational eye movements](https://www.sciencedirect.com/science/article/pii/S0042698912003380) {cite}`thaler2013best`, Thaler and colleagues (2013) investigate the effect of different fixation targets on eye movements and find that the fixation target below leads to the fewest eye movements.
 
 ![optimal_fix](../img/optimal_fix.png)
 
