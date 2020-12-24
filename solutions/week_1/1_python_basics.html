@@ -2062,7 +2062,7 @@ An example:</p>
 </div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
-    <b>ToDo</b>: Write a list comprehension that adds the string <tt>'_check'</tt> to each value in the list <tt>my_list</tt> below, except if the value is 'B'. (This is an optional ToDo to practice list comprehensions.) Note that (in this particular use of list-comprehensions) you always need <em>both</em> a "if .." part <em>and</em> an "else ..." part! So, can you think of a way to add nothing to a string (i.e., the "else ...", when the element is not 'B', part of this list comprehension)? (No test cell.)
+    <b>ToDo</b> (optional): Write a list comprehension that adds the string <tt>'_check'</tt> to each value in the list <tt>my_list</tt> below, except if the value is 'B'. Store the result in a new variable named <tt>my_list_checked</tt>. Note that (in this particular use of list-comprehensions) you always need <em>both</em> a "if .." part <em>and</em> an "else ..." part! So, can you think of a way to add nothing to a string (i.e., the "else ...", when the element is not 'B', part of this list comprehension)?
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo below (no test cell). &quot;&quot;&quot;</span>
@@ -2070,6 +2070,20 @@ An example:</p>
 <span class="c1">### BEGIN SOLUTION</span>
 <span class="n">my_list_checked</span> <span class="o">=</span> <span class="p">[</span><span class="n">elem</span> <span class="o">+</span> <span class="s1">&#39;_check&#39;</span> <span class="k">if</span> <span class="n">elem</span> <span class="o">!=</span> <span class="s1">&#39;B&#39;</span> <span class="k">else</span> <span class="n">elem</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">]</span>
 <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">for</span> <span class="n">orig</span><span class="p">,</span> <span class="n">new</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">my_list_checked</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">orig</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">orig</span> <span class="o">==</span> <span class="n">new</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">orig</span><span class="si">}</span><span class="s1">_check&#39;</span> <span class="o">==</span> <span class="n">new</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alright! Well done!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
