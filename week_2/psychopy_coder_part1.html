@@ -465,7 +465,19 @@
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
 <p>Given the dialog box configuration from the previous ToDo, include a print statement to your script that will print out the following: “Started the experiment for participant … with age …”, where the triple dots are replaced by whatever you filled in when running the experiment.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># I like F-strings, but other string formatting methods are fine, too!</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Started the experiment for participant </span><span class="si">{</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;participant_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> with age </span><span class="si">{</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+</details></div>
 <p>Currently, it doesn’t matter whether the user clicked on <em>OK</em> or <em>Cancel</em> in the dialog box — in both cases, PsychoPy would have continued with the script. It would be nice to actually quit the experiment when the user pressed <em>Cancel</em>. To do so, we can use the attribute <code class="docutils literal notranslate"><span class="pre">OK</span></code> from the dialog box object, which is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> when the user clicks on <em>OK</em> and is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> when the user clicks on <em>Cancel</em>. To quit the experiment, we can use the function <code class="docutils literal notranslate"><span class="pre">quit</span></code> from the <code class="docutils literal notranslate"><span class="pre">psychopy.core</span></code> module. Then, we can implement something like the following to quit the experiment when the user clicked on <em>Cancel</em> instead of <em>OK</em> (assuming the dialog box object is named <code class="docutils literal notranslate"><span class="pre">dlg</span></code> and the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function has already been imported):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">dlg</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span>
     <span class="c1"># Maybe add a nice print statement?</span>
@@ -477,7 +489,30 @@
 <div class="attention admonition">
 <p class="admonition-title"> ToDo (optional)</p>
 <p>Add some code after the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">dlg.OK</span></code> code block that also quits the experiment when the user fills in an invalid participant number (let’s say, anything higher than 99) or an invalid age (let’s say, below 18). Try running the experiment with different values for these two options to see whether your implementation works as expected!</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">dlg</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span>
+    <span class="n">quit</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Quit when either the participant nr or age is not filled in</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]:</span>
+        <span class="n">quit</span><span class="p">()</span>
+        
+    <span class="c1"># Also quit in case of invalid participant nr or age</span>
+    <span class="k">if</span> <span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">99</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="n">quit</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># let&#39;s star the experiment!</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Started experiment for participant </span><span class="si">{</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;participant_nr&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> &quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot;with age </span><span class="si">{</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+</details></div>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> in fact can be customized much by using different arguments upon initialization. Check out the <a class="reference external" href="https://www.psychopy.org/api/gui.html">documentation</a> to learn more.</p>
 <p>Now, so far we haven’t really discussed how to actually create proper experiments, so let’s start with arguably the most important element of Coder exeriments: the <code class="docutils literal notranslate"><span class="pre">Window</span></code>.</p>
 </div>

@@ -93,9 +93,16 @@ The type of the values from the dictionary depend on the type of the variables y
 
 Let's do an exercise to see whether everything's clear so far.
 
-:::{admonition,attention} ToDo
+:::::{admonition,attention} ToDo
 Given the dialog box configuration from the previous ToDo, include a print statement to your script that will print out the following: "Started the experiment for participant ... with age ...", where the triple dots are replaced by whatever you filled in when running the experiment.
-:::
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+# I like F-strings, but other string formatting methods are fine, too!
+print(f"Started the experiment for participant {exp_info['participant_id']} with age {exp_info['age']}!")
+```
+````
+:::::
 
 Currently, it doesn't matter whether the user clicked on *OK* or *Cancel* in the dialog box &mdash; in both cases, PsychoPy would have continued with the script. It would be nice to actually quit the experiment when the user pressed *Cancel*. To do so, we can use the attribute `OK` from the dialog box object, which is set to `True` when the user clicks on *OK* and is set to `False` when the user clicks on *Cancel*. To quit the experiment, we can use the function `quit` from the `psychopy.core` module. Then, we can implement something like the following to quit the experiment when the user clicked on *Cancel* instead of *OK* (assuming the dialog box object is named `dlg` and the `quit` function has already been imported):
 
@@ -108,9 +115,27 @@ if not dlg.OK:
 
 We recommend adding this snippet right after initialization of the dialog box in every experiment that actually uses a dialog box! Now, those that want a challenge, try the following (optional) ToDo. 
 
-:::{admonition,attention} ToDo (optional)
+:::::{admonition,attention} ToDo (optional)
 Add some code after the `if not dlg.OK` code block that also quits the experiment when the user fills in an invalid participant number (let's say, anything higher than 99) or an invalid age (let's say, below 18). Try running the experiment with different values for these two options to see whether your implementation works as expected!
-:::
+
+````{dropdown} Click here to show the solution (but try it yourself first!)
+```python
+if not dlg.OK:
+    quit()
+else:
+    # Quit when either the participant nr or age is not filled in
+    if not exp_info['participant_nr'] or not exp_info['age']:
+        quit()
+        
+    # Also quit in case of invalid participant nr or age
+    if exp_info['participant_nr'] > 99 or int(exp_info['age']) < 18:
+        quit()
+    else:  # let's star the experiment!
+        print(f"Started experiment for participant {exp_info['participant_nr']} "
+                 f"with age {exp_info['age']}.")
+```
+````
+:::::
 
 Note that the `DlgFromDict` in fact can be customized much by using different arguments upon initialization. Check out the [documentation](https://www.psychopy.org/api/gui.html) to learn more. 
 
@@ -145,9 +170,9 @@ When you run the experiment in full-screen mode (i.e., `fullscr=True`), there is
 
 You can also change the window's background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the `color` argument.
 
-:::{admonition,attention} ToDo
+:::::{admonition,attention} ToDo
 Although we don't recommend doing so in a real experiment, try making the window's background color bright blue. Want a more challenging exercise? Try to set the background to bright orange. Hint: note that PsychoPy assumes that RGB values range from -1 (minimum) to 1 (maximum), not from 0 to 255!
-:::
+:::::
 
 Another important argument of the `Window` class is the `monitor`, to which you can pass the name of the monitor, as defined in the monitor center, you want to use for this experiment. For example, if you defined a monitor in the monitor center with the name "laptop", you can pass this configuration to the `Window` class as follows:
 
