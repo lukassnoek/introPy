@@ -11,9 +11,9 @@ copyright                   : "2020"  # Copyright year to be placed in the foote
 logo                        : img/logo.png  # A path to the book logo
 
 # Global settings
-only_build_toc_files        : true
+only_build_toc_files        : false
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "tutorials/week_?/*ipynb",
-                               "**.pytest_cache", "*/week_1/assignment*.ipynb", "week_2/assignment_week2.md"]
+                               "**.pytest_cache", "solutions/assignment/*"]
 
 execute:
   timeout                   : 120    # The maximum time (in seconds) each notebook cell is allowed to run.
