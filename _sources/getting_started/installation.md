@@ -53,7 +53,7 @@ python -c "import sys; print(sys.executable)"
 This command should print out the location where you installed Python, e.g., `/Users/your_name/anaconda3/bin/python` (on Mac) or `C:\Users\your_name\anaconda3\bin\python` (on Windows). 
 
 ## PsychoPy
-In the second week of the course, we are going to use [PsychoPy](https://www.psychopy.org/), a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package `psychopy` and installing the complete "standalone" PsychoPy software package. If you have a working version of Python already, the `psychopy` Python package can be installed as a regular third-party package through [pip](https://packaging.python.org/tutorials/installing-packages/). However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core `psychopy` package to work properly is all but trivial. Instead, we *highly* recommend installing the ["standalone" version of PsychoPy](https://www.psychopy.org/download.html). The standalone version does not only contain a working version of the `psychopy` package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy *Builder* interface) to create experiments without programming.
+In the second week of the course, we are going to use [PsychoPy](https://www.psychopy.org/), a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package `psychopy` and installing the complete "standalone" PsychoPy software package. If you have a working version of Python already, the `psychopy` Python package can be installed as a regular third-party package through [pip](https://packaging.python.org/tutorials/installing-packages/) &mdash; the **P**ackage **I**nstaller for **P**ython. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core `psychopy` package to work properly is all but trivial. Instead, we *highly* recommend installing the ["standalone" version of PsychoPy](https://www.psychopy.org/download.html). The standalone version does not only contain a working version of the `psychopy` package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy *Builder* interface) to create experiments without programming.
 
 :::{note}
 Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the [standalone PsychoPy version](https://www.psychopy.org/).
@@ -75,14 +75,14 @@ We use both [Jupyter notebooks](https://jupyter.org/) and regular Python scripts
 
 [Download materials](https://github.com/lukassnoek/introPy/archive/master.zip)
 
-After downloading the materials, please unzip the folder. Note that students from the Research Master course do not need the materials from week 1 (which are already on the server).
+After downloading the materials, please unzip the folder. Note that students from the Research Master course do not need the materials from week 1 (which are already on the server), only the materials from week 2 (because PsychoPy programs need to be run locally on your computer).
 
 :::{warning}
-If you work with your own Python installation, you may need to install additional Python packages. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:
+If you work with your own Python installation, you may need to install additional Python packages to make sure all material from week 1 works as expected. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:
 
     pip install .
 
-This is not necessary if you use Binder as your Python platform!
+Note that this is not necessary if you use Binder (or the UvA JupyterHub) as your Python environment!
 :::
 
 Before you start working on the course materials, read the next page on the [Jupyter ecosystem](jupyter.md).
