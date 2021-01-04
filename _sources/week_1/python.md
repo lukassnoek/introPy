@@ -6,6 +6,9 @@ The *numpy* tutorial is **optional** (i.e., its contents won't be featured on th
 ## Lecture slides
 < EMBED LECTURE SLIDES HERE >
 
+## Tutorials
 Note that all tutorial from this week are written in Jupyter notebooks, which are meant to be used interactively. Run them online using Binder or Jupyterhub, or run them on your own computer using your own Python installation.
+
+Note that students from the Research Master need to "fetch" the materials first before being able to open them (instructions can be found on Canvas).
 
 Let's start with [the first Python tutorial](../solutions/week_1/0_introduction.ipynb)!

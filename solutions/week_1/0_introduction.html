@@ -480,7 +480,7 @@
 <h2>Jupyter notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
 <p>So, what are Jupyter notebooks, actually? Basically, using Jupyter notebooks is like using the web-browser as a kind of editor from which you can run Python code, similar to the MATLAB interactive editor or RStudio. Just like any editor, code in Jupyter notebooks is interpreted and executed by Python on your computer (or on a remote server) and their results are returned to the notebook for display.</p>
 <p>The cool thing about these notebooks is that they allow you to mix code “cells” (see below) and text “cells” (such as this one). The (printed) output from code blocks are displayed right below the code blocks themselves.</p>
-<p>Jupyter notebooks have two <strong>modes</strong>: edit mode and command mode.</p>
+<p>Jupyter notebooks have two <em>modes</em>: edit mode and command mode.</p>
 <ul class="simple">
 <li><p><em>Command mode</em> is indicated by a grey cell border with a blue left margin (as is the case now!): When you are in command mode, you are able to edit the notebook as a whole, but not type into individual cells. Most importantly, in command mode, the keyboard is mapped to a set of shortcuts that let you perform notebook and cell actions efficiently (some shortcuts in command mode will be discussed later!). Enter command mode by pressing <strong>Esc</strong> or using the mouse to click outside a cell’s editor area; <br><br></p></li>
 <li><p><em>Edit mode</em> is indicated by a green cell border and a prompt showing in the editor area: When a cell is in edit mode, you can type into the cell, like a normal text editor. Enter edit mode by pressing Enter or using the mouse to double-click on a cell’s editor area.</p></li>
@@ -491,7 +491,7 @@
 <p>Code cells are the place to write your Python code, similar to MATLAB ‘code sections’ (which are usually deliniated by %%). Importantly, unlike the interactive editors in RStudio and MATLAB, a code cell in Jupyter notebooks can only be run all at once. This means you cannot run it line-by-line, but you have to run the entire cell!</p>
 <div class="section" id="running-cells">
 <h4>Running cells<a class="headerlink" href="#running-cells" title="Permalink to this headline">¶</a></h4>
-<p>Let’s look at an example. Below, you see a code-cell with two print-statements. To run the cell, select it (i.e., the cell should have a green or blue frame around it; doesn’t matter whether you’re in edit or command mode), and click on the “▶ <code class="docutils literal notranslate"><span class="pre">Run</span></code>” icon or press <code class="docutils literal notranslate"><span class="pre">ctr+Enter</span></code>). Try it with the cell below!</p>
+<p>Let’s look at an example. Below, you see a code-cell with two print-statements. To run the cell, select it (i.e., the cell should have a green or blue frame around it; doesn’t matter whether you’re in edit or command mode), and click on the “▶ Run” icon or press <code class="docutils literal notranslate"><span class="pre">ctr+Enter</span></code>). Try it with the cell below!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m printing Python code&quot;</span><span class="p">)</span>
@@ -578,13 +578,13 @@
 <b>ToDo</b>: Try it out yourself! Change the code cell, which contains markdown, into a markdown cell!
 </div><div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>This is a code cell, but it contains markdown, **oh no**!
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>This is a code cell, but it contains markdown - **oh no**!
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-4-1607ebd0ff3f&gt;&quot;, line 1
-    This is a code cell, but it contains markdown, **oh no**!
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-4-a0c02a42c076&gt;&quot;, line 1
+    This is a code cell, but it contains markdown - **oh no**!
               ^
 SyntaxError: invalid syntax
 </pre></div>
@@ -770,13 +770,14 @@ y            int       4
 <p>Note that <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic commands</a> are Jupyter notebook-specific functionality, so it won’t work in environments other than Jupyter notebooks!</p>
 <p>Interactive programming is common in languages such as R and Matlab, whose popular editors (like RStudio and the default Matlab editor) by design encourage users to run their scripts line by line. This way of programming is great for teaching, as it allows for explanation of concepts in a step by step fashion. Similarly, interactive programming is great when troubleshooting (“debugging”) your code, exploring your data, or trying out different data visualizations.</p>
 <p>However, this way of programming is not necessarily always the best way to write, organize, and run your code. For example, if you want to reuse your code across multiple projects or applications, you’d have to copy your code from one notebook to the other. Also, notebooks tend to become large and messy when the scope and complexity of projects increase. Fortunately, you can also store your code in regular Python files, i.e., any plain text file with the extension <code class="docutils literal notranslate"><span class="pre">.py</span></code>. These are analogous to R scripts (<code class="docutils literal notranslate"><span class="pre">.R</span></code>) and Matlab scripts (<code class="docutils literal notranslate"><span class="pre">.m</span></code>). Writing Python code in Python files is actually the way most people use Python!</p>
-<p>Like Jupyter notebooks, Python files accept any valid Python code. We included an example script, <code class="docutils literal notranslate"><span class="pre">example_script.py</span></code>, in the current directory.</p>
+<p>Like Jupyter notebooks, Python files accept any valid Python code. We included an example script, <code class="docutils literal notranslate"><span class="pre">example_file.py</span></code>, in the current directory.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
-    <b>ToDo</b>: Locate the <tt>example_script.py</tt> file in the file browser on the left side of the Jupyterlab interface. Click on it to open it and inspect its contents.
-</div><p>As you can see, this file contains a couple of comments (prefixed by <code class="docutils literal notranslate"><span class="pre">#</span></code>) and two lines of code: one defining a variable (<code class="docutils literal notranslate"><span class="pre">message</span></code>) pointing to a string (<code class="docutils literal notranslate"><span class="pre">&quot;Hi,</span> <span class="pre">welcome</span> <span class="pre">to</span> <span class="pre">introPy!&quot;</span></code>) and one printing the variable. Now, you might ask yourself, “how should these files by run?”. Usually, Python files are run (or “executed”) in a <em>terminal</em>. A terminal, or sometimes called a <em>command line</em>, is a tool to perform tasks on a computer without a graphical interface. Instead of a graphical interface, you type commands in the terminal to tell it what to do. Although each operating system has its own type of terminal (and way to open it), Jupyterlab also comes with its own terminal implementation.</p>
+    <b>ToDo</b>: Locate the <tt>example_file.py</tt> file in the file browser from the Jupyter interface. Click on it to open it and inspect its contents.
+</div><p>As you can see, this file contains a couple of comments (prefixed by <code class="docutils literal notranslate"><span class="pre">#</span></code>) and two lines of code: one defining a variable (<code class="docutils literal notranslate"><span class="pre">message</span></code>) pointing to a string (<code class="docutils literal notranslate"><span class="pre">&quot;Hi,</span> <span class="pre">welcome</span> <span class="pre">to</span> <span class="pre">introPy!&quot;</span></code>) and one printing the variable.</p>
+<p>Now, you might ask yourself, “how should these files by run?”. Usually, Python files are run (or “executed”) in a <em>terminal</em>. A terminal, or sometimes called a <em>command line</em>, is a tool to perform tasks on a computer without a graphical interface. Instead of a graphical interface, you type commands in the terminal to tell it what to do. Although each operating system has its own type of terminal (and way to open it), the Jupyter environment also comes with its own terminal implementation.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
-    <b>ToDo</b> Open a terminal in Jupyterlab by clicking on <em>File</em> &rarr; <em>New</em> &rarr; <em>Terminal</em> in the upper left corner.
-</div><p>This should open a new tab in Jupyterlab with a terminal. In the terminal, you can enter different commands. For example, to print something (like the Python <code class="docutils literal notranslate"><span class="pre">print</span></code> function), you can run the following command:</p>
+    <b>ToDo</b> Open a terminal by clicking on <em>File</em> &rarr; <em>New</em> &rarr; <em>Terminal</em> in the upper right corner (in the classic interface) or upper left corner (in the JupyterLab interface).
+</div><p>This should open a new tab with a terminal. In the terminal, you can enter different commands. For example, to print something to the terminal window (similar to the Python <code class="docutils literal notranslate"><span class="pre">print</span></code> function), you can run the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Hey! I&#39;m running stuff in the terminal. #lit&quot;</span>
 </pre></div>
 </div>
@@ -786,7 +787,7 @@ y            int       4
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">python_file</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>The path to your Python file should be specified relative to your location in the terminal. By default in this course, Jupyterlab terminals are openened at the root of the directory with course materials. So, to run the <code class="docutils literal notranslate"><span class="pre">example_file.py</span></code> file, we cannot enter <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">example_file.py</span></code>, but we should instead enter the full path to the file:</p>
+<p>The path to your Python file should be specified relative to your location in the terminal. By default in this course, Jupyter terminals are openened at the root of the directory with course materials. So, to run the <code class="docutils literal notranslate"><span class="pre">example_file.py</span></code> file, we cannot enter <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">example_file.py</span></code>, but we should instead enter the full path to the file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">tutorials</span><span class="o">/</span><span class="n">week_1</span><span class="o">/</span><span class="n">example_file</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
@@ -801,7 +802,7 @@ y            int       4
 <p>One last concept related to script mode we want to discuss is the distinction between Python “scripts” and Python “modules”. In short, any Python file (i.e., a file with the extension <code class="docutils literal notranslate"><span class="pre">.py</span></code>) can be either a <em>script</em> or a <em>module</em>, and whether it is one or the other depends on how you use the file. In short, scripts are Python files that contain code that actually <em>does</em> something (e.g., compute the average of a series of numbers, clean up a messy excel file, etc.) while modules only contain code that <em>define</em> things.</p>
 <p>In the course materials, we have included a very simple script (<code class="docutils literal notranslate"><span class="pre">example_script.py</span></code>) and a simple module (<code class="docutils literal notranslate"><span class="pre">example_module.py</span></code>). The script computes the average of two (predefined) numbers (i.e., it <em>does</em> something). The module file only <em>defines</em> a function (<code class="docutils literal notranslate"><span class="pre">average</span></code>). Indeed, if you’d run the script, several things will be done (i.e., the average of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> will be computed and the result will be printed), but if you’d run the module, nothing will happen.</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
-    <b>ToDo</b>: Run both files separately and confirm for yourself that nothing happens when running the module file.
+    <b>ToDo</b>: Run both files separately and confirm for yourself that nothing happens when running the module file (<tt>example_module.py</tt>).
 </div><p>It is important to realize that this distinction between scripts and modules is a <em>conceptual</em> difference, not a <em>technical</em> one. Python doesn’t care whether you think a file is a script or a module — it just sees and runs a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file. Why would <em>you</em> care, then? Well, because it allows you to organize your code in a sensible and efficient manner, where modules may define operations that may be used across different scripts. In the example script and module discussed previously, we actually did something similar by “importing” functionality from the module in the script file! (Imports will be discussed at length in the next notebook.)</p>
 <p>To give a more practical example, in my own research projects I often have a single <code class="docutils literal notranslate"><span class="pre">analysis.py</span></code> <em>script</em> which I run when I want to (re)run my analysis. This script uses functionality from different modules, such as <code class="docutils literal notranslate"><span class="pre">preprocessing.py</span></code> and <code class="docutils literal notranslate"><span class="pre">visualization.py</span></code>. This way, the analysis script stays relatively short and readable, abstracting away from the different operations defined in the modules.</p>
 <p>Again, this distinction between scripts and modules is only conceptual. Nothing is stopping you from writing all your code in one single file! For example, the <code class="docutils literal notranslate"><span class="pre">average</span></code> function definition from the <code class="docutils literal notranslate"><span class="pre">example_module.py</span></code> module could also have been directly included in the <code class="docutils literal notranslate"><span class="pre">example_script.py</span></code> script; nothing wrong with that. But understanding the difference between these two types of files and organizing your code accordingly will undoubtely lead to cleaner, better readable code in the long run, especially for large projects!</p>
@@ -1014,7 +1015,7 @@ y            int       4
 </div>
 </div>
 </div>
-<p>To find out which (other) attributes and methods a particular object has, you can either look at the source code (i.e., looking at the <code class="docutils literal notranslate"><span class="pre">utils.py</span></code> file in this case) or using the following Jupyter trick: in a code cell, type the name of the object followed by a period (.) and press TAB. This will create a pop-up with a list of the possible attributes (called “instances” in Jupyterlab) and methods (called simply “functions” in Jupyterlab).</p>
+<p>To find out which (other) attributes and methods a particular object has, you can either look at the source code (i.e., looking at the <code class="docutils literal notranslate"><span class="pre">utils.py</span></code> file in this case) or using the following Jupyter trick: in a code cell, type the name of the object followed by a period (.) and press TAB. This will create a pop-up with a list of the possible attributes (called “instances” in the Jupyter interface) and methods (called simply “functions” in Jupyter).</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: In the cell below, use the Jupyter notebook trick just discussed to check out the attributes and methods of the <tt>random_person</tt> object.
 </div><div class="cell docutils container">
@@ -1578,9 +1579,6 @@ A couple of hints:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OMG. You&#39;re amazing!
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
