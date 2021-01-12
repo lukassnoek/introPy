@@ -79,7 +79,7 @@ The qualitative criteria are related to the quality of the code as well as the e
 
     If you would give this script to someone who doesn't know PsychoPy, would they understand how it worked?<br><br>
 
-* **Efficiency of code (no redundancy, i.e., repeated code)**
+* **Efficiency of code (no redundancy, i.e., repeated code)**<br><br>
 
     Use (for-) loops where needed. If you repeat code, consider writing a function for it.
 
@@ -113,6 +113,9 @@ You can find some tips and tricks for completing this assignment below (feel fre
 * Google is your friend; use it!
 * You may specify your trial conditions any way you like, as long as it meets the criteria defined above;
 * It doesn't matter which timing method you use (the `wait` function/clock-based timing/frame-based timing)
+
+## Plagiarism
+Although this is an "open-book" assignment, you may not work together on this assignment. In case we find out that students work together on this assignment, this will be reported as plagiarism to the exam committee. 
 
 ## Handing in your assignment
 Hand in your experiment (a `.py` file) on Canvas: *Modules* &rarr; *Assignment 4 (PsychoPy)*. If you use additional files (e.g., custom Python modules you wrote, a condition file, etc.), create a zip-file with every file necessary for the experiment and upload this on Canvas instead.
