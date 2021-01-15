@@ -2,6 +2,8 @@
 In this week, we will cover the essentials of Python. 
 
 ## Lecture slides
+Note that some information in these lecture slides only apply to students from the Research Master Psychology taking the "Programming for Psychological Science" course.
+ 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT-QIBrcujQQejLsdtVCsNj_YmNfN7mv_iRt0taSjn2dik7RxMdpy-tNAfs2W3fxIkEVyQrztAc9ksg/embed?start=true&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ## Tutorials
