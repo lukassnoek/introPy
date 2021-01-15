@@ -2,7 +2,7 @@
 In the previous tutorial, we discussed most of the "administrative" stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we'll discuss how to actually add components to the experiment, interact with user responses, and work with user data. There are a lot of optional, more advanced topics/sections in this tutorial, so feel free to skip those if you are short on time.
 
 :::{warning}
-PsychoPy is an incredibly versatile and flexible software package. The "downside" of this is that sometimes the same "thing" can be achieved in multiple different ways. In this tutorial, we'll highlight different approaches when appropriate, but remember that almost always these approaches are functionally equivalent, so it's up to you which approach you use!
+PsychoPy is an incredibly versatile and flexible software package. The "downside" of this is that sometimes the same thing can be achieved in multiple different ways. In this tutorial, we'll highlight different approaches when appropriate, but remember that almost always these approaches are functionally equivalent, so it's up to you which approach you use!
 :::
 
 We of course assume you finished the previous tutorial already. In this tutorial, we are going to continue our experiment with what we ended up with from the last tutorial. If you want, you can copy the (correct) code from the previous tutorial below, which we'll extend in this tutorial.
