@@ -3,10 +3,6 @@ Welcome to *introPy*
 
 This website contains information about the two-week Python & PsychoPy course taught at the Research Master Psychology (University of Amsterdam). 
 
-:::{warning}
-This website and the course materials are under construction and may change considerably!
-:::
-
 ## Prerequisites
 As this two-week Python course is preceded by a two-week *R* course in the Research Master Psychology, we assume that students are familiar with basic programming concepts (such as variables, conditionals, loops, and functions). Familiarity with Python is not necessary. Those that already have some experience with Python, however, may find the tutorials from this course (too) easy. To challenge those people, we included several more difficult (optional) sections and exercises in the tutorials!
 
