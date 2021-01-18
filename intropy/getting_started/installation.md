@@ -22,7 +22,7 @@ If you want to install Python on your own computer, we *highly* recommend you in
 
 ```{tabbed} Mac
 
-1. Open https://www.anaconda.com/products/individual#download-section with your web browser;
+1. Open the [Anaconda download page](https://www.anaconda.com/products/individual#download-section) with your web browser;
 2. Download the Anaconda Installer with Python 3 for macOS (you can either use the Graphical or the Command Line Installer);
 3. Install Python 3 by running the Anaconda Installer using all of the defaults for installation.
 
@@ -33,7 +33,7 @@ For a more detailed instruction, check out the video below:
 
 ```{tabbed} Windows
 
-1. Open https://www.anaconda.com/products/individual#download-section with your web browser;
+1. Open the [Anaconda download page](https://www.anaconda.com/products/individual#download-section) with your web browser;
 2. Download the Anaconda for Windows installer with Python 3. (If you are not sure which version to choose, you probably want the 64-bit Graphical Installer Anaconda3-...-Windows-x86_64.exe);
 3. Install Python 3 by running the Anaconda Installer, using all of the defaults for installation except **make sure to check Add Anaconda to my PATH environment variable**.
 
@@ -71,16 +71,61 @@ To test whether the installation was successful and everything works as expected
 * Your screen should turn black and start the experiment!
 
 ## Downloading the material
-We use both [Jupyter notebooks](https://jupyter.org/) and regular Python scripts for our tutorials. The materials are stored on [Github](https://github.com/lukassnoek/introPy) and can be downloaded as a zip-file by clicking on the link below:
+We use [Jupyter notebooks](https://jupyter.org/) for our tutorials. The materials are stored on [Github](https://github.com/lukassnoek/introPy) and can be downloaded as a zip-file by clicking on the link below:
 
 [Download materials](https://github.com/lukassnoek/introPy/archive/master.zip)
 
-After downloading the materials, please unzip the folder. Note that students from the Research Master course do not need the materials from week 1 (which are already on the server), only the materials from week 2 (because PsychoPy programs need to be run locally on your computer).
+After downloading the materials, please unzip the folder. The resulting directory has the following structure and contents (the # symbols represent comments/information):
+
+```
+intropy                        # Directory root
+│                        
+├── LICENSE                                      
+├── README.md
+├── build_book
+│
+├── intropy                    # Directory with materials
+│   │
+│   ├── _build                 #
+│   ├── _config.yml            #
+│   ├── _toc.yml               #
+│   ├── config                 #
+│   ├── getting_started        #
+│   ├── gradebook.db           #
+│   ├── img                    #
+│   ├── index.md               #
+│   ├── misc                   #
+│   ├── nbgrader_config.py     #
+│   ├── references.bib         #
+│   │
+│   ├── solutions              # Tutorials WITH solutions
+│   │   ├── week_1             # Jupyter notebook tutorials
+│   │   └── week_2             # Files + solutions of PsychoPy tutorials
+│   │       ├── Builder
+│   │       └── Coder
+│   │
+│   ├── tutorials              # Tutorials
+│   │   ├── week_1             # Jupyter notebook tutorials
+│   │   └── week_2             # Files needed for PsychoPy tutorials
+│   │       ├── Builder
+│   │       └── Coder
+│   │
+│   ├── week_1                 # Website pages week 1 (can be ignored)
+│   └── week_2                 # Website pages week 2 (can be ignored)
+│
+├── requirements.txt           # Required packages for week 1 (and book)
+└── test_material              # Test Jupyter notebooks (for developers)
+```
+
+The only revelant directories are the `intropy/intropy/solutions` and `intropy/intropy/tutorials` directories, which contain the tutorials with and without solutions included, respectively.
+
+Note that students from the Research Master course do *not* need the materials from week 1 (which are already on the server), only the materials from week 2 (because PsychoPy programs need to be run locally on your computer).
 
 :::{warning}
-If you work with your own Python installation, you may need to install additional Python packages to make sure all material from week 1 works as expected. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:
+If you work with your own Python installation, you need to install additional Python packages to make sure all material from week 1 works as expected. To do so, open a terminal (Mac/Linux) or Anaconda prompt (Windows)
+and navigate to the root directory of the downloaded materials (`cd path/to/downloaded/materials`) and run the following:
 
-    pip install .
+    pip install -r requirements.txt
 
 Note that this is not necessary if you use Binder (or the UvA JupyterHub) as your Python environment!
 :::
