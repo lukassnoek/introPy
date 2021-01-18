@@ -373,22 +373,22 @@
 <h3>Installing Python on your own computer<a class="headerlink" href="#installing-python-on-your-own-computer" title="Permalink to this headline">¶</a></h3>
 <p>If you want to install Python on your own computer, we <em>highly</em> recommend you install Python through the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda distribution</a>. In the box below, you can find detailed installation instructions (thanks to <a class="reference external" href="https://escience-academy.github.io/2020-12-07-parallel-python/">the Netherlands eScience Center</a>) specific to your operating system (Mac, Windows, or Linux).</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="1cb8062d-8309-41a5-9c5f-c90321c19d10" name="7644a652-b280-476a-824f-6e3830eb42ba" type="radio">
-</input><label class="tabbed-label" for="1cb8062d-8309-41a5-9c5f-c90321c19d10">
+<input checked="checked" id="829ff527-7490-4a0e-b174-38ac045227fa" name="52eace6d-03b5-46b9-9fb7-f902d3d0030c" type="radio">
+</input><label class="tabbed-label" for="829ff527-7490-4a0e-b174-38ac045227fa">
 Mac</label><div class="tabbed-content docutils">
 <ol class="simple">
-<li><p>Open https://www.anaconda.com/products/individual#download-section with your web browser;</p></li>
+<li><p>Open the <a class="reference external" href="https://www.anaconda.com/products/individual#download-section">Anaconda download page</a> with your web browser;</p></li>
 <li><p>Download the Anaconda Installer with Python 3 for macOS (you can either use the Graphical or the Command Line Installer);</p></li>
 <li><p>Install Python 3 by running the Anaconda Installer using all of the defaults for installation.</p></li>
 </ol>
 <p>For a more detailed instruction, check out the video below:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TcSAln46u9U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-<input id="45959a9b-6046-4832-982e-216047b01640" name="7644a652-b280-476a-824f-6e3830eb42ba" type="radio">
-</input><label class="tabbed-label" for="45959a9b-6046-4832-982e-216047b01640">
+<input id="7a133a21-6efd-4e5a-b99f-a5e8793c64a8" name="52eace6d-03b5-46b9-9fb7-f902d3d0030c" type="radio">
+</input><label class="tabbed-label" for="7a133a21-6efd-4e5a-b99f-a5e8793c64a8">
 Windows</label><div class="tabbed-content docutils">
 <ol class="simple">
-<li><p>Open https://www.anaconda.com/products/individual#download-section with your web browser;</p></li>
+<li><p>Open the <a class="reference external" href="https://www.anaconda.com/products/individual#download-section">Anaconda download page</a> with your web browser;</p></li>
 <li><p>Download the Anaconda for Windows installer with Python 3. (If you are not sure which version to choose, you probably want the 64-bit Graphical Installer Anaconda3-…-Windows-x86_64.exe);</p></li>
 <li><p>Install Python 3 by running the Anaconda Installer, using all of the defaults for installation except <strong>make sure to check Add Anaconda to my PATH environment variable</strong>.</p></li>
 </ol>
@@ -425,13 +425,55 @@ Windows</label><div class="tabbed-content docutils">
 </div>
 <div class="section" id="downloading-the-material">
 <h2>Downloading the material<a class="headerlink" href="#downloading-the-material" title="Permalink to this headline">¶</a></h2>
-<p>We use both <a class="reference external" href="https://jupyter.org/">Jupyter notebooks</a> and regular Python scripts for our tutorials. The materials are stored on <a class="reference external" href="https://github.com/lukassnoek/introPy">Github</a> and can be downloaded as a zip-file by clicking on the link below:</p>
+<p>We use <a class="reference external" href="https://jupyter.org/">Jupyter notebooks</a> for our tutorials. The materials are stored on <a class="reference external" href="https://github.com/lukassnoek/introPy">Github</a> and can be downloaded as a zip-file by clicking on the link below:</p>
 <p><a class="reference external" href="https://github.com/lukassnoek/introPy/archive/master.zip">Download materials</a></p>
-<p>After downloading the materials, please unzip the folder. Note that students from the Research Master course do not need the materials from week 1 (which are already on the server), only the materials from week 2 (because PsychoPy programs need to be run locally on your computer).</p>
+<p>After downloading the materials, please unzip the folder. The resulting directory has the following structure and contents (the # symbols represent comments/information):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>intropy                        # Directory root
+│                        
+├── LICENSE                                      
+├── README.md
+├── build_book
+│
+├── intropy                    # Directory with materials
+│   │
+│   ├── _build                 #
+│   ├── _config.yml            #
+│   ├── _toc.yml               #
+│   ├── config                 #
+│   ├── getting_started        #
+│   ├── gradebook.db           #
+│   ├── img                    #
+│   ├── index.md               #
+│   ├── misc                   #
+│   ├── nbgrader_config.py     #
+│   ├── references.bib         #
+│   │
+│   ├── solutions              # Tutorials WITH solutions
+│   │   ├── week_1             # Jupyter notebook tutorials
+│   │   └── week_2             # Files + solutions of PsychoPy tutorials
+│   │       ├── Builder
+│   │       └── Coder
+│   │
+│   ├── tutorials              # Tutorials
+│   │   ├── week_1             # Jupyter notebook tutorials
+│   │   └── week_2             # Files needed for PsychoPy tutorials
+│   │       ├── Builder
+│   │       └── Coder
+│   │
+│   ├── week_1                 # Website pages week 1 (can be ignored)
+│   └── week_2                 # Website pages week 2 (can be ignored)
+│
+├── requirements.txt           # Required packages for week 1 (and book)
+└── test_material              # Test Jupyter notebooks (for developers)
+</pre></div>
+</div>
+<p>The only revelant directories are the <code class="docutils literal notranslate"><span class="pre">intropy/intropy/solutions</span></code> and <code class="docutils literal notranslate"><span class="pre">intropy/intropy/tutorials</span></code> directories, which contain the tutorials with and without solutions included, respectively.</p>
+<p>Note that students from the Research Master course do <em>not</em> need the materials from week 1 (which are already on the server), only the materials from week 2 (because PsychoPy programs need to be run locally on your computer).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you work with your own Python installation, you may need to install additional Python packages to make sure all material from week 1 works as expected. To do so, open a terminal and navigate to the root directory of the downloaded materials and run the following:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install .
+<p>If you work with your own Python installation, you need to install additional Python packages to make sure all material from week 1 works as expected. To do so, open a terminal (Mac/Linux) or Anaconda prompt (Windows)
+and navigate to the root directory of the downloaded materials (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">path/to/downloaded/materials</span></code>) and run the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
 </pre></div>
 </div>
 <p>Note that this is not necessary if you use Binder (or the UvA JupyterHub) as your Python environment!</p>
