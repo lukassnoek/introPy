@@ -2086,7 +2086,7 @@ Python is awesome!
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
 <span class="k">if</span> <span class="n">fixed_string</span> <span class="o">!=</span> <span class="s2">&quot;My name is Lukas and I like Python.&quot;</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not completely correct yet ...&quot;</span><span class="p">)</span>
 
@@ -2189,9 +2189,7 @@ An example:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 JUF!
 JUF!
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+22
 JUF!
 JUF!
 80
@@ -2307,9 +2305,6 @@ b
 c
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -2415,12 +2410,7 @@ c 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-It took 6 to roll a six!
+It took 1 to roll a six!
 </pre></div>
 </div>
 </div>
@@ -2464,8 +2454,7 @@ Takes too long! Breaking out ...
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
-It took 1 to roll a six!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 0 to roll a six!
 </pre></div>
 </div>
 </div>
@@ -2497,7 +2486,7 @@ It took 1 to roll a six!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ARJEZ
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ARAVZ
 </pre></div>
 </div>
 </div>
@@ -2647,11 +2636,11 @@ It took 1 to roll a six!
     <span class="c1"># Create sequence</span>
     <span class="n">n_per_cond</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_trials</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">exp_seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">n_per_cond</span>
-    
+
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="c1"># Shuffle sequence</span>
         <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">exp_seq</span><span class="p">)</span>
-        
+
         <span class="c1"># Keep track of counts per condition {0, 1}</span>
         <span class="n">counts</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]}</span>
 
