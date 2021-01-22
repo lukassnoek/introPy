@@ -1520,7 +1520,8 @@ dtype: float64
     <b>ToDo</b>: Below, we simulate a dataset with reaction time data (in ms.) across four groups ('A', 'B', 'C', 'D') of 25 participants each. Suppose that we want to, for each group separately, a one-sided t-test of reaction time (against a population mean of 300 ms.). Create a dataframe with 3 columns ("mean", "std", and "t_value") and 4 rows ('A', 'B', 'C', 'D', representing the groups), where the "t_value" column should contain t-values corresponding to the groups.
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -1533,70 +1534,11 @@ dtype: float64
 <span class="n">df_stats</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">df_stats</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span>
 <span class="n">df_stats</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">df_stats</span><span class="p">[</span><span class="s1">&#39;t_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">300</span><span class="p">)</span> <span class="o">/</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">df_stats</span>
+<span class="n">df_stats</span><span class="p">[</span><span class="s1">&#39;t_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">300</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;std&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
 <span class="c1">### END SOLUTION</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mean</th>
-      <th>std</th>
-      <th>t_value</th>
-    </tr>
-    <tr>
-      <th>condition</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>A</th>
-      <td>289.942357</td>
-      <td>46.397118</td>
-      <td>-1.476559</td>
-    </tr>
-    <tr>
-      <th>B</th>
-      <td>286.647525</td>
-      <td>60.784731</td>
-      <td>-1.712634</td>
-    </tr>
-    <tr>
-      <th>C</th>
-      <td>291.063054</td>
-      <td>69.373691</td>
-      <td>-1.072980</td>
-    </tr>
-    <tr>
-      <th>D</th>
-      <td>303.270039</td>
-      <td>76.454090</td>
-      <td>0.373984</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1607,7 +1549,7 @@ dtype: float64
 <span class="k">if</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The dataframe does not contain the right index!&quot;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;t_value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.477</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.713</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.073</span><span class="p">,</span> <span class="mf">0.374</span><span class="p">]:</span>
+<span class="k">if</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;t_value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0839</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0983</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6441</span><span class="p">,</span> <span class="mf">0.2139</span><span class="p">]:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;T-values are not yet correct!&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YOU&#39;RE AMAZING!&quot;</span><span class="p">)</span>
