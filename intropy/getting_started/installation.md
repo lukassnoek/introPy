@@ -55,6 +55,10 @@ This command should print out the location where you installed Python, e.g., `/U
 ## PsychoPy
 In the second week of the course, we are going to use [PsychoPy](https://www.psychopy.org/), a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package `psychopy` and installing the complete "standalone" PsychoPy software package. If you have a working version of Python already, the `psychopy` Python package can be installed as a regular third-party package through [pip](https://packaging.python.org/tutorials/installing-packages/) &mdash; the **P**ackage **I**nstaller for **P**ython. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core `psychopy` package to work properly is all but trivial. Instead, we *highly* recommend installing the ["standalone" version of PsychoPy](https://www.psychopy.org/download.html). The standalone version does not only contain a working version of the `psychopy` package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy *Builder* interface) to create experiments without programming.
 
+:::{warning}
+For some (?) Windows users, the PsychoPy website states "To install PsychoPy on Windows we recommend" installing PsychoPy through `pip`. Don't do this (because it doesn't include the Builder interface). Instead, click on the link [PsychoPy releases on github](https://github.com/psychopy/psychopy/releases) and download the latest `.exe` file (currently, `StandalonePsychoPy3-2020.2.10-win64.exe`).
+:::
+
 :::{note}
 Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the [standalone PsychoPy version](https://www.psychopy.org/).
 :::
