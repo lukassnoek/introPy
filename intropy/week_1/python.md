@@ -13,4 +13,8 @@ The first two tutorials (*Introduction to Python* and *Python basics*) will intr
 
 The *numpy* tutorial is **optional** (i.e., its contents won't be featured on the exam/assignments), but highly recommended for those wanting to develop more advanced data analysis skills (which are useful for, e.g., machine learning and neuroimaging research).
 
+:::{tip}
+The solutions to the tutorial exercises ("ToDos") are actually embedded in the tutorial pages on this website, but hidden by default. Click on the plus symbol next to the "Click to show" text to reveal the cell with the solution!
+:::
+
 Let's start with [the first Python tutorial](../solutions/week_1/0_introduction.ipynb)!
