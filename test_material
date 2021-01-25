@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
-pytest --nbval --ignore=intropy/_build/ --ignore=intropy/tutorials/week_1
+pytest --nbval --ignore=intropy/_build/ \
+	--ignore=intropy/solutions/assignment \
+	--ignore=intropy/solutions/assignment_resit \
+	--ignore=intropy/tutorials \
+	--ignore=intropy/submitted \
+	--ignore=intropy/autograded

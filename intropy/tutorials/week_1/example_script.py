@@ -1,4 +1,4 @@
-from example_module.py import average
+from example_module import average
 
 a = 5
 b = 10
