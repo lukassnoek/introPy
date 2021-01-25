@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Installation &#8212; introPy</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -373,8 +373,8 @@
 <h3>Installing Python on your own computer<a class="headerlink" href="#installing-python-on-your-own-computer" title="Permalink to this headline">¶</a></h3>
 <p>If you want to install Python on your own computer, we <em>highly</em> recommend you install Python through the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda distribution</a>. In the box below, you can find detailed installation instructions (thanks to <a class="reference external" href="https://escience-academy.github.io/2020-12-07-parallel-python/">the Netherlands eScience Center</a>) specific to your operating system (Mac, Windows, or Linux).</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a587fef2-80bc-43bc-ba6d-f5e376cde9ea" name="c35c8749-8883-4363-9c57-3b5507de792b" type="radio">
-</input><label class="tabbed-label" for="a587fef2-80bc-43bc-ba6d-f5e376cde9ea">
+<input checked="checked" id="82a50776-06c6-4f8a-a0cd-39da6a4be0e5" name="7d74853e-afbb-43c9-af90-01f86eefdf66" type="radio">
+</input><label class="tabbed-label" for="82a50776-06c6-4f8a-a0cd-39da6a4be0e5">
 Mac</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Open the <a class="reference external" href="https://www.anaconda.com/products/individual#download-section">Anaconda download page</a> with your web browser;</p></li>
@@ -384,8 +384,8 @@ Mac</label><div class="tabbed-content docutils">
 <p>For a more detailed instruction, check out the video below:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TcSAln46u9U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-<input id="c5dbecfd-c3ea-4d45-9893-e404422304e8" name="c35c8749-8883-4363-9c57-3b5507de792b" type="radio">
-</input><label class="tabbed-label" for="c5dbecfd-c3ea-4d45-9893-e404422304e8">
+<input id="704dc4db-be53-4c37-ba7d-b93fdb323ff8" name="7d74853e-afbb-43c9-af90-01f86eefdf66" type="radio">
+</input><label class="tabbed-label" for="704dc4db-be53-4c37-ba7d-b93fdb323ff8">
 Windows</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Open the <a class="reference external" href="https://www.anaconda.com/products/individual#download-section">Anaconda download page</a> with your web browser;</p></li>
@@ -407,6 +407,10 @@ Windows</label><div class="tabbed-content docutils">
 <div class="section" id="psychopy">
 <h2>PsychoPy<a class="headerlink" href="#psychopy" title="Permalink to this headline">¶</a></h2>
 <p>In the second week of the course, we are going to use <a class="reference external" href="https://www.psychopy.org/">PsychoPy</a>, a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> and installing the complete “standalone” PsychoPy software package. If you have a working version of Python already, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package can be installed as a regular third-party package through <a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/">pip</a> — the <strong>P</strong>ackage <strong>I</strong>nstaller for <strong>P</strong>ython. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package to work properly is all but trivial. Instead, we <em>highly</em> recommend installing the <a class="reference external" href="https://www.psychopy.org/download.html">“standalone” version of PsychoPy</a>. The standalone version does not only contain a working version of the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy <em>Builder</em> interface) to create experiments without programming.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For some (?) Windows users, the PsychoPy website states “To install PsychoPy on Windows we recommend” installing PsychoPy through <code class="docutils literal notranslate"><span class="pre">pip</span></code>. Don’t do this (because it doesn’t include the Builder interface). Instead, click on the link <a class="reference external" href="https://github.com/psychopy/psychopy/releases">PsychoPy releases on github</a> and download the latest <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file (currently, <code class="docutils literal notranslate"><span class="pre">StandalonePsychoPy3-2020.2.10-win64.exe</span></code>).</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the <a class="reference external" href="https://www.psychopy.org/">standalone PsychoPy version</a>.</p>
@@ -531,7 +535,7 @@ and navigate to the root directory of the downloaded materials (<code class="doc
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
