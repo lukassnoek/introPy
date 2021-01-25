@@ -141,3 +141,7 @@ intropy/*/assignment*
 intropy/_build/
 intropy/config/*.py
 **/.DS_Store
+
+intropy/autograded
+intropy/submitted
+intropy/feedback
