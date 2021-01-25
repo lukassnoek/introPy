@@ -1337,6 +1337,9 @@ Name: age, dtype: bool
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Try running the above cell again. You'll get an error! Do you understand why?
+</div><p>Note that, instead of saving the output of the <code class="docutils literal notranslate"><span class="pre">drop</span></code> method in a new (or the same) variable, you can also modify the dataframe “in place” by setting the <code class="docutils literal notranslate"><span class="pre">inplace</span></code> argument to <code class="docutils literal notranslate"><span class="pre">True</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">drop(inplace=True)</span></code>). In my opinion, however, this often leads to bugs so I’d recommend against usign this approach.</p>
+<div class='alert alert-info' style='padding-bottom:10px'>
+    <b>ToThink</b>: Suppose you assign the output of a call to <tt>drop(inplace=True)</tt>, which doesn't actually return anything, to a new variable &mdash; do you know what happens? Try it out below (create a new code cell first).
 </div></div>
 <div class="section" id="dataframe-operations">
 <h2>Dataframe operations<a class="headerlink" href="#dataframe-operations" title="Permalink to this headline">¶</a></h2>
