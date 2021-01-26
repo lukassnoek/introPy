@@ -265,7 +265,7 @@ from psychopy.hardware.keyboard import Keyboard
 # At the end of your script
 kb = Keyboard()
 wait(2)
-t_since_init = kb.getTime()
+t_since_init = kb.clock.getTime()
 print(f"Time since initialization of Keyboard: {t_since_init:.3f}")
 ```
 ````
