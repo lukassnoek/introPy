@@ -549,6 +549,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title"> ToDo (optional/difficult!)</p>
 <p>If you don’t want to use the monitor center at all (e.g., when you’re programming your experiments in an external code editor), you can also programmatically using the <code class="docutils literal notranslate"><span class="pre">Monitor</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.monitor</span></code> module. Try creating a monitor configuration for your own laptop/desktop monitor. Make sure you set the monitor’s size (in pixels), width (in cm), and distance between you to the monitor (in cm). The <a class="reference external" href="https://www.psychopy.org/api/monitors.html">documentation of the <code class="docutils literal notranslate"><span class="pre">monitor</span></code> module</a> contains all info you need to do this!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you initialize a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object with a <code class="docutils literal notranslate"><span class="pre">Monitor</span></code> object (instead of a string pointing to a monitor previously specified in the monitor center), the Experiment Runner will always show the warning <code class="docutils literal notranslate"><span class="pre">&quot;Monitor</span> <span class="pre">specification</span> <span class="pre">not</span> <span class="pre">found.</span> <span class="pre">Creating</span> <span class="pre">a</span> <span class="pre">temporary</span> <span class="pre">one...&quot;</span></code>. It is, in fact, using your own <code class="docutils literal notranslate"><span class="pre">Monitor</span></code> object, so you can safely ignore this warning.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+</div>
 </div>
 <p>Finally, the last important argument of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class is the type of <em>units</em> that should be used by default for your components (which we’ll discuss later), such as “norm” (for normalized units), “deg” (for visual degree angle), and “pix” (for pixels). As said before, there are in fact many more arguments to pass to the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class (see the <a class="reference external" href="https://www.psychopy.org/api/visual/window.html">documentation</a> for an overview), but we believe that the ones we discussed here are most important to know and that the other arguments all have sensible defaults.</p>
 <div class="attention admonition">
