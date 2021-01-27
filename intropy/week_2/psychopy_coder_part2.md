@@ -79,10 +79,12 @@ welcome_txt_stim = TextStim(win, text="Welcome to this experiment!")
 
 :::{admonition,attention} ToDo
 Paste the code snippet above into your script, after initializing the window and clock, but change the initialization such that the text will be orange and set the font to Calibri. Note: it's convention to put all import statements together at the top of your script, so make sure the `from psychopy.visual import TextStim` part is on top of your script as well. Then, run the experiment.
+
+Note: you probably won't actually see the welcome text (or very briefly)! The reason for this is explained in the next section.
 :::
 
 :::{warning} 
-Like we mentioned in the previous tutorial, if nothing happens when you run the experiment, your script may contain a (syntax) error! In that case, check the *Experiment runner* window to see what's wrong!
+Like we mentioned in the previous tutorial, if no window opens at all when running your experiment, your script may contain a (syntax) error! In that case, check the *Experiment runner* window to see what's wrong!
 :::
 
 Note that component properties (such as the text `font` and `color` of `TextStim`s) can also be set *after* initializing the object. Because these arguments are set as attributes during initialization in the `__init__` function, you can change these properties by changing the object's attributes. For example, if you want to change the font size (`height`) after initialization of a `TextStim` object, you can do the following:
