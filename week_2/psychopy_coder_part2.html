@@ -459,10 +459,11 @@ Click to reveal the template!<div class="summary-down docutils">
 <div class="attention admonition">
 <p class="admonition-title"> ToDo</p>
 <p>Paste the code snippet above into your script, after initializing the window and clock, but change the initialization such that the text will be orange and set the font to Calibri. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
+<p>Note: you probably won’t actually see the welcome text (or very briefly)! The reason for this is explained in the next section.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Like we mentioned in the previous tutorial, if nothing happens when you run the experiment, your script may contain a (syntax) error! In that case, check the <em>Experiment runner</em> window to see what’s wrong!</p>
+<p>Like we mentioned in the previous tutorial, if no window opens at all when running your experiment, your script may contain a (syntax) error! In that case, check the <em>Experiment runner</em> window to see what’s wrong!</p>
 </div>
 <p>Note that component properties (such as the text <code class="docutils literal notranslate"><span class="pre">font</span></code> and <code class="docutils literal notranslate"><span class="pre">color</span></code> of <code class="docutils literal notranslate"><span class="pre">TextStim</span></code>s) can also be set <em>after</em> initializing the object. Because these arguments are set as attributes during initialization in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function, you can change these properties by changing the object’s attributes. For example, if you want to change the font size (<code class="docutils literal notranslate"><span class="pre">height</span></code>) after initialization of a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object, you can do the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start with a height (font size) of 0.1</span>
