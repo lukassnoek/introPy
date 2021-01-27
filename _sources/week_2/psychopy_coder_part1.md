@@ -183,7 +183,7 @@ win = Window(monitor='laptop')
 ::::{admonition,attention} ToDo (optional/difficult!)
 If you don't want to use the monitor center at all (e.g., when you're programming your experiments in an external code editor), you can also programmatically using the `Monitor` class from the `psychopy.monitor` module. Try creating a monitor configuration for your own laptop/desktop monitor. Make sure you set the monitor's size (in pixels), width (in cm), and distance between you to the monitor (in cm). The [documentation of the `monitor` module](https://www.psychopy.org/api/monitors.html) contains all info you need to do this!
 
-::::{note}
+:::{note}
 If you initialize a `Window` object with a `Monitor` object (instead of a string pointing to a monitor previously specified in the monitor center), the Experiment Runner will always show the warning `"Monitor specification not found. Creating a temporary one..."`. It is, in fact, using your own `Monitor` object, so you can safely ignore this warning.
 :::
 ::::
