@@ -964,7 +964,9 @@ so I&#39;ll stop here.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before formatting:
-My favorite programming language is: %s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My favorite programming language is: %s
 
 After formatting:
 My favorite programming language is: Python
@@ -1378,6 +1380,69 @@ The second-to-last element of list3 is: 5.300000
 </div>
 </div>
 </div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Extract the letters at odd indices (i.e., index 1, index 3, index, 5, etc.) from the string <tt>some_letters</tt> below and store it in a variable named <tt>some_letters_odd_indices</tt>.
+</div><div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="n">some_letters</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">some_letters_odd_indices</span> <span class="o">=</span> <span class="n">some_letters</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">some_letters_odd_indices</span> <span class="o">==</span> <span class="s1">&#39;bdfhjlnprtvxz&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Yay!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yay!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before we go on to another cool data type, dictionaries, let’s look at one cool trick you might want to use when working with lists. Often, you may want to check whether the a list contains a particular value. For example, suppose you want to check whether the list below (<code class="docutils literal notranslate"><span class="pre">some_list</span></code>) contains the value <code class="docutils literal notranslate"><span class="pre">42</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">392</span><span class="p">,</span> <span class="mi">582</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">295432</span><span class="p">,</span> <span class="mi">23459</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">5691</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">92358</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To do so, you can use the keyword <strong>in</strong>. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_42_in_list</span> <span class="o">=</span> <span class="mi">42</span> <span class="ow">in</span> <span class="n">some_list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_42_in_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, when <strong>in</strong> is used, the operation returns a boolean (i.e., <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>). Note that if you want to check whether a value is <em>not</em> in a list, you can combine the <strong>in</strong> keyword with the <strong>not</strong> keyword (e.g., <code class="docutils literal notranslate"><span class="pre">42</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">list</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;some value that is probably not in some_list&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">some_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll practice with using (<code class="docutils literal notranslate"><span class="pre">not</span></code>) <code class="docutils literal notranslate"><span class="pre">in</span></code> later!</p>
 </div>
 <div class="section" id="dictionaries">
 <h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
@@ -1446,7 +1511,7 @@ The second-to-last element of list3 is: 5.300000
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">52</span><span class="o">-</span><span class="mi">1</span><span class="n">a38ea043328</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">57</span><span class="o">-</span><span class="mi">1</span><span class="n">a38ea043328</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;monkey&#39;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;monkey&#39;
@@ -1567,7 +1632,7 @@ The second-to-last element of list3 is: 5.300000
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">58</span><span class="o">-</span><span class="mi">7</span><span class="n">ce594ed6f91</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">63</span><span class="o">-</span><span class="mi">7</span><span class="n">ce594ed6f91</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># you can print parts of tuple ...</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># but you cannot modify it!</span>
@@ -1633,7 +1698,7 @@ The second-to-last element of list3 is: 5.300000
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">61</span><span class="o">-</span><span class="n">f2efc27a07fb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="n">f2efc27a07fb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># This will give an error!</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">add_2_to_a_number</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">new_number</span><span class="p">)</span>
@@ -2263,9 +2328,7 @@ monkey
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loop iteration number (index) = 0, value = a
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loop iteration number (index) = 1, value = b
+Loop iteration number (index) = 1, value = b
 Loop iteration number (index) = 2, value = c
 </pre></div>
 </div>
@@ -2320,7 +2383,9 @@ c
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a 1
 b 2
-c 3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c 3
 </pre></div>
 </div>
 </div>
@@ -2388,6 +2453,46 @@ c 3
 </div>
 </div>
 </div>
+<p>Remember the <strong>in</strong> and <strong>not</strong> keywords we discussed earlier? Let’s practice using them in the context of for loop!</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Write a for loop that loops across the values in the variable <tt>list_with_strings</tt> below and print out the value if it contains a space, i.e., it should only print out "another string".
+</div><div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="n">list_with_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;some_string&#39;</span><span class="p">,</span> <span class="s1">&#39;another string&#39;</span><span class="p">,</span> <span class="s1">&#39;some-other-string&#39;</span><span class="p">,</span> <span class="s1">&#39;yet^another^string&#39;</span><span class="p">]</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">list_with_strings</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39; &#39;</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>another string
+</pre></div>
+</div>
+</div>
+</div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Write a for loop that loops across the values in the variable <tt>list_with_strings</tt> below again, but this time, only print the value if it does <em>not</em> contain the (sub)string "other".
+</div><div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">list_with_strings</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;other&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>some_string
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="while-loops">
 <h3>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
@@ -2411,7 +2516,8 @@ c 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 0 to roll a six!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
+It took 1 to roll a six!
 </pre></div>
 </div>
 </div>
@@ -2448,14 +2554,7 @@ c 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-It took 8 to roll a six!
+It took 1 to roll a six!
 </pre></div>
 </div>
 </div>
@@ -2487,7 +2586,7 @@ It took 8 to roll a six!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AIDFZ
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ALGCZ
 </pre></div>
 </div>
 </div>
