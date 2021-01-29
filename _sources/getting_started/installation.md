@@ -53,17 +53,18 @@ python -c "import sys; print(sys.executable)"
 This command should print out the location where you installed Python, e.g., `/Users/your_name/anaconda3/bin/python` (on Mac) or `C:\Users\your_name\anaconda3\bin\python` (on Windows). 
 
 ## PsychoPy
-In the second week of the course, we are going to use [PsychoPy](https://www.psychopy.org/), a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package `psychopy` and installing the complete "standalone" PsychoPy software package. If you have a working version of Python already, the `psychopy` Python package can be installed as a regular third-party package through [pip](https://packaging.python.org/tutorials/installing-packages/) &mdash; the **P**ackage **I**nstaller for **P**ython. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core `psychopy` package to work properly is all but trivial. Instead, we *highly* recommend installing the ["standalone" version of PsychoPy](https://www.psychopy.org/download.html). The standalone version does not only contain a working version of the `psychopy` package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy *Builder* interface) to create experiments without programming.
+In the second week of the course, we are going to use [PsychoPy](https://www.psychopy.org/), a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package `psychopy` and installing the complete "standalone" PsychoPy software package. We highly recommend installing the "standalone" version (because it also includes the PsychoPy Builder interface), but we explain both approaches in turn.
+
+### PsychoPy standalone version (recommended)
+Instead, we *highly* recommend installing the ["standalone" version of PsychoPy](https://www.psychopy.org/download.html). The standalone version does not only contain a working version of the `psychopy` package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy *Builder* interface) to create experiments without programming. Students of the "Programming in Psychological Science" should install the standalone PsychoPy version.
+
+To download the standalone version, go to [this page](https://www.psychopy.org/download.html) and click on the big blue download button.
 
 :::{warning}
-For some (?) Windows users, the PsychoPy website states "To install PsychoPy on Windows we recommend" installing PsychoPy through `pip`. Don't do this (because it doesn't include the Builder interface). Instead, click on the link [PsychoPy releases on github](https://github.com/psychopy/psychopy/releases) and download the latest `.exe` file (currently, `StandalonePsychoPy3-2020.2.10-win64.exe`).
+For some (?) Windows users, the PsychoPy website states "To install PsychoPy on Windows we recommend installing PsychoPy through `pip`". Don't do this (because it doesn't include the Builder interface). Instead, click on the link [PsychoPy releases on github](https://github.com/psychopy/psychopy/releases) and download the latest `.exe` file (currently, `StandalonePsychoPy3-2020.2.10-win64.exe`).
 :::
 
-:::{note}
-Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the [standalone PsychoPy version](https://www.psychopy.org/).
-:::
-
-To test whether the installation was successful and everything works as expected do the following:
+To test whether the standalone PsychoPy installation was successful and everything works as expected do the following:
 
 * Start PsychoPy (this should open three windows);
 * Make sure you are in the *PsychoPy Builder* window;
@@ -73,6 +74,37 @@ To test whether the installation was successful and everything works as expected
 * After a couple of seconds, you should see a pop-up prompting for a "session" and "participant number";
 * Fill in some number (e.g., 01) and click on *Ok* to start the experiment;
 * Your screen should turn black and start the experiment!
+
+### PsychoPy Python package
+If you have a working version of Python already, you can also work with PsychoPy by installing the `psychopy` Python package. This is only recommended if you are experienced with managing Python environments and running things on the command line in general.
+
+The `psychopy` Python package contains all the functionality you need to run PsychoPy experiments in "script mode", i.e., writing your experiment as a Python script (e.g., `my_experiment.py`) and running it on the command line (e.g., `python my_experiment.py`). This means that this installation of PsychoPy does not include the Builder functionality nor the PsychoPy Code editor.
+
+There are several ways to install the `psychopy` package, but (assuming you installed Python through Anaconda) the easiest way is probably through `conda` (the Anaconda package manager). Assuming you have downloaded the material (check the section *Downloading the material* below), there should be a file with the name `psychopy-env.yml` in the root of the downloaded folder.
+
+Open a terminal (or Anaconda prompt if you are on Windows), navigate to the root of the materials folder, and run the following:
+
+```
+conda env create -n psychopy -f psychopy-env.yml
+```
+
+This will create a new Python environment (using Python version 3.6) with the `psychopy` package and all its dependencies. This may take 5 to 10 minutes or so. To activate this environment, run the following in your terminal:
+
+```
+conda activate psychopy
+```
+
+Make sure that whenever you want to run (or test) your PsychoPy experiments, the "psychopy" environement is activated in your terminal. To test whether the installation (and activating the environment) was successful, navigate to the root of the materials folder in your terminal (if you hadn't done so already) and run the following:
+
+```
+python psychopy_test.py
+```
+
+If your installation was successful, this should open a small, rectangular window showing some text. Press enter to close the window.
+
+:::{tip}
+If you're installing the `psychopy` Python package (instead of the standalone version), you still need a code editor to write your experiment. You may use any plain-text editor (e.g., Notepad++, Atom, or Sublimetext). Personally, we like [Visual Studio Code](https://code.visualstudio.com/).
+:::
 
 ## Downloading the material
 We use [Jupyter notebooks](https://jupyter.org/) for our tutorials. The materials are stored on [Github](https://github.com/lukassnoek/introPy) and can be downloaded as a zip-file by clicking on the link below:

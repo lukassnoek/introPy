@@ -335,6 +335,18 @@
   <a class="reference internal nav-link" href="#psychopy">
    PsychoPy
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#psychopy-standalone-version-recommended">
+     PsychoPy standalone version (recommended)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#psychopy-python-package">
+     PsychoPy Python package
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#downloading-the-material">
@@ -373,8 +385,8 @@
 <h3>Installing Python on your own computer<a class="headerlink" href="#installing-python-on-your-own-computer" title="Permalink to this headline">¶</a></h3>
 <p>If you want to install Python on your own computer, we <em>highly</em> recommend you install Python through the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda distribution</a>. In the box below, you can find detailed installation instructions (thanks to <a class="reference external" href="https://escience-academy.github.io/2020-12-07-parallel-python/">the Netherlands eScience Center</a>) specific to your operating system (Mac, Windows, or Linux).</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2aec11de-5e8a-40dd-8e72-b810d4c42d04" name="b84782d7-0438-48bc-bcac-4641b88de144" type="radio">
-</input><label class="tabbed-label" for="2aec11de-5e8a-40dd-8e72-b810d4c42d04">
+<input checked="checked" id="92e082dc-d4cf-4225-bd76-459a94899a52" name="8958dd28-6048-4259-a2b8-50396e0d59c4" type="radio">
+</input><label class="tabbed-label" for="92e082dc-d4cf-4225-bd76-459a94899a52">
 Mac</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Open the <a class="reference external" href="https://www.anaconda.com/products/individual#download-section">Anaconda download page</a> with your web browser;</p></li>
@@ -384,8 +396,8 @@ Mac</label><div class="tabbed-content docutils">
 <p>For a more detailed instruction, check out the video below:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TcSAln46u9U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-<input id="de0ab021-6101-470c-b05c-1e4c2fb1d408" name="b84782d7-0438-48bc-bcac-4641b88de144" type="radio">
-</input><label class="tabbed-label" for="de0ab021-6101-470c-b05c-1e4c2fb1d408">
+<input id="2998cbb7-cc68-447a-8bca-e35e25269bc3" name="8958dd28-6048-4259-a2b8-50396e0d59c4" type="radio">
+</input><label class="tabbed-label" for="2998cbb7-cc68-447a-8bca-e35e25269bc3">
 Windows</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Open the <a class="reference external" href="https://www.anaconda.com/products/individual#download-section">Anaconda download page</a> with your web browser;</p></li>
@@ -406,16 +418,16 @@ Windows</label><div class="tabbed-content docutils">
 </div>
 <div class="section" id="psychopy">
 <h2>PsychoPy<a class="headerlink" href="#psychopy" title="Permalink to this headline">¶</a></h2>
-<p>In the second week of the course, we are going to use <a class="reference external" href="https://www.psychopy.org/">PsychoPy</a>, a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> and installing the complete “standalone” PsychoPy software package. If you have a working version of Python already, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package can be installed as a regular third-party package through <a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/">pip</a> — the <strong>P</strong>ackage <strong>I</strong>nstaller for <strong>P</strong>ython. However, because PsychoPy interacts with a lot of (non-Python) programs and components, getting the core <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package to work properly is all but trivial. Instead, we <em>highly</em> recommend installing the <a class="reference external" href="https://www.psychopy.org/download.html">“standalone” version of PsychoPy</a>. The standalone version does not only contain a working version of the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy <em>Builder</em> interface) to create experiments without programming.</p>
+<p>In the second week of the course, we are going to use <a class="reference external" href="https://www.psychopy.org/">PsychoPy</a>, a Python-based software package, to create simple experiments. There are two ways of installing PsychoPy: installing the core Python package <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> and installing the complete “standalone” PsychoPy software package. We highly recommend installing the “standalone” version (because it also includes the PsychoPy Builder interface), but we explain both approaches in turn.</p>
+<div class="section" id="psychopy-standalone-version-recommended">
+<h3>PsychoPy standalone version (recommended)<a class="headerlink" href="#psychopy-standalone-version-recommended" title="Permalink to this headline">¶</a></h3>
+<p>Instead, we <em>highly</em> recommend installing the <a class="reference external" href="https://www.psychopy.org/download.html">“standalone” version of PsychoPy</a>. The standalone version does not only contain a working version of the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but also a custom Python distribution specifically designed to work with PsychoPy, as well as a neat code editor and even a graphical interface (the PsychoPy <em>Builder</em> interface) to create experiments without programming. Students of the “Programming in Psychological Science” should install the standalone PsychoPy version.</p>
+<p>To download the standalone version, go to <a class="reference external" href="https://www.psychopy.org/download.html">this page</a> and click on the big blue download button.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>For some (?) Windows users, the PsychoPy website states “To install PsychoPy on Windows we recommend” installing PsychoPy through <code class="docutils literal notranslate"><span class="pre">pip</span></code>. Don’t do this (because it doesn’t include the Builder interface). Instead, click on the link <a class="reference external" href="https://github.com/psychopy/psychopy/releases">PsychoPy releases on github</a> and download the latest <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file (currently, <code class="docutils literal notranslate"><span class="pre">StandalonePsychoPy3-2020.2.10-win64.exe</span></code>).</p>
+<p>For some (?) Windows users, the PsychoPy website states “To install PsychoPy on Windows we recommend installing PsychoPy through <code class="docutils literal notranslate"><span class="pre">pip</span></code>”. Don’t do this (because it doesn’t include the Builder interface). Instead, click on the link <a class="reference external" href="https://github.com/psychopy/psychopy/releases">PsychoPy releases on github</a> and download the latest <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file (currently, <code class="docutils literal notranslate"><span class="pre">StandalonePsychoPy3-2020.2.10-win64.exe</span></code>).</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Note that PsychoPy does not work on remote servers (including our own and Binder/colab instances), so students from the Research Master course should also download the <a class="reference external" href="https://www.psychopy.org/">standalone PsychoPy version</a>.</p>
-</div>
-<p>To test whether the installation was successful and everything works as expected do the following:</p>
+<p>To test whether the standalone PsychoPy installation was successful and everything works as expected do the following:</p>
 <ul class="simple">
 <li><p>Start PsychoPy (this should open three windows);</p></li>
 <li><p>Make sure you are in the <em>PsychoPy Builder</em> window;</p></li>
@@ -426,6 +438,30 @@ Windows</label><div class="tabbed-content docutils">
 <li><p>Fill in some number (e.g., 01) and click on <em>Ok</em> to start the experiment;</p></li>
 <li><p>Your screen should turn black and start the experiment!</p></li>
 </ul>
+</div>
+<div class="section" id="psychopy-python-package">
+<h3>PsychoPy Python package<a class="headerlink" href="#psychopy-python-package" title="Permalink to this headline">¶</a></h3>
+<p>If you have a working version of Python already, you can also work with PsychoPy by installing the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package. This is only recommended if you are experienced with managing Python environments and running things on the command line in general.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package contains all the functionality you need to run PsychoPy experiments in “script mode”, i.e., writing your experiment as a Python script (e.g., <code class="docutils literal notranslate"><span class="pre">my_experiment.py</span></code>) and running it on the command line (e.g., <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_experiment.py</span></code>). This means that this installation of PsychoPy does not include the Builder functionality nor the PsychoPy Code editor.</p>
+<p>There are several ways to install the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but (assuming you installed Python through Anaconda) the easiest way is probably through <code class="docutils literal notranslate"><span class="pre">conda</span></code> (the Anaconda package manager). Assuming you have downloaded the material (check the section <em>Downloading the material</em> below), there should be a file with the name <code class="docutils literal notranslate"><span class="pre">psychopy-env.yml</span></code> in the root of the downloaded folder.</p>
+<p>Open a terminal (or Anaconda prompt if you are on Windows), navigate to the root of the materials folder, and run the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">psychopy</span> <span class="o">-</span><span class="n">f</span> <span class="n">psychopy</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>This will create a new Python environment (using Python version 3.6) with the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package and all its dependencies. This may take 5 to 10 minutes or so. To activate this environment, run the following in your terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">psychopy</span>
+</pre></div>
+</div>
+<p>Make sure that whenever you want to run (or test) your PsychoPy experiments, the “psychopy” environement is activated in your terminal. To test whether the installation (and activating the environment) was successful, navigate to the root of the materials folder in your terminal (if you hadn’t done so already) and run the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">psychopy_test</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>If your installation was successful, this should open a small, rectangular window showing some text. Press enter to close the window.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you’re installing the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package (instead of the standalone version), you still need a code editor to write your experiment. You may use any plain-text editor (e.g., Notepad++, Atom, or Sublimetext). Personally, we like <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>.</p>
+</div>
+</div>
 </div>
 <div class="section" id="downloading-the-material">
 <h2>Downloading the material<a class="headerlink" href="#downloading-the-material" title="Permalink to this headline">¶</a></h2>
