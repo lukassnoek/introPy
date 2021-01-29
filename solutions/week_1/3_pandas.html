@@ -402,6 +402,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-dataframes">
+   Saving DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aggregation-advanced-optional">
    Aggregation (advanced / optional)
   </a>
@@ -449,7 +454,9 @@
 </div>
 </div>
 </div>
-<p>To view its contents, we can just enter <code class="docutils literal notranslate"><span class="pre">df</span></code> as the last line in a code cell (so without <code class="docutils literal notranslate"><span class="pre">print</span></code>) and run the cell. This way, Jupyter notebooks will actually render the dataframes nicely:</p>
+<div class='alert alert-success' style='padding-bottom:10px'>
+    <b>Note</b>: Pandas can read data from more than just CSV files, including Excel files (using <tt>pd.read_excel</tt>), JSON files (using <tt>pd.read_json</tt>), or even SQL databases (using <tt>pd.read_sql</tt>)! In this course, though, we'll mainly work with CSV files.
+</div><p>To view its contents, we can just enter <code class="docutils literal notranslate"><span class="pre">df</span></code> as the last line in a code cell (so without <code class="docutils literal notranslate"><span class="pre">print</span></code>) and run the cell. This way, Jupyter notebooks will actually render the dataframes nicely:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
@@ -1459,6 +1466,63 @@ dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Well done!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="saving-dataframes">
+<h2>Saving DataFrames<a class="headerlink" href="#saving-dataframes" title="Permalink to this headline">¶</a></h2>
+<p>Just like Pandas is able to read data <em>from</em> different file formats, it can also save data from <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> <em>to</em> different file format, including CSV files, JSON files, and databases. Again, for now, we’ll only focus on CSV files.</p>
+<p>Importantly, saving data to disk is usually done using <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <em>methods</em>. For example, to save your <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> data to a CSV file, you can use its <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> method.</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Read the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html">documentation</a> from the <tt>read_csv</tt> method.
+</div><p>As you can see, the <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> method has <em>a lot</em> of arguments you can use to specify exactly how you’d like the data to be saved. Often, you only need to specify the first argument, i.e., the path and name of the file you’d like to save the data to. For example, to save the data to a CSV file with the name “some_data.csv” to the current working directory, you’d run the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll use the `df` DataFrame we used earlier</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;some_data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Check out the current directory (i.e., the same directory that contains this <tt>3_pandas.ipynb</tt> notebook) to see the CSV file we just created!
+</div><p>If you open the CSV file, you probably noticed that its first column contains integers and lacks a column name — this is the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> index! You likely don’t need this index. To avoid saving the index when using <code class="docutils literal notranslate"><span class="pre">to_csv</span></code>, you can set the argument <code class="docutils literal notranslate"><span class="pre">index</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">index=False</span></code>).</p>
+<div class='alert alert-warning' style='padding-bottom:10px'>
+    <b>ToDo</b>: Let's try something else. Save the <tt>df</tt> variable to a <b>T</b>SV file in the current working directory with the name <tt>other_data.tsv</tt> which contains <em>tab-separated</em> values instead of comma-separated values. Note: you still need to use the <tt>to_csv</tt> function! Make sure you don't save the index.
+</div><div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;other_data.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Tests the above ToDo. &quot;&quot;&quot;</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;other_data.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Awesome!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Awesome!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s remove the two files we created to not clutter our current directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;some_data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;other_data.tsv&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
