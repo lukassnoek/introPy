@@ -79,10 +79,6 @@ The qualitative criteria are related to the quality of the code as well as the e
 
     If you would give this script to someone who doesn't know PsychoPy, would they understand how it worked?<br><br>
 
-* **Efficiency of code (no redundancy, i.e., repeated code)**<br><br>
-
-    Use (for-) loops where needed. If you repeat code, consider writing a function for it.
-
 * **"User experience"**
 
     Does the experiment look okay? Is the text readable?

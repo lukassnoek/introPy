@@ -491,7 +491,7 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.13 ms ± 45.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.54 ms ± 51 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -507,8 +507,8 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.6 µs ± 18.8 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-Numpy is 624 times faster than base Python!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.2 µs ± 97.4 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+Numpy is 583 times faster than base Python!
 </pre></div>
 </div>
 </div>
@@ -555,8 +555,8 @@ A 2D array:
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Create the following 1D array:
-<div class="amsmath math notranslate nohighlight" id="equation-227dfd6f-bc78-4fd0-9b34-8ea07444fa94">
-<span class="eqno">(1)<a class="headerlink" href="#equation-227dfd6f-bc78-4fd0-9b34-8ea07444fa94" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-71b1986c-7834-4d32-b5b2-01d220625bcd">
+<span class="eqno">(1)<a class="headerlink" href="#equation-71b1986c-7834-4d32-b5b2-01d220625bcd" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \begin{bmatrix}
 5 &amp; 3 &amp; 2 &amp; 8 &amp; 9
 \end{bmatrix}
@@ -600,8 +600,8 @@ A 2D array:
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>:
 <p>Create the following matrix (2D array):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7578e6ea-7112-4a28-b11d-1671fee1a43d">
-<span class="eqno">(2)<a class="headerlink" href="#equation-7578e6ea-7112-4a28-b11d-1671fee1a43d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b639af92-2533-4f34-9290-c773912cd400">
+<span class="eqno">(2)<a class="headerlink" href="#equation-b639af92-2533-4f34-9290-c773912cd400" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \begin{bmatrix}
 5 &amp; 2 &amp; 8 \\
 8 &amp; 2 &amp; 1 \\
@@ -801,16 +801,16 @@ Filled array
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]] 
 
-[[0.3275965  0.25593239 0.35440531 0.76423193 0.17863444 0.12390422
-  0.86750426 0.90017572 0.29907193 0.39217486]
- [0.41348615 0.11129193 0.67195485 0.97984192 0.22336401 0.60564768
-  0.19139074 0.8315744  0.66404863 0.0888231 ]
- [0.48124187 0.80340007 0.64877766 0.40416396 0.57858159 0.73373195
-  0.71588599 0.22250867 0.51122865 0.9022539 ]
- [0.04234599 0.53077813 0.34054331 0.76726042 0.26658124 0.67847654
-  0.7817418  0.50767176 0.97856094 0.22460688]
- [0.68448616 0.93120062 0.5211899  0.40346415 0.16905319 0.03545406
-  0.93577127 0.08967855 0.61429904 0.88018552]]
+[[0.69868008 0.96944567 0.73125023 0.984087   0.54481042 0.21542157
+  0.39595356 0.13663174 0.47323275 0.8147702 ]
+ [0.4590274  0.75558282 0.52942372 0.62763217 0.18858175 0.28212332
+  0.85800399 0.11363874 0.60691204 0.63794005]
+ [0.82929951 0.73360413 0.00472625 0.79136163 0.4852583  0.47330808
+  0.86144686 0.36358225 0.86695172 0.80770379]
+ [0.53159847 0.4224277  0.67917759 0.2397016  0.67842467 0.39150961
+  0.67722467 0.81583033 0.88167153 0.66329831]
+ [0.2293605  0.29611258 0.72211124 0.10047429 0.26085098 0.87968565
+  0.79363442 0.70293871 0.33602016 0.97380316]]
 </pre></div>
 </div>
 </div>
@@ -1160,9 +1160,8 @@ Result of indexing my_array with bool_array:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The original array:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
+
+[[1 2 3]
  [4 5 6]
  [7 8 9]] 
 
@@ -1464,8 +1463,8 @@ Shape after ravel(): (10,)
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b> (1 point): Let's practice writing functions some more. Complete the function below, named <tt>calculate_range</tt>. This function takes  a single input-argument &mdash; a 1D numpy array &mdash; and subsequently calculates the <a href="https://en.wikipedia.org/wiki/Range_(statistics)">range</a> of the array. The range is the difference between the maximum and minimum of any given array (vector) $x$:
-<div class="amsmath math notranslate nohighlight" id="equation-bd1cee4e-6c4d-48a1-ac37-afbadbaedf23">
-<span class="eqno">(3)<a class="headerlink" href="#equation-bd1cee4e-6c4d-48a1-ac37-afbadbaedf23" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a010761a-4752-435d-ab22-76d9820ffa23">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a010761a-4752-435d-ab22-76d9820ffa23" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathrm{range}(x) = \max(x) - \min(x)
 \end{align}\]</div>
 <p>You may use the corresponding numpy min/max methods or functions in your custom function, doesn’t matter. Don’t forget to explicitly return the value of the range!</p>
@@ -1561,7 +1560,9 @@ The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Size (number of elements) of array:
-9 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 
 
 Shape of array:
 (3, 3) 
@@ -1579,13 +1580,13 @@ Number of dimensions:
 <li><p>h0 : a scalar value (single number) that represents the value representing the null-hypothesis</p></li>
 </ul>
 <p>The function should compute the one-sample t-test, which tests whether the mean of an array is significantly different from a given value representing the null-hypothesis. Formally, for any given array <span class="math notranslate nohighlight">\(x\)</span> and null-hypothesis <span class="math notranslate nohighlight">\(h_{0}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f05397d-bc41-41af-8c82-c07f35e5e31a">
-<span class="eqno">(4)<a class="headerlink" href="#equation-8f05397d-bc41-41af-8c82-c07f35e5e31a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b0822e11-6ba7-401b-b187-ffc8fd74bc8b">
+<span class="eqno">(4)<a class="headerlink" href="#equation-b0822e11-6ba7-401b-b187-ffc8fd74bc8b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 t = \frac{\bar{x} - h_{0}}{s\ / \sqrt{N}}
 \end{align}\]</div>
 <p>Here: <span class="math notranslate nohighlight">\(\bar{x}\)</span> represents the mean of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(s\)</span> represents the standard deviation of <span class="math notranslate nohighlight">\(x\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> represents the length (‘size’) of x. So, in slightly less mathematical notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b66899e-bc6d-42ce-80f4-4512e8c88bc5">
-<span class="eqno">(5)<a class="headerlink" href="#equation-5b66899e-bc6d-42ce-80f4-4512e8c88bc5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5aea1377-1326-4cc3-bb09-c2da4f0d8e6c">
+<span class="eqno">(5)<a class="headerlink" href="#equation-5aea1377-1326-4cc3-bb09-c2da4f0d8e6c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 t = \frac{\mathrm{mean}(x) - h_{0}}{\mathrm{std}(x)\ / \sqrt{\mathrm{length}(x) - 1}}
 \end{align}\]</div>
 <p>Make sure to return the t-value!</p>
@@ -1684,9 +1685,8 @@ Correct! You stats wizard!
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: 
 array([[1., 2.],
        [3., 4.]]) 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y: 
+
+y: 
 array([[5., 6.],
        [7., 8.]]) 
 
@@ -1708,9 +1708,8 @@ array([[ 6.,  8.],
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 6.  8.]
  [10. 12.]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 6.  8.]
+
+[[ 6.  8.]
  [10. 12.]]
 </pre></div>
 </div>
@@ -1917,11 +1916,11 @@ Sum across columns of x:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.13 ms ± 5.56 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.76 ms ± 15.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.4 µs ± 51.7 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-Using the axis-argument is 47.822 times faster than a for-loop!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>54.5 µs ± 44.8 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+Using the axis-argument is 50.677 times faster than a for-loop!
 </pre></div>
 </div>
 </div>
@@ -2113,8 +2112,8 @@ The result of adding v to each row of x, as stored in y:
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, we started writing a function called <tt>standardize_columns</tt>, which takes a single input-argument &mdash; a 2D numpy array &mdash; and should subsequently <em>standardize</em> each column such that each column has a mean of zero and a standard deviation of 1. In other words, standardization subtracts the mean (across rows) of each column from the values in that column, and then divides those value with the standard deviation of that column. Formally, for each column $j$ in any 2D array, standardization entails:
-<div class="amsmath math notranslate nohighlight" id="equation-42020fb5-6c5d-45d4-9c3c-ab147ed56d3b">
-<span class="eqno">(6)<a class="headerlink" href="#equation-42020fb5-6c5d-45d4-9c3c-ab147ed56d3b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bf7b2ef3-d2e8-4994-9fda-d6ecdc774af8">
+<span class="eqno">(6)<a class="headerlink" href="#equation-bf7b2ef3-d2e8-4994-9fda-d6ecdc774af8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 x_{j}\ \mathrm{standardized} = \frac{(x_{j} - \bar{x_{j}})}{\mathrm{std}(x_{j})}
 \end{align}\]</div>
 <p>Standardization, which is also oftend called “z-transformation”, is often done in statistics. So, in the function below, make sure that it is able to standardize each column in any 2D array. Make sure to use vectorized array computations (i.e, the <tt>np.mean</tt> and <tt>np.std</tt> functions/methods across rows) and broadcasting, so no for-loops!</p>
