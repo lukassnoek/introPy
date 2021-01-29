@@ -7,10 +7,12 @@ Please read this page carefully before starting on your assignment.
 For more information about the change detection paradigm, check out the article by [Rouder et al., (2011)](https://link.springer.com/article/10.3758%2Fs13423-011-0055-3)! {cite}`rouder2011measure`
 ```
 
-In this assignment, you will program a relatively simple version of the change detection task involving random strings of integers (e.g., `286931`). To give you an idea of how the experiment should look like, we created a "demo" Builder version of it, which is included in the materials: `intropy/config/change_detection.psyexp`.
+In this assignment, you will program a relatively simple version of the change detection task involving random strings of integers (e.g., `286931`). To give you an idea of how the experiment should look like, we created a "demo" Builder version of it, which is included in the materials. If you didn't download the materials already, please follow the instructions in the *Downloading the material* section on the [installation page](../getting_started/installation.md).
+
+In the unzipped folder (probably called *intropy*), there is another folder called *intropy*, which contains yet another folder called *config*. This folder contains a Builder experiment with the name `change_detection.psyexp` (so the full path is: `intropy/intropy/config/change_detection.psyexp`).
 
 :::{admonition,attention} ToDo
-Open the `change_detection.psyexp` file in the PsychoPy Builder interface and run the experiment.
+Open the `change_detection.psyexp` file in the PsychoPy Builder interface (*File* &rarr; *Open* &rarr; select the `change_detection.psyexp` file) and run the experiment.
 :::
 
 As you can see in the Builder, the experiment consists of the following elements:
