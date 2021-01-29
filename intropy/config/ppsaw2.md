@@ -41,7 +41,9 @@ As you can see in the Builder, the experiment consists of the following elements
 
 * **Saving the data**
 
-    The data should be saved in the current directory with the filename `sub-xx_events.csv`, where `xx` refers to the submitted participant ID. This file should contain (at least) the following columns: `first_string` (the string presented the first time, e.g., "386291"), `second_string` (the string presented the second time, e.g., "386281"), `condition` (either "change" or "no_change"), `response` (either "left" or "right"), and `reaction_time` (in seconds, e.g., "0.6292389").
+    The data should be saved in the current directory with the filename `sub-xx_events.csv`, where `xx` refers to the submitted participant ID. You should use the `to_csv` method from Pandas `DataFrames` for this as follows (assuming your `DataFrame` is called `df`): `df.to_csv(desired_name_of_file, index=False)`.
+
+    This file should contain (at least) the following columns: `first_string` (the string presented the first time, e.g., "386291"), `second_string` (the string presented the second time, e.g., "386281"), `condition` (either "change" or "no_change"), `response` (either "left" or "right"), and `reaction_time` (in seconds, e.g., "0.6292389").
 
 ## Trial/feedback routine structure
 Specifically, the trial + feedback part should be build up as follows:
