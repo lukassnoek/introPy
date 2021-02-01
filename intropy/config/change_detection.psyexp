@@ -247,14 +247,14 @@
       <CodeComponent name="code">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="feedback_txt_var = None&amp;#10;&amp;#10;import pandas as pd&amp;#10;import ssl&amp;#10;ssl._create_default_https_context = ssl._create_unverified_context&amp;#10;&amp;#10;url = &quot;https://raw.githubusercontent.com/lukassnoek/lukassnoek.github.io/master/downloads/cd_conditions.csv&quot;&amp;#10;cd_df = pd.read_csv(url)&amp;#10;cd_df.to_csv('tmp.csv')" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="import os&amp;#10;os.remove('tmp.csv')" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="if trial_resp.keys is None:&amp;#10;    feedback_txt_var = 'Missed!'&amp;#10;    feedback_color = (1, 1, 1)&amp;#10;elif correct_resp == trial_resp.keys:&amp;#10;    feedback_txt_var = &quot;Correct!&quot;&amp;#10;    feedback_color = (-1, 1, -1)&amp;#10;else:&amp;#10;    feedback_txt_var = 'Wrong!'&amp;#10;    feedback_color = (1, -1, -1)" valType="extendedCode"/>
@@ -317,17 +317,17 @@
       <CodeComponent name="code_2">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="acc = 0&amp;#10;import matplotlib.pyplot as plt&amp;#10;plt.plot()&amp;#10;plt.savefig('tmp.png', transparent=True)&amp;#10;plt.close()" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="trial_loop.data[&quot;corr&quot;];&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="print(trial_loop.data['trial_resp.corr'])&amp;#10;acc = trial_loop.data['trial_resp.corr'].mean()&amp;#10;rts = trial_loop.data['trial_resp.rt']&amp;#10;&amp;#10;plt.plot(rts)&amp;#10;plt.xlabel('Trial nr.')&amp;#10;plt.ylabel('Reaction time (sec.)')&amp;#10;plt.savefig('tmp.png')&amp;#10;plt.close()" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="print(trial_loop.data['trial_resp.corr'])&amp;#10;acc = trial_loop.data['trial_resp.corr'].mean()" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="import os&amp;#10;os.remove('tmp.png')" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="code_2" valType="code"/>
       </CodeComponent>
@@ -355,31 +355,6 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
-      <ImageComponent name="results">
-        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
-        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="set every repeat" val="tmp.png" valType="str"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="mask" updates="constant" val="None" valType="str"/>
-        <Param name="name" updates="None" val="results" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, -0.2)" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="5" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="texture resolution" updates="constant" val="512" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-      </ImageComponent>
     </Routine>
   </Routines>
   <Flow>
@@ -388,8 +363,8 @@
     <Routine name="init_fix"/>
     <LoopInitiator loopType="TrialHandler" name="trial_loop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="None" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="tmp.csv" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('first', 970615), ('second', 970615), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 307371), ('second', 307371), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 464185), ('second', 464185), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 979865), ('second', 979865), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 496351), ('second', 496351), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 482482), ('second', 482482), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 225622), ('second', 225622), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 479150), ('second', 479150), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 479480), ('second', 479480), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 761960), ('second', 761960), ('changed', 0), ('correct_resp', 'left')]), OrderedDict([('first', 553150), ('second', 553152), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 978003), ('second', 978043), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 726968), ('second', 726568), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 486268), ('second', 416268), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 119197), ('second', 419197), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 690810), ('second', 690814), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 670218), ('second', 670298), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 168194), ('second', 168094), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 209113), ('second', 207113), ('changed', 1), ('correct_resp', 'right')]), OrderedDict([('first', 750151), ('second', 730151), ('changed', 1), ('correct_resp', 'right')])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="cd_conditions.csv" valType="str"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>

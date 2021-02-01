@@ -145,3 +145,4 @@ intropy/config/*.py
 intropy/autograded
 intropy/submitted
 intropy/feedback
+intropy/config/data
