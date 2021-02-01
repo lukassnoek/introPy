@@ -11,7 +11,7 @@ Note that all tutorial from this week are written in Jupyter notebooks, which ar
 
 The first two tutorials (*Introduction to Python* and *Python basics*) will introduce you to the basics of Jupyter notebooks, Python syntax, and the concept of object-oriented programming. The next three notebooks will discuss plotting using the package [matplotlib](https://matplotlib.org/) (*Introduction to Matplotlib*), working with tabular data using [pandas](https://pandas.pydata.org/) (*Introduction to Pandas*), and working with array data using [numpy](https://numpy.org/) (*Introduction to Numpy*).
 
-The *numpy* tutorial is **optional** (i.e., its contents won't be featured on the exam/assignments), but highly recommended for those wanting to develop more advanced data analysis skills (which are useful for, e.g., machine learning and neuroimaging research).
+The *numpy* tutorial is **optional** (i.e., its contents won't be featured on the exam/assignments), but highly recommended for those wanting to develop more advanced data analysis skills (which are useful for, e.g., machine learning and neuroimaging research). Also, if you want some extra exercises to practice with basic Python functionality, Pandas, and Matplotlib, we recommend going through the *Extra exercises* notebook!
 
 :::{tip}
 The solutions to the tutorial exercises ("ToDos") are actually embedded in the tutorial pages on this website, but hidden by default. Click on the plus symbol next to the "Click to show" text to reveal the cell with the solution!
