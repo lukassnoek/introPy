@@ -32,10 +32,14 @@
     title: Introduction to the Builder (T)
   - file: week_2/psychopy_builder_part2
     title: A Builder experiment from scratch (T)
+  - file: week_2/builder_test
+    title: Test your Builder skills!
   - file: week_2/psychopy_coder_part1
     title: Introduction to the Coder (T)
   - file: week_2/psychopy_coder_part2
     title: A Coder experiment from scratch (T)
+  - file: week_2/coder_test
+    title: Test your Coder skills!
   - file: week_2/psychopy_how_to_continue
 
 - part: Misc
