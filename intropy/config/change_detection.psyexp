@@ -80,7 +80,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="In this task, you will see a string of random letters for 2 seconds, followed by a blank screen for 1.5 seconds. Then, another string of letters appears.&amp;#10;&amp;#10;You have to indicate whether the second string is the same (press LEFT) as or different (press RIGHT) from the first string.&amp;#10;&amp;#10;(Press enter to start.)" valType="extendedStr"/>
+        <Param name="text" updates="constant" val="In this task, you will see a string of random letters for 0.5 seconds, followed by a blank screen for 1.5 seconds. Then, another string of letters appears.&amp;#10;&amp;#10;You have to indicate whether the second string is the same (press LEFT) as or different (press RIGHT) from the first string.&amp;#10;&amp;#10;(Press enter to start.)" valType="extendedStr"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
@@ -320,7 +320,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="trial_loop.data[&quot;corr&quot;];&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="print(trial_loop.data['trial_resp.corr'])&amp;#10;acc = trial_loop.data['trial_resp.corr'].mean()" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="acc = trial_loop.data['trial_resp.corr'].mean()" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -343,7 +343,7 @@
         <Param name="name" updates="None" val="acc_txt" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, 0.7)" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>

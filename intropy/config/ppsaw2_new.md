@@ -55,7 +55,7 @@ Essentially, for this assignment, you'll need to recreate the change detection B
 Specifically, the trial + feedback part should be build up as follows:
 
 * Presentation of the stimulus (0.5 seconds);
-* A delay showing the fixation target (2 seconds);
+* A delay showing the fixation target (1.5 seconds);
 * Second presentation of the (identical or changed) stimulus (0.5 seconds)
 * Presentation of a fixation target during which the participant has to respond (1.5 seconds)
 * Presentation of colored feedback text ("Correct!" in green, "Wrong!" in red, or "Missed!" in white; 0.5 seconds)
