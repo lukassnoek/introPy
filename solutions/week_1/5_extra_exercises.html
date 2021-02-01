@@ -56,6 +56,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="How to continue with Python?" href="../../week_1/python_how_to_continue.html" />
+    <link rel="prev" title="Introduction to Numpy (tutorial)" href="4_numpy.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -119,35 +121,40 @@
   Python (week 1)
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../week_1/python.html">
    Python essentials
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/0_introduction.html">
+  <a class="reference internal" href="0_introduction.html">
    Introduction to Python (T)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/1_python_basics.html">
+  <a class="reference internal" href="1_python_basics.html">
    Python basics (T)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/2_matplotlib.html">
+  <a class="reference internal" href="2_matplotlib.html">
    Introduction to Matplotlib (T)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/3_pandas.html">
+  <a class="reference internal" href="3_pandas.html">
    Introduction to Pandas (T)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/4_numpy.html">
+  <a class="reference internal" href="4_numpy.html">
    Introduction to Numpy (T)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Extra exercises (T)
   </a>
  </li>
  <li class="toctree-l1">
@@ -274,7 +281,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/solutions/extra_exercises/extra_exercises.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/tutorials/week_1/5_extra_exercises.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -294,10 +301,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fsolutions/extra_exercises/extra_exercises.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Ftutorials/week_1/5_extra_exercises.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/solutions/extra_exercises/extra_exercises.ipynb"><button
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/tutorials/week_1/5_extra_exercises.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -317,14 +324,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/solutions/extra_exercises/extra_exercises.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/tutorials/week_1/5_extra_exercises.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https://github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/solutions/extra_exercises/extra_exercises.ipynb&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -371,14 +378,13 @@
         
               <div>
                 
-  <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Basic-Python" data-toc-modified-id="Basic-Python-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Basic Python</a></span></li><li><span><a href="#Matplotlib" data-toc-modified-id="Matplotlib-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Matplotlib</a></span></li><li><span><a href="#Pandas" data-toc-modified-id="Pandas-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Pandas</a></span></li></ul></div><div class="section" id="extra-exercises">
+  <div class="section" id="extra-exercises">
 <h1>Extra exercises<a class="headerlink" href="#extra-exercises" title="Permalink to this headline">¶</a></h1>
-<p>Some extra exercises to practice with Python, Pandas, and Matplotlib.</p>
+<p>Although the previous tutorials contained several exercises, it doesn’t hurt to practice some more! The following exercises will test your Python (and Pandas/Matplotlib) skills. Note that it does not contain any exercises on Numpy because this is not directly relevant to the Python/PsychoPy course.</p>
 <div class="section" id="basic-python">
 <h2>Basic Python<a class="headerlink" href="#basic-python" title="Permalink to this headline">¶</a></h2>
 <p>The following ToDos help you practice with basic Python syntax and operations.</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Add five to the value in the variable <tt>x</tt> below and then raise the result to the third power. Store the result in a variable named <tt>y</tt>. 
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -406,7 +412,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list below (<tt>my_list</tt>), extract every element at an odd index (at index 1, at index 3, at index 5, etc.) and store it in a new variable named <tt>my_list_index_odd</tt>. Note: you don't have to use a for-loop for this (but you can, if you want). Remember: Python is zero-indexed (i.e., the first element is at index 0).
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -434,7 +440,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list below (<tt>my_list2</tt>), extract the strings with five or more letters and store the result (another list) in a variable named <tt>my_list_filtered</tt>.
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -473,7 +479,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list below (<tt>my_list3</tt>, extract all even numbers (e.g., 0, 2, 100, 52) and store the result (another list) in a variable named <tt>my_list_even</tt>. Note: this ToDo is testing your google skills!
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -505,7 +511,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: The list below (<tt>graded_per_day</tt>) contains integers that represent the number of essays I graded in the past week (Monday-Friday). Compute the percentage of essays I graded for each day and store the result (another list) in a new variable with the name <tt>percentage_per_day</tt>. Hint: to get a percetage, you divide a number by the sum of the collection and then multiply it by 100.
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -533,10 +539,10 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b> (difficult!): The covariance between two variables ($x$, $y$) of length $n$ is computed as follows:
-<div class="amsmath math notranslate nohighlight" id="equation-a2b80847-6783-4037-9a11-12f584438e11">
-<span class="eqno">()<a class="headerlink" href="#equation-a2b80847-6783-4037-9a11-12f584438e11" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-88e04ec7-398b-48b8-9134-f63d94c3e8c4">
+<span class="eqno">(7)<a class="headerlink" href="#equation-88e04ec7-398b-48b8-9134-f63d94c3e8c4" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathrm{cov}_{xy} = \frac{\Sigma_{i}^{n} (x_{i} - \bar{x})(y_{i} - \bar{y})}{n-1}
 \end{align}\]</div>
 <p>Compute the covariance (a single float!) between the two lists (<tt>z1</tt> and <tt>z2</tt>) below and store it in a variable with the name <tt>cov_z1z2</tt>. You may use the order of steps below:</p>
@@ -583,7 +589,7 @@
 <div class="section" id="matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
 <p>Two Matplotlib exercises (both relatively difficult).</p>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, we simulate the resting heart rate (<tt>rhr</tt>, in beats per minute) for 100 people, who are either male ('M') or female ('F') in this example (stored in the <tt>gend</tt> variable). Using Matplotlib, plot the histogram of the resting heart rate of males and females separately, but in the same plot! Make sure that the transparency of the bars of the histograms are set to 50% (google this!). Add a legend and sensible axis labels.
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -609,7 +615,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/extra_exercises_23_0.png" src="../../_images/extra_exercises_23_0.png" />
+<img alt="../../_images/5_extra_exercises_22_0.png" src="../../_images/5_extra_exercises_22_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -622,10 +628,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/extra_exercises_24_0.png" src="../../_images/extra_exercises_24_0.png" />
+<img alt="../../_images/5_extra_exercises_23_0.png" src="../../_images/5_extra_exercises_23_0.png" />
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Create a bar graph with the average heart rate for three groups:
     <ul>
         <li>People with a RHR &lt; 58 ("athletic")</li>
@@ -654,15 +660,13 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">avs</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Resting heart rate (b.p.m.)&#39;</span><span class="p">)</span>
-<span class="c1">#plt.tight_layout()</span>
-<span class="c1">#plt.savefig(&#39;rhr_stratified.png&#39;)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1">### END SOLUTION</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/extra_exercises_26_0.png" src="../../_images/extra_exercises_26_0.png" />
+<img alt="../../_images/5_extra_exercises_25_0.png" src="../../_images/5_extra_exercises_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -675,7 +679,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/extra_exercises_27_0.png" src="../../_images/extra_exercises_27_0.png" />
+<img alt="../../_images/5_extra_exercises_26_0.png" src="../../_images/5_extra_exercises_26_0.png" />
 </div>
 </div>
 </div>
@@ -700,7 +704,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Remove all participants with missing reaction time data ("mean_rt" column) and store it in a new variable named <tt>df_clean</tt>.
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -737,7 +741,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Select from the <tt>df_clean</tt> dataframe the subset of male participants and save them in a new dataframe with the name <tt>df_m</tt>.
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -765,7 +769,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Select from the <tt>df_clean</tt> dataframe the subset of participants who have more than 65% correct ("prop_correct") and a mean reaction time smaller than 100 ms. Store the result in a new variable named <tt>df_select</tt>.
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -795,7 +799,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Add a new column to the dataframe, "status", which contains either the string "above_average" or "below_average" depending on whether the participant has a "prop_correct" score higher than the average or lower than the average, respectively. This column should be added to the <tt>df_clean</tt> dataframe. Note: if you get a "SettingWithCopyWarning", you may ignore this.
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -828,7 +832,7 @@
 </div>
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Using Matplotlib, create a scatterplot with the variables "prop_correct" (on the x-axis) and "mean_rt" (on the y-axis).
 </div><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -843,10 +847,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/extra_exercises_45_0.png" src="../../_images/extra_exercises_45_0.png" />
+<img alt="../../_images/5_extra_exercises_44_0.png" src="../../_images/5_extra_exercises_44_0.png" />
 </div>
 </div>
-<div class='alert alert-warning'>
+<div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Compute the correlation between proportion correct and mean RT (using, e.g., he <tt>pearsonr</tt> function from the <tt>scipy.stats</tt> module) <em>for each group ("A", "B", and "C") separately</em>. Store these three floats (i.e., the correlations) in a list with the variable name <tt>corrs_conditions</tt>. Hint: take a good look at what the <tt>pearsonr</tt> function returns exactly!
 <p>Note that, in real life, doing such “subgroup” analyses is probably a bad idea ;-)</p>
 </div><div class="cell tag_hide-cell docutils container">
@@ -896,7 +900,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./solutions/extra_exercises"
+            path: "./tutorials/week_1"
         },
         predefinedOutput: true
     }
@@ -911,6 +915,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="4_numpy.html" title="previous page">Introduction to Numpy (tutorial)</a>
+    <a class='right-next' id="next-link" href="../../week_1/python_how_to_continue.html" title="next page">How to continue with Python?</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
