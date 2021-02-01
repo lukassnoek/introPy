@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment week 2 &#8212; introPy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">introPy</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to introPy
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/about.html">
+   About this course
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/jupyter.html">
+   The Jupyter ecosystem
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python (week 1)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/python.html">
+   Python essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/week_1/0_introduction.html">
+   Introduction to Python (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/week_1/1_python_basics.html">
+   Python basics (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/week_1/2_matplotlib.html">
+   Introduction to Matplotlib (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/week_1/3_pandas.html">
+   Introduction to Pandas (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/week_1/4_numpy.html">
+   Introduction to Numpy (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_1/python_how_to_continue.html">
+   How to continue with Python?
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  PsychoPy (week 2)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/psychopy.html">
+   PsychoPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/intro_psychopy.html">
+   Introduction to PsychoPy (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/psychopy_builder_part1.html">
+   Introduction to the Builder (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/psychopy_builder_part2.html">
+   A Builder experiment from scratch (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/builder_test.html">
+   Test your Builder skills!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/psychopy_coder_part1.html">
+   Introduction to the Coder (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/psychopy_coder_part2.html">
+   A Coder experiment from scratch (T)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/coder_test.html">
+   Test your Coder skills!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_2/psychopy_how_to_continue.html">
+   How to continue with PsychoPy?
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/for_developers.html">
+   For developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/CONTRIBUTING.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/CONDUCT.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/config/ppsaw2_old.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lukassnoek/introPy"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fconfig/ppsaw2_old.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/config/ppsaw2_old.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trial-feedback-routine-structure">
+   Trial/feedback routine structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stimulus-criteria">
+     Stimulus criteria
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-version">
+   Advanced version
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grading-key">
+   Grading key
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qualitative-criteria-5-points">
+     Qualitative criteria (5 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantitative-criteria-25-points">
+     Quantitative criteria (25 points)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tips-tricks">
+   Tips &amp; tricks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plagiarism">
+   Plagiarism
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handing-in-your-assignment">
+   Handing in your assignment
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-week-2">
+<h1>Assignment week 2<a class="headerlink" href="#assignment-week-2" title="Permalink to this headline">¶</a></h1>
+<p>For this assignment, you have to program a <em>change detection</em> task to test participants’ visual working memory. This should be programmed in the Coder interface of PsychoPy. This task consists of a set of trials in which the participant briefly sees a stimulus (usually a set of gratings, slanted lines, or shapes), which after a short delay reappears in the exact same configuration or slightly differently (e.g., one of the lines changed orientation). After the stimulus reappears, the participant then has to respond whether the stimulus changed or not. The idea, here, is that the participant needs to keep the stimulus in <em>visual working memory</em> to be able to perform the task. Often, the complexity of the stimulus, sometimes called <em>set size</em>, (e.g., the number of lines/shapes presented at each trial) is varied in order to manipulate the working memory load.</p>
+<p>Please read this page carefully before starting on your assignment.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>For more information about the change detection paradigm, check out the article by <a class="reference external" href="https://link.springer.com/article/10.3758%2Fs13423-011-0055-3">Rouder et al., (2011)</a>! <a class="bibtex reference internal" href="../misc/bibliography.html#rouder2011measure" id="id1">[RMMC11]</a></p>
+</div>
+<p>In this assignment, you will program a relatively simple version of the change detection task involving random strings of integers (e.g., <code class="docutils literal notranslate"><span class="pre">286931</span></code>). To give you an idea of how the experiment should look like, we created a “demo” Builder version of it, which is included in the materials. If you didn’t download the materials already, please follow the instructions in the <em>Downloading the material</em> section on the <a class="reference internal" href="../getting_started/installation.html"><span class="doc std std-doc">installation page</span></a>.</p>
+<p>In the unzipped folder (probably called <em>intropy</em>), there is another folder called <em>intropy</em>, which contains yet another folder called <em>config</em>. This folder contains a Builder experiment with the name <code class="docutils literal notranslate"><span class="pre">change_detection.psyexp</span></code> (so the full path is: <code class="docutils literal notranslate"><span class="pre">intropy/intropy/config/change_detection.psyexp</span></code>).</p>
+<div class="attention admonition">
+<p class="admonition-title"> ToDo</p>
+<p>Open the <code class="docutils literal notranslate"><span class="pre">change_detection.psyexp</span></code> file in the PsychoPy Builder interface (<em>File</em> → <em>Open</em> → select the <code class="docutils literal notranslate"><span class="pre">change_detection.psyexp</span></code> file) and run the experiment.</p>
+</div>
+<p>As you can see in the Builder, the experiment consists of the following elements:</p>
+<ul>
+<li><p><strong>A dialog box asking for the participant number</strong></p>
+<p>Make sure it asks for a participant ID (an integer).<br><br></p>
+</li>
+<li><p><strong>A welcome screen for 2 seconds</strong></p>
+<p>Use whatever text you like (as long as it’s professional).<br><br></p>
+</li>
+<li><p><strong>An instruction screen (visible until participant pressed ‘enter’)</strong></p>
+<p>You may copy the text from the Builder experiment if you want. Make sure it is clear that the participant needs to press the left key when the stimulus was the same, and the right key when the stimulus changed.<br><br></p>
+</li>
+<li><p><strong>An initial fixation target (1 second)</strong></p>
+<p>You may use whatever fixation target you like.<br><br></p>
+</li>
+<li><p><strong>A trial loop consisting of both the trial itself and subsequent feedback</strong></p>
+<p>Make sure the trial is build up as indicated in the <em>Trial routine structure</em> below. Also, make sure the participant can quit the experiment during the trial loop when pressing the “q” key.<br><br></p>
+</li>
+<li><p><strong>An overview of the participant’s performance</strong></p>
+<p>Make sure it shows the accuracy (proportion of correct trials) and a plot with reaction times. You may format your plot any way you like (lineplot, barplot, etc.).<br><br></p>
+</li>
+<li><p><strong>Saving the data</strong></p>
+<p>The data should be saved in the current directory with the filename <code class="docutils literal notranslate"><span class="pre">sub-xx_events.csv</span></code>, where <code class="docutils literal notranslate"><span class="pre">xx</span></code> refers to the submitted participant ID. You should use the <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> method from Pandas <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> for this as follows (assuming your <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is called <code class="docutils literal notranslate"><span class="pre">df</span></code>): <code class="docutils literal notranslate"><span class="pre">df.to_csv(desired_name_of_file,</span> <span class="pre">index=False)</span></code>.</p>
+<p>This file should contain (at least) the following columns: <code class="docutils literal notranslate"><span class="pre">first_string</span></code> (the string presented the first time, e.g., “386291”), <code class="docutils literal notranslate"><span class="pre">second_string</span></code> (the string presented the second time, e.g., “386281”), <code class="docutils literal notranslate"><span class="pre">condition</span></code> (either “change” or “no_change”), <code class="docutils literal notranslate"><span class="pre">response</span></code> (either “left” or “right”), and <code class="docutils literal notranslate"><span class="pre">reaction_time</span></code> (in seconds, e.g., “0.6292389”).</p>
+</li>
+</ul>
+<div class="section" id="trial-feedback-routine-structure">
+<h2>Trial/feedback routine structure<a class="headerlink" href="#trial-feedback-routine-structure" title="Permalink to this headline">¶</a></h2>
+<p>Specifically, the trial + feedback part should be build up as follows:</p>
+<ul class="simple">
+<li><p>Presentation of the stimulus (0.5 seconds);</p></li>
+<li><p>A delay showing the fixation target (2 seconds);</p></li>
+<li><p>Second presentation of the (identical or changed) stimulus (0.5 seconds)</p></li>
+<li><p>Presentation of a fixation target (1.5 seconds)</p></li>
+<li><p>Presentation of colored feedback text (“Correct!” in green, “Wrong!” in red, or “Missed!” in white)</p></li>
+<li><p>Presentation of a fixation target (1 second)</p></li>
+</ul>
+<div class="section" id="stimulus-criteria">
+<h3>Stimulus criteria<a class="headerlink" href="#stimulus-criteria" title="Permalink to this headline">¶</a></h3>
+<p>In the Builder demo, we used random strings of six digits (0-9) to represent our stimuli, which may or may not contain a <em>single</em> changed digit in the second presentation. As such, there are two conditions: “change” and “no_change”, if you will. You may define/generate your stimuli in any way you like (e.g., using an external conditions file, hardcoded in the script itself, etc.), but the stimuli have to meet the following criteria:</p>
+<ul class="simple">
+<li><p>There should be <em>at least</em> 20 unique stimuli (and thus at least 20 trials);</p></li>
+<li><p>Of all stimuli, 50% should belong to the “change” condition (and the other 50% to the “no_change” condition);</p></li>
+<li><p>For the stimuli in the “change” condition, each digit from the string should have the same chance of being changed;</p></li>
+<li><p>For stimuli in the “change” condition, only a <em>single</em> digit should be changed</p></li>
+<li><p>The changed digit (e.g., 4) should have an equal chance of being changed to any <em>other</em> digit (e.g., 0, 1, 2, 3, 5, 6, 7, 8, 9).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="advanced-version">
+<h2>Advanced version<a class="headerlink" href="#advanced-version" title="Permalink to this headline">¶</a></h2>
+<p>If you complete the experiment as described thus far, you’ll score an 9 (out of 10). For the remaining point, you need to add one “advanced” feature to the experiment: the ability to change the length of the string of digits when running the experiment. To do this, add another field to the dialog box, <code class="docutils literal notranslate"><span class="pre">nr_of_digits</span></code> (with a default of 6), which determines the length of the random strings of digits used in the entire experiment (e.g., when filling in 9, stimuli have 9 digits). The minimum number of digits should be 4 and the maximum should be 12 (otherwise, quit the experiment). In addition to the columns mentioned above, add a column <code class="docutils literal notranslate"><span class="pre">nr_of_digits</span></code> to the data file. Otherwise, the experiment and the criteria for the stimuli remain the same.</p>
+<p>We highly recommend that you first try to implement the regular experiment and only then try to implement this advanced feature.</p>
+</div>
+<div class="section" id="grading-key">
+<h2>Grading key<a class="headerlink" href="#grading-key" title="Permalink to this headline">¶</a></h2>
+<p>Your assignment will be graded on both qualitative criteria (5 points) and quantitative criteria (25 points), outlined below.</p>
+<p><strong>Note</strong>: this probably goes without saying, but if you hand in the compiled Builder script from the demo experiment, you will fail this assignment.</p>
+<div class="section" id="qualitative-criteria-5-points">
+<h3>Qualitative criteria (5 points)<a class="headerlink" href="#qualitative-criteria-5-points" title="Permalink to this headline">¶</a></h3>
+<p>The qualitative criteria are related to the quality of the code as well as the experiment.</p>
+<ul>
+<li><p><strong>Readability of code (comments where needed, consistently formatted, etc.)</strong></p>
+<p>If you would give this script to someone who doesn’t know PsychoPy, would they understand how it worked?<br><br></p>
+</li>
+<li><p><strong>“User experience”</strong></p>
+<p>Does the experiment look okay? Is the text readable?</p>
+</li>
+</ul>
+</div>
+<div class="section" id="quantitative-criteria-25-points">
+<h3>Quantitative criteria (25 points)<a class="headerlink" href="#quantitative-criteria-25-points" title="Permalink to this headline">¶</a></h3>
+<p>The following elements need to be incorporated as specified and work as expected:</p>
+<ul class="simple">
+<li><p>An dialog box (1 point);</p></li>
+<li><p>A welcome screen (1 point);</p></li>
+<li><p>Instructions (2 points);</p></li>
+<li><p>Trial/feedback routine:</p>
+<ul>
+<li><p>Stimuli conform criteria (3 points);</p></li>
+<li><p>Trial routine structure and timing (2 points);</p></li>
+<li><p>Correct feedback text (2 points);</p></li>
+<li><p>Correct feedback color (1 point);</p></li>
+</ul>
+</li>
+<li><p>Overview routine:</p>
+<ul>
+<li><p>Accuracy text (2 points);</p></li>
+<li><p>Reaction time plot (2 points);</p></li>
+</ul>
+</li>
+<li><p>Response key and reaction time are stored (3 points);</p></li>
+<li><p>Data is saved as a CSV file with proper name (and contains all specified columns; 3 points)</p></li>
+<li><p>Advanced <code class="docutils literal notranslate"><span class="pre">nr_of_digits</span></code> feature (3 points)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="tips-tricks">
+<h2>Tips &amp; tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h2>
+<p>You can find some tips and tricks for completing this assignment below (feel free to use or ignore as you like)!</p>
+<ul class="simple">
+<li><p>Start with the definition of your stimuli — this may be the hardest part of the assignment!</p></li>
+<li><p>Feel free to copy-paste stuff from the tutorials;</p></li>
+<li><p>Google is your friend; use it!</p></li>
+<li><p>You may specify your trial conditions any way you like, as long as it meets the criteria defined above;</p></li>
+<li><p>It doesn’t matter which timing method you use (the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function/clock-based timing/frame-based timing)</p></li>
+</ul>
+</div>
+<div class="section" id="plagiarism">
+<h2>Plagiarism<a class="headerlink" href="#plagiarism" title="Permalink to this headline">¶</a></h2>
+<p>Although this is an “open-book” assignment, you may not work together on this assignment. In case we find out that students work together on this assignment, this will be reported as plagiarism to the exam committee.</p>
+</div>
+<div class="section" id="handing-in-your-assignment">
+<h2>Handing in your assignment<a class="headerlink" href="#handing-in-your-assignment" title="Permalink to this headline">¶</a></h2>
+<p>Hand in your experiment (a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file) on Canvas: <em>Modules</em> → <em>Assignment 4 (PsychoPy)</em>. If you use additional files (e.g., custom Python modules you wrote, a condition file, etc.), create a zip-file with every file necessary for the experiment and upload this on Canvas instead.</p>
+<p>The deadline for handing in the assignment is 3 PM. For every 30 minutes you hand in your assignment too late, 1 point (out of 10) will be deducted from your final grade.</p>
+<p><br><center><b>GOOD LUCK!</b> You got this.</center></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./config"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lukas Snoek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

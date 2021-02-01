@@ -109,7 +109,7 @@ If you're installing the `psychopy` Python package (instead of the standalone ve
 ## Downloading the material
 We use [Jupyter notebooks](https://jupyter.org/) for our tutorials. The materials are stored on [Github](https://github.com/lukassnoek/introPy) and can be downloaded as a zip-file by clicking on the link below:
 
-[Download materials](https://github.com/lukassnoek/introPy/archive/master.zip)
+<a href="https://github.com/lukassnoek/introPy/archive/master.zip" class="btn btn-primary" style="color:white;">Download materials</a>
 
 After downloading the materials, please unzip the folder. The resulting directory has the following structure and contents (the # symbols represent comments/information):
 
