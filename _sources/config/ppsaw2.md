@@ -11,7 +11,8 @@ In this assignment, you will program a relatively simple version of the change d
 
 In the unzipped folder (probably called *intropy*), there is another folder called *intropy*, which contains yet another folder called *config*. This folder contains a Builder experiment with the name `change_detection.psyexp` (so the full path is: `intropy/intropy/config/change_detection.psyexp`). In the same folder, there is a CSV file named `cd_conditions.csv`, which contains the trial attributes of the experiment.
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Open the `change_detection.psyexp` file in the PsychoPy Builder interface (*File* &rarr; *Open* &rarr; select the `change_detection.psyexp` file) and run the experiment.
 :::
 
@@ -64,7 +65,8 @@ Specifically, the trial + feedback part should be build up as follows:
 ### Stimuli
 We already created the stimuli for you, which we stored in the `cd_conditions.csv` file (located in the same directory as the `change_detection.psyexp` file).
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Open the `cd_conditions.csv` file in Excel/LibreOffice or a plain-text file editor (e.g., Notepad).
 :::
 
@@ -130,7 +132,7 @@ You can find some tips and tricks for completing this assignment below (feel fre
 * Feel free to copy-paste stuff from the tutorials, *but make sure you are using the correct variable named in your experiment*;
 * Google is your friend; use it!;
 * It doesn't matter which timing method you use (the `wait` function/clock-based timing/frame-based timing);
-* When developing the experiment, set `fullscr=False` during initialization of your `Window` so you can abort it whenever you want; 
+* When developing the experiment, set `fullscr=False` during initialization of your `Window` so you can abort it whenever you want;
 * Testing, testing, testing: make sure you test your experiment regularly!
 
 Finally, don't try to implement the entire experiment at once. Instead, implement the features step by step. I would recommend implement the features in the following order:

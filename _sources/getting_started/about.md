@@ -7,7 +7,7 @@ This website contains information and tutorials about Python and PsychoPy. Each 
 <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
     aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
 
-The tutorials from week 2 are about PsychoPy and are not written in Jupyter notebooks. Instead, they are simply embedded as (static) pages on this website, which contain explanations about the material *and* plenty of exercises! 
+The tutorials from week 2 are about PsychoPy and are not written in Jupyter notebooks. Instead, they are simply embedded as (static) pages on this website, which contain explanations about the material *and* plenty of exercises!
 
 Note that we provide both the tutorials and the associated solutions. In the folder with course materials you downloaded, they are located in the folders *tutorials* and *solutions*, respectively. The solutions are exactly the same as the tutorial notebooks, except that they contain the solution embedded between `### BEGIN SOLUTION` and `### END SOLUTION` identifiers. The solutions for the week 2 tutorials are files that contain the full implementation of the tutorial experiments (in `psyexp` files for Builder experiments and regular Python files for Coder experiments).
 

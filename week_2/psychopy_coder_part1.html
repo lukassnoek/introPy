@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to the PsychoPy Coder (tutorial) &#8212; introPy</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,21 +31,19 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,14 +53,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Creating a Coder experiment from scratch (tutorial)" href="psychopy_coder_part2.html" />
     <link rel="prev" title="Test your Builder skills!" href="builder_test.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,32 +69,36 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">introPy</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">introPy</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
    Welcome to introPy
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../getting_started/about.html">
    About this course
@@ -116,12 +115,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python (week 1)
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../week_1/python.html">
    Python essentials
@@ -163,12 +162,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   PsychoPy (week 2)
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy.html">
    PsychoPy
@@ -215,12 +214,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Misc
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
    Bibliography
@@ -243,6 +242,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -258,21 +258,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -290,7 +290,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -310,25 +310,25 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-psychopy-package">
    The
@@ -389,8 +389,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -398,7 +398,7 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-the-psychopy-coder-tutorial">
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-the-psychopy-coder-tutorial">
 <h1>Introduction to the PsychoPy Coder (tutorial)<a class="headerlink" href="#introduction-to-the-psychopy-coder-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>At last, we’ll discuss the PsychoPy Coder! In this tutorial, we explain the basics of the Coder interface. It will be a somewhat more “dry” tutorial because we won’t actually create any stimuli or trials in this tutorial, because we’ll save that for the next tutorial. Like in the previous Builder tutorial, we will explain the concepts by walking you through the process of programming a real experiment. This time, we will create a variant of the classical color-word Stroop task, the <em>emotion-word Stroop</em> task, in which participants are presented with images of emotional facial expressions in combination with words describing emotions that are congruent with the images (e.g., an angry expression with the word “angry”) or incongruent with the images (e.g., a happy exression with the word “angry”).</p>
 <div class="section" id="the-psychopy-package">
@@ -419,17 +419,17 @@
 <h2>The Coder interface<a class="headerlink" href="#the-coder-interface" title="Permalink to this headline">¶</a></h2>
 <p>Now, let’s get started by opening the Coder interface.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Open the Coder interface (<em>View</em> → <em>Open Coder view</em>). You may close the <em>Builder</em> interface for now.</p>
 </div>
 <p>Like the Builder interface, the Coder interface has several subwindows (panes). The panel on the left represents the <em>Source assistant</em>, which lists all files in the current working directory (in the <em>File Browser</em> tab) and information about the Python modules in the current working directory specifically (in the <em>Structure</em> tab).</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>By default, PsychoPy’s current directory is its installation path. Although this is not strictly necessary for this tutorial, change it to the <code class="docutils literal notranslate"><span class="pre">tutorials/week_2</span></code> directory by clicking on the right arrow (<em>Jump to another folder</em>).</p>
 </div>
 <p>At the bottom of the Coder interface in the <em>Shelf</em> pane, you’ll find a so-called “Python shell”. You can think of it as a type of command line (like we discussed in the first Jupyter notebook of week 1), but specifically for Python code. You can only run a single line at once, but it’ll show the result immediately.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Try writing some valid Python code in the Python shell (and pressing enter to run it), e.g., <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code>. Note that the Python shell will remember variables if you define them, just like Jupyter notebooks, so you can also run multiple commands like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>
@@ -441,12 +441,12 @@
 <p>Finally, the last pane in the middle is PsychoPy’s code editor. Here, you can open any plain-text file (not just Python files!) which you can modify and save. In practice, of course, you’ll probably mostly work with Python files in this editor. Like most code editors, the Psychopy code editor also does some code formatting and syntax highlighting. One thing you’ll notice is that it by default uses two spaces (in contrast to the more conventional four spaces) for indentation.</p>
 <p>Right now, there are probably no active files in your Psychopy code editor, so let’s create one for our emotion-word Stroop task!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Create a new Python file (<em>File</em> → <em>New</em>) and save it as <code class="docutils literal notranslate"><span class="pre">emo_stroop.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">tutorials/week_2</span></code> directory.</p>
 </div>
 <p>Although you learned in week 1 that Python files should be run in a terminal on the command line (e.g., <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">emo_stroop.py</span></code>), Python files within the PsychoPy coder are actually run the same way as Builder experiments: by clicking on the big green play (►) button!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Add some code to your <code class="docutils literal notranslate"><span class="pre">exp_stroop.py</span></code> file, e.g., <code class="docutils literal notranslate"><span class="pre">print(&quot;PsychoPy</span> <span class="pre">4evah&quot;)</span></code>, and run the file.</p>
 </div>
 <p>After clicking the <em>Run experiment</em> button, the <em>Experiment runner</em> window should pop up, displaying something like the following:</p>
@@ -468,7 +468,7 @@
 </div>
 <p>Note that it is quite important to create the dictionary before passing it to the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> class instead of passing it directly, e.g., <code class="docutils literal notranslate"><span class="pre">DlgFromDict({'participant_nr':</span> <span class="pre">''})</span></code>. This is because PsychoPy will modify the dictionary (i.e., the variable <code class="docutils literal notranslate"><span class="pre">exp_info</span></code> in the code snippet above) with the information filled in by the participant/experimenter.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>In your experiment, create a dialog box with the fields “participant_nr” and “age”, in which the participant number should have the default <code class="docutils literal notranslate"><span class="pre">99</span></code> (for testing purposes) but age should not get a default value. Don’t forget to import the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> class first! Then, run your experiment.</p>
 </div>
 <p>As you can see, when you run the experiment, a dialog box appears! After you filled in the required information, you can click <em>OK</em> to start the experiment. Notably, after you fill in the fields of the dialog box (e.g., with participant number <code class="docutils literal notranslate"><span class="pre">01</span></code> and an age of <code class="docutils literal notranslate"><span class="pre">29</span></code>), you can access this information from the original dictionary passed to the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> class (i.e., <code class="docutils literal notranslate"><span class="pre">example_info</span></code> in the code snippet above). For example, <code class="docutils literal notranslate"><span class="pre">exp_info['age']</span></code> will return the age that the participant filled in (e.g., <code class="docutils literal notranslate"><span class="pre">29</span></code>).</p>
@@ -478,7 +478,7 @@
 </div>
 <p>Let’s do an exercise to see whether everything’s clear so far.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Given the dialog box configuration from the previous ToDo, include a print statement to your script that will print out the following: “Started the experiment for participant … with age …”, where the triple dots are replaced by whatever you filled in when running the experiment.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -502,7 +502,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>We recommend adding this snippet right after initialization of the dialog box in every experiment that actually uses a dialog box! Now, those that want a challenge, try the following (optional) ToDo.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo (optional)</p>
+<p class="admonition-title">ToDo (optional)</p>
 <p>Add some code after the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">dlg.OK</span></code> code block that also quits the experiment when the user fills in an invalid participant number (let’s say, anything higher than 99) or an invalid age (let’s say, below 18). Try running the experiment with different values for these two options to see whether your implementation works as expected!</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -540,7 +540,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>Note that you may use any variable name for your <code class="docutils literal notranslate"><span class="pre">Window</span></code> object, but we recommend naming it <code class="docutils literal notranslate"><span class="pre">win</span></code> like in the code snippet above, as it’s short but descriptive.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Initialize a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object as shown in the above code snippet and run your experiment! Don’t forget to also import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class!</p>
 </div>
 <p>When running the current experiment, you should briefly see a gray window pop up. This is the “default” experiment window. We can, of course, change the way it looks by passing it arguments upon initialization! We can, for example, change the size by passing a tuple with the width and height in pixels to the argument <code class="docutils literal notranslate"><span class="pre">size</span></code>. For example, if you’d want a window of (for some reason) 400 (width) by 800 (height) pixels, you’d initialize your <code class="docutils literal notranslate"><span class="pre">Window</span></code> as follows:</p>
@@ -554,7 +554,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>You can also change the window’s background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Although we don’t recommend doing so in a real experiment, try making the window’s background color bright blue. Want a more challenging exercise? Try to set the background to bright orange. Hint: note that PsychoPy assumes that RGB values range from -1 (minimum) to 1 (maximum), not from 0 to 255!</p>
 </div>
 <p>Another important argument of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class is the <code class="docutils literal notranslate"><span class="pre">monitor</span></code>, to which you can pass the name of the monitor, as defined in the monitor center, you want to use for this experiment. For example, if you defined a monitor in the monitor center with the name “laptop”, you can pass this configuration to the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class as follows:</p>
@@ -562,7 +562,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </pre></div>
 </div>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo (optional/difficult!)</p>
+<p class="admonition-title">ToDo (optional/difficult!)</p>
 <p>If you don’t want to use the monitor center at all (e.g., when you’re programming your experiments in an external code editor), you can also programmatically using the <code class="docutils literal notranslate"><span class="pre">Monitor</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.monitor</span></code> module. Try creating a monitor configuration for your own laptop/desktop monitor. Make sure you set the monitor’s size (in pixels), width (in cm), and distance between you to the monitor (in cm). The <a class="reference external" href="https://www.psychopy.org/api/monitors.html">documentation of the <code class="docutils literal notranslate"><span class="pre">monitor</span></code> module</a> contains all info you need to do this!</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -571,7 +571,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>Finally, the last important argument of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class is the type of <em>units</em> that should be used by default for your components (which we’ll discuss later), such as “norm” (for normalized units), “deg” (for visual degree angle), and “pix” (for pixels). As said before, there are in fact many more arguments to pass to the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class (see the <a class="reference external" href="https://www.psychopy.org/api/visual/window.html">documentation</a> for an overview), but we believe that the ones we discussed here are most important to know and that the other arguments all have sensible defaults.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Let’s create a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object that we’ll use for the rest of our emotion-word Stroop experiment! Make sure it is shown in full-screen mode, uses normalized units, uses the monitor specification of your own laptop/desktop monitor, and has a black background. Run your experiment to see whether it looks like expected!</p>
 </div>
 <p>Note that you can also change <code class="docutils literal notranslate"><span class="pre">Window</span></code> attributes after creating the object by directly editing the attributes. For example, if you’d want to change the units after initialization to pixels, you can do the following:</p>
@@ -588,7 +588,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p>When you run the current experiment, you’ll only see a black screen for like a second or so before it disappears again. The reason why the window doesn’t stay open is because we don’t tell it to! It is important to realize that PsychoPy will run the experiment script from top to bottom (like any Python file is run, actually) and will close the window once the script ends. Put differently, you can interpret the script as a chronological chain of events from the top of the script (beginning) to the bottom of the script (end).</p>
 <p>So, if you want to keep the window open for a little longer, we can simply tell PsychoPy so! There are, in fact, different ways to do this, but arguably the easiest way is using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function from the <a class="reference external" href="https://www.psychopy.org/api/core.html"><code class="docutils literal notranslate"><span class="pre">psychopy.core</span></code></a> module. We can pass this function a number corresponding to the amount of time (in seconds) PsychoPy should wait before continuing with the rest of the script.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function from the <code class="docutils literal notranslate"><span class="pre">psychopy.core</span></code> module and, after initializing the window, use it to make PsychoPy wait 2 seconds. Then, run the experiment.</p>
 </div>
 <p>When you ran the experiment after adding the call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, you may have noticed that the window was active for more than 2 seconds. This because, as we mentioned earlier, it takes a while to close the window.</p>
@@ -603,7 +603,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>Now, with our knowledge about clocks, let’s check whether the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function actually makes PsychoPy wait as long as we tell it. (Of course it does, but it’s a nice way to practice how to use a <code class="docutils literal notranslate"><span class="pre">Clock</span></code>.)</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class and, after creating a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object, initialize it. Then, query the time using <code class="docutils literal notranslate"><span class="pre">getTime</span></code> and store it in a variable (e.g., <code class="docutils literal notranslate"><span class="pre">t_before_wait</span></code>). Aftewards, make PsychoPy wait for 2 seconds (using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function), and finally, query the time again and store in another variable (e.g., <code class="docutils literal notranslate"><span class="pre">t_after_wait</span></code>). Make your script print the time before <code class="docutils literal notranslate"><span class="pre">wait</span></code> call, after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call, and the difference between those two times. Then, run the experiment.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -635,7 +635,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p>To interact with keyboard responses, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package contains a — guess what — <a class="reference external" href="https://www.psychopy.org/api/hardware/keyboard.html"><code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class</a> in the <code class="docutils literal notranslate"><span class="pre">psychopy.hardware.keyboard</span></code> module. This class records all keypresses since its initialization, which you can save or use in your experiment. Although there are several arguments upon initialization (see the <a class="reference external" href="https://www.psychopy.org/api/hardware/keyboard.html">documentation</a>), these are all optional and have sensible defaults.</p>
 <p>One important attribute that <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> objects have is <code class="docutils literal notranslate"><span class="pre">clock</span></code>: a <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object to keep track of keypress onsets and reaction times (relative to the initialization of the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object).</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class (at the start of your script), initialize a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object (use the variable <code class="docutils literal notranslate"><span class="pre">kb</span></code>), wait for 1 second (use the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function), and print the time since the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> option using the <code class="docutils literal notranslate"><span class="pre">clock</span></code> attribute! Then, run the experiment and check the <em>Experiment runner</em> for the printed output.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -658,7 +658,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </details></div>
 <p>Arguably the most important method of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class is the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method. This returns a list of keypresses pressed since the previous call to <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> or, if it is the first time the method is called, since the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>After the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object and the call to <code class="docutils literal notranslate"><span class="pre">wait</span></code> (from the previous ToDo), call the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> function and store the result in a variable (e.g., <code class="docutils literal notranslate"><span class="pre">keys</span></code>) and print this variable. Then, run the experiment and check the <em>Experiment runner</em> to see the printed output.</p>
 </div>
 <p>As you can see, the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method specifically returns a list of <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects! These objects are not just strings corresponding to the pressed keys (e.g., “a”, “b”, “return”, “left”, etc.), as you might expect. In fact, these <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects contain much more information that is contained in its attributes:</p>
@@ -684,7 +684,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </pre></div>
 </div>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>One routine that is common in (PsychoPy) experiments, and one which we also discussed in the Builder tutorials, is the “press-a-key-to-continue” routine. This can be implemented in PsychoPy using a while loop in combination with the <code class="docutils literal notranslate"><span class="pre">keyGets</span></code> method of a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object. Try implementing this in your script such that you only advance with the experiment when you press the enter key (“return”). You may remove the code from the last two ToDos (to clean up your script a bit).</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -703,7 +703,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </details></div>
 <p>If you want to learn a little more about keyboard interaction, try the next (optional and more difficult) ToDo!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo (optional/difficult)</p>
+<p class="admonition-title">ToDo (optional/difficult)</p>
 <p>As mentioned before, the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method returns a list of <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects with several attributes with information about the keypress. For a period of two seconds, for each detected key press, print in a single statement the name of the key, its reaction time, and duration (e.g., “The ‘a’ key was pressed within 2.156 seconds for a total of 0.255 seconds”). <a class="reference external" href="https://realpython.com/python-f-strings/">F-strings</a> would we nice here! (You may remove the code from the previous ToDo.)</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -734,7 +734,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>Now, let’s practice a bit with the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class and initialize a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method). Check the <a class="reference external" href="https://www.psychopy.org/api/event.html">documentation</a> to see what the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method returns exactly.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -757,7 +757,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </details></div>
 <p>And another one for those who want a challenge.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class and initialize a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method). Check the <a class="reference external" href="https://www.psychopy.org/api/event.html">documentation</a> to see what the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method returns exactly.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -780,7 +780,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </details></div>
 <p>And those who want a challenge, try the next one.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>With the <code class="docutils literal notranslate"><span class="pre">setPos</span></code> method, you can control the position of the cursor! Try moving the mouse to the upper left corner of the screen and then going to each other corner in a clockwise fashion, stopping for 0.5 seconds at each corner.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -791,8 +791,8 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </summary><div class="summary-content card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is just one solution! THere are many different implementations possible!</span>
 <span class="c1"># These numbers assume &quot;norm&quot; units</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">-.</span><span class="mi">9</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">-.</span><span class="mi">9</span><span class="p">,</span> <span class="o">-.</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">.9</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">.9</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="n">mouse</span><span class="o">.</span><span class="n">setPos</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
     <span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
@@ -806,10 +806,10 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <h2>Quitting the experiment<a class="headerlink" href="#quitting-the-experiment" title="Permalink to this headline">¶</a></h2>
 <p>As you’ve seen so far, when the Python interpreter arrives at the end of your script, the PsychoPy window automatically closes and the Python process finishes. In the context of PsychoPy experiments, however, it is good practice to end the experiment by explicitly closing the window using the window’s <code class="docutils literal notranslate"><span class="pre">close</span></code> method <em>and</em> then calling the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">core.psychopy</span></code> module (as we did before in the section on dialog boxes). Although not strictly necessary, calling the <code class="docutils literal notranslate"><span class="pre">close</span></code> method and the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function perform a bit of bookkeeping that may prevent issues, so we recommend always including this at the very end of your script!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
-<p>At the end of your script, add the code to close your window and to quit the experiment. :::</p>
-<p>This tutorial features some of the most important, but arguably boring, aspects of programming experiments in the PsychoPy Coder, so let’s continue with the <a class="reference internal" href="psychopy_coder_part2.html"><span class="doc std std-doc">next (and final) tutorial</span></a> which discusses creating components and other fun stuff!</p>
+<p class="admonition-title">ToDo</p>
+<p>At the end of your script, add the code to close your window and to quit the experiment.</p>
 </div>
+<p>This tutorial features some of the most important, but arguably boring, aspects of programming experiments in the PsychoPy Coder, so let’s continue with the <a class="reference internal" href="psychopy_coder_part2.html"><span class="doc std std-doc">next (and final) tutorial</span></a> which discusses creating components and other fun stuff!</p>
 </div>
 </div>
 
@@ -835,17 +835,37 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 
               </div>
               
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="builder_test.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Test your Builder skills!</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="psychopy_coder_part2.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Creating a Coder experiment from scratch (tutorial)</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
         </div>
     </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="builder_test.html" title="previous page">Test your Builder skills!</a>
-    <a class='right-next' id="next-link" href="psychopy_coder_part2.html" title="next page">Creating a Coder experiment from scratch (tutorial)</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -860,11 +880,9 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

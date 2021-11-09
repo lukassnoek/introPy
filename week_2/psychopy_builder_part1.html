@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to the PsychoPy Builder (tutorial) &#8212; introPy</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,21 +31,19 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,14 +53,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Creating a Builder experiment from scratch (tutorial)" href="psychopy_builder_part2.html" />
     <link rel="prev" title="Introduction to PsychoPy (tutorial)" href="intro_psychopy.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,32 +69,36 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">introPy</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">introPy</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
    Welcome to introPy
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../getting_started/about.html">
    About this course
@@ -116,12 +115,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python (week 1)
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../week_1/python.html">
    Python essentials
@@ -163,12 +162,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   PsychoPy (week 2)
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy.html">
    PsychoPy
@@ -215,12 +214,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Misc
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
    Bibliography
@@ -243,6 +242,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -258,21 +258,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -290,7 +290,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -310,25 +310,25 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#builder-vs-coder">
    Builder vs. Coder
@@ -358,8 +358,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -367,12 +367,12 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-the-psychopy-builder-tutorial">
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-the-psychopy-builder-tutorial">
 <h1>Introduction to the PsychoPy Builder (tutorial)<a class="headerlink" href="#introduction-to-the-psychopy-builder-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial, we will discuss and show you how to use the <em>Builder</em> interface of PsychoPy. We will explain the basic elements of the Builder interface so that, in the next tutorial, we can focus more on the implementational details by building a new experiment from scratch.</p>
 <p>You might think, “Why learn how to use a graphical interface in a programming course?” The reason we first teach you how to use the <em>Builder</em> interface is because it allows us to focus on the structure of experiments before elaborating on the underlying code. Another advantage of Builder experiments is that they can be used online! (But this is beyond the scope of this course.)</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Read <a class="reference external" href="https://workshops.psychopy.org/3days/10introductions.html">this page</a> which discusses the respective advantages of the Builder and Coder interface in more detail.</p>
 </div>
 <div class="section" id="builder-vs-coder">
@@ -380,7 +380,7 @@
 <p>As discussed before, the Builder and Coder interfaces can both be used to create experiments. Whereas the Builder allows you create experiments graphically, the Coder allows you to program your experiment directly in Python. There are merits to both interfaces: the Builder interface allows you to quickly prototype and develop experiments, which can be run online with a single click, while the Coder interface offers immense flexibility and opportunity to harnass the power and versatility of Python (and Python packages)!</p>
 <p>It is important to realize, though, that when PsychoPy runs Builder experiments, it actually first generates (or “compiles”) the experiment as a Python script (as if you created it using the Coder)!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Let’s see this Builder-to-Coder compilation in action. If you haven’t loaded the demo Builder experiment (<code class="docutils literal notranslate"><span class="pre">intropy_demo.psyexp</span></code>), do so now. Then, click the <em>Compile to script</em> button (right of the <em>Edit experiment settings</em> button). This should open the <em>Coder</em> interface with the code equivalent of the demo Builder experiment!</p>
 </div>
 <p>The generated <code class="docutils literal notranslate"><span class="pre">intropy_demo.py</span></code> script contains the code necessary to run the experiment originally specified in the Builder interface (i.e., in the <code class="docutils literal notranslate"><span class="pre">intropy_demo.psyexp</span></code> file). In fact, everytime your run a Builder experiment on your own computer, Psychopy first generates the corresponding Python script, which is then executed to start the experiment.</p>
@@ -393,7 +393,7 @@
 <h3>The routines pane<a class="headerlink" href="#the-routines-pane" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://www.psychopy.org/builder/routines.html"><em>Routines</em> pane</a> consist of the different elements of your experiment, where each element gets its own tab. In the demo experiment, for example, there are four routines: <em>intro</em>, <em>show_stimulus</em>, <em>gabor</em>, and <em>wrap_up</em>. Each routine may consist of multiple components (e.g., text, images, and sounds). For example, if you click on the <em>intro</em> routine tab, the routine pane shows, across different “rows”, that this routine consists of three consecutive text components (<em>hello</em>, <em>welcome</em>, and <em>wait_key</em>) and a “keyboard” component (<em>key_resp</em>). Moreover, the routine pane also shows you the onset and offsets of the different components. Note that routines do not <em>have to</em> contain multiple components; for example, the <em>show_stimulus</em> routine only contains a single component (i.e., <em>stim</em>). It’s up to you how you how you structure your routines!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToThink</p>
+<p class="admonition-title">ToThink</p>
 <p>In the <em>intro</em> routine, the <em>wait_key</em> and <em>key_resp</em> components seem to lack an explicit offset. Considering the demo experiment, do you understand why?</p>
 </div>
 </div>
@@ -407,7 +407,7 @@
 </div>
 <p>In the properties window, if you click the “OK” button, PsychoPy will add this component to the currently active routine. If you want, you can still change the properties afterwards. We will discuss setting component properties in more detail in the next tutorial!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo (optional)</p>
+<p class="admonition-title">ToDo (optional)</p>
 <p>Try adding another <em>text</em> component with the text “The end!” to the <em>wrap_up</em> routine. Make sure it immediately starts after the <em>goodbye</em> component and it lasts one second. Run the experiment to see whether it worked!</p>
 </div>
 </div>
@@ -415,11 +415,11 @@
 <h3>The flow pane<a class="headerlink" href="#the-flow-pane" title="Permalink to this headline">¶</a></h3>
 <p>Finally, the <a class="reference external" href="https://www.psychopy.org/builder/flow.html"><em>flow</em> pane</a> shows and defines the order of your experiment’s routines. In the demo experiment, for example, the flow pane shows that the experiment starts with the <em>intro</em> routine, followed by the <em>show_stimulus</em> routine, and finally the <em>gabor</em> and <em>wrap_up</em> routines. The colors of the routines in the flow pane indicate whether the routines has a known and exact duration (green) or not (blue or red). For experiments in which precision of onsets/offsets is not crucial, this is not really important. But in experiments in which you want to be sure your routines’ onsets, offsets, and durations are precise (i.e., <a class="reference external" href="https://www.psychopy.org/general/timing/nonSlipTiming.html">non-slip timing</a> in PsychoPy lingo), such as in neuroimaging experiments, you want to make sure each routine is green.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToThink</p>
+<p class="admonition-title">ToThink</p>
 <p>Do you understand why the <em>intro</em> routine is blue instead of green? Hint: the answer to this question is the same as to the previous <em>ToThink</em>.</p>
 </div>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo (optional)</p>
+<p class="admonition-title">ToDo (optional)</p>
 <p>Try inserting a new routine at the end of the experiment flow (i.e., after the <em>goodbye</em> routine). For example, create a new routine called <em>the_end</em> (in the top menu: <em>Experiment</em> → <em>New routine</em>) with a single text component lasting 1 second. Then, to insert it in the experiment flow, click on <em>Insert Routine</em>, select your new routine, and click on the flow line in between <em>wrap_up</em> and the arrow head to insert it!</p>
 </div>
 <p>Anothing think you might encounter in the flow pane is “loops”, like the <em>stimulus_loop</em> in the demo experiment. This functionality allows you to, well, add loops across routines! In the demo experiment, we use this to repeat our <em>show_stimulus</em> routine for the three different images. This is, of course, much more efficient than creating three different routines (or, equivalently, a single routine with three image components)! We will discuss loops in more detail in the next tutorial!</p>
@@ -450,17 +450,37 @@
 
               </div>
               
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="intro_psychopy.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Introduction to PsychoPy (tutorial)</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="psychopy_builder_part2.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Creating a Builder experiment from scratch (tutorial)</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
         </div>
     </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="intro_psychopy.html" title="previous page">Introduction to PsychoPy (tutorial)</a>
-    <a class='right-next' id="next-link" href="psychopy_builder_part2.html" title="next page">Creating a Builder experiment from scratch (tutorial)</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -475,11 +495,9 @@
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

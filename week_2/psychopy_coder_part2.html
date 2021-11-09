@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Creating a Coder experiment from scratch (tutorial) &#8212; introPy</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,21 +31,19 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,14 +53,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Test your Coder skills!" href="coder_test.html" />
     <link rel="prev" title="Introduction to the PsychoPy Coder (tutorial)" href="psychopy_coder_part1.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,32 +69,36 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">introPy</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">introPy</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
    Welcome to introPy
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../getting_started/about.html">
    About this course
@@ -116,12 +115,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Python (week 1)
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../week_1/python.html">
    Python essentials
@@ -163,12 +162,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   PsychoPy (week 2)
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="psychopy.html">
    PsychoPy
@@ -215,12 +214,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Misc
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
    Bibliography
@@ -243,6 +242,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -258,21 +258,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -290,7 +290,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -310,25 +310,25 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#components">
    Components
@@ -383,8 +383,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -392,7 +392,7 @@
         
               <div>
                 
-  <div class="section" id="creating-a-coder-experiment-from-scratch-tutorial">
+  <div class="tex2jax_ignore mathjax_ignore section" id="creating-a-coder-experiment-from-scratch-tutorial">
 <h1>Creating a Coder experiment from scratch (tutorial)<a class="headerlink" href="#creating-a-coder-experiment-from-scratch-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with user data. There are a lot of optional, more advanced topics/sections in this tutorial, so feel free to skip those if you are short on time.</p>
 <div class="admonition warning">
@@ -472,7 +472,7 @@ Click to reveal the template!<div class="summary-down docutils">
 </pre></div>
 </div>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Paste the code snippet above into your script, after initializing the window and clock, but change the initialization such that the text will be orange and set the font to Calibri. Note: it’s convention to put all import statements together at the top of your script, so make sure the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">TextStim</span></code> part is on top of your script as well. Then, run the experiment.</p>
 <p>Note: you probably won’t actually see the welcome text (or very briefly)! The reason for this is explained in the next section.</p>
 </div>
@@ -499,23 +499,23 @@ Click to reveal the template!<div class="summary-down docutils">
 <h2>Drawing &amp; flipping<a class="headerlink" href="#drawing-flipping" title="Permalink to this headline">¶</a></h2>
 <p>When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! As discussed in the lecture, this is because you first need to <em>draw</em> the stimulus! This can be done by calling the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method that is included in each (visual) component class.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>After initialization of the text component, call the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method (without arguments) of the <code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code> variable. Then, run your experiment.</p>
 </div>
 <p>Argh, still no sign of the welcome text in the window! This is because your monitor contains <a class="reference external" href="https://en.wikipedia.org/wiki/Multiple_buffering">two buffers</a>, a “front buffer” (which is visible) and a “back buffer” (which isn’t), and components are always drawn on the back buffer! To make the drawn components visible, we need to flip the back buffer to the front, which can be done by calling the <code class="docutils literal notranslate"><span class="pre">flip</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> object. By splitting the operation of showing stimuli into two operations (drawing and flipping the back buffer), you can precisely control when you want your stimuli to appear (i.e., when calling <code class="docutils literal notranslate"><span class="pre">flip</span></code>).</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Right after the call to the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method of the text component (<code class="docutils literal notranslate"><span class="pre">welcome_txt_stim</span></code>), add a call to the <code class="docutils literal notranslate"><span class="pre">flip</span></code> method (without arguments) of the window (<code class="docutils literal notranslate"><span class="pre">win</span></code>). Then, run the experiment again.</p>
 </div>
 <p>Finally, you should see the welcome text on the window, albeit quite briefly! Again, it is only shown briefly because PsychoPy will simply follow the script and immediatly go to the next lines (which presumably are those that close the window and quit the experiment, like we discussed in the previous tutorial). There are several ways in which you can specify how long a component is visible, which differ in how precisely they can determine the duration. One of the easiest ways is to add a call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function after the window flip.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, make PsychoPy wait for 2 seconds after flipping the window. Then, run the experiment again.</p>
 </div>
 <p>Now you should see that the welcome text is visible for 2 seconds (actually, a bit longer because of the time it takes to shut down the experiment). In one of the next sections, we will discuss other, and more precise, methods to manipulate the duration of stimuli.</p>
 <p>Note that after flipping the window such that the back buffer is moved to the front buffer, the back buffer is completely cleared. This means that when you’d flip the window <em>again</em> (without drawing any stuff in the meantime), the front buffer would contain an empty window!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>After the call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, flip the window again, and add another call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function for two seconds (otherwise you won’t see the effect of the second flip). Then, run the experiment again.</p>
 </div>
 <p>By flipping the window again, the welcome text disappeared and was replaced by an empty window (because the front buffer was replaced by an empty back buffer). This underlines an important concept: <em>every time you flip the window, you start with an empty back buffer</em> (and you need to draw your stimuli again, if you want to show them again on the next flip).</p>
@@ -532,12 +532,12 @@ ANGRY expression = right</p>
 <p>(Press ‘enter’ to start the experiment!)</p>
 </div></blockquote>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with the text above and store it in a variable named <code class="docutils literal notranslate"><span class="pre">instruct_txt_stim</span></code>. Make sure it is left-aligned and has a font size of 0.085 (check the <a class="reference external" href="https://www.psychopy.org/api/visual/textstim.html">docs</a> to see how to do this). Then, draw the <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> and flip the window to make it visible!</p>
 <p>Tip: you can create multi-line strings easily by enclosing text in triple-quotes, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span> <span class="pre">some</span> <span class="pre">multiline</span> <span class="pre">text</span> <span class="pre">etc</span> <span class="pre">etc</span> <span class="pre">&quot;&quot;&quot;</span></code> (more info <a class="reference external" href="https://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string">here</a>). Then, call its <code class="docutils literal notranslate"><span class="pre">draw</span></code> method, flip the window to make it visible.</p>
 </div>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class, make sure the experiment only advances when the participant presses the enter key. Check the previous tutorial if you forgot how to do this!</p>
 </div>
 </div>
@@ -553,7 +553,7 @@ ANGRY expression = right</p>
 </div>
 <p>As we’re creating an emotion-word Stroop task, we’ll need an image with a emotional facial expression and an emotion word. To create an image, you can use the <a class="reference external" href="https://www.psychopy.org/api/visual/imagestim.html"><code class="docutils literal notranslate"><span class="pre">ImageStim</span></code></a> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module. Apart from the mandatory argument <code class="docutils literal notranslate"><span class="pre">win</span></code> (the current window), it also needs an <code class="docutils literal notranslate"><span class="pre">image</span></code> (a path to the image file). In the <code class="docutils literal notranslate"><span class="pre">tutorials/week_2</span></code> directory, we included two images: <code class="docutils literal notranslate"><span class="pre">angry.png</span></code> and <code class="docutils literal notranslate"><span class="pre">happy.png</span></code>. Note that these images are smileys, because it’s really hard to find proper facial expression stimuli without copyright …</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> class, initialize an <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> object with the <code class="docutils literal notranslate"><span class="pre">angry.png</span></code> file (store this is in a variable with the name <code class="docutils literal notranslate"><span class="pre">stim_img</span></code>), and draw it. Also create a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the word “happy” placed above the smiley (store this is in a variable with the name <code class="docutils literal notranslate"><span class="pre">stim_txt</span></code>) and draw it. Then, flip the window and run the experiment to see whether it works as expected. You should only see the smiley briefly.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -573,7 +573,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </details></div>
 <p>Disregarding the timimg issue completely for now, let’s also create a fixation target to show after the smiley.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Initialize a fixation target with a “+” sign using a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> (store it in a variable named <code class="docutils literal notranslate"><span class="pre">fix_target</span></code>) and draw and show it after showing the stimulus image (<code class="docutils literal notranslate"><span class="pre">angry.png</span></code>) and stimulus text (“happy”). Then, run the experiment (you should only see the stimulus and subsequent fixation cross very briefly; we’ll fix that in the next section).</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -599,7 +599,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>At initialization, the clock is at ~0 seconds. Using a while loop, we can use this clock to continuously draw the stimulus (if the clock &lt; 500 ms) or the fixation target (if the clock is between 500 and 2000 ms) and flip the window!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Implement the aforementioned while loop in which either the stimulus (smiley and emotion word) or the fixation target is shown, depending on the time since the initialization of the clock (so you need an if-else statement as well)!</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -641,7 +641,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p>Note that the video also talks about the <em>frame rate</em> (or <em>frames per second</em>, FPS). This concept is related to the refresh rate, but it quantifies how often your screen can <em>actuallly</em> (in reality) be refreshed. Ideally, the refresh rate and the frame rate are exactly the same, but when you’re playing very high resolution video games or are running intricate PsychoPy experiments in which you’re drawing many visual components, your graphics processor may not be able to draw everything in time! When this happens, you’re likely “dropping frames” (for more explanation about this, check out the <a class="reference external" href="https://www.psychopy.org/general/timing/detectingFrameDrops.html">PsychoPy docs</a>).</p>
 <p>The fact that monitors are limited by their refresh rate means that the <em>exact</em> duration of visual stimuli is some multiple of the number of screen refreshes. For example, if you have a 60 Hz screen (which refreshes every 1/60 seconds), a stimulus can be shown for 0.0167 seconds (1/60), 0.0333 seconds (2/60), 0.0500 seconds (3/60), etc. But it cannot be shown for, let’s say, <em>exactly</em> 110 milliseconds.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToThink</p>
+<p class="admonition-title">ToThink</p>
 <p>Suppose you want to show a stimulus for 120 milliseconds on a monitor with a refresh rate of 60 Hz. What is the duration closest to 120 milliseconds you can achieve?</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -656,7 +656,7 @@ Click here to see the answer (but try to come up with the answer yourself first)
 <p>So, if you <em>really</em> care about the duration of your stimuli (e.g., in subliminal perception studies), you should specify the duration of your stimuli as a multiple of your refresh rate. Then, to implement this in your PsychoPy script, you can simply draw your stimuli and flip your window as often as the number of frames you want to show your stimuli. For example, if you want to show your stimulus for 60 frames (i.e., 1
 second on a 60 Hz monitor), you simply do the drawing + flipping process 60 times!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Remove the your clock-based timing implementation (i.e., the while loop from the previous ToDo) and instead program a frame-based timing implementation instead (the duration should be 500 ms for the stimulus and 1500 ms for the fixation target again). Hint: instead of the while loop in the clock-based timing example, you may want to use a for-loop here …
 Run the experiment when you’re done!</p>
 <details class="sphinx-bs dropdown card mb-3">
@@ -692,7 +692,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p>So far, we only presented a <em>single</em> trial with a emotion word (“happy”) and a(n angry) smiley (i.e., an incongruent trial). Like the color-word Stroop in the Builder tutorial, we’d like to present the participant multiple trials in which the two factors — emotion of the smiley (happy/angry) and the emotion word (“happy”/”angry”) — vary.</p>
 <p>So how do we define the different conditions? One way would be two create two lists, one with emotion words and one with the emotion for the smileys, and to choose a random value of each list in each iteration of the trial loop. In our current simple experiment, however, we would recommend to pre-specify the conditions in a CSV or Excel file &amp;mdash just like we did in the Builder tutorial!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Create a CSV or Excel file with two columns (named <code class="docutils literal notranslate"><span class="pre">smiley</span></code> and <code class="docutils literal notranslate"><span class="pre">word</span></code>) and, let’s say, twenty rows (excluding column names) with either “happy” or “angry” such that there are five trials of each possible emotion-word combination (just like you did in the Builder tutorial). Save it in the same directory as your Python script with the name <code class="docutils literal notranslate"><span class="pre">emo_conditions.xlsx</span></code> (or <code class="docutils literal notranslate"><span class="pre">emo_conditions.csv</span></code>). (If you want to see the “solution”, check out the <code class="docutils literal notranslate"><span class="pre">emo_conditions.xlsx</span></code> file in the <code class="docutils literal notranslate"><span class="pre">solutions/week_1</span></code> directory of the course materials).</p>
 </div>
 <div class="admonition tip">
@@ -701,7 +701,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>To load in the data, we can use our <em>pandas</em> skills! In case of a CSV file, we can use the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function and in case of an Excel file, we can use the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code class="docutils literal notranslate"><span class="pre">read_excel</span></code> function</a>.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Read in your <code class="docutils literal notranslate"><span class="pre">emo_conditions.{csv,xlsx}</span></code> file and store the resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object in a variable named <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> (“conditions dataframe”).</p>
 </div>
 <p>We could start writing our trial loop by now, but this would present the trials just like we defined in the conditions file. Often, you’d want to present the trials in a (semi-)random order. To do so, we can simply shuffle the dataframe, which can be easily done using the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html"><code class="docutils literal notranslate"><span class="pre">sample</span></code> method</a> of <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> using a fraction (<code class="docutils literal notranslate"><span class="pre">frac</span></code>) of 1:</p>
@@ -717,7 +717,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 <p>Then, after extracting the smiley and word conditions, we can initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the current word and an <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> with the current smiley and then draw/flip them in a clock-based or frame-based loop, and repeat this process until our trial loop has finished! Important: when using the clock-based timing approach, make sure to <em>reset</em> your clock to 0 at every new iteration/trial (using the clock’s <a class="reference external" href="https://www.psychopy.org/api/core.html"><code class="docutils literal notranslate"><span class="pre">reset</span></code> method</a>).</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Try finishing the loop in the previous code snippet as indicated above. You may use either clock-based or frame-based timing. Run the experiment when you’re done!</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -753,11 +753,11 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </details></div>
 <p>Alright, we are 95% done! The trial loop works as expected, but it’s currently not keeping track of any experimental information, like participant responses and stimulus onsets, which is discussed in the next section.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo (optional)</p>
+<p class="admonition-title">ToDo (optional)</p>
 <p>Perhaps twenty trials are a little too few to estimate any meaningful effect … To increase our statistical power (for whatever effect we’re trying to estimate), we can simply repeat our trial loop a number of times (like the <code class="docutils literal notranslate"><span class="pre">nReps</span></code> property of Builder loops). Try to implement this such that the trial loop is repeated five times. Make sure that each repetition uses a different random order of trials.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
+Click here to show the solution (but try it yourself first!) <div class="summary-down docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
@@ -798,7 +798,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p>Because the Coder, unlike the Builder, does not save <em>anything</em> by default, we need to save any data we want to store ourselves. One neat way to do so is to use the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object with the condition info to store information about the trials. For this experiment, let’s keep track and store three things: the participant response for each trial (“left”, “right”, or no keypress), the reaction time for each trial, and the onset of the stimulus.</p>
 <p>Let’s start with keeping track of the actual participant response. We’ll, of course, use the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class as discussed in the previous tutorial.</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo (difficult!)</p>
+<p class="admonition-title">ToDo (difficult!)</p>
 <p>Using a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object, make sure that both the participant response to each trial (either “left”, “right” or no response) and the reaction time are saved in the conditions <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">cond_df</span></code>). Store them in columns with the names <code class="docutils literal notranslate"><span class="pre">response</span></code> and <code class="docutils literal notranslate"><span class="pre">reaction_time</span></code>. In case of no response, save the response and reaction time as “n/a”. If there are multiple responses within a trial, make sure to save only the last one. Run the experiment when you’re done to see whether everything works as expected. <strong>Bonus</strong>: also save whether the response is correct, incorrect, or missing (“n/a”) for each trial (in a column named <code class="docutils literal notranslate"><span class="pre">response_correct</span></code>).</p>
 <p>Hint: to add the data (response/RT) to the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe, use the <code class="docutils literal notranslate"><span class="pre">loc</span></code> method! You can do these even if the column (<code class="docutils literal notranslate"><span class="pre">response</span></code> or <code class="docutils literal notranslate"><span class="pre">response_time</span></code>) does not yet exist!</p>
 <details class="sphinx-bs dropdown card mb-3">
@@ -852,7 +852,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p>Alright, so it would be nice to save the onsets of our stimuli. But the onset relatively to … what, exactly? In other words, when do we want to start our clock that is going to keep track of the onsets? In case of neuroimaging/physiological studies, this is the moment you start your data acquisition (e.g., the first pulse of your fMRI experiment). At that moment, we would need to <code class="docutils literal notranslate"><span class="pre">reset</span></code> our clock such that it is in sync with the external data acquisition! We recommend to using a separate clock (a “global clock”, to differentiate it from the “trial clock” we talked about earlier) to keep track of the stimulus onsets.</p>
 <p>Then, assuming our clock has been reset at the appropriate moment, how do we make sure we save the stimulus onset <em>only</em> after the first flip? There are actually many ways in which you could do this!</p>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo</p>
+<p class="admonition-title">ToDo</p>
 <p>Try to think of a way to save the onset of each stimulus (in the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe) after the first flip and implement this in your script. You may use the global clock (the <code class="docutils literal notranslate"><span class="pre">clock</span></code> variable) we defined in the previous tutorial. Make sure to reset it before the trial loop! Also, after the end of the loop, make sure to save the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe to disk with the name: <code class="docutils literal notranslate"><span class="pre">sub-{participant</span> <span class="pre">nr}_events.csv</span></code> (where <code class="docutils literal notranslate"><span class="pre">participant</span> <span class="pre">nr</span></code> refers to the value from the dialog box).</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -915,7 +915,7 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </pre></div>
 </div>
 <div class="attention admonition">
-<p class="admonition-title"> ToDo (optional)</p>
+<p class="admonition-title">ToDo (optional)</p>
 <p>Try implementing this non-slip timing approach in your emotion-word Stroop experiment. Then, run the experiment and check the resulting logfile. Is the overshoot issue fixed?</p>
 </div>
 </div>
@@ -947,17 +947,37 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 
               </div>
               
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="psychopy_coder_part1.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Introduction to the PsychoPy Coder (tutorial)</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="coder_test.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Test your Coder skills!</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
         </div>
     </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">Introduction to the PsychoPy Coder (tutorial)</a>
-    <a class='right-next' id="next-link" href="coder_test.html" title="next page">Test your Coder skills!</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -972,11 +992,9 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
