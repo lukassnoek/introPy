@@ -32,4 +32,4 @@ The course material was developed by Lukas Snoek with help from Emma Schreurs. T
 The exercises in Jupyter notebook tutorials were created using the [nbgrader](https://nbgrader.readthedocs.io/en/stable/) package {cite}`hamrick2016creating`. This website was created using the awesome [Jupyter book](https://jupyterbook.org/) package.
 
 ## Attribution
-Lukas Snoek. (2020, December 24). lukassnoek/introPy: A Python and PsychoPy course (Version v0.1.0). Zenodo. http://doi.org/10.5281/zenodo.4392860
+Snoek, L. (2021). introPy (Version 0.2.0) [Computer software]. https://doi.org/10.5281/zenodo.4392860
