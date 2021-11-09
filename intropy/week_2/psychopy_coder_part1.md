@@ -13,25 +13,28 @@ The `psychopy` package contains different modules for different features. For ex
 As you will see, most of PsychoPy's functionality (like the different *components*) is implemented in custom classes, so your experience with object-oriented programming as discussed in week 1 will be very useful! 
 
 :::{note}
-In this tutorial, you'll notice that many of the properties of Builder elements (e.g., the *Experiment settings* and Builder components like *text* and *image* components) have the same name and can take the same values as the attributes of the corresponding classes in the Coder interface! 
+In this tutorial, you'll notice that many of the properties of Builder elements (e.g., the *Experiment settings* and Builder components like *text* and *image* components) have the same name and can take the same values as the attributes of the corresponding classes in the Coder interface!
 :::
 
 ## The Coder interface
-Now, let's get started by opening the Coder interface. 
+Now, let's get started by opening the Coder interface.
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Open the Coder interface (*View* &rarr; *Open Coder view*). You may close the *Builder* interface for now.
 :::
 
 Like the Builder interface, the Coder interface has several subwindows (panes). The panel on the left represents the *Source assistant*, which lists all files in the current working directory (in the *File Browser* tab) and information about the Python modules in the current working directory specifically (in the *Structure* tab).
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 By default, PsychoPy's current directory is its installation path. Although this is not strictly necessary for this tutorial, change it to the `tutorials/week_2` directory by clicking on the right arrow (*Jump to another folder*).
 :::
 
 At the bottom of the Coder interface in the *Shelf* pane, you'll find a so-called "Python shell". You can think of it as a type of command line (like we discussed in the first Jupyter notebook of week 1), but specifically for Python code. You can only run a single line at once, but it'll show the result immediately.
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Try writing some valid Python code in the Python shell (and pressing enter to run it), e.g., `1 + 1`. Note that the Python shell will remember variables if you define them, just like Jupyter notebooks, so you can also run multiple commands like this:
 
 ```python
@@ -39,21 +42,24 @@ Try writing some valid Python code in the Python shell (and pressing enter to ru
 >>> b = a ** 2
 >>> b - a
 ```
+
 :::
 
-This Python shell is very useful to debug or try out short code snippets. For example, if you forgot what the function `len` returns, you can for example run the command `len([1, 2])` in the Python shell to find out (spoiler: an integer). 
+This Python shell is very useful to debug or try out short code snippets. For example, if you forgot what the function `len` returns, you can for example run the command `len([1, 2])` in the Python shell to find out (spoiler: an integer).
 
 Finally, the last pane in the middle is PsychoPy's code editor. Here, you can open any plain-text file (not just Python files!) which you can modify and save. In practice, of course, you'll probably mostly work with Python files in this editor. Like most code editors, the Psychopy code editor also does some code formatting and syntax highlighting. One thing you'll notice is that it by default uses two spaces (in contrast to the more conventional four spaces) for indentation.
 
-Right now, there are probably no active files in your Psychopy code editor, so let's create one for our emotion-word Stroop task! 
+Right now, there are probably no active files in your Psychopy code editor, so let's create one for our emotion-word Stroop task!
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Create a new Python file (*File* &rarr; *New*) and save it as `emo_stroop.py` in the `tutorials/week_2` directory.
 :::
 
 Although you learned in week 1 that Python files should be run in a terminal on the command line (e.g., `python emo_stroop.py`), Python files within the PsychoPy coder are actually run the same way as Builder experiments: by clicking on the big green play (&#9658;) button!
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Add some code to your `exp_stroop.py` file, e.g., `print("PsychoPy 4evah")`, and run the file.
 :::
 
@@ -81,7 +87,8 @@ dlg = DlgFromDict(exp_info)
 
 Note that it is quite important to create the dictionary before passing it to the `DlgFromDict` class instead of passing it directly, e.g., `DlgFromDict({'participant_nr': ''})`. This is because PsychoPy will modify the dictionary (i.e., the variable `exp_info` in the code snippet above) with the information filled in by the participant/experimenter.
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 In your experiment, create a dialog box with the fields "participant_nr" and "age", in which the participant number should have the default `99` (for testing purposes) but age should not get a default value. Don't forget to import the `DlgFromDict` class first! Then, run your experiment.
 :::
 
@@ -93,7 +100,8 @@ The type of the values from the dictionary depend on the type of the variables y
 
 Let's do an exercise to see whether everything's clear so far.
 
-:::::{admonition,attention} ToDo
+:::::{admonition} ToDo
+:class: attention
 Given the dialog box configuration from the previous ToDo, include a print statement to your script that will print out the following: "Started the experiment for participant ... with age ...", where the triple dots are replaced by whatever you filled in when running the experiment.
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -115,7 +123,8 @@ if not dlg.OK:
 
 We recommend adding this snippet right after initialization of the dialog box in every experiment that actually uses a dialog box! Now, those that want a challenge, try the following (optional) ToDo. 
 
-:::::{admonition,attention} ToDo (optional)
+:::::{admonition} ToDo (optional)
+:class: attention
 Add some code after the `if not dlg.OK` code block that also quits the experiment when the user fills in an invalid participant number (let's say, anything higher than 99) or an invalid age (let's say, below 18). Try running the experiment with different values for these two options to see whether your implementation works as expected!
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -152,7 +161,8 @@ win = Window()
 
 Note that you may use any variable name for your `Window` object, but we recommend naming it `win` like in the code snippet above, as it's short but descriptive.
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Initialize a `Window` object as shown in the above code snippet and run your experiment! Don't forget to also import the `Window` class!
 :::
 
@@ -170,7 +180,8 @@ When you run the experiment in full-screen mode (i.e., `fullscr=True`), there is
 
 You can also change the window's background color by passing a list or tuple with three numbers, corresponding to the desired RGB values, to the `color` argument.
 
-:::::{admonition,attention} ToDo
+:::::{admonition} ToDo
+:class: attention
 Although we don't recommend doing so in a real experiment, try making the window's background color bright blue. Want a more challenging exercise? Try to set the background to bright orange. Hint: note that PsychoPy assumes that RGB values range from -1 (minimum) to 1 (maximum), not from 0 to 255!
 :::::
 
@@ -180,7 +191,8 @@ Another important argument of the `Window` class is the `monitor`, to which you 
 win = Window(monitor='laptop')
 ```
 
-::::{admonition,attention} ToDo (optional/difficult!)
+::::{admonition} ToDo (optional/difficult!)
+:class: attention
 If you don't want to use the monitor center at all (e.g., when you're programming your experiments in an external code editor), you can also programmatically using the `Monitor` class from the `psychopy.monitor` module. Try creating a monitor configuration for your own laptop/desktop monitor. Make sure you set the monitor's size (in pixels), width (in cm), and distance between you to the monitor (in cm). The [documentation of the `monitor` module](https://www.psychopy.org/api/monitors.html) contains all info you need to do this!
 
 :::{note}
@@ -190,7 +202,8 @@ If you initialize a `Window` object with a `Monitor` object (instead of a string
 
 Finally, the last important argument of the `Window` class is the type of *units* that should be used by default for your components (which we'll discuss later), such as "norm" (for normalized units), "deg" (for visual degree angle), and "pix" (for pixels). As said before, there are in fact many more arguments to pass to the `Window` class (see the [documentation](https://www.psychopy.org/api/visual/window.html) for an overview), but we believe that the ones we discussed here are most important to know and that the other arguments all have sensible defaults.
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Let's create a `Window` object that we'll use for the rest of our emotion-word Stroop experiment! Make sure it is shown in full-screen mode, uses normalized units, uses the monitor specification of your own laptop/desktop monitor, and has a black background. Run your experiment to see whether it looks like expected! 
 :::
 
@@ -200,7 +213,7 @@ Note that you can also change `Window` attributes after creating the object by d
 win.units = 'pix'
 ```
 
-:::{warning} 
+:::{warning}
 It's quite likely that, at some point in this or the next tutorial, you'll run the experiment, but no window opens! This is likely caused by a (syntax) error somewhere in your script. If this happens, check the *Experiment runner* window for the error and its [traceback](https://realpython.com/python-traceback). 
 :::
 
@@ -209,7 +222,8 @@ When you run the current experiment, you'll only see a black screen for like a s
 
 So, if you want to keep the window open for a little longer, we can simply tell PsychoPy so! There are, in fact, different ways to do this, but arguably the easiest way is using the `wait` function from the [`psychopy.core`](https://www.psychopy.org/api/core.html) module. We can pass this function a number corresponding to the amount of time (in seconds) PsychoPy should wait before continuing with the rest of the script.
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Import the `wait` function from the `psychopy.core` module and, after initializing the window, use it to make PsychoPy wait 2 seconds. Then, run the experiment.
 :::
 
@@ -230,7 +244,8 @@ print(t_since_init)  # prints time (in sec.)
 
 Now, with our knowledge about clocks, let's check whether the `wait` function actually makes PsychoPy wait as long as we tell it. (Of course it does, but it's a nice way to practice how to use a `Clock`.)
 
-:::::{admonition,attention} ToDo
+:::::{admonition} ToDo
+:class: attention
 Import the `Clock` class and, after creating a `Window` object, initialize it. Then, query the time using `getTime` and store it in a variable (e.g., `t_before_wait`). Aftewards, make PsychoPy wait for 2 seconds (using the `wait` function), and finally, query the time again and store in another variable (e.g., `t_after_wait`). Make your script print the time before `wait` call, after the `wait` call, and the difference between those two times. Then, run the experiment.
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -256,9 +271,10 @@ Another important aspect of experiments is handling and interacting with partici
 ### Keyboard responses
 To interact with keyboard responses, the `psychopy` package contains a &mdash; guess what &mdash; [`Keyboard` class](https://www.psychopy.org/api/hardware/keyboard.html) in the `psychopy.hardware.keyboard` module. This class records all keypresses since its initialization, which you can save or use in your experiment. Although there are several arguments upon initialization (see the [documentation](https://www.psychopy.org/api/hardware/keyboard.html)), these are all optional and have sensible defaults.
 
-One important attribute that `Keyboard` objects have is `clock`: a `Clock` object to keep track of keypress onsets and reaction times (relative to the initialization of the `Clock` object). 
+One important attribute that `Keyboard` objects have is `clock`: a `Clock` object to keep track of keypress onsets and reaction times (relative to the initialization of the `Clock` object).
 
-:::::{admonition,attention} ToDo 
+:::::{admonition} ToDo
+:class: attention
 Import the `Keyboard` class (at the start of your script), initialize a `Keyboard` object (use the variable `kb`), wait for 1 second (use the `wait` function), and print the time since the initialization of the `Keyboard` option using the `clock` attribute! Then, run the experiment and check the *Experiment runner* for the printed output.
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -277,7 +293,8 @@ print(f"Time since initialization of Keyboard: {t_since_init:.3f}")
 
 Arguably the most important method of the `Keyboard` class is the `getKeys` method. This returns a list of keypresses pressed since the previous call to `getKeys` or, if it is the first time the method is called, since the initialization of the `Keyboard` object.
 
-:::::{admonition,attention} ToDo 
+:::::{admonition} ToDo
+:class: attention
 After the initialization of the `Keyboard` object and the call to `wait` (from the previous ToDo), call the `getKeys` function and store the result in a variable (e.g., `keys`) and print this variable. Then, run the experiment and check the *Experiment runner* to see the printed output.
 :::::
 
@@ -307,7 +324,8 @@ keys = kb.getKeys()
 spacebar_pressed = "space" in keys
 ```
 
-:::::{admonition,attention} ToDo
+:::::{admonition} ToDo
+:class: attention
 One routine that is common in (PsychoPy) experiments, and one which we also discussed in the Builder tutorials, is the "press-a-key-to-continue" routine. This can be implemented in PsychoPy using a while loop in combination with the `keyGets` method of a `Keyboard` object. Try implementing this in your script such that you only advance with the experiment when you press the enter key ("return"). You may remove the code from the last two ToDos (to clean up your script a bit).
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -322,7 +340,8 @@ while True:
 
 If you want to learn a little more about keyboard interaction, try the next (optional and more difficult) ToDo!
 
-:::::{admonition,attention} ToDo (optional/difficult)
+:::::{admonition} ToDo (optional/difficult)
+:class: attention
 As mentioned before, the `getKeys` method returns a list of `KeyPress` objects with several attributes with information about the keypress. For a period of two seconds, for each detected key press, print in a single statement the name of the key, its reaction time, and duration (e.g., "The 'a' key was pressed within 2.156 seconds for a total of 0.255 seconds"). [F-strings](https://realpython.com/python-f-strings/) would we nice here! (You may remove the code from the previous ToDo.)
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -349,7 +368,8 @@ In the [documentation of the `psychopy.event` module](https://www.psychopy.org/a
 
 Now, let's practice a bit with the `Mouse` class!
 
-:::::{admonition,attention} ToDo
+:::::{admonition} ToDo
+:class: attention
 Import the `Mouse` class and initialize a `Mouse` object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the `getPressed` method). Check the [documentation](https://www.psychopy.org/api/event.html) to see what the `getPressed` method returns exactly.
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -368,7 +388,8 @@ while True:
 
 And another one for those who want a challenge.
 
-:::::{admonition,attention} ToDo
+:::::{admonition} ToDo
+:class: attention
 Import the `Mouse` class and initialize a `Mouse` object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the `getPressed` method). Check the [documentation](https://www.psychopy.org/api/event.html) to see what the `getPressed` method returns exactly.
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -386,7 +407,9 @@ while True:
 :::::
 
 And those who want a challenge, try the next one.
-:::::{admonition,attention} ToDo
+
+:::::{admonition} ToDo
+:class: attention
 With the `setPos` method, you can control the position of the cursor! Try moving the mouse to the upper left corner of the screen and then going to each other corner in a clockwise fashion, stopping for 0.5 seconds at each corner.
 
 ````{dropdown} Click here to show the solution (but try it yourself first!)
@@ -405,7 +428,9 @@ for i in range(4):
 ## Quitting the experiment
 As you've seen so far, when the Python interpreter arrives at the end of your script, the PsychoPy window automatically closes and the Python process finishes. In the context of PsychoPy experiments, however, it is good practice to end the experiment by explicitly closing the window using the window's `close` method *and* then calling the `quit` function from the `core.psychopy` module (as we did before in the section on dialog boxes). Although not strictly necessary, calling the `close` method and the `quit` function perform a bit of bookkeeping that may prevent issues, so we recommend always including this at the very end of your script!
 
-:::{admonition,attention} ToDo
-At the end of your script, add the code to close your window and to quit the experiment. :::
+:::{admonition} ToDo
+:class: attention
+At the end of your script, add the code to close your window and to quit the experiment.
+:::
 
 This tutorial features some of the most important, but arguably boring, aspects of programming experiments in the PsychoPy Coder, so let's continue with the [next (and final) tutorial](psychopy_coder_part2.md) which discusses creating components and other fun stuff!

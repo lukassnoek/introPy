@@ -18,7 +18,13 @@ execute:
   timeout                   : 120    # The maximum time (in seconds) each notebook cell is allowed to run.
 
 parse:
-  myst_extended_syntax: true
+  myst_enable_extensions:
+    - colon_fence
+    - amsmath
+    - dollarmath
+    - linkify
+    - substitution
+    - tasklist
 
 # Online stuff
 repository:
@@ -34,3 +40,11 @@ html:
   use_repository_button: true
   use_issues_button: true
   use_edit_page_button: true
+
+bibtex_bibfiles:
+  - references.bib
+
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+

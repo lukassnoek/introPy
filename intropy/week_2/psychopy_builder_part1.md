@@ -3,7 +3,8 @@ In this tutorial, we will discuss and show you how to use the *Builder* interfac
 
 You might think, "Why learn how to use a graphical interface in a programming course?" The reason we first teach you how to use the *Builder* interface is because it allows us to focus on the structure of experiments before elaborating on the underlying code. Another advantage of Builder experiments is that they can be used online! (But this is beyond the scope of this course.)
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Read [this page](https://workshops.psychopy.org/3days/10introductions.html) which discusses the respective advantages of the Builder and Coder interface in more detail.
 :::
 
@@ -12,11 +13,12 @@ As discussed before, the Builder and Coder interfaces can both be used to create
 
 It is important to realize, though, that when PsychoPy runs Builder experiments, it actually first generates (or "compiles") the experiment as a Python script (as if you created it using the Coder)! 
 
-:::{admonition,attention} ToDo
+:::{admonition} ToDo
+:class: attention
 Let's see this Builder-to-Coder compilation in action. If you haven't loaded the demo Builder experiment (`intropy_demo.psyexp`), do so now. Then, click the *Compile to script* button (right of the *Edit experiment settings* button). This should open the *Coder* interface with the code equivalent of the demo Builder experiment!
 :::
 
-The generated `intropy_demo.py` script contains the code necessary to run the experiment originally specified in the Builder interface (i.e., in the `intropy_demo.psyexp` file). In fact, everytime your run a Builder experiment on your own computer, Psychopy first generates the corresponding Python script, which is then executed to start the experiment. 
+The generated `intropy_demo.py` script contains the code necessary to run the experiment originally specified in the Builder interface (i.e., in the `intropy_demo.psyexp` file). In fact, everytime your run a Builder experiment on your own computer, Psychopy first generates the corresponding Python script, which is then executed to start the experiment.
 
 Most of the time, you can ignore the script associated with your Builder experiment. It may, however, give you some insight about what is going on "under the hood". Take a look at the generated script; do you see elements from the demo experiment (e.g., the text or images shown during the demo experiment)?
 
@@ -27,7 +29,8 @@ Now, let's take a look at the elements of the Builder interface. Make sure you (
 The [*Routines* pane](https://www.psychopy.org/builder/routines.html
 ) consist of the different elements of your experiment, where each element gets its own tab. In the demo experiment, for example, there are four routines: *intro*, *show_stimulus*, *gabor*, and *wrap_up*. Each routine may consist of multiple components (e.g., text, images, and sounds). For example, if you click on the *intro* routine tab, the routine pane shows, across different "rows", that this routine consists of three consecutive text components (*hello*, *welcome*, and *wait_key*) and a "keyboard" component (*key_resp*). Moreover, the routine pane also shows you the onset and offsets of the different components. Note that routines do not *have to* contain multiple components; for example, the *show_stimulus* routine only contains a single component (i.e., *stim*). It's up to you how you how you structure your routines!
 
-:::{admonition,attention} ToThink
+:::{admonition} ToThink
+:class: attention
 In the *intro* routine, the *wait_key* and *key_resp* components seem to lack an explicit offset. Considering the demo experiment, do you understand why?
 :::
 
@@ -43,18 +46,21 @@ In the properties window, if you hover your cursor over the different options, y
 
 In the properties window, if you click the "OK" button, PsychoPy will add this component to the currently active routine. If you want, you can still change the properties afterwards. We will discuss setting component properties in more detail in the next tutorial!
 
-:::{admonition,attention} ToDo (optional)
+:::{admonition} ToDo (optional)
+:class: attention
 Try adding another *text* component with the text "The end!" to the *wrap_up* routine. Make sure it immediately starts after the *goodbye* component and it lasts one second. Run the experiment to see whether it worked!
 :::
 
 ### The flow pane
 Finally, the [*flow* pane](https://www.psychopy.org/builder/flow.html) shows and defines the order of your experiment's routines. In the demo experiment, for example, the flow pane shows that the experiment starts with the *intro* routine, followed by the *show_stimulus* routine, and finally the *gabor* and *wrap_up* routines. The colors of the routines in the flow pane indicate whether the routines has a known and exact duration (green) or not (blue or red). For experiments in which precision of onsets/offsets is not crucial, this is not really important. But in experiments in which you want to be sure your routines' onsets, offsets, and durations are precise (i.e., [non-slip timing](https://www.psychopy.org/general/timing/nonSlipTiming.html) in PsychoPy lingo), such as in neuroimaging experiments, you want to make sure each routine is green.
 
-:::{admonition,attention} ToThink
+:::{admonition} ToThink
+:class: attention
 Do you understand why the *intro* routine is blue instead of green? Hint: the answer to this question is the same as to the previous *ToThink*.
 :::
 
-:::{admonition,attention} ToDo (optional)
+:::{admonition} ToDo (optional)
+:class: attention
 Try inserting a new routine at the end of the experiment flow (i.e., after the *goodbye* routine). For example, create a new routine called *the_end* (in the top menu: *Experiment* &rarr; *New routine*) with a single text component lasting 1 second. Then, to insert it in the experiment flow, click on *Insert Routine*, select your new routine, and click on the flow line in between *wrap_up* and the arrow head to insert it!
 :::
 
