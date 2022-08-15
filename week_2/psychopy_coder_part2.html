@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Creating a Coder experiment from scratch (tutorial) &#8212; introPy</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,46 +20,62 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Test your Coder skills!" href="coder_test.html" />
     <link rel="prev" title="Introduction to the PsychoPy Coder (tutorial)" href="psychopy_coder_part1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -66,9 +84,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -86,14 +105,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome to introPy
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to introPy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
@@ -115,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Python (week 1)
  </span>
@@ -162,7 +182,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   PsychoPy (week 2)
  </span>
@@ -214,7 +234,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Misc
  </span>
@@ -243,92 +263,197 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/week_2/psychopy_coder_part2.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/lukassnoek/introPy"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_2/psychopy_coder_part2.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_2/psychopy_coder_part2.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/lukassnoek/introPy"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_2/psychopy_coder_part2.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_2/psychopy_coder_part2.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/week_2/psychopy_coder_part2.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#components">
    Components
@@ -383,30 +508,100 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Creating a Coder experiment from scratch (tutorial)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#components">
+   Components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drawing-flipping">
+   Drawing &amp; flipping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responses">
+   Responses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing-revisited">
+   Timing revisited
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clock-based-timing">
+     Clock-based timing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frame-based-timing-optional">
+     Frame-based timing (optional)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trial-loops">
+   Trial loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-responses-and-stimulus-onsets">
+   Saving responses and stimulus onsets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-slip-timing-optional">
+   Non-slip timing (optional)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="creating-a-coder-experiment-from-scratch-tutorial">
-<h1>Creating a Coder experiment from scratch (tutorial)<a class="headerlink" href="#creating-a-coder-experiment-from-scratch-tutorial" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="creating-a-coder-experiment-from-scratch-tutorial">
+<h1>Creating a Coder experiment from scratch (tutorial)<a class="headerlink" href="#creating-a-coder-experiment-from-scratch-tutorial" title="Permalink to this headline">#</a></h1>
 <p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with user data. There are a lot of optional, more advanced topics/sections in this tutorial, so feel free to skip those if you are short on time.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>PsychoPy is an incredibly versatile and flexible software package. The “downside” of this is that sometimes the same thing can be achieved in multiple different ways. In this tutorial, we’ll highlight different approaches when appropriate, but remember that almost always these approaches are functionally equivalent, so it’s up to you which approach you use!</p>
 </div>
 <p>We of course assume you finished the previous tutorial already. In this tutorial, we are going to continue our experiment with what we ended up with from the last tutorial. If you want, you can copy the (correct) code from the previous tutorial below, which we’ll extend in this tutorial.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click to reveal the template!<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click to reveal the template!<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psychopy.gui</span> <span class="kn">import</span> <span class="n">DlgFromDict</span>
 <span class="kn">from</span> <span class="nn">psychopy.visual</span> <span class="kn">import</span> <span class="n">Window</span>
 <span class="kn">from</span> <span class="nn">psychopy.core</span> <span class="kn">import</span> <span class="n">Clock</span><span class="p">,</span> <span class="n">quit</span><span class="p">,</span> <span class="n">wait</span>
@@ -459,8 +654,8 @@ Click to reveal the template!<div class="summary-down docutils">
 </pre></div>
 </div>
 </div>
-</details><div class="section" id="components">
-<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+</details><section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">#</a></h2>
 <p>Like in the Builder, <em>components</em> are the “bread and butter” in the Coder interface as well. In the coder, however, these components are implemented in different classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. For example, to add a text component, you can use the <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module and to add a sound component, you can use the <code class="docutils literal notranslate"><span class="pre">Sound</span></code> component from the <code class="docutils literal notranslate"><span class="pre">psychopy.sound</span></code> module.</p>
 <p>Basically, every component from the Builder has an equivalent in the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. Moreover, each component has largely the same properties in the Builder as in the Coder. For example, the <em>color</em> and <em>font</em> properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with <code class="docutils literal notranslate"><span class="pre">font='Calibri'</span></code> and <code class="docutils literal notranslate"><span class="pre">color=(-1,</span> <span class="pre">-1,</span> <span class="pre">1)</span></code>. We won’t discuss all parameters from every component we discuss in this tutorial; you can find all parameters and what they mean in the <a class="reference external" href="https://www.psychopy.org/api/index.html">PsychoPy documentation</a>!</p>
 <p>Importantly, all <em>visual</em> stimulus classes (like <code class="docutils literal notranslate"><span class="pre">TextStim</span></code>, but not <code class="docutils literal notranslate"><span class="pre">Sound</span></code>) additionally need one (mandatory) argument: a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object! This allows to <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> to interact with the window. So, let’s recap: to initialize a component in the Coder interface, we need to (1) import the corresponding class and (2) initialize it with a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object (in case of visual components) and optionally other arguments that modify the component’s behavior or display.</p>
@@ -494,9 +689,9 @@ Click to reveal the template!<div class="summary-down docutils">
 </pre></div>
 </div>
 <p>It really doesn’t matter which method (setting the attribute directly or using the <code class="docutils literal notranslate"><span class="pre">set</span></code> method) you use — they do the same thing.</p>
-</div>
-<div class="section" id="drawing-flipping">
-<h2>Drawing &amp; flipping<a class="headerlink" href="#drawing-flipping" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="drawing-flipping">
+<h2>Drawing &amp; flipping<a class="headerlink" href="#drawing-flipping" title="Permalink to this headline">#</a></h2>
 <p>When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! As discussed in the lecture, this is because you first need to <em>draw</em> the stimulus! This can be done by calling the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method that is included in each (visual) component class.</p>
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
@@ -519,9 +714,9 @@ Click to reveal the template!<div class="summary-down docutils">
 <p>After the call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function, flip the window again, and add another call to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function for two seconds (otherwise you won’t see the effect of the second flip). Then, run the experiment again.</p>
 </div>
 <p>By flipping the window again, the welcome text disappeared and was replaced by an empty window (because the front buffer was replaced by an empty back buffer). This underlines an important concept: <em>every time you flip the window, you start with an empty back buffer</em> (and you need to draw your stimuli again, if you want to show them again on the next flip).</p>
-</div>
-<div class="section" id="responses">
-<h2>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="responses">
+<h2>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">#</a></h2>
 <p>After welcoming our participant, let’s add some instructions. Like we did in the Builder experiment, let’s also make sure that, after reading the instructions, the participant can continue the experiment by pressing enter (“return”). This gives us an excuse to introduce the topic of working with participant responses!</p>
 <p>But first, let’s create a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the instructions:</p>
 <blockquote>
@@ -540,28 +735,30 @@ ANGRY expression = right</p>
 <p class="admonition-title">ToDo</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class, make sure the experiment only advances when the participant presses the enter key. Check the previous tutorial if you forgot how to do this!</p>
 </div>
-</div>
-<div class="section" id="timing-revisited">
-<h2>Timing revisited<a class="headerlink" href="#timing-revisited" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="timing-revisited">
+<h2>Timing revisited<a class="headerlink" href="#timing-revisited" title="Permalink to this headline">#</a></h2>
 <p>Alright, now it’s time for the most important part of our experiments: the trial loop! Just like the color-word Stroop experiment we implemented in the Builder, we’d like to create a set of trials in our emotion-word Stroop experiment. This also provides us with a nice opportunity to talk about duration and timing again!</p>
 <p>Often, you’d like to make sure your trials/stimuli are presented for a specific duration. This is often especially important for perception and psychophysics studies or neuroimaging studies in which you track stimulus processing at high temporal resolution (e.g., EEG/MEG and eyetracking studies).</p>
 <p>So far, we only showed you how to use the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function to control stimulus duration. There are, however, two other and more precise methods, which we’ll call <em>clock-based</em> timing and <em>frame-based</em> timing. We’ll discuss these two methods in turn. But first, let’s discuss how we want to structure our trial.</p>
 <p>Like we did in the Builder experiment, let our trial routine include the emotion-word stimulus and a subsequent fixation target. Unlike our Builder experiment, let’s only present the stimulus for a fixed amount of time, let’s say 500 milliseconds, which is followed by a fixation cross (a simple “+” sign) for 1500 milliseconds. As such, our trial will take (500 + 1500 = ) 2000 milliseconds; this is sometimes called the inter-<strong>trial</strong> interval (ITI), i.e., the time from the onset of one trial to the onset of the next trial.Figure 1 shows how this routine would have looked like in the Builder view.</p>
-<div class="figure align-default" id="emo-stroop-trial-routine">
+<figure class="align-default" id="emo-stroop-trial-routine">
 <img alt="../_images/trial_routine_emo_stroop.png" src="../_images/trial_routine_emo_stroop.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">The trial routine of the emotion-word Stroop experiment.</span><a class="headerlink" href="#emo-stroop-trial-routine" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The trial routine of the emotion-word Stroop experiment.</span><a class="headerlink" href="#emo-stroop-trial-routine" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>As we’re creating an emotion-word Stroop task, we’ll need an image with a emotional facial expression and an emotion word. To create an image, you can use the <a class="reference external" href="https://www.psychopy.org/api/visual/imagestim.html"><code class="docutils literal notranslate"><span class="pre">ImageStim</span></code></a> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module. Apart from the mandatory argument <code class="docutils literal notranslate"><span class="pre">win</span></code> (the current window), it also needs an <code class="docutils literal notranslate"><span class="pre">image</span></code> (a path to the image file). In the <code class="docutils literal notranslate"><span class="pre">tutorials/week_2</span></code> directory, we included two images: <code class="docutils literal notranslate"><span class="pre">angry.png</span></code> and <code class="docutils literal notranslate"><span class="pre">happy.png</span></code>. Note that these images are smileys, because it’s really hard to find proper facial expression stimuli without copyright …</p>
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> class, initialize an <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> object with the <code class="docutils literal notranslate"><span class="pre">angry.png</span></code> file (store this is in a variable with the name <code class="docutils literal notranslate"><span class="pre">stim_img</span></code>), and draw it. Also create a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the word “happy” placed above the smiley (store this is in a variable with the name <code class="docutils literal notranslate"><span class="pre">stim_txt</span></code>) and draw it. Then, flip the window and run the experiment to see whether it works as expected. You should only see the smiley briefly.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stim_img</span> <span class="o">=</span> <span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s1">&#39;angry.png&#39;</span><span class="p">)</span>
 <span class="n">stim_img</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 <span class="n">stim_txt</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;happy&#39;</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
@@ -575,13 +772,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Initialize a fixation target with a “+” sign using a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> (store it in a variable named <code class="docutils literal notranslate"><span class="pre">fix_target</span></code>) and draw and show it after showing the stimulus image (<code class="docutils literal notranslate"><span class="pre">angry.png</span></code>) and stimulus text (“happy”). Then, run the experiment (you should only see the stimulus and subsequent fixation cross very briefly; we’ll fix that in the next section).</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This comes immediately after the code from the previous ToDo</span>
 <span class="n">fix_target</span> <span class="o">=</span> <span class="n">TextStim</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
 <span class="n">fix_target</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
@@ -591,8 +788,8 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 </details></div>
 <p>At this point, we haven’t specified for <em>how long</em> we’d like to show our stimulus and fixation target! After showing the stimulus, it will immediately advance to drawing and showing the fixation target (showing both, effectively, for only one frame or “flip”). One way to control this duration is, as discussed before, using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function: we could add a call to wait after showing the stimulus (for 500 ms.) and after showing the fixation target (for 1500 ms.). This would definitely work, but the next two sections outline two slightly more precise methods to do so.</p>
-<div class="section" id="clock-based-timing">
-<h3>Clock-based timing<a class="headerlink" href="#clock-based-timing" title="Permalink to this headline">¶</a></h3>
+<section id="clock-based-timing">
+<h3>Clock-based timing<a class="headerlink" href="#clock-based-timing" title="Permalink to this headline">#</a></h3>
 <p>In the previous tutorial, we defined a “clock” (using the <code class="docutils literal notranslate"><span class="pre">psychopy.core.Clock</span></code> class) to do some trivial timing checks, but they can be used in much more useful ways, like controlling the duration of stimuli. We <em>could</em> use the previously defined “global” clock (the <code class="docutils literal notranslate"><span class="pre">clock</span></code> variable from the previous tutorial) for this, but we’ll actually need that for logging trial onsets later (in an optional section). Instead, let’s create a new <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object to keep track of the duration of our trial components, which we’ll call <code class="docutils literal notranslate"><span class="pre">trial_clock</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trial_clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
 </pre></div>
@@ -601,13 +798,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Implement the aforementioned while loop in which either the stimulus (smiley and emotion word) or the fixation target is shown, depending on the time since the initialization of the clock (so you need an if-else statement as well)!</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We assume that the fix_target and stim_txt/stim_img are</span>
 <span class="c1"># already defined!</span>
 <span class="k">while</span> <span class="n">trial_clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -629,28 +826,28 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p class="admonition-title">Tip</p>
 <p>Instead of re-drawing your stimuli every iteration of the loop across frames, you can also set the attribute <code class="docutils literal notranslate"><span class="pre">autoDraw</span></code> of visual components to <code class="docutils literal notranslate"><span class="pre">True</span></code>. This will automatically draw those stimuli upon flipping the window, until you set this attribute to <code class="docutils literal notranslate"><span class="pre">False</span></code> again!</p>
 </div>
-</div>
-<div class="section" id="frame-based-timing-optional">
-<h3>Frame-based timing (optional)<a class="headerlink" href="#frame-based-timing-optional" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="frame-based-timing-optional">
+<h3>Frame-based timing (optional)<a class="headerlink" href="#frame-based-timing-optional" title="Permalink to this headline">#</a></h3>
 <p>Although the clock-based method is reasonably accurate, it implicitly assumes that stimulus duration is <em>continuous</em>, while in reality it is discrete! This is because your monitor “draws” your screen contents at the <em>refresh rate</em> of your monitor. Most standard laptop screens and external computer monitors have a refresh rate of 60 Hz, meaning that it is technically able to redraw the entire screen 60 times per second. The first two minutes of video below explains the concept of refresh rate quite well:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YCWZ_kWTB9w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<div class="sidebar">
+<aside class="sidebar">
 <p class="sidebar-title">Refresh vs. frame rate</p>
 <p>One way to think about the difference between refresh and frame rate is that the former is determined (and limited) by your monitor while the latter is determined (and limited) by your graphics processor (as well as your monitor).</p>
-</div>
+</aside>
 <p>Note that the video also talks about the <em>frame rate</em> (or <em>frames per second</em>, FPS). This concept is related to the refresh rate, but it quantifies how often your screen can <em>actuallly</em> (in reality) be refreshed. Ideally, the refresh rate and the frame rate are exactly the same, but when you’re playing very high resolution video games or are running intricate PsychoPy experiments in which you’re drawing many visual components, your graphics processor may not be able to draw everything in time! When this happens, you’re likely “dropping frames” (for more explanation about this, check out the <a class="reference external" href="https://www.psychopy.org/general/timing/detectingFrameDrops.html">PsychoPy docs</a>).</p>
 <p>The fact that monitors are limited by their refresh rate means that the <em>exact</em> duration of visual stimuli is some multiple of the number of screen refreshes. For example, if you have a 60 Hz screen (which refreshes every 1/60 seconds), a stimulus can be shown for 0.0167 seconds (1/60), 0.0333 seconds (2/60), 0.0500 seconds (3/60), etc. But it cannot be shown for, let’s say, <em>exactly</em> 110 milliseconds.</p>
 <div class="attention admonition">
 <p class="admonition-title">ToThink</p>
 <p>Suppose you want to show a stimulus for 120 milliseconds on a monitor with a refresh rate of 60 Hz. What is the duration closest to 120 milliseconds you can achieve?</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to see the answer (but try to come up with the answer yourself first)!<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">Dividing 120 milliseconds (0.120 seconds) by the refresh rate (1/60) does not result in a whole (integer) number, namely 7.2. This means that 7 frames/flips is the best we can do, which results in 7 * (1/60) = 0.1167 seconds.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to see the answer (but try to come up with the answer yourself first)!<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Dividing 120 milliseconds (0.120 seconds) by the refresh rate (1/60) does not result in a whole (integer) number, namely 7.2. This means that 7 frames/flips is the best we can do, which results in 7 * (1/60) = 0.1167 seconds.</p>
 </div>
 </details></div>
 <p>So, if you <em>really</em> care about the duration of your stimuli (e.g., in subliminal perception studies), you should specify the duration of your stimuli as a multiple of your refresh rate. Then, to implement this in your PsychoPy script, you can simply draw your stimuli and flip your window as often as the number of frames you want to show your stimuli. For example, if you want to show your stimulus for 60 frames (i.e., 1
@@ -659,13 +856,13 @@ second on a 60 Hz monitor), you simply do the drawing + flipping process 60 time
 <p class="admonition-title">ToDo</p>
 <p>Remove the your clock-based timing implementation (i.e., the while loop from the previous ToDo) and instead program a frame-based timing implementation instead (the duration should be 500 ms for the stimulus and 1500 ms for the fixation target again). Hint: instead of the while loop in the clock-based timing example, you may want to use a for-loop here …
 Run the experiment when you’re done!</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll assume you have a 60Hz monitor</span>
 <span class="c1"># 120 frames on a 60Hz monitor is 2000 ms</span>
 <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">120</span><span class="p">):</span>
@@ -685,10 +882,10 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p class="admonition-title">Tip</p>
 <p>For timing precision and preventing dropped frames, it is very important that no other (CPU-heavy) programs are running while you’re running your experiment! So make sure that, when you conduct actual experiments, you shut down all non-essential programs before starting your experiment.</p>
 </div>
-</div>
-</div>
-<div class="section" id="trial-loops">
-<h2>Trial loops<a class="headerlink" href="#trial-loops" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="trial-loops">
+<h2>Trial loops<a class="headerlink" href="#trial-loops" title="Permalink to this headline">#</a></h2>
 <p>So far, we only presented a <em>single</em> trial with a emotion word (“happy”) and a(n angry) smiley (i.e., an incongruent trial). Like the color-word Stroop in the Builder tutorial, we’d like to present the participant multiple trials in which the two factors — emotion of the smiley (happy/angry) and the emotion word (“happy”/”angry”) — vary.</p>
 <p>So how do we define the different conditions? One way would be two create two lists, one with emotion words and one with the emotion for the smileys, and to choose a random value of each list in each iteration of the trial loop. In our current simple experiment, however, we would recommend to pre-specify the conditions in a CSV or Excel file &amp;mdash just like we did in the Builder tutorial!</p>
 <div class="attention admonition">
@@ -719,13 +916,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Try finishing the loop in the previous code snippet as indicated above. You may use either clock-based or frame-based timing. Run the experiment when you’re done!</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="c1"># Extract current word and smiley</span>
     <span class="n">curr_word</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">]</span>
@@ -755,13 +952,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo (optional)</p>
 <p>Perhaps twenty trials are a little too few to estimate any meaningful effect … To increase our statistical power (for whatever effect we’re trying to estimate), we can simply repeat our trial loop a number of times (like the <code class="docutils literal notranslate"><span class="pre">nReps</span></code> property of Builder loops). Try to implement this such that the trial loop is repeated five times. Make sure that each repetition uses a different random order of trials.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!) <div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!) <div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">N_REPS</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># 5 repetitions for now</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_REPS</span><span class="p">):</span>
     <span class="c1"># Shuffle the conditions again!</span>
@@ -791,9 +988,9 @@ Click here to show the solution (but try it yourself first!) <div class="summary
 </div>
 </div>
 </details></div>
-</div>
-<div class="section" id="saving-responses-and-stimulus-onsets">
-<h2>Saving responses and stimulus onsets<a class="headerlink" href="#saving-responses-and-stimulus-onsets" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="saving-responses-and-stimulus-onsets">
+<h2>Saving responses and stimulus onsets<a class="headerlink" href="#saving-responses-and-stimulus-onsets" title="Permalink to this headline">#</a></h2>
 <p>After the experimental session, we’d of course like to save some data from the experiment, whether that is just the onsets of the stimuli/trials (like in passive viewing paradigms in neuroimaging) or extensive participant response data (like in psychophysics experiments).</p>
 <p>Because the Coder, unlike the Builder, does not save <em>anything</em> by default, we need to save any data we want to store ourselves. One neat way to do so is to use the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object with the condition info to store information about the trials. For this experiment, let’s keep track and store three things: the participant response for each trial (“left”, “right”, or no keypress), the reaction time for each trial, and the onset of the stimulus.</p>
 <p>Let’s start with keeping track of the actual participant response. We’ll, of course, use the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class as discussed in the previous tutorial.</p>
@@ -801,13 +998,13 @@ Click here to show the solution (but try it yourself first!) <div class="summary
 <p class="admonition-title">ToDo (difficult!)</p>
 <p>Using a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object, make sure that both the participant response to each trial (either “left”, “right” or no response) and the reaction time are saved in the conditions <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">cond_df</span></code>). Store them in columns with the names <code class="docutils literal notranslate"><span class="pre">response</span></code> and <code class="docutils literal notranslate"><span class="pre">reaction_time</span></code>. In case of no response, save the response and reaction time as “n/a”. If there are multiple responses within a trial, make sure to save only the last one. Run the experiment when you’re done to see whether everything works as expected. <strong>Bonus</strong>: also save whether the response is correct, incorrect, or missing (“n/a”) for each trial (in a column named <code class="docutils literal notranslate"><span class="pre">response_correct</span></code>).</p>
 <p>Hint: to add the data (response/RT) to the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe, use the <code class="docutils literal notranslate"><span class="pre">loc</span></code> method! You can do these even if the column (<code class="docutils literal notranslate"><span class="pre">response</span></code> or <code class="docutils literal notranslate"><span class="pre">response_time</span></code>) does not yet exist!</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize keyboard if not done already</span>
 <span class="n">kb</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cond_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
@@ -854,13 +1051,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Try to think of a way to save the onset of each stimulus (in the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe) after the first flip and implement this in your script. You may use the global clock (the <code class="docutils literal notranslate"><span class="pre">clock</span></code> variable) we defined in the previous tutorial. Make sure to reset it before the trial loop! Also, after the end of the loop, make sure to save the <code class="docutils literal notranslate"><span class="pre">cond_df</span></code> dataframe to disk with the name: <code class="docutils literal notranslate"><span class="pre">sub-{participant</span> <span class="pre">nr}_events.csv</span></code> (where <code class="docutils literal notranslate"><span class="pre">participant</span> <span class="pre">nr</span></code> refers to the value from the dialog box).</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We left out the response/RT part for clarity</span>
 <span class="c1"># Reset &quot;global&quot; clock!</span>
 <span class="n">clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
@@ -894,9 +1091,9 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 </div>
 </details></div>
-</div>
-<div class="section" id="non-slip-timing-optional">
-<h2>Non-slip timing (optional)<a class="headerlink" href="#non-slip-timing-optional" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="non-slip-timing-optional">
+<h2>Non-slip timing (optional)<a class="headerlink" href="#non-slip-timing-optional" title="Permalink to this headline">#</a></h2>
 <p>If you managed to implement the last ToDo and you inspected the saved logfile, you might have noticed that the onsets seem to increase with a <em>little</em> more than 2 seconds. This inconsistency likely comes from the fact that the while loop we used to control the trial duration probably does not end neatly before the next screen refresh. Another reason is that the initialization of the new <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> and <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> takes a little time that causes the routine to take a little longer than two seconds.</p>
 <p>For most experiments, this issue is not really important, but for fMRI experiments it actually may be! This is because the data acquisition of fMRI scans is often predetermined (e.g., 250 “MRI volumes” of 2 seconds each → 500 seconds) and this issue may cause the experiment to “overshoot” the actual data acquisition (read more about this issue <a class="reference external" href="https://www.psychopy.org/general/timing/nonSlipTiming.html">here</a>).</p>
 <p>To fix this “overshoot” issue, we need to compensate for the inaccuracies in our stimulus/trial durations; this is sometimes called <a class="reference external" href="https://www.psychopy.org/general/timing/nonSlipTiming.html">non-slip timing</a>. One way we can compensate these “overshoots” is using the clock itself. Instead of using it as a “stopwatch” (looping until it has reached a value), we can use it as a “timer” (looping until it has no time left anymore). This can be done using the <code class="docutils literal notranslate"><span class="pre">add</span></code> method of <code class="docutils literal notranslate"><span class="pre">Clock</span></code> objects, which (paradoxically) subtract time from the clock. For example, if you’d call <code class="docutils literal notranslate"><span class="pre">add(2)</span></code> right after resetting a clock, <code class="docutils literal notranslate"><span class="pre">getTime</span></code> would return approximately -2. Using this approach, we could subsequently loop until the clock is at 0, at which point we know the routine took 2 seconds. Any “overshoot” will then automatically be corrected for in the next routine.</p>
@@ -918,12 +1115,12 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p class="admonition-title">ToDo (optional)</p>
 <p>Try implementing this non-slip timing approach in your emotion-word Stroop experiment. Then, run the experiment and check the resulting logfile. Is the overshoot issue fixed?</p>
 </div>
-</div>
-<div class="section" id="wrapping-up">
-<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="wrapping-up">
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">#</a></h2>
 <p>Okay, that will have to do for this Coder tutorial. We discussed how to implement the most important experiment features using the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but the package offers much more than we discussed here (such as auditory components, colorspaces, array stimuli, rating stimuli, and eyetracker integration). We leave this up to you to explore on your own. On the <a class="reference internal" href="psychopy_how_to_continue.html"><span class="doc std std-doc">next page</span></a>, we included some resources to help you with this.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -947,54 +1144,48 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="psychopy_coder_part1.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Introduction to the PsychoPy Coder (tutorial)</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction to the PsychoPy Coder (tutorial)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="coder_test.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Test your Coder skills!</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="coder_test.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Test your Coder skills!</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Lukas Snoek<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Lukas Snoek<br/>
+  
+      &copy; Copyright 2020.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

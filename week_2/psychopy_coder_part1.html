@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction to the PsychoPy Coder (tutorial) &#8212; introPy</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,46 +20,62 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Creating a Coder experiment from scratch (tutorial)" href="psychopy_coder_part2.html" />
     <link rel="prev" title="Test your Builder skills!" href="builder_test.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -66,9 +84,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -86,14 +105,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome to introPy
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to introPy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
@@ -115,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Python (week 1)
  </span>
@@ -162,7 +182,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   PsychoPy (week 2)
  </span>
@@ -214,7 +234,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Misc
  </span>
@@ -243,92 +263,197 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/week_2/psychopy_coder_part1.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/lukassnoek/introPy"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_2/psychopy_coder_part1.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_2/psychopy_coder_part1.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/lukassnoek/introPy"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_2/psychopy_coder_part1.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_2/psychopy_coder_part1.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/week_2/psychopy_coder_part1.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-psychopy-package">
    The
@@ -389,20 +514,96 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to the PsychoPy Coder (tutorial)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-psychopy-package">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     psychopy
+    </span>
+   </code>
+   package
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-coder-interface">
+   The Coder interface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dialog-boxes">
+   Dialog boxes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-window">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Window
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing-clocks">
+   Timing &amp; clocks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responses">
+   Responses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#keyboard-responses">
+     Keyboard responses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mouse-responses-optional">
+     Mouse responses (optional)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quitting-the-experiment">
+   Quitting the experiment
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-the-psychopy-coder-tutorial">
-<h1>Introduction to the PsychoPy Coder (tutorial)<a class="headerlink" href="#introduction-to-the-psychopy-coder-tutorial" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-the-psychopy-coder-tutorial">
+<h1>Introduction to the PsychoPy Coder (tutorial)<a class="headerlink" href="#introduction-to-the-psychopy-coder-tutorial" title="Permalink to this headline">#</a></h1>
 <p>At last, we’ll discuss the PsychoPy Coder! In this tutorial, we explain the basics of the Coder interface. It will be a somewhat more “dry” tutorial because we won’t actually create any stimuli or trials in this tutorial, because we’ll save that for the next tutorial. Like in the previous Builder tutorial, we will explain the concepts by walking you through the process of programming a real experiment. This time, we will create a variant of the classical color-word Stroop task, the <em>emotion-word Stroop</em> task, in which participants are presented with images of emotional facial expressions in combination with words describing emotions that are congruent with the images (e.g., an angry expression with the word “angry”) or incongruent with the images (e.g., a happy exression with the word “angry”).</p>
-<div class="section" id="the-psychopy-package">
-<h2>The <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package<a class="headerlink" href="#the-psychopy-package" title="Permalink to this headline">¶</a></h2>
+<section id="the-psychopy-package">
+<h2>The <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package<a class="headerlink" href="#the-psychopy-package" title="Permalink to this headline">#</a></h2>
 <p>When using the Builder interace, you’ve seen that, “under the hood”, PsychoPy converts your Builder experiment to a Python script, which is then executed to run your experiment. If you look at this generated Python script closely, you’ll see that most of the code is based on functions and classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> Python package. Whereas the Builder interface generates such code from your graphical experiment, in the Coder interface you’ll write your experiment using functionality from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package directly!</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -414,9 +615,9 @@
 <p class="admonition-title">Note</p>
 <p>In this tutorial, you’ll notice that many of the properties of Builder elements (e.g., the <em>Experiment settings</em> and Builder components like <em>text</em> and <em>image</em> components) have the same name and can take the same values as the attributes of the corresponding classes in the Coder interface!</p>
 </div>
-</div>
-<div class="section" id="the-coder-interface">
-<h2>The Coder interface<a class="headerlink" href="#the-coder-interface" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-coder-interface">
+<h2>The Coder interface<a class="headerlink" href="#the-coder-interface" title="Permalink to this headline">#</a></h2>
 <p>Now, let’s get started by opening the Coder interface.</p>
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
@@ -456,9 +657,9 @@
 </pre></div>
 </div>
 <p>As you can see, the <em>Experiment runner</em> shows your print statement; remember this, as it is a nice way to debug your experiments!</p>
-</div>
-<div class="section" id="dialog-boxes">
-<h2>Dialog boxes<a class="headerlink" href="#dialog-boxes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dialog-boxes">
+<h2>Dialog boxes<a class="headerlink" href="#dialog-boxes" title="Permalink to this headline">#</a></h2>
 <p>Arguably the first step in many experiments is providing the experiment with some information about the current session, such as the participant number, condition the participant is in, etc. In Builder experiments, you can implement this in the <em>Experiment settings</em> (under the <em>Basic</em> tab). The equivalent functionality in the Coder interface is implemented in the <code class="docutils literal notranslate"><span class="pre">psychopy.gui</span></code> module.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">psychopy.gui</span></code> module contains different classes to create <a class="reference external" href="https://en.wikipedia.org/wiki/Dialog_box">dialog boxes</a>, but arguably the easiest one to use is the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> class. This class needs a single mandatory argument upon initialization: a dictionary in which the keys represent the dialog’s fields (e.g., “participant_id”) and the values represent the default for each field. (If you set a value to an empty string, <code class="docutils literal notranslate"><span class="pre">''</span></code>, there won’t be a default value.)</p>
 <p>For example, if you’d like a dialog box in which the participant number can be filled in, you can do the following:</p>
@@ -480,13 +681,13 @@
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Given the dialog box configuration from the previous ToDo, include a print statement to your script that will print out the following: “Started the experiment for participant … with age …”, where the triple dots are replaced by whatever you filled in when running the experiment.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># I like F-strings, but other string formatting methods are fine, too!</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Started the experiment for participant </span><span class="si">{</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;participant_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> with age </span><span class="si">{</span><span class="n">exp_info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -504,13 +705,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo (optional)</p>
 <p>Add some code after the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">dlg.OK</span></code> code block that also quits the experiment when the user fills in an invalid participant number (let’s say, anything higher than 99) or an invalid age (let’s say, below 18). Try running the experiment with different values for these two options to see whether your implementation works as expected!</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">dlg</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span>
     <span class="n">quit</span><span class="p">()</span>
 <span class="k">else</span><span class="p">:</span>
@@ -530,9 +731,9 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </details></div>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">DlgFromDict</span></code> in fact can be customized much by using different arguments upon initialization. Check out the <a class="reference external" href="https://www.psychopy.org/api/gui.html">documentation</a> to learn more.</p>
 <p>Now, so far we haven’t really discussed how to actually create proper experiments, so let’s start with arguably the most important element of Coder exeriments: the <code class="docutils literal notranslate"><span class="pre">Window</span></code>.</p>
-</div>
-<div class="section" id="the-window">
-<h2>The <code class="docutils literal notranslate"><span class="pre">Window</span></code><a class="headerlink" href="#the-window" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-window">
+<h2>The <code class="docutils literal notranslate"><span class="pre">Window</span></code><a class="headerlink" href="#the-window" title="Permalink to this headline">#</a></h2>
 <p>One of the most important classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package is the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class, which defines the window in which you are going to run your experiment. It is quite a complex class, with many different attributes and methods; we’ll discuss the most important ones in this tutorial.</p>
 <p>You can import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class from the <code class="docutils literal notranslate"><span class="pre">visual</span></code> module of the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package (i.e., <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">psychopy.visual</span> <span class="pre">import</span> <span class="pre">Window</span></code>). This, by itself, does nothing; for the experiment window to appear, we need to intialize an object with the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class. There are <em>a lot</em> of arguments that can be used upon initialization (for an overview, see the <a class="reference external" href="https://www.psychopy.org/api/visual/window.html">docs</a>), but all arguments have sensible defaults, so you can initialize a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
@@ -582,9 +783,9 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <p class="admonition-title">Warning</p>
 <p>It’s quite likely that, at some point in this or the next tutorial, you’ll run the experiment, but no window opens! This is likely caused by a (syntax) error somewhere in your script. If this happens, check the <em>Experiment runner</em> window for the error and its <a class="reference external" href="https://realpython.com/python-traceback">traceback</a>.</p>
 </div>
-</div>
-<div class="section" id="timing-clocks">
-<h2>Timing &amp; clocks<a class="headerlink" href="#timing-clocks" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="timing-clocks">
+<h2>Timing &amp; clocks<a class="headerlink" href="#timing-clocks" title="Permalink to this headline">#</a></h2>
 <p>When you run the current experiment, you’ll only see a black screen for like a second or so before it disappears again. The reason why the window doesn’t stay open is because we don’t tell it to! It is important to realize that PsychoPy will run the experiment script from top to bottom (like any Python file is run, actually) and will close the window once the script ends. Put differently, you can interpret the script as a chronological chain of events from the top of the script (beginning) to the bottom of the script (end).</p>
 <p>So, if you want to keep the window open for a little longer, we can simply tell PsychoPy so! There are, in fact, different ways to do this, but arguably the easiest way is using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function from the <a class="reference external" href="https://www.psychopy.org/api/core.html"><code class="docutils literal notranslate"><span class="pre">psychopy.core</span></code></a> module. We can pass this function a number corresponding to the amount of time (in seconds) PsychoPy should wait before continuing with the rest of the script.</p>
 <div class="attention admonition">
@@ -605,13 +806,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class and, after creating a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object, initialize it. Then, query the time using <code class="docutils literal notranslate"><span class="pre">getTime</span></code> and store it in a variable (e.g., <code class="docutils literal notranslate"><span class="pre">t_before_wait</span></code>). Aftewards, make PsychoPy wait for 2 seconds (using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function), and finally, query the time again and store in another variable (e.g., <code class="docutils literal notranslate"><span class="pre">t_after_wait</span></code>). Make your script print the time before <code class="docutils literal notranslate"><span class="pre">wait</span></code> call, after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call, and the difference between those two times. Then, run the experiment.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
 <span class="n">t_before</span> <span class="o">=</span> <span class="n">clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time before wait: </span><span class="si">{</span><span class="n">t_before</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -626,24 +827,24 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </details></div>
 <p>If you implemented the ToDo correctly, you should see that the time just after initialization of the clock is very close to zero (e.g., <code class="docutils literal notranslate"><span class="pre">7.83892915e-06</span></code>) and that both the time after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call and the difference before and after the <code class="docutils literal notranslate"><span class="pre">wait</span></code> call is approximately <code class="docutils literal notranslate"><span class="pre">2</span></code> seconds — just like we expected!</p>
 <p>Another important methods of the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> class is <code class="docutils literal notranslate"><span class="pre">reset</span></code>, which sets the clock’s time back to zero. This feature becomes useful when you want to reuse a clock for multiple routines, i.e., just reset the clock just before you want to use it again!</p>
-</div>
-<div class="section" id="responses">
-<h2>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="responses">
+<h2>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">#</a></h2>
 <p>Another important aspect of experiments is handling and interacting with participant responses. Here, we limit ourselves to two ways of interaction: with a keyboard and with a mouse.</p>
-<div class="section" id="keyboard-responses">
-<h3>Keyboard responses<a class="headerlink" href="#keyboard-responses" title="Permalink to this headline">¶</a></h3>
+<section id="keyboard-responses">
+<h3>Keyboard responses<a class="headerlink" href="#keyboard-responses" title="Permalink to this headline">#</a></h3>
 <p>To interact with keyboard responses, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package contains a — guess what — <a class="reference external" href="https://www.psychopy.org/api/hardware/keyboard.html"><code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class</a> in the <code class="docutils literal notranslate"><span class="pre">psychopy.hardware.keyboard</span></code> module. This class records all keypresses since its initialization, which you can save or use in your experiment. Although there are several arguments upon initialization (see the <a class="reference external" href="https://www.psychopy.org/api/hardware/keyboard.html">documentation</a>), these are all optional and have sensible defaults.</p>
 <p>One important attribute that <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> objects have is <code class="docutils literal notranslate"><span class="pre">clock</span></code>: a <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object to keep track of keypress onsets and reaction times (relative to the initialization of the <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object).</p>
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class (at the start of your script), initialize a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object (use the variable <code class="docutils literal notranslate"><span class="pre">kb</span></code>), wait for 1 second (use the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function), and print the time since the initialization of the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> option using the <code class="docutils literal notranslate"><span class="pre">clock</span></code> attribute! Then, run the experiment and check the <em>Experiment runner</em> for the printed output.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># At the start of your script</span>
 <span class="kn">from</span> <span class="nn">psychopy.hardware.keyboard</span> <span class="kn">import</span> <span class="n">Keyboard</span>
 
@@ -686,13 +887,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>One routine that is common in (PsychoPy) experiments, and one which we also discussed in the Builder tutorials, is the “press-a-key-to-continue” routine. This can be implemented in PsychoPy using a while loop in combination with the <code class="docutils literal notranslate"><span class="pre">keyGets</span></code> method of a <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> object. Try implementing this in your script such that you only advance with the experiment when you press the enter key (“return”). You may remove the code from the last two ToDos (to clean up your script a bit).</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">keys</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
     <span class="k">if</span> <span class="s2">&quot;return&quot;</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
@@ -705,13 +906,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo (optional/difficult)</p>
 <p>As mentioned before, the <code class="docutils literal notranslate"><span class="pre">getKeys</span></code> method returns a list of <code class="docutils literal notranslate"><span class="pre">KeyPress</span></code> objects with several attributes with information about the keypress. For a period of two seconds, for each detected key press, print in a single statement the name of the key, its reaction time, and duration (e.g., “The ‘a’ key was pressed within 2.156 seconds for a total of 0.255 seconds”). <a class="reference external" href="https://realpython.com/python-f-strings/">F-strings</a> would we nice here! (You may remove the code from the previous ToDo.)</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need to reset the clock!</span>
 <span class="n">kb</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 <span class="k">while</span> <span class="n">kb</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -723,9 +924,9 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 </div>
 </details></div>
-</div>
-<div class="section" id="mouse-responses-optional">
-<h3>Mouse responses (optional)<a class="headerlink" href="#mouse-responses-optional" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mouse-responses-optional">
+<h3>Mouse responses (optional)<a class="headerlink" href="#mouse-responses-optional" title="Permalink to this headline">#</a></h3>
 <p>Instead of interacting through the keyboard, you can interact with mouse responses of the participant. Whether you have participants respond with keyboard presses or with the mouse is of course up to you (and depends on your experiment)! For the sake of explaining how to implement interaction with mouse responses, let’s add another screen to our experiments with a big, red button, which the participant has to click (with the mouse) in order to start the experiment.</p>
 <p>Just like with keyboard responses, the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package contains a class, <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> (from <code class="docutils literal notranslate"><span class="pre">psychopy.event</span></code>), which implements interaction with the mouse. As can been seen in <a class="reference external" href="https://www.psychopy.org/api/event.html">the documentation</a>, a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object can be initialized with several optional arguments (<code class="docutils literal notranslate"><span class="pre">visible</span></code>, <code class="docutils literal notranslate"><span class="pre">newPos</span></code>, and <code class="docutils literal notranslate"><span class="pre">win</span></code>) and contains various methods to query information about the mouse position (<code class="docutils literal notranslate"><span class="pre">getPos</span></code>) and mouse clicks/presses (<code class="docutils literal notranslate"><span class="pre">getPressed</span></code>). You can even set the position of the mouse (<code class="docutils literal notranslate"><span class="pre">setPos</span></code>) and make the mouse (temporarily) (in)visible (<code class="docutils literal notranslate"><span class="pre">setVisible</span></code>)!</p>
 <div class="admonition warning">
@@ -736,13 +937,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class and initialize a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method). Check the <a class="reference external" href="https://www.psychopy.org/api/event.html">documentation</a> to see what the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method returns exactly.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># At the top of the script</span>
 <span class="kn">from</span> <span class="nn">psychopy.event</span> <span class="kn">import</span> <span class="n">Mouse</span>
 
@@ -759,13 +960,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> class and initialize a <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> object. Then, wait to continue with the experiment until the participant presses the left mouse button (you need to use the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method). Check the <a class="reference external" href="https://www.psychopy.org/api/event.html">documentation</a> to see what the <code class="docutils literal notranslate"><span class="pre">getPressed</span></code> method returns exactly.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># At the top of the script</span>
 <span class="kn">from</span> <span class="nn">psychopy.event</span> <span class="kn">import</span> <span class="n">Mouse</span>
 
@@ -782,13 +983,13 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>With the <code class="docutils literal notranslate"><span class="pre">setPos</span></code> method, you can control the position of the cursor! Try moving the mouse to the upper left corner of the screen and then going to each other corner in a clockwise fashion, stopping for 0.5 seconds at each corner.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Click here to show the solution (but try it yourself first!)<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click here to show the solution (but try it yourself first!)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is just one solution! THere are many different implementations possible!</span>
 <span class="c1"># These numbers assume &quot;norm&quot; units</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">.9</span><span class="p">]</span>
@@ -800,18 +1001,18 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 </div>
 </div>
 </details></div>
-</div>
-</div>
-<div class="section" id="quitting-the-experiment">
-<h2>Quitting the experiment<a class="headerlink" href="#quitting-the-experiment" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="quitting-the-experiment">
+<h2>Quitting the experiment<a class="headerlink" href="#quitting-the-experiment" title="Permalink to this headline">#</a></h2>
 <p>As you’ve seen so far, when the Python interpreter arrives at the end of your script, the PsychoPy window automatically closes and the Python process finishes. In the context of PsychoPy experiments, however, it is good practice to end the experiment by explicitly closing the window using the window’s <code class="docutils literal notranslate"><span class="pre">close</span></code> method <em>and</em> then calling the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">core.psychopy</span></code> module (as we did before in the section on dialog boxes). Although not strictly necessary, calling the <code class="docutils literal notranslate"><span class="pre">close</span></code> method and the <code class="docutils literal notranslate"><span class="pre">quit</span></code> function perform a bit of bookkeeping that may prevent issues, so we recommend always including this at the very end of your script!</p>
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
 <p>At the end of your script, add the code to close your window and to quit the experiment.</p>
 </div>
 <p>This tutorial features some of the most important, but arguably boring, aspects of programming experiments in the PsychoPy Coder, so let’s continue with the <a class="reference internal" href="psychopy_coder_part2.html"><span class="doc std std-doc">next (and final) tutorial</span></a> which discusses creating components and other fun stuff!</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -835,54 +1036,48 @@ Click here to show the solution (but try it yourself first!)<div class="summary-
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="builder_test.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Test your Builder skills!</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="builder_test.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Test your Builder skills!</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="psychopy_coder_part2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Creating a Coder experiment from scratch (tutorial)</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="psychopy_coder_part2.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Creating a Coder experiment from scratch (tutorial)</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Lukas Snoek<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Lukas Snoek<br/>
+  
+      &copy; Copyright 2020.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

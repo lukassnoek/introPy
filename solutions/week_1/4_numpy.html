@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction to Numpy (tutorial) &#8212; introPy</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,48 +20,64 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Extra exercises" href="5_extra_exercises.html" />
     <link rel="prev" title="Introduction to Pandas (tutorial)" href="3_pandas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -68,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -88,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../index.html">
-   Welcome to introPy
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Welcome to introPy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
@@ -117,7 +137,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Python (week 1)
  </span>
@@ -164,7 +184,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   PsychoPy (week 2)
  </span>
@@ -216,7 +236,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Misc
  </span>
@@ -245,115 +265,244 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/tutorials/week_1/4_numpy.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/lukassnoek/introPy"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Ftutorials/week_1/4_numpy.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lukassnoek/introPy/edit/master/intropy/tutorials/week_1/4_numpy.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/tutorials/week_1/4_numpy.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://neuroimaging.lukas-snoek.com"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/tutorials/week_1/4_numpy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https%3A//github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/tutorials/week_1/4_numpy.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/lukassnoek/introPy"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Ftutorials/week_1/4_numpy.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lukassnoek/introPy/edit/master/intropy/tutorials/week_1/4_numpy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/tutorials/week_1/4_numpy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contents">
    Contents
@@ -413,20 +562,95 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to Numpy (tutorial)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-ndarray">
+   The
+   <em>
+    ndarray
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-lists-vs-numpy-arrays">
+     Python lists vs. numpy arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-numpy-arrays">
+     Creating numpy arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-indexing">
+   Numpy indexing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multidimensional-indexing">
+     Multidimensional indexing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-types">
+   Data-types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-vs-functions">
+   Methods vs. functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-array-math">
+   Numpy: array math
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broadcasting">
+   Broadcasting
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-numpy-tutorial">
-<h1>Introduction to Numpy (tutorial)<a class="headerlink" href="#introduction-to-numpy-tutorial" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-numpy-tutorial">
+<h1>Introduction to Numpy (tutorial)<a class="headerlink" href="#introduction-to-numpy-tutorial" title="Permalink to this headline">#</a></h1>
 <p>This notebook is about Numpy, Python’s core library for numeric computing. Knowing how to use Numpy is <em>essential</em> in domains such as machine learning, neuroimaging analysis, and image processing.</p>
-<div class="section" id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>The <em>nd</em>array</p></li>
 <li><p>Indexing</p></li>
@@ -441,12 +665,12 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-ndarray">
-<h2>The <em>ndarray</em><a class="headerlink" href="#the-ndarray" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-ndarray">
+<h2>The <em>ndarray</em><a class="headerlink" href="#the-ndarray" title="Permalink to this headline">#</a></h2>
 <p>The most important feature of Numpy is it’s core data structure: the numpy <em>ndarray</em> (which stands for <em>n</em>-<em>d</em>imensional array, referring to the fact that the array may be of any dimension: 1D, 2D, 3D, 180D … <em>n</em>D). This is, just like basic lists/dictionaries/integers/tuples, a data structure with its own syntax, operations, and methods, as we will explain below.</p>
-<div class="section" id="python-lists-vs-numpy-arrays">
-<h3>Python lists vs. numpy arrays<a class="headerlink" href="#python-lists-vs-numpy-arrays" title="Permalink to this headline">¶</a></h3>
+<section id="python-lists-vs-numpy-arrays">
+<h3>Python lists vs. numpy arrays<a class="headerlink" href="#python-lists-vs-numpy-arrays" title="Permalink to this headline">#</a></h3>
 <p>Basically, numpy arrays are a lot like Python lists. The major difference, however, is that <em>numpy arrays may contain only a single data-type</em>, while Python lists may contain different data-types within the same list.</p>
 <p>Let check this out:</p>
 <div class="cell docutils container">
@@ -508,7 +732,7 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.06 ms ± 192 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.15 ms ± 16.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -524,16 +748,16 @@ this is a: &lt;class &#39;numpy.float64&#39;&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.8 µs ± 410 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-Numpy is 415 times faster than base Python!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.8 µs ± 31.9 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+Numpy is 661 times faster than base Python!
 </pre></div>
 </div>
 </div>
 </div>
 <p>You see that Numpy <em>much</em> faster! This really matters when you start doing more complex operations or large arrays!</p>
-</div>
-<div class="section" id="creating-numpy-arrays">
-<h3>Creating numpy arrays<a class="headerlink" href="#creating-numpy-arrays" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="creating-numpy-arrays">
+<h3>Creating numpy arrays<a class="headerlink" href="#creating-numpy-arrays" title="Permalink to this headline">#</a></h3>
 <p>As shown an earlier example, numpy arrays can be created as follows:</p>
 <ol class="simple">
 <li><p>Define a Python list, e.g. <code class="docutils literal notranslate"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code></p></li>
@@ -572,8 +796,8 @@ A 2D array:
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Create the following 1D array:
-<div class="amsmath math notranslate nohighlight" id="equation-c48b341c-8449-43df-917d-9a22ee12bb4e">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c48b341c-8449-43df-917d-9a22ee12bb4e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0ff86e9b-3285-4761-8a70-443a80ce90db">
+<span class="eqno">(1)<a class="headerlink" href="#equation-0ff86e9b-3285-4761-8a70-443a80ce90db" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 5 &amp; 3 &amp; 2 &amp; 8 &amp; 9
 \end{bmatrix}
@@ -617,8 +841,8 @@ A 2D array:
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>:
 <p>Create the following matrix (2D array):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7f5c2d0-2933-468c-866a-af1b8d1fc94b">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e7f5c2d0-2933-468c-866a-af1b8d1fc94b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2e74be9e-52ab-488e-8711-abf4729d4aa5">
+<span class="eqno">(2)<a class="headerlink" href="#equation-2e74be9e-52ab-488e-8711-abf4729d4aa5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 5 &amp; 2 &amp; 8 \\
 8 &amp; 2 &amp; 1 \\
@@ -818,24 +1042,24 @@ Filled array
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
  [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]] 
 
-[[0.35535196 0.803033   0.76925207 0.63849811 0.52410953 0.17319468
-  0.18191894 0.76513152 0.73685273 0.46420458]
- [0.15636907 0.10588274 0.79826378 0.37781488 0.59517577 0.90821371
-  0.36849265 0.82720898 0.5208873  0.51956447]
- [0.9487304  0.62043024 0.80317318 0.05302453 0.78297985 0.93539697
-  0.71569235 0.60309107 0.70780384 0.75788805]
- [0.77069185 0.43631916 0.80773999 0.11905134 0.99912816 0.17802692
-  0.28522778 0.32972819 0.08783037 0.53960194]
- [0.47949144 0.49628112 0.11165293 0.69966405 0.68019704 0.31182861
-  0.67994365 0.79502844 0.08411242 0.69407161]]
+[[0.6480634  0.39327088 0.28346587 0.10266521 0.87208594 0.44384477
+  0.85119236 0.41918278 0.46892159 0.80669018]
+ [0.22097011 0.87994332 0.35441234 0.69639935 0.23981512 0.34156227
+  0.89171637 0.25076594 0.35448086 0.68911674]
+ [0.54882171 0.61169138 0.56141961 0.13851448 0.68577424 0.19498906
+  0.89784357 0.35481371 0.41616827 0.88935254]
+ [0.71080686 0.03208934 0.91751768 0.0746678  0.06189189 0.29824294
+  0.81823254 0.2274676  0.87408376 0.1009507 ]
+ [0.55334197 0.72263365 0.17218305 0.03514718 0.63381973 0.99449855
+  0.97539979 0.53896389 0.35131496 0.5031455 ]]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="numpy-indexing">
-<h2>Numpy indexing<a class="headerlink" href="#numpy-indexing" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="numpy-indexing">
+<h2>Numpy indexing<a class="headerlink" href="#numpy-indexing" title="Permalink to this headline">#</a></h2>
 <p>Indexing (extracting a single value of an array) and slicing (extracting multiple values - a subset - from an array) of numpy arrays is largely the same as with regular Python lists and data structures from other scientific computing languages such as R and MATLAB. Let’s check out a couple of examples of a 1D array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -955,8 +1179,8 @@ Filled array
 </div>
 </div>
 </div>
-<div class="section" id="multidimensional-indexing">
-<h3>Multidimensional indexing<a class="headerlink" href="#multidimensional-indexing" title="Permalink to this headline">¶</a></h3>
+<section id="multidimensional-indexing">
+<h3>Multidimensional indexing<a class="headerlink" href="#multidimensional-indexing" title="Permalink to this headline">#</a></h3>
 <p>Often, instead of working on and indexing 1D array, we’ll work with multi-dimensional (&gt;1D) arrays. Indexing multi-dimensional arrays is, again, quite similar to other scientific computing languages.</p>
 <p>Like indexing Python lists, indexing multidimensional numpy arrays is done with square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>, in which you can put as many comma-delimited numbers as there are dimensions in your array.</p>
 <p>For example, suppose you have a 2D array of shape <span class="math notranslate nohighlight">\(3 \times 3\)</span> and you want to index the value in the first row and first column. You would do this as follows:</p>
@@ -1231,10 +1455,10 @@ Result of indexing my_array with bool_array:
 </div>
 </div>
 <p>Again, it’s very important to understand how to (effectively) index multidimensional numpy arrays using slices and boolean indexing, as we’ll use it a lot in this course!</p>
-</div>
-</div>
-<div class="section" id="data-types">
-<h2>Data-types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="data-types">
+<h2>Data-types<a class="headerlink" href="#data-types" title="Permalink to this headline">#</a></h2>
 <p>Every numpy array is a grid of values of the same type. Numpy provides a large set of numeric datatypes that you can use to construct arrays. Numpy guesses the datatype when you create an array, but functions that construct arrays usually also include an optional argument to explicitly specify the datatype.</p>
 <p>Here are a couple of examples:</p>
 <div class="cell docutils container">
@@ -1312,9 +1536,9 @@ array([ True, False,  True,  True]) (&lt;class &#39;numpy.bool_&#39;&gt;)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="methods-vs-functions">
-<h2>Methods vs. functions<a class="headerlink" href="#methods-vs-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="methods-vs-functions">
+<h2>Methods vs. functions<a class="headerlink" href="#methods-vs-functions" title="Permalink to this headline">#</a></h2>
 <p>In the previous notebooks, you’ve learned that, in addition to functions, ‘methods’ exist that are like functions of an object. You’ve seen examples of list methods, e.g. <code class="docutils literal notranslate"><span class="pre">my_list.append(1)</span></code>, and string methods, e.g. <code class="docutils literal notranslate"><span class="pre">my_string.replace('a',</span> <span class="pre">'b')</span></code>.</p>
 <p>Like lists and strings, numpy arrays have a lot of convenient methods that you can call (like the <code class="docutils literal notranslate"><span class="pre">astype</span></code> method we saw earlier). Again, this is just like a function, but then applied to itself. Often, numpy provides both a function and method for simple operations.</p>
 <p>Let’s look at an example:</p>
@@ -1336,9 +1560,8 @@ array([ True, False,  True,  True]) (&lt;class &#39;numpy.bool_&#39;&gt;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the array is: 4.500000
+
+The mean of the array is: 4.500000
 The mean of the array (computed by its corresponding method) is: 4.500000
 Is the results from the numpy function the same as the corresponding method? Answer: True
 </pre></div>
@@ -1481,8 +1704,8 @@ Shape after ravel(): (10,)
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b> (1 point): Let's practice writing functions some more. Complete the function below, named <tt>calculate_range</tt>. This function takes  a single input-argument &mdash; a 1D numpy array &mdash; and subsequently calculates the <a href="https://en.wikipedia.org/wiki/Range_(statistics)">range</a> of the array. The range is the difference between the maximum and minimum of any given array (vector) $x$:
-<div class="amsmath math notranslate nohighlight" id="equation-805c8179-cf53-4cee-8bca-9a7b9f5034c8">
-<span class="eqno">(3)<a class="headerlink" href="#equation-805c8179-cf53-4cee-8bca-9a7b9f5034c8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-637f645a-da2e-4736-9f40-2de28949242f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-637f645a-da2e-4736-9f40-2de28949242f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathrm{range}(x) = \max(x) - \min(x)
 \end{align}\]</div>
 <p>You may use the corresponding numpy min/max methods or functions in your custom function, doesn’t matter. Don’t forget to explicitly return the value of the range!</p>
@@ -1552,9 +1775,8 @@ Shape after ravel(): (10,)
 
 The size (number of element) in the array is:
 9 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
+
+The .size attribute is of data-type: &lt;class &#39;int&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -1597,13 +1819,13 @@ Number of dimensions:
 <li><p>h0 : a scalar value (single number) that represents the value representing the null-hypothesis</p></li>
 </ul>
 <p>The function should compute the one-sample t-test, which tests whether the mean of an array is significantly different from a given value representing the null-hypothesis. Formally, for any given array <span class="math notranslate nohighlight">\(x\)</span> and null-hypothesis <span class="math notranslate nohighlight">\(h_{0}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9e99c28e-0af9-4780-8ef9-c0d209c3cf0e">
-<span class="eqno">(4)<a class="headerlink" href="#equation-9e99c28e-0af9-4780-8ef9-c0d209c3cf0e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-186620d8-9e05-4a0f-a59d-c501b4b58585">
+<span class="eqno">(4)<a class="headerlink" href="#equation-186620d8-9e05-4a0f-a59d-c501b4b58585" title="Permalink to this equation">#</a></span>\[\begin{align}
 t = \frac{\bar{x} - h_{0}}{s\ / \sqrt{N}}
 \end{align}\]</div>
 <p>Here: <span class="math notranslate nohighlight">\(\bar{x}\)</span> represents the mean of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(s\)</span> represents the standard deviation of <span class="math notranslate nohighlight">\(x\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> represents the length (‘size’) of x. So, in slightly less mathematical notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0bc8b5c-d911-49f4-920a-1bce38915b14">
-<span class="eqno">(5)<a class="headerlink" href="#equation-b0bc8b5c-d911-49f4-920a-1bce38915b14" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1343aa32-d3e3-44cb-956e-04788d9c13c3">
+<span class="eqno">(5)<a class="headerlink" href="#equation-1343aa32-d3e3-44cb-956e-04788d9c13c3" title="Permalink to this equation">#</a></span>\[\begin{align}
 t = \frac{\mathrm{mean}(x) - h_{0}}{\mathrm{std}(x)\ / \sqrt{\mathrm{length}(x) - 1}}
 \end{align}\]</div>
 <p>Make sure to return the t-value!</p>
@@ -1664,9 +1886,9 @@ Correct! You stats wizard!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="numpy-array-math">
-<h2>Numpy: array math<a class="headerlink" href="#numpy-array-math" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="numpy-array-math">
+<h2>Numpy: array math<a class="headerlink" href="#numpy-array-math" title="Permalink to this headline">#</a></h2>
 <p>Now you know all the numpy basics necessary to do neuroimaging analysis! As you’ll see in the last section (Working with nifti-images), we’ll work with 3D (structural MRI images) or 4D (functional MRI images) numpy arrays a lot. Given that you know how the basics about numpy in general and numpy ndarrays in particular, we can utilize some of numpy’s best features: (very fast) array math.</p>
 <p>Basic mathematical functions operate elementwise on arrays, which means that the operation (e.g. addition) is applied onto each element in the array. So, let’s initialize a 1D array with ten zeros and let’s add 1 to it:</p>
 <div class="cell docutils container">
@@ -1743,7 +1965,10 @@ array([[ 6.,  8.],
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-4. -4.]
- [-4. -4.]] 
+ [-4. -4.]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 
 [[-4. -4.]
  [-4. -4.]]
@@ -1933,11 +2158,11 @@ Sum across columns of x:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2 ms ± 43.8 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.02 ms ± 8.02 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74.2 µs ± 627 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-Using the axis-argument is 29.629 times faster than a for-loop!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63 µs ± 20.7 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+Using the axis-argument is 32.115 times faster than a for-loop!
 </pre></div>
 </div>
 </div>
@@ -1991,9 +2216,9 @@ Complete the function, and make sure to return the result, which should be a 1D 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="broadcasting">
-<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="broadcasting">
+<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">#</a></h2>
 <p>Broadcasting is a powerful mechanism that allows numpy to work with arrays of different shapes when performing arithmetic operations. Frequently we have a smaller array and a larger array, and we want to use the smaller array multiple times to perform some operation on the larger array.</p>
 <p>For example, suppose that we want to add a vector to each row of a matrix. We could do it like this:</p>
 <div class="cell docutils container">
@@ -2126,7 +2351,7 @@ The result of adding v to each row of x, as stored in y:
  [1.66666667 1.5       ]]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2765/3876697827.py:1: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2061/3876697827.py:1: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
 Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
   x = np.array([[1, 2],[3, 4], [5, 6]], dtype=np.float)
 </pre></div>
@@ -2135,8 +2360,8 @@ Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdo
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, we started writing a function called <tt>standardize_columns</tt>, which takes a single input-argument &mdash; a 2D numpy array &mdash; and should subsequently <em>standardize</em> each column such that each column has a mean of zero and a standard deviation of 1. In other words, standardization subtracts the mean (across rows) of each column from the values in that column, and then divides those value with the standard deviation of that column. Formally, for each column $j$ in any 2D array, standardization entails:
-<div class="amsmath math notranslate nohighlight" id="equation-6f69100b-1cfa-46d7-b02c-8b487d5d185d">
-<span class="eqno">(6)<a class="headerlink" href="#equation-6f69100b-1cfa-46d7-b02c-8b487d5d185d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dbd74502-3c32-4da2-8fa1-8ae97e483661">
+<span class="eqno">(6)<a class="headerlink" href="#equation-dbd74502-3c32-4da2-8fa1-8ae97e483661" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_{j}\ \mathrm{standardized} = \frac{(x_{j} - \bar{x_{j}})}{\mathrm{std}(x_{j})}
 \end{align}\]</div>
 <p>Standardization, which is also oftend called “z-transformation”, is often done in statistics. So, in the function below, make sure that it is able to standardize each column in any 2D array. Make sure to use vectorized array computations (i.e, the <tt>np.mean</tt> and <tt>np.std</tt> functions/methods across rows) and broadcasting, so no for-loops!</p>
@@ -2195,8 +2420,8 @@ x_{j}\ \mathrm{standardized} = \frac{(x_{j} - \bar{x_{j}})}{\mathrm{std}(x_{j})}
 </div>
 </div>
 <p>Now, you know the most important numpy concepts and functionality that is necessary to start using it. Surely, there is a lot more to the numpy package that what we’ve covered here, but that’s for another time 😃</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2220,54 +2445,48 @@ x_{j}\ \mathrm{standardized} = \frac{(x_{j} - \bar{x_{j}})}{\mathrm{std}(x_{j})}
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="3_pandas.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Introduction to Pandas (tutorial)</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="3_pandas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction to Pandas (tutorial)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="5_extra_exercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Extra exercises</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="5_extra_exercises.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Extra exercises</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Lukas Snoek<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Lukas Snoek<br/>
+  
+      &copy; Copyright 2020.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
