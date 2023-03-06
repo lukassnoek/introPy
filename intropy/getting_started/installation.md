@@ -2,7 +2,7 @@
 This pages describes how to download and install the software and materials needed for this course.
 
 ## Python
-For this course, we need a working installation of Python. There are two options: you can download Python yourself (see below) or you can use an online environment preconfigured with a working Python installlation. 
+For this course, we need a working installation of Python. There are two options: you can download Python yourself (see below) or you can use an online environment preconfigured with a working Python installation. 
 
 ### Online access to Python
 For students of the Research Master Psychology, we have set up an external server with Python (through [Jupyterhub](https://jupyter.org/hub), which is explained [here](jupyter.md)) which can be used to do the tutorials of week 1; so no need to download Python yourself. The course's Canvas page outlines how to access the server. Alternatively, you may use [Binder](https://mybinder.org/), which is a service that provides an online Python environment with the course's materials. Note that our own Jupyterhub instance is only accessible to students from the Research Master Psychology who are enrolled in the "Programming for Psychology" course. Note that you must be connected to UvA VPN to be able to access the UvA server.
@@ -88,7 +88,7 @@ Open a terminal (or Anaconda prompt if you are on Windows), navigate to the root
 conda env create -n psychopy -f psychopy-env.yml
 ```
 
-This will create a new Python environment (using Python version 3.6) with the `psychopy` package and all its dependencies. This may take 5 to 10 minutes or so. To activate this environment, run the following in your terminal:
+This will create a new Python environment (using Python version 3.9) with the `psychopy` package and all its dependencies. This may take 5 to 10 minutes or so. To activate this environment, run the following in your terminal:
 
 ```
 conda activate psychopy
