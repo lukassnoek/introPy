@@ -1,48 +1,56 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Creating a Coder experiment from scratch (tutorial) &#8212; introPy</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,61 +58,564 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week_2/psychopy_coder_part2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Test your Coder skills!" href="coder_test.html" />
     <link rel="prev" title="Introduction to the PsychoPy Coder (tutorial)" href="psychopy_coder_part1.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/about.html">
+                        About this course
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/jupyter.html">
+                        The Jupyter ecosystem
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../week_1/python.html">
+                        Python essentials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/0_introduction.html">
+                        Introduction to Python (T)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/1_python_basics.html">
+                        Python basics (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/2_matplotlib.html">
+                        Introduction to Matplotlib (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/3_pandas.html">
+                        Introduction to Pandas (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/4_numpy.html">
+                        Introduction to Numpy (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/5_extra_exercises.html">
+                        Extra exercises (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../week_1/python_how_to_continue.html">
+                        How to continue with Python?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy.html">
+                        PsychoPy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="intro_psychopy.html">
+                        Introduction to PsychoPy (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy_builder_part1.html">
+                        Introduction to the Builder (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy_builder_part2.html">
+                        A Builder experiment from scratch (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="builder_test.html">
+                        Test your Builder skills!
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy_coder_part1.html">
+                        Introduction to the Coder (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        A Coder experiment from scratch (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="coder_test.html">
+                        Test your Coder skills!
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy_how_to_continue.html">
+                        How to continue with PsychoPy?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/bibliography.html">
+                        Bibliography
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/for_developers.html">
+                        For developers
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/CONTRIBUTING.html">
+                        Contributing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/CONDUCT.html">
+                        Code of Conduct
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">introPy</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/about.html">
+                        About this course
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/jupyter.html">
+                        The Jupyter ecosystem
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../week_1/python.html">
+                        Python essentials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/0_introduction.html">
+                        Introduction to Python (T)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/1_python_basics.html">
+                        Python basics (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/2_matplotlib.html">
+                        Introduction to Matplotlib (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/3_pandas.html">
+                        Introduction to Pandas (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/4_numpy.html">
+                        Introduction to Numpy (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../solutions/week_1/5_extra_exercises.html">
+                        Extra exercises (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../week_1/python_how_to_continue.html">
+                        How to continue with Python?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy.html">
+                        PsychoPy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="intro_psychopy.html">
+                        Introduction to PsychoPy (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy_builder_part1.html">
+                        Introduction to the Builder (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy_builder_part2.html">
+                        A Builder experiment from scratch (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="builder_test.html">
+                        Test your Builder skills!
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy_coder_part1.html">
+                        Introduction to the Coder (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        A Coder experiment from scratch (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="coder_test.html">
+                        Test your Coder skills!
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="psychopy_how_to_continue.html">
+                        How to continue with PsychoPy?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/bibliography.html">
+                        Bibliography
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/for_developers.html">
+                        For developers
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/CONTRIBUTING.html">
+                        Contributing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/CONDUCT.html">
+                        Code of Conduct
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,482 +624,272 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Getting started
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../getting_started/about.html">
-   About this course
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../getting_started/installation.html">
-   Installation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../getting_started/jupyter.html">
-   The Jupyter ecosystem
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/about.html">About this course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/jupyter.html">The Jupyter ecosystem</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Python (week 1)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python (week 1)</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/python.html">
-   Python essentials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../solutions/week_1/0_introduction.html">
-   Introduction to Python (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../solutions/week_1/1_python_basics.html">
-   Python basics (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../solutions/week_1/2_matplotlib.html">
-   Introduction to Matplotlib (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../solutions/week_1/3_pandas.html">
-   Introduction to Pandas (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../solutions/week_1/4_numpy.html">
-   Introduction to Numpy (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../solutions/week_1/5_extra_exercises.html">
-   Extra exercises (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../week_1/python_how_to_continue.html">
-   How to continue with Python?
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../week_1/python.html">Python essentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/week_1/0_introduction.html">Introduction to Python (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/week_1/1_python_basics.html">Python basics (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/week_1/2_matplotlib.html">Introduction to Matplotlib (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/week_1/3_pandas.html">Introduction to Pandas (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/week_1/4_numpy.html">Introduction to Numpy (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/week_1/5_extra_exercises.html">Extra exercises (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week_1/python_how_to_continue.html">How to continue with Python?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  PsychoPy (week 2)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PsychoPy (week 2)</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="psychopy.html">
-   PsychoPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="intro_psychopy.html">
-   Introduction to PsychoPy (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="psychopy_builder_part1.html">
-   Introduction to the Builder (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="psychopy_builder_part2.html">
-   A Builder experiment from scratch (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="builder_test.html">
-   Test your Builder skills!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="psychopy_coder_part1.html">
-   Introduction to the Coder (T)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   A Coder experiment from scratch (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="coder_test.html">
-   Test your Coder skills!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="psychopy_how_to_continue.html">
-   How to continue with PsychoPy?
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="psychopy.html">PsychoPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_psychopy.html">Introduction to PsychoPy (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psychopy_builder_part1.html">Introduction to the Builder (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psychopy_builder_part2.html">A Builder experiment from scratch (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="builder_test.html">Test your Builder skills!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psychopy_coder_part1.html">Introduction to the Coder (T)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A Coder experiment from scratch (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coder_test.html">Test your Coder skills!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psychopy_how_to_continue.html">How to continue with PsychoPy?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Misc
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../misc/bibliography.html">
-   Bibliography
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../misc/for_developers.html">
-   For developers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../misc/CONTRIBUTING.html">
-   Contributing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../misc/CONDUCT.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/for_developers.html">For developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/CONDUCT.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lukassnoek/introPy"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/lukassnoek/introPy" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_2/psychopy_coder_part2.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Fweek_2/psychopy_coder_part2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_2/psychopy_coder_part2.md"
-   class="headerbtn"
+      <li><a href="https://github.com/lukassnoek/introPy/edit/master/intropy/week_2/psychopy_coder_part2.md" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Edit this page"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-pencil-alt"></i>
   </span>
-<span class="headerbtn__text-container">suggest edit</span>
+<span class="btn__text-container">suggest edit</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/week_2/psychopy_coder_part2.md"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../_sources/week_2/psychopy_coder_part2.md" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="btn__text-container">.md</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
-</div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#components">
-   Components
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#drawing-flipping">
-   Drawing &amp; flipping
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#responses">
-   Responses
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#timing-revisited">
-   Timing revisited
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clock-based-timing">
-     Clock-based timing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#frame-based-timing-optional">
-     Frame-based timing (optional)
-    </a>
-   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trial-loops">
-   Trial loops
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#saving-responses-and-stimulus-onsets">
-   Saving responses and stimulus onsets
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-slip-timing-optional">
-   Non-slip timing (optional)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wrapping-up">
-   Wrapping up
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Creating a Coder experiment from scratch (tutorial)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#components">
-   Components
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#drawing-flipping">
-   Drawing &amp; flipping
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#responses">
-   Responses
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#timing-revisited">
-   Timing revisited
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clock-based-timing">
-     Clock-based timing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#frame-based-timing-optional">
-     Frame-based timing (optional)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trial-loops">
-   Trial loops
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#saving-responses-and-stimulus-onsets">
-   Saving responses and stimulus onsets
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-slip-timing-optional">
-   Non-slip timing (optional)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wrapping-up">
-   Wrapping up
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
+</div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Creating a Coder experiment from scratch (tutorial)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#components">
+   Components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drawing-flipping">
+   Drawing &amp; flipping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responses">
+   Responses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing-revisited">
+   Timing revisited
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clock-based-timing">
+     Clock-based timing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frame-based-timing-optional">
+     Frame-based timing (optional)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trial-loops">
+   Trial loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-responses-and-stimulus-onsets">
+   Saving responses and stimulus onsets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-slip-timing-optional">
+   Non-slip timing (optional)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="creating-a-coder-experiment-from-scratch-tutorial">
-<h1>Creating a Coder experiment from scratch (tutorial)<a class="headerlink" href="#creating-a-coder-experiment-from-scratch-tutorial" title="Permalink to this headline">#</a></h1>
+<h1>Creating a Coder experiment from scratch (tutorial)<a class="headerlink" href="#creating-a-coder-experiment-from-scratch-tutorial" title="Permalink to this heading">#</a></h1>
 <p>In the previous tutorial, we discussed most of the “administrative” stuff that needs to happen in any PsychoPy experiment and explained some basic features (clocks, responses). In this tutorial, we’ll discuss how to actually add components to the experiment, interact with user responses, and work with user data. There are a lot of optional, more advanced topics/sections in this tutorial, so feel free to skip those if you are short on time.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -655,7 +956,7 @@ Click to reveal the template!<div class="sd-summary-down docutils">
 </div>
 </div>
 </details><section id="components">
-<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">#</a></h2>
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h2>
 <p>Like in the Builder, <em>components</em> are the “bread and butter” in the Coder interface as well. In the coder, however, these components are implemented in different classes from the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. For example, to add a text component, you can use the <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> class from the <code class="docutils literal notranslate"><span class="pre">psychopy.visual</span></code> module and to add a sound component, you can use the <code class="docutils literal notranslate"><span class="pre">Sound</span></code> component from the <code class="docutils literal notranslate"><span class="pre">psychopy.sound</span></code> module.</p>
 <p>Basically, every component from the Builder has an equivalent in the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package. Moreover, each component has largely the same properties in the Builder as in the Coder. For example, the <em>color</em> and <em>font</em> properties from text components in the Builder are also available in the Coder interface as arguments (and attributes) of the corresponding component class. For example, to set the font of a text stim to Calibri and the text color to blue, initialize a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> object with <code class="docutils literal notranslate"><span class="pre">font='Calibri'</span></code> and <code class="docutils literal notranslate"><span class="pre">color=(-1,</span> <span class="pre">-1,</span> <span class="pre">1)</span></code>. We won’t discuss all parameters from every component we discuss in this tutorial; you can find all parameters and what they mean in the <a class="reference external" href="https://www.psychopy.org/api/index.html">PsychoPy documentation</a>!</p>
 <p>Importantly, all <em>visual</em> stimulus classes (like <code class="docutils literal notranslate"><span class="pre">TextStim</span></code>, but not <code class="docutils literal notranslate"><span class="pre">Sound</span></code>) additionally need one (mandatory) argument: a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object! This allows to <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> to interact with the window. So, let’s recap: to initialize a component in the Coder interface, we need to (1) import the corresponding class and (2) initialize it with a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object (in case of visual components) and optionally other arguments that modify the component’s behavior or display.</p>
@@ -691,7 +992,7 @@ Click to reveal the template!<div class="sd-summary-down docutils">
 <p>It really doesn’t matter which method (setting the attribute directly or using the <code class="docutils literal notranslate"><span class="pre">set</span></code> method) you use — they do the same thing.</p>
 </section>
 <section id="drawing-flipping">
-<h2>Drawing &amp; flipping<a class="headerlink" href="#drawing-flipping" title="Permalink to this headline">#</a></h2>
+<h2>Drawing &amp; flipping<a class="headerlink" href="#drawing-flipping" title="Permalink to this heading">#</a></h2>
 <p>When running your experiment after including the welcome text component, however, the PsychoPy window does not show the text! As discussed in the lecture, this is because you first need to <em>draw</em> the stimulus! This can be done by calling the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method that is included in each (visual) component class.</p>
 <div class="attention admonition">
 <p class="admonition-title">ToDo</p>
@@ -716,7 +1017,7 @@ Click to reveal the template!<div class="sd-summary-down docutils">
 <p>By flipping the window again, the welcome text disappeared and was replaced by an empty window (because the front buffer was replaced by an empty back buffer). This underlines an important concept: <em>every time you flip the window, you start with an empty back buffer</em> (and you need to draw your stimuli again, if you want to show them again on the next flip).</p>
 </section>
 <section id="responses">
-<h2>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">#</a></h2>
+<h2>Responses<a class="headerlink" href="#responses" title="Permalink to this heading">#</a></h2>
 <p>After welcoming our participant, let’s add some instructions. Like we did in the Builder experiment, let’s also make sure that, after reading the instructions, the participant can continue the experiment by pressing enter (“return”). This gives us an excuse to introduce the topic of working with participant responses!</p>
 <p>But first, let’s create a <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> with the instructions:</p>
 <blockquote>
@@ -737,7 +1038,7 @@ ANGRY expression = right</p>
 </div>
 </section>
 <section id="timing-revisited">
-<h2>Timing revisited<a class="headerlink" href="#timing-revisited" title="Permalink to this headline">#</a></h2>
+<h2>Timing revisited<a class="headerlink" href="#timing-revisited" title="Permalink to this heading">#</a></h2>
 <p>Alright, now it’s time for the most important part of our experiments: the trial loop! Just like the color-word Stroop experiment we implemented in the Builder, we’d like to create a set of trials in our emotion-word Stroop experiment. This also provides us with a nice opportunity to talk about duration and timing again!</p>
 <p>Often, you’d like to make sure your trials/stimuli are presented for a specific duration. This is often especially important for perception and psychophysics studies or neuroimaging studies in which you track stimulus processing at high temporal resolution (e.g., EEG/MEG and eyetracking studies).</p>
 <p>So far, we only showed you how to use the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function to control stimulus duration. There are, however, two other and more precise methods, which we’ll call <em>clock-based</em> timing and <em>frame-based</em> timing. We’ll discuss these two methods in turn. But first, let’s discuss how we want to structure our trial.</p>
@@ -789,7 +1090,7 @@ Click here to show the solution (but try it yourself first!)<div class="sd-summa
 </details></div>
 <p>At this point, we haven’t specified for <em>how long</em> we’d like to show our stimulus and fixation target! After showing the stimulus, it will immediately advance to drawing and showing the fixation target (showing both, effectively, for only one frame or “flip”). One way to control this duration is, as discussed before, using the <code class="docutils literal notranslate"><span class="pre">wait</span></code> function: we could add a call to wait after showing the stimulus (for 500 ms.) and after showing the fixation target (for 1500 ms.). This would definitely work, but the next two sections outline two slightly more precise methods to do so.</p>
 <section id="clock-based-timing">
-<h3>Clock-based timing<a class="headerlink" href="#clock-based-timing" title="Permalink to this headline">#</a></h3>
+<h3>Clock-based timing<a class="headerlink" href="#clock-based-timing" title="Permalink to this heading">#</a></h3>
 <p>In the previous tutorial, we defined a “clock” (using the <code class="docutils literal notranslate"><span class="pre">psychopy.core.Clock</span></code> class) to do some trivial timing checks, but they can be used in much more useful ways, like controlling the duration of stimuli. We <em>could</em> use the previously defined “global” clock (the <code class="docutils literal notranslate"><span class="pre">clock</span></code> variable from the previous tutorial) for this, but we’ll actually need that for logging trial onsets later (in an optional section). Instead, let’s create a new <code class="docutils literal notranslate"><span class="pre">Clock</span></code> object to keep track of the duration of our trial components, which we’ll call <code class="docutils literal notranslate"><span class="pre">trial_clock</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trial_clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
 </pre></div>
@@ -828,7 +1129,7 @@ Click here to show the solution (but try it yourself first!)<div class="sd-summa
 </div>
 </section>
 <section id="frame-based-timing-optional">
-<h3>Frame-based timing (optional)<a class="headerlink" href="#frame-based-timing-optional" title="Permalink to this headline">#</a></h3>
+<h3>Frame-based timing (optional)<a class="headerlink" href="#frame-based-timing-optional" title="Permalink to this heading">#</a></h3>
 <p>Although the clock-based method is reasonably accurate, it implicitly assumes that stimulus duration is <em>continuous</em>, while in reality it is discrete! This is because your monitor “draws” your screen contents at the <em>refresh rate</em> of your monitor. Most standard laptop screens and external computer monitors have a refresh rate of 60 Hz, meaning that it is technically able to redraw the entire screen 60 times per second. The first two minutes of video below explains the concept of refresh rate quite well:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YCWZ_kWTB9w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <aside class="sidebar">
@@ -885,7 +1186,7 @@ Click here to show the solution (but try it yourself first!)<div class="sd-summa
 </section>
 </section>
 <section id="trial-loops">
-<h2>Trial loops<a class="headerlink" href="#trial-loops" title="Permalink to this headline">#</a></h2>
+<h2>Trial loops<a class="headerlink" href="#trial-loops" title="Permalink to this heading">#</a></h2>
 <p>So far, we only presented a <em>single</em> trial with a emotion word (“happy”) and a(n angry) smiley (i.e., an incongruent trial). Like the color-word Stroop in the Builder tutorial, we’d like to present the participant multiple trials in which the two factors — emotion of the smiley (happy/angry) and the emotion word (“happy”/”angry”) — vary.</p>
 <p>So how do we define the different conditions? One way would be two create two lists, one with emotion words and one with the emotion for the smileys, and to choose a random value of each list in each iteration of the trial loop. In our current simple experiment, however, we would recommend to pre-specify the conditions in a CSV or Excel file &amp;mdash just like we did in the Builder tutorial!</p>
 <div class="attention admonition">
@@ -990,7 +1291,7 @@ Click here to show the solution (but try it yourself first!) <div class="sd-summ
 </details></div>
 </section>
 <section id="saving-responses-and-stimulus-onsets">
-<h2>Saving responses and stimulus onsets<a class="headerlink" href="#saving-responses-and-stimulus-onsets" title="Permalink to this headline">#</a></h2>
+<h2>Saving responses and stimulus onsets<a class="headerlink" href="#saving-responses-and-stimulus-onsets" title="Permalink to this heading">#</a></h2>
 <p>After the experimental session, we’d of course like to save some data from the experiment, whether that is just the onsets of the stimuli/trials (like in passive viewing paradigms in neuroimaging) or extensive participant response data (like in psychophysics experiments).</p>
 <p>Because the Coder, unlike the Builder, does not save <em>anything</em> by default, we need to save any data we want to store ourselves. One neat way to do so is to use the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object with the condition info to store information about the trials. For this experiment, let’s keep track and store three things: the participant response for each trial (“left”, “right”, or no keypress), the reaction time for each trial, and the onset of the stimulus.</p>
 <p>Let’s start with keeping track of the actual participant response. We’ll, of course, use the <code class="docutils literal notranslate"><span class="pre">Keyboard</span></code> class as discussed in the previous tutorial.</p>
@@ -1093,7 +1394,7 @@ Click here to show the solution (but try it yourself first!)<div class="sd-summa
 </details></div>
 </section>
 <section id="non-slip-timing-optional">
-<h2>Non-slip timing (optional)<a class="headerlink" href="#non-slip-timing-optional" title="Permalink to this headline">#</a></h2>
+<h2>Non-slip timing (optional)<a class="headerlink" href="#non-slip-timing-optional" title="Permalink to this heading">#</a></h2>
 <p>If you managed to implement the last ToDo and you inspected the saved logfile, you might have noticed that the onsets seem to increase with a <em>little</em> more than 2 seconds. This inconsistency likely comes from the fact that the while loop we used to control the trial duration probably does not end neatly before the next screen refresh. Another reason is that the initialization of the new <code class="docutils literal notranslate"><span class="pre">TextStim</span></code> and <code class="docutils literal notranslate"><span class="pre">ImageStim</span></code> takes a little time that causes the routine to take a little longer than two seconds.</p>
 <p>For most experiments, this issue is not really important, but for fMRI experiments it actually may be! This is because the data acquisition of fMRI scans is often predetermined (e.g., 250 “MRI volumes” of 2 seconds each → 500 seconds) and this issue may cause the experiment to “overshoot” the actual data acquisition (read more about this issue <a class="reference external" href="https://www.psychopy.org/general/timing/nonSlipTiming.html">here</a>).</p>
 <p>To fix this “overshoot” issue, we need to compensate for the inaccuracies in our stimulus/trial durations; this is sometimes called <a class="reference external" href="https://www.psychopy.org/general/timing/nonSlipTiming.html">non-slip timing</a>. One way we can compensate these “overshoots” is using the clock itself. Instead of using it as a “stopwatch” (looping until it has reached a value), we can use it as a “timer” (looping until it has no time left anymore). This can be done using the <code class="docutils literal notranslate"><span class="pre">add</span></code> method of <code class="docutils literal notranslate"><span class="pre">Clock</span></code> objects, which (paradoxically) subtract time from the clock. For example, if you’d call <code class="docutils literal notranslate"><span class="pre">add(2)</span></code> right after resetting a clock, <code class="docutils literal notranslate"><span class="pre">getTime</span></code> would return approximately -2. Using this approach, we could subsequently loop until the clock is at 0, at which point we know the routine took 2 seconds. Any “overshoot” will then automatically be corrected for in the next routine.</p>
@@ -1117,7 +1418,7 @@ Click here to show the solution (but try it yourself first!)<div class="sd-summa
 </div>
 </section>
 <section id="wrapping-up">
-<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">#</a></h2>
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this heading">#</a></h2>
 <p>Okay, that will have to do for this Coder tutorial. We discussed how to implement the most important experiment features using the <code class="docutils literal notranslate"><span class="pre">psychopy</span></code> package, but the package offers much more than we discussed here (such as auditory components, colorspaces, array stimuli, rating stimuli, and eyetracker integration). We leave this up to you to explore on your own. On the <a class="reference internal" href="psychopy_how_to_continue.html"><span class="doc std std-doc">next page</span></a>, we included some resources to help you with this.</p>
 </section>
 </section>
@@ -1134,7 +1435,7 @@ Click here to show the solution (but try it yourself first!)<div class="sd-summa
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./week_2"
         },
         predefinedOutput: true
@@ -1142,50 +1443,152 @@ Click here to show the solution (but try it yourself first!)<div class="sd-summa
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction to the PsychoPy Coder (tutorial)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="coder_test.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Test your Coder skills!</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="psychopy_coder_part1.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Introduction to the PsychoPy Coder (tutorial)</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="coder_test.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Test your Coder skills!</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By Lukas Snoek<br/>
-  
-      &copy; Copyright 2020.<br/>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#components">
+   Components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drawing-flipping">
+   Drawing &amp; flipping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responses">
+   Responses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing-revisited">
+   Timing revisited
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clock-based-timing">
+     Clock-based timing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frame-based-timing-optional">
+     Frame-based timing (optional)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trial-loops">
+   Trial loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-responses-and-stimulus-onsets">
+   Saving responses and stimulus onsets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-slip-timing-optional">
+   Non-slip timing (optional)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
+  </a>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lukas Snoek
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2020.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>

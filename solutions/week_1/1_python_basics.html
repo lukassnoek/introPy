@@ -1,48 +1,56 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Python basics (tutorial) &#8212; introPy</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,61 +58,564 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/week_1/1_python_basics';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Introduction to Matplotlib (tutorial)" href="2_matplotlib.html" />
     <link rel="prev" title="Introduction to Python (tutorial)" href="0_introduction.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting_started/about.html">
+                        About this course
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting_started/installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting_started/jupyter.html">
+                        The Jupyter ecosystem
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_1/python.html">
+                        Python essentials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="0_introduction.html">
+                        Introduction to Python (T)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Python basics (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2_matplotlib.html">
+                        Introduction to Matplotlib (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="3_pandas.html">
+                        Introduction to Pandas (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="4_numpy.html">
+                        Introduction to Numpy (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="5_extra_exercises.html">
+                        Extra exercises (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_1/python_how_to_continue.html">
+                        How to continue with Python?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy.html">
+                        PsychoPy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/intro_psychopy.html">
+                        Introduction to PsychoPy (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_builder_part1.html">
+                        Introduction to the Builder (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_builder_part2.html">
+                        A Builder experiment from scratch (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/builder_test.html">
+                        Test your Builder skills!
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_coder_part1.html">
+                        Introduction to the Coder (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_coder_part2.html">
+                        A Coder experiment from scratch (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/coder_test.html">
+                        Test your Coder skills!
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_how_to_continue.html">
+                        How to continue with PsychoPy?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../misc/bibliography.html">
+                        Bibliography
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../misc/for_developers.html">
+                        For developers
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../misc/CONTRIBUTING.html">
+                        Contributing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../misc/CONDUCT.html">
+                        Code of Conduct
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="../../_static/logo.png" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">introPy</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting_started/about.html">
+                        About this course
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting_started/installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting_started/jupyter.html">
+                        The Jupyter ecosystem
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_1/python.html">
+                        Python essentials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="0_introduction.html">
+                        Introduction to Python (T)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Python basics (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2_matplotlib.html">
+                        Introduction to Matplotlib (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="3_pandas.html">
+                        Introduction to Pandas (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="4_numpy.html">
+                        Introduction to Numpy (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="5_extra_exercises.html">
+                        Extra exercises (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_1/python_how_to_continue.html">
+                        How to continue with Python?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy.html">
+                        PsychoPy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/intro_psychopy.html">
+                        Introduction to PsychoPy (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_builder_part1.html">
+                        Introduction to the Builder (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_builder_part2.html">
+                        A Builder experiment from scratch (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/builder_test.html">
+                        Test your Builder skills!
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_coder_part1.html">
+                        Introduction to the Coder (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_coder_part2.html">
+                        A Coder experiment from scratch (T)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/coder_test.html">
+                        Test your Coder skills!
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../week_2/psychopy_how_to_continue.html">
+                        How to continue with PsychoPy?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../misc/bibliography.html">
+                        Bibliography
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../misc/for_developers.html">
+                        For developers
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../misc/CONTRIBUTING.html">
+                        Contributing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../misc/CONDUCT.html">
+                        Code of Conduct
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,651 +624,377 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Getting started
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/about.html">
-   About this course
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/installation.html">
-   Installation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/jupyter.html">
-   The Jupyter ecosystem
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/about.html">About this course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/jupyter.html">The Jupyter ecosystem</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Python (week 1)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python (week 1)</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_1/python.html">
-   Python essentials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="0_introduction.html">
-   Introduction to Python (T)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Python basics (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_matplotlib.html">
-   Introduction to Matplotlib (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_pandas.html">
-   Introduction to Pandas (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_numpy.html">
-   Introduction to Numpy (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="5_extra_exercises.html">
-   Extra exercises (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_1/python_how_to_continue.html">
-   How to continue with Python?
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_1/python.html">Python essentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_introduction.html">Introduction to Python (T)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python basics (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_matplotlib.html">Introduction to Matplotlib (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pandas.html">Introduction to Pandas (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_numpy.html">Introduction to Numpy (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_extra_exercises.html">Extra exercises (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_1/python_how_to_continue.html">How to continue with Python?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  PsychoPy (week 2)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PsychoPy (week 2)</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/psychopy.html">
-   PsychoPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/intro_psychopy.html">
-   Introduction to PsychoPy (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/psychopy_builder_part1.html">
-   Introduction to the Builder (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/psychopy_builder_part2.html">
-   A Builder experiment from scratch (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/builder_test.html">
-   Test your Builder skills!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/psychopy_coder_part1.html">
-   Introduction to the Coder (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/psychopy_coder_part2.html">
-   A Coder experiment from scratch (T)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/coder_test.html">
-   Test your Coder skills!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../week_2/psychopy_how_to_continue.html">
-   How to continue with PsychoPy?
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/psychopy.html">PsychoPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/intro_psychopy.html">Introduction to PsychoPy (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/psychopy_builder_part1.html">Introduction to the Builder (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/psychopy_builder_part2.html">A Builder experiment from scratch (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/builder_test.html">Test your Builder skills!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/psychopy_coder_part1.html">Introduction to the Coder (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/psychopy_coder_part2.html">A Coder experiment from scratch (T)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/coder_test.html">Test your Coder skills!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_2/psychopy_how_to_continue.html">How to continue with PsychoPy?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Misc
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../misc/bibliography.html">
-   Bibliography
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../misc/for_developers.html">
-   For developers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../misc/CONTRIBUTING.html">
-   Contributing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../misc/CONDUCT.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/for_developers.html">For developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/CONDUCT.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/tutorials/week_1/1_python_basics.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://mybinder.org/v2/gh/lukassnoek/introPy/master?urlpath=lab/tree/intropy/tutorials/week_1/1_python_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Launch on Binder"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https%3A//github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/tutorials/week_1/1_python_basics.ipynb&branch=master"
-   class="headerbtn"
+      <li><a href="https://neuroimaging.lukas-snoek.com/hub/user-redirect/git-pull?repo=https%3A//github.com/lukassnoek/introPy&urlpath=lab/tree/introPy/intropy/tutorials/week_1/1_python_basics.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Launch on JupyterHub"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_jupyterhub.svg">
   </span>
-<span class="headerbtn__text-container">JupyterHub</span>
+<span class="btn__text-container">JupyterHub</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lukassnoek/introPy"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/lukassnoek/introPy" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Ftutorials/week_1/1_python_basics.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/lukassnoek/introPy/issues/new?title=Issue%20on%20page%20%2Ftutorials/week_1/1_python_basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/lukassnoek/introPy/edit/master/intropy/tutorials/week_1/1_python_basics.ipynb"
-   class="headerbtn"
+      <li><a href="https://github.com/lukassnoek/introPy/edit/master/intropy/tutorials/week_1/1_python_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Edit this page"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-pencil-alt"></i>
   </span>
-<span class="headerbtn__text-container">suggest edit</span>
+<span class="btn__text-container">suggest edit</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/tutorials/week_1/1_python_basics.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../../_sources/tutorials/week_1/1_python_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contents">
-   Contents
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-python-ecosystem">
-   The Python ecosystem
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-statements">
-   Import statements
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#whitespace-for-indentation">
-   Whitespace for indentation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-data-types">
-   Basic data types
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numbers">
-     Numbers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#booleans">
-     Booleans
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#strings">
-     Strings
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lists">
-     Lists
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dictionaries">
-     Dictionaries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tuples">
-     Tuples
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions-and-methods">
-   Functions and methods
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions">
-     Functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#methods">
-     Methods
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#default-arguments-in-functions-methods">
-     Default arguments in functions/methods
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conditionals-if-statements">
-   Conditionals (if-statements)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loops">
-   Loops
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#for-loops">
-     For loops
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#while-loops">
-     While loops
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advanced-for-loops-list-comprehensions-optional">
-     Advanced for loops: list comprehensions (optional)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-challenging-exercise-optional">
-   A challenging exercise (optional)
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Python basics (tutorial)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contents">
-   Contents
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-python-ecosystem">
-   The Python ecosystem
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-statements">
-   Import statements
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#whitespace-for-indentation">
-   Whitespace for indentation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-data-types">
-   Basic data types
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numbers">
-     Numbers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#booleans">
-     Booleans
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#strings">
-     Strings
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lists">
-     Lists
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dictionaries">
-     Dictionaries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tuples">
-     Tuples
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions-and-methods">
-   Functions and methods
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions">
-     Functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#methods">
-     Methods
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#default-arguments-in-functions-methods">
-     Default arguments in functions/methods
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conditionals-if-statements">
-   Conditionals (if-statements)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loops">
-   Loops
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#for-loops">
-     For loops
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#while-loops">
-     While loops
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advanced-for-loops-list-comprehensions-optional">
-     Advanced for loops: list comprehensions (optional)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-challenging-exercise-optional">
-   A challenging exercise (optional)
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python basics (tutorial)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-python-ecosystem">
+   The Python ecosystem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-statements">
+   Import statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#whitespace-for-indentation">
+   Whitespace for indentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-data-types">
+   Basic data types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numbers">
+     Numbers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#booleans">
+     Booleans
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings">
+     Strings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dictionaries">
+     Dictionaries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuples">
+     Tuples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-and-methods">
+   Functions and methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-arguments-in-functions-methods">
+     Default arguments in functions/methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditionals-if-statements">
+   Conditionals (if-statements)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loops">
+   Loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-loops">
+     For loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-loops">
+     While loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-for-loops-list-comprehensions-optional">
+     Advanced for loops: list comprehensions (optional)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-challenging-exercise-optional">
+   A challenging exercise (optional)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="python-basics-tutorial">
-<h1>Python basics (tutorial)<a class="headerlink" href="#python-basics-tutorial" title="Permalink to this headline">#</a></h1>
+<h1>Python basics (tutorial)<a class="headerlink" href="#python-basics-tutorial" title="Permalink to this heading">#</a></h1>
 <p>This notebook will provide short tutorial on basic Python concepts and syntax. We will go over the Python package system and imports, data types, functions, conditionals, and loops.</p>
 <section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>The Python ecosystem, imports, and whitespace</p></li>
 <li><p>Basic data types</p></li>
 <li><p>Functions and methods</p></li>
@@ -767,7 +1004,7 @@ title="Print to PDF"
 <p><strong>Estimated time to complete</strong>: 2-4 hours</p>
 </section>
 <section id="the-python-ecosystem">
-<h2>The Python ecosystem<a class="headerlink" href="#the-python-ecosystem" title="Permalink to this headline">#</a></h2>
+<h2>The Python ecosystem<a class="headerlink" href="#the-python-ecosystem" title="Permalink to this heading">#</a></h2>
 <p>Python is a multipurpose programming language, meaning it can be used for almost anything. While the “standard library” of Python (i.e., the functionality that is shipped with any Python installation) contains the bare minimum for any programming language, Python’s versatility comes from a massive community of developers that created many different “third-party” packages for almost any purpose you can think of (e.g., visualization, machine learning, game programming, etc.).</p>
 <p>For example:</p>
 <ul class="simple">
@@ -780,7 +1017,7 @@ title="Print to PDF"
 <p>Basically, there are packages for everything you can think of! In this course, we will mostly use basic Python in combination with the scientific computing packages (<em>pandas</em>, <em>numpy</em>, and <em>matplotlib</em>).</p>
 </section>
 <section id="import-statements">
-<h2>Import statements<a class="headerlink" href="#import-statements" title="Permalink to this headline">#</a></h2>
+<h2>Import statements<a class="headerlink" href="#import-statements" title="Permalink to this heading">#</a></h2>
 <p>As explained above, Python ships with some default functionality. This means that it’s already available upon starting a notebook (or any other Python environment) and doesn’t need to be imported. An example is the function <code class="docutils literal notranslate"><span class="pre">len()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -902,11 +1139,20 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.001953125
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1810/318178714.py:4: DeprecationWarning: &#39;binom_test&#39; is deprecated in favour of &#39;binomtest&#39; from version 1.7.0 and will be removed in Scipy 1.12.0.
+  print(omg_binomial_testing_so_cool(0.5, 10))
+</pre></div>
+</div>
 </div>
 </div>
 <div class="alert alert-warning">
     <b>ToDo</b>: Import the function <tt>randn</tt> (which generates random numbers from a standard normal distribution) from the numpy subpackage <tt>random</tt> and rename it <tt>random_normal_generator</tt>.
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="c1">### BEGIN SOLUTION</span>
@@ -915,6 +1161,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -958,17 +1205,17 @@ title="Print to PDF"
 <b>Wildcard imports.</b> Python allows also "wildcard" imports, like: <tt>from numpy import *</tt>, which says: import <em>everything</em> from the <tt>numpy</tt> package. This is often discouraged, because the beauty of having explicit imports (unlike MATLAB) is that you known where your functions come from (e.g., is it a base Python function or a numpy function?). 
 </div></section>
 <section id="whitespace-for-indentation">
-<h2>Whitespace for indentation<a class="headerlink" href="#whitespace-for-indentation" title="Permalink to this headline">#</a></h2>
+<h2>Whitespace for indentation<a class="headerlink" href="#whitespace-for-indentation" title="Permalink to this heading">#</a></h2>
 <p>In most programming languages, code blocks (e.g., if-else blocks, or for-loops) are delineated by dedicated symbols (often curly brackets, <code class="docutils literal notranslate"><span class="pre">{}</span></code>). For example, an if-else block in R may be written like this:</p>
-<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="m">5</span>
-<span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
-   <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="m">5</span>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">5</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">5</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>While in languages like R and MATLAB whitespace/indentation is used for readability, it is not necessary! The above if-else statement in R can also be written as:</p>
-<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="m">5</span> <span class="p">}</span> <span class="n">else</span> <span class="p">{</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="m">5</span> <span class="p">}</span>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 <p>However, in Python, whitespace and indentation is important! In Python, indendation — instead of curly braces — delineates code blocks, and if code is incorrectly indented, Python will give an error! Identation can be done using spaces or tabs; both are fine (<a class="reference external" href="https://thenewstack.io/spaces-vs-tabs-a-20-year-debate-and-now-this-what-the-hell-is-wrong-with-go">but programmers often have a very strong opinion on using on or the other</a>), as long as it is consistent. Most style guides recommend either four spaces or a single tab.</p>
@@ -984,7 +1231,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
     <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block
@@ -996,10 +1243,10 @@ title="Print to PDF"
 <b>ToDo</b>: Fix the code block above by identing it correctly. (No test cell.)
 </div></section>
 <section id="basic-data-types">
-<h2>Basic data types<a class="headerlink" href="#basic-data-types" title="Permalink to this headline">#</a></h2>
+<h2>Basic data types<a class="headerlink" href="#basic-data-types" title="Permalink to this heading">#</a></h2>
 <p>Base (i.e., built-in) Python has mostly the same data types as you might know from MATLAB or R, such as numbers (integers/floats), strings, and lists (cells in MATLAB; lists in R). Also, Python has to data types that might be unknown to MATLAB/R users, such as “dictionaries” and “tuples”, which are explained later.</p>
 <section id="numbers">
-<h3>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">#</a></h3>
+<h3>Numbers<a class="headerlink" href="#numbers" title="Permalink to this heading">#</a></h3>
 <p>Numbers are represented either as integers (“whole” numbers) or floats (numbers with decimals, basically).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1068,6 +1315,11 @@ y is of type &lt;class &#39;float&#39;&gt;
 <div class="alert alert-warning">
     <b>ToDo</b>: In the cell below, make a new variable, <tt>y</tt>, which should contain <tt>x</tt> minus 5, of which the result is subsequently raised to the 4th power. 
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">8</span>
@@ -1077,6 +1329,7 @@ y is of type &lt;class &#39;float&#39;&gt;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1114,7 +1367,7 @@ Well done! 2 out of tests 2 passed
     When you're working on your ToDo, it's often informative to print (intermediate) output/variables of your solution (in a new code cell for example). This might give insight into (potentially) failing tests! 
 </div></section>
 <section id="booleans">
-<h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">#</a></h3>
+<h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this heading">#</a></h3>
 <p>Python implements all of the usual operators for comparisons. Similar to what you might know from other languages, <code class="docutils literal notranslate"><span class="pre">==</span></code> tests equivalence, <code class="docutils literal notranslate"><span class="pre">!=</span></code> for not equivalent, and <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> for larger/smaller than. The result of those comparisons are a datatype called a “boolean”, representing truth values. Booleans can take on the value <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>Check out some examples below:</p>
 <div class="cell docutils container">
@@ -1184,7 +1437,7 @@ True
 </div>
 </section>
 <section id="strings">
-<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">#</a></h3>
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
 <p>Strings in Python are largely the same as in other languages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1293,6 +1546,11 @@ In week 1 of the course, I will get a 95.000000 (or higher) on my quiz!
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Modify the variable <tt>to_print</tt> defined below, such that printing it (i.e., running <tt>print(to_print)</tt>) will print: "I love Python 4ever". So you'll have to "fill" the "%" placeholders using string formatting. That is, you have to put a <tt>%</tt> sign after the <tt>to_print</tt> variable and "fill" it with the correct inputs.
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">to_print</span> <span class="o">=</span> <span class="s2">&quot;I love </span><span class="si">%s</span><span class="s2"> </span><span class="si">%i</span><span class="s2">ever&quot;</span>
@@ -1309,6 +1567,7 @@ In week 1 of the course, I will get a 95.000000 (or higher) on my quiz!
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1338,6 +1597,11 @@ In week 1 of the course, I will get a 95.000000 (or higher) on my quiz!
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Using the variables below and the F-string method, create the following string (and print it): "There are five notebooks this week; OMG, way too many."
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. (no test cell)&quot;&quot;&quot;</span>
 <span class="n">n_notebooks</span> <span class="o">=</span> <span class="mi">5</span>
@@ -1355,10 +1619,11 @@ In week 1 of the course, I will get a 95.000000 (or higher) on my quiz!
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="lists">
-<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h3>
+<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h3>
 <p>A list is the Python equivalent of an “array”, but can be resized and can contain elements of different types. It is similar to a list in R and a cell in MATLAB. Note that indices in python start with 0! This means that the 3rd element of the list below is accessed through <code class="docutils literal notranslate"><span class="pre">[2]</span></code>.</p>
 <p>Let’s check out some lists and how to index them!</p>
 <div class="cell docutils container">
@@ -1421,6 +1686,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: In the cell below, replace the element 'TO_REPLACE_1' with 'REPLACED' and the element 'TO_REPLACE_2' also with 'REPLACED' in the list <tt>todo_list</tt>.
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="n">todo_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;TO_REPLACE_1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1038</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;TO_REPLACE_2&#39;</span><span class="p">]]]</span>
@@ -1431,6 +1701,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><em>Note</em>: the code-cell below as usual tests your ToDo, but we haven’t written out the tests in the cell itself. Instead, we wrote the tests in a separate Python module, which we import here. (We do this, because writing out the tests here would give you the answer rightaway!)</p>
 <div class="cell docutils container">
@@ -1519,6 +1790,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Slice the list below, <tt>to_be_split</tt>, into two separate lists: one called <tt>first_half</tt> with the first half of the list values, and one called <tt>second_half</tt>, with the second half of the list values.
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your ToDo here. &quot;&quot;&quot;</span>
 <span class="n">to_be_split</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
@@ -1533,6 +1809,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1597,6 +1874,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list (<tt>my_list</tt>) below, extract the numbers 2, 3, 4, 5, and 6 using a slice and store it in a new variable named <tt>my_new_list</tt>!
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -1606,6 +1888,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1627,6 +1910,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: From the list below (<tt>my_list_2</tt>), extract the values <tt>[5, 7, 9, 11]</tt> using a slice (i.e., in a single operation!) and store it in a new variable named <tt>my_new_list_2</tt>.
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">my_list_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
@@ -1636,6 +1924,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1674,6 +1963,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Extract the letters at odd indices (i.e., index 1, index 3, index, 5, etc.) from the string <tt>some_letters</tt> below and store it in a variable named <tt>some_letters_odd_indices</tt>.
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">some_letters</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
@@ -1683,6 +1977,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1736,7 +2031,7 @@ The second-to-last element of list3 is: 5.300000
 <p>We’ll practice with using (<code class="docutils literal notranslate"><span class="pre">not</span></code>) <code class="docutils literal notranslate"><span class="pre">in</span></code> later!</p>
 </section>
 <section id="dictionaries">
-<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h3>
+<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h3>
 <p>Dictionaries might be new for those who are used to MATLAB or R. Basically, a dictionary is an <em>unordered</em> list in which list entries have a name (which is also referred to as a “key”). To get a value from a dictionary, you have to use the “key” as index instead of using an integer (although, strictly speaking, keys can also be integers … but that’s not important for now).</p>
 <p>Let’s check out such a dictionary and how to index it. We build a dictionary using the following syntax:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">some_key</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="n">another_key</span><span class="p">:</span> <span class="n">another_value</span><span class="p">,</span> <span class="n">etc</span><span class="p">:</span> <span class="n">etc</span><span class="p">}</span>
@@ -1802,7 +2097,7 @@ The second-to-last element of list3 is: 5.300000
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">Input In [57],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">57</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;monkey&#39;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;monkey&#39;
@@ -1813,6 +2108,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: In the code cell below, add a new key to the dictionary <tt>my_dict</tt> named <tt>"rat"</tt> and with the value <tt>"nasty"</tt>.
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="c1">### BEGIN SOLUTION</span>
@@ -1821,6 +2121,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1849,6 +2150,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: Values of dictionaries can be any type of object, even dictionaries themselves! So, add a new key to the dictionary <tt>my_dict</tt> named <tt>"another_dict"</tt> with the value of <em>another</em> dictionary with the keys <tt>"a"</tt> and <tt>"b"</tt> and the corresponding values <tt>1</tt> and <tt>2</tt>. Also, try to figure out how to index the value <tt>1</tt> from the 'nested' dictionary (this is not graded, but try it nonetheless!).
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="c1">### BEGIN SOLUTION</span>
@@ -1857,6 +2163,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1891,7 +2198,7 @@ The second-to-last element of list3 is: 5.300000
     Note, though, you have to use string-like keys in this approach (unlike the curly brace approach).
 </div></section>
 <section id="tuples">
-<h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h3>
+<h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h3>
 <p>Tuples are very much like lists, but the main difference is that they are immutable. In other words, after creating them, they cannot be modified (their values cannot be replaced/altered):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1923,10 +2230,10 @@ The second-to-last element of list3 is: 5.300000
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [63],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">63</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># you can print parts of tuple ...</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># but you cannot modify it!</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
 </pre></div>
@@ -1937,7 +2244,7 @@ The second-to-last element of list3 is: 5.300000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_epic_function</span><span class="p">(</span><span class="n">integer</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Returns the input and the input times 2.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Returns the input and the input times 2.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">integer</span><span class="p">,</span> <span class="n">integer</span> <span class="o">*</span> <span class="mi">2</span>
 
 <span class="n">outputs</span> <span class="o">=</span> <span class="n">my_epic_function</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1956,9 +2263,9 @@ The second-to-last element of list3 is: 5.300000
 </section>
 </section>
 <section id="functions-and-methods">
-<h2>Functions and methods<a class="headerlink" href="#functions-and-methods" title="Permalink to this headline">#</a></h2>
+<h2>Functions and methods<a class="headerlink" href="#functions-and-methods" title="Permalink to this heading">#</a></h2>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
 <p>Like any programming language, Python allows you to create your own custom functions. Writing your own functions is useful when, for example, you want to do a particular computation/task many times. Then, if you need to change the computation or task, you only have to change the function instead of manually editing your code every time you do the computation/task. If you’re familiar with other programming languages, you’ll see that the syntax of Python functions is quite similar to what you’re used to.</p>
 <p>A function definition in Python starts with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code>, followed by the function name and round brackets with the arguments to the function, and finally the contents of the function, like so (note the indentation with four spaces/tab!):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_awesome_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">):</span>
@@ -1989,7 +2296,7 @@ The second-to-last element of list3 is: 5.300000
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [66],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># This will give an error!</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">add_2_to_a_number</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">new_number</span><span class="p">)</span>
@@ -2026,6 +2333,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
 <b>ToDo</b>: In the code cell below, we've started writing a function named <tt>extract_last_element</tt> that takes one input-argument &mdash; a list &mdash; and returns the last element of the list. Some parts of the function are missing, though, which you need to write! When you're done, run the test-cell below it to check if it's right! 
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="k">def</span> <span class="nf">extract_last_element</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
@@ -2037,6 +2349,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2072,6 +2385,11 @@ The second-to-last element of list3 is: 5.300000
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a completely new function named <tt>get_values_from_odd_indices</tt> (so you have to write the <tt>def ...</tt> part!) that takes one input-argument &mdash; a list &mdash; and returns all values from the odd indices of that list. So, suppose you have the following list: [2, 100, 25, 48, 92, -5, 12]. Your function should return: [100, 48, -5]. That is, the values from odd indices (here: 1, 3, 5; we exclude index zero!) Hint: slices might be useful here!
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement your function here. &quot;&quot;&quot;</span>
 <span class="c1">### BEGIN SOLUTION</span>
@@ -2081,6 +2399,7 @@ The second-to-last element of list3 is: 5.300000
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2144,7 +2463,7 @@ The second-to-last element of list3 is: 5.300000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">minmax_of_list</span><span class="p">(</span><span class="n">some_list</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; Returns both the minimum and maximum of a list.</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Returns both the minimum and maximum of a list.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2219,6 +2538,11 @@ Maximum: 3
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a function called <tt>get_length_first_and_last_value</tt> which takes a list as single input argument, and returns the length of the list (the first output), the first value of the list (the second output), and the last value of the list (the third output). So, e.g., for the list <tt>[0, 1, 2, 3, 4]</tt>, the function should return <tt>(5, 0, 4)</tt> (a tuple of length 3, with the three outputs). Note that it should work for lists of arbitrary lengths and value types!
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the function here. &quot;&quot;&quot;</span>
 <span class="c1">### BEGIN SOLUTION</span>
@@ -2228,6 +2552,7 @@ Maximum: 3
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2266,6 +2591,11 @@ Maximum: 3
     <b>ToDo</b> (optional!): For this optional ToDo, write a function named <tt>round_number</tt> which takes a single argument, a float, and returns its nearest integer. For example, for the input <tt>5.3820</tt>, the function should return the integer <tt>5</tt> and for the input <tt>395.89271</tt> the function should return the integer <tt>396</tt>. Floats exactly in between two integers (e.g., <tt>3.5</tt>, <tt>38502.5</tt>, etc.) should be rounded down.
 <p>Here’s the catch: try to do this without a conditional (if-else statement) and, of course, without the built-in <tt>round</tt> function (or Numpy equivalent)! Hint: try to see what happens when you convert a float to an integer using the <tt>int</tt> function.</p>
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo below. &quot;&quot;&quot;</span>
 <span class="c1">### BEGIN SOLUTION</span>
@@ -2279,6 +2609,7 @@ Maximum: 3
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2303,7 +2634,7 @@ Maximum: 3
 </div>
 </section>
 <section id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
 <p>In Python, functions are not the only things that allow you to ‘do’ things with data. As you’ve seen in the previous notebook, there are also methods! Different types of objects in Python, such as stings and lists, have their own set of methods. For example, the function you defined above (<code class="docutils literal notranslate"><span class="pre">extract_last_element()</span></code>) also exists as a method each list has, called <code class="docutils literal notranslate"><span class="pre">pop()</span></code>! (This is a builtin, standard, method that each list in Python has.) See for yourself in the block below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2345,6 +2676,11 @@ Maximum: 3
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Suppose we have a list of grades (the variable <tt>grades</tt> below) and we want to extend this list with two other grades (the variable <tt>new</tt> below). Use the <tt>append</tt> function to add the new grades to the <tt>grades</tt> variable such that it has six elements afterwards.
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">]</span>
@@ -2357,6 +2693,7 @@ Maximum: 3
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2428,6 +2765,11 @@ Python is awesome!
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, fix the string with typos (<tt>lots_of_typos</tt>) using (a combination of) string methods and store the result in a new variable named <tt>fixed_string</tt>. Note that you can "chain" different methods together on a single line (but this is not necessarily better/more readable)!
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">lots_of_typos</span> <span class="o">=</span> <span class="s2">&quot;My.name.is.Lukas.and.i.like.Pyton.&quot;</span>
@@ -2439,6 +2781,7 @@ Python is awesome!
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2458,7 +2801,7 @@ Python is awesome!
 </div>
 </section>
 <section id="default-arguments-in-functions-methods">
-<h3>Default arguments in functions/methods<a class="headerlink" href="#default-arguments-in-functions-methods" title="Permalink to this headline">#</a></h3>
+<h3>Default arguments in functions/methods<a class="headerlink" href="#default-arguments-in-functions-methods" title="Permalink to this heading">#</a></h3>
 <p>Importantly, and unlike most (scientific) programming languages, Python supports the use of ‘default’ arguments in functions. Basically, if you don’t specify an optional argument, it uses the default:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2482,7 +2825,7 @@ Python is awesome!
 </section>
 </section>
 <section id="conditionals-if-statements">
-<h2>Conditionals (if-statements)<a class="headerlink" href="#conditionals-if-statements" title="Permalink to this headline">#</a></h2>
+<h2>Conditionals (if-statements)<a class="headerlink" href="#conditionals-if-statements" title="Permalink to this heading">#</a></h2>
 <p>Conditionals, or “if-statements”, are quite straightforward. There are used in combination with booleans (<code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values) to run code conditionally. An example:
 An example:</p>
 <div class="cell docutils container">
@@ -2509,6 +2852,11 @@ An example:</p>
     <b>ToDo</b> (optional): Write a function named <tt>juf</tt> that takes a single argument named <tt>number</tt> (an integer with a default of 1) and prints out the number <em>unless</em> the number is divisible by 7 (e.g., 14 or 21) <em>or</em> contains a 7 (e.g., 7, 27, or 77); in that case, it prints| "JUF!". (Apologies to the non-Dutchies for this reference.)
 <p><br>Hint: you may want to use the <a href="https://realpython.com/python-modulo-operator/">modulo operator (%)</a> to check the divisibility of a number by another number.</p>
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="c1">### BEGIN SOLUTION</span>
@@ -2522,6 +2870,7 @@ An example:</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2543,9 +2892,7 @@ An example:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>JUF!
+JUF!
 JUF!
 22
 JUF!
@@ -2557,10 +2904,10 @@ JUF!
 </div>
 </section>
 <section id="loops">
-<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h2>
+<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h2>
 <p>Loops in Python (for- and while-loops) are largely similar to MATLAB and R loops, with some minor differences in  their syntax. Again, just like in conditionals, indentation is important: each line within your loop needs to be consistently indented. Also, loops do not contain a keyword (like <code class="docutils literal notranslate"><span class="pre">end</span></code> in Matlab) or bracket (like a curly bracket in <em>R</em>) that determines the end of the loop; this is just determined by the indentation.</p>
 <section id="for-loops">
-<h3>For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h3>
+<h3>For loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h3>
 <p>For loops are constructs that allow to loop over a predetermined number of elements within an object. Below, you can see an example of a for loop over a list of strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2597,9 +2944,9 @@ monkey
 </div>
 </div>
 <p>MATLAB users might be used to looping over indices instead of the actual list values, like the following:</p>
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="w"></span>
-<span class="w">    </span><span class="nb">disp</span><span class="p">(</span><span class="n">some_list</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span>
+<span class="w">    </span><span class="nb">disp</span><span class="p">(</span><span class="n">some_list</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>In Python, however, you loop (by default) over the contents of a list:</p>
@@ -2684,6 +3031,11 @@ c 3
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Complete the function below &mdash; named <tt>extract_values_smaller_than_0</tt> &mdash; that takes a single list with numbers as input and returns a new list with <em>only the values smaller than 0</em> from the input-list. For example, suppose our input-list is: [2, -5.3, 1.8, 0.0, -205.1, 6029]. Then, the function should return: [-5.3, -205.1].<br><br>Hint: use an if-statement in combination with the <tt>.append()</tt> method of the empty list we initialized below (<tt>list_to_return</tt>) to fill the <tt>list_to_return</tt> variable in a for-loop. In other words, the function should contain an if-statement in a for-loop (in which you need to use the <tt>.append()</tt> method).
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="c1"># Complete the function below (make sure to remove raise NotImplementedError!)</span>
@@ -2703,6 +3055,7 @@ c 3
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2748,6 +3101,11 @@ c 3
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a for loop that loops across the values in the variable <tt>list_with_strings</tt> below and print out the value if it contains a space, i.e., it should only print out "another string".
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="n">list_with_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;some_string&#39;</span><span class="p">,</span> <span class="s1">&#39;another string&#39;</span><span class="p">,</span> <span class="s1">&#39;some-other-string&#39;</span><span class="p">,</span> <span class="s1">&#39;yet^another^string&#39;</span><span class="p">]</span>
@@ -2764,10 +3122,16 @@ c 3
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Write a for loop that loops across the values in the variable <tt>list_with_strings</tt> below again, but this time, only print the value if it does <em>not</em> contain the (sub)string "other".
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="c1">### BEGIN SOLUTION</span>
@@ -2783,10 +3147,11 @@ c 3
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="while-loops">
-<h3>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h3>
+<h3>While loops<a class="headerlink" href="#while-loops" title="Permalink to this heading">#</a></h3>
 <p>While loops are constructs that allow you to do something until a specific condition is met and are often used when you do not know the number of elements you want to loop over beforehand. For example, suppose we simulate a six-sided die roll using the <code class="docutils literal notranslate"><span class="pre">randint</span></code> (“random integer”) function. We can use a while loop to keep “rolling” the die until we roll a six (i.e., the condition):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2808,31 +3173,7 @@ c 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-It took 25 to roll a six!
+It took 1 to roll a six!
 </pre></div>
 </div>
 </div>
@@ -2853,8 +3194,6 @@ It took 25 to roll a six!
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
 Still haven&#39;t rolled a 6 ...
-Still haven&#39;t rolled a 6 ...
-Takes too long! Breaking out ...
 </pre></div>
 </div>
 </div>
@@ -2877,7 +3216,11 @@ Takes too long! Breaking out ...
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still haven&#39;t rolled a 6 ...
-It took 1 to roll a six!
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+Still haven&#39;t rolled a 6 ...
+It took 5 to roll a six!
 </pre></div>
 </div>
 </div>
@@ -2888,13 +3231,18 @@ It took 1 to roll a six!
 </div><div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: Below, we created a function, <tt>random_string</tt>, which creates a random five-letter string. Create a while-loop that loops until a random string has been created that starts with "A" and ends with "Z". (No test cell.)
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo here. &quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">string</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
 
 <span class="k">def</span> <span class="nf">random_string</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot; Generates a 5 letter random string. &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Generates a 5 letter random string. &quot;&quot;&quot;</span>
     <span class="n">rs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">rs</span>
 
@@ -2909,16 +3257,17 @@ It took 1 to roll a six!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ARIHZ
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AXPIZ
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class='alert alert-danger' style='padding-bottom:10px'>
     <b>Warning</b>: Sometimes, you might run an infinite loop without a way to "break out" of it. When doing so in a (non-interactive) Python script, you can simply press control + C on your keyboard to interrupt the script, but in Jupyter notebooks, this doesn't work. Instead, you need to click on the "stop" button (next to the "run" button) to interrupt the cell! If even that doesn't work, you need to stop the entire kernel: <em>Kernel</em> &rarr; <em>Restart Kernel</em> (or <em>Shut Down Kernel</em>). 
 </div></section>
 <section id="advanced-for-loops-list-comprehensions-optional">
-<h3>Advanced for loops: list comprehensions (optional)<a class="headerlink" href="#advanced-for-loops-list-comprehensions-optional" title="Permalink to this headline">#</a></h3>
+<h3>Advanced for loops: list comprehensions (optional)<a class="headerlink" href="#advanced-for-loops-list-comprehensions-optional" title="Permalink to this heading">#</a></h3>
 <p>Sometimes, writing (and reading!) for-loops can be confusing and lead to “ugly” code. Wouldn’t it be nice to represent (small) for-loops on a single line? Python has a way to do this: using what is called <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">comprehensions</span></code>. It does exactly the same thing as a for-loop: it takes a list, iterates over its entries (and does something with each entry), and (optionally) returns a (modified) list.</p>
 <p>Let’s look at an arbitrary example of a for-loop over a list:</p>
 <div class="cell docutils container">
@@ -2967,14 +3316,16 @@ It took 1 to roll a six!
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;no&#39;, &#39;yes&#39;, &#39;yes&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b> (optional): Write a list comprehension that adds the string <tt>'_check'</tt> to each value in the list <tt>my_list</tt> below, except if the value is 'B'. Store the result in a new variable named <tt>my_list_checked</tt>. Note that (in this particular use of list-comprehensions) you always need <em>both</em> a "if .." part <em>and</em> an "else ..." part! So, can you think of a way to add nothing to a string (i.e., the "else ...", when the element is not 'B', part of this list comprehension)?
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Implement the ToDo below (no test cell). &quot;&quot;&quot;</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
@@ -2984,6 +3335,7 @@ It took 1 to roll a six!
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3027,22 +3379,27 @@ It took 1 to roll a six!
 </section>
 </section>
 <section id="a-challenging-exercise-optional">
-<h2>A challenging exercise (optional)<a class="headerlink" href="#a-challenging-exercise-optional" title="Permalink to this headline">#</a></h2>
+<h2>A challenging exercise (optional)<a class="headerlink" href="#a-challenging-exercise-optional" title="Permalink to this heading">#</a></h2>
 <p>For those that a challenge, try the following (very) difficult ToDo!</p>
 <div class='alert alert-warning' style='padding-bottom:10px'>
     <b>ToDo</b>: When developing a new experiment, you may want to control the order and frequency of trials from different conditions such that the experiment does not become too predictable and does not feature more trials from one condition than another. Write a function that generates a list with a random sequence of trials from two conditions (either condition <tt>0</tt> or condition <tt>1</tt>). The number of trials in total is an argument to the function (<tt>n_trials</tt>) and may vary, but you may assume that it is an even number (and thus divisible by the number of conditions). The output of the function is a random list of numbers (either 0 or 1), for example: <tt>[0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, ..., 1, 1, 0]</tt>. There are, however, two conditions:
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Each condition should have the same amount of trials;</p></li>
 <li><p>Each condition should have the same probability of being followed by any condition (often called “counterbalancing”).</p></li>
 </ol>
 <p>Condition 2 means that for a given trial of, for example, condition <tt>1</tt>, there is a 50% probability that this trial is followed by a trial of condition <tt>0</tt> and a 50% probability that this trial is followed by a trial of condition <tt>1</tt>. Note that it is impossible to <em>completely</em> counterbalance this proportion, because the last trial does not have trial after itself. Therefore, the counterbalancing may be off by 1 trial.</p>
 </div><div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Complete the function below. &quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">def</span> <span class="nf">generate_experiment_sequence</span><span class="p">(</span><span class="n">n_trials</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Generates a sequence of trials across `n_cond` conditions.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Generates a sequence of trials across `n_cond` conditions.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -3088,6 +3445,7 @@ It took 1 to roll a six!
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3141,7 +3499,7 @@ It took 1 to roll a six!
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./tutorials/week_1"
         },
         predefinedOutput: true
@@ -3149,50 +3507,211 @@ It took 1 to roll a six!
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="0_introduction.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction to Python (tutorial)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="2_matplotlib.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Matplotlib (tutorial)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="0_introduction.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Introduction to Python (tutorial)</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="2_matplotlib.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Introduction to Matplotlib (tutorial)</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By Lukas Snoek<br/>
-  
-      &copy; Copyright 2020.<br/>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-python-ecosystem">
+   The Python ecosystem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-statements">
+   Import statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#whitespace-for-indentation">
+   Whitespace for indentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-data-types">
+   Basic data types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numbers">
+     Numbers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#booleans">
+     Booleans
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings">
+     Strings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dictionaries">
+     Dictionaries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuples">
+     Tuples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-and-methods">
+   Functions and methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-arguments-in-functions-methods">
+     Default arguments in functions/methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditionals-if-statements">
+   Conditionals (if-statements)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loops">
+   Loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-loops">
+     For loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-loops">
+     While loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-for-loops-list-comprehensions-optional">
+     Advanced for loops: list comprehensions (optional)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-challenging-exercise-optional">
+   A challenging exercise (optional)
+  </a>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lukas Snoek
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2020.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>
