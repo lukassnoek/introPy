@@ -88,7 +88,7 @@ Open a terminal (or Anaconda prompt if you are on Windows), navigate to the root
 conda env create -n psychopy -f psychopy-env.yml
 ```
 
-This will create a new Python environment (using Python version 3.9) with the `psychopy` package and all its dependencies. This may take 5 to 10 minutes or so. To activate this environment, run the following in your terminal:
+This will create a new Python environment (using Python version 3.10) with the `psychopy` package and all its dependencies. This may take 5 to 10 minutes or so. To activate this environment, run the following in your terminal:
 
 ```
 conda activate psychopy
